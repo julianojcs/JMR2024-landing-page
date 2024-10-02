@@ -4,9 +4,9 @@
   --hover-clr: #222533;
   --text-clr: #f2f5f7;
   --accent-clr: #5e63ff;
-  --secondary-text-clr: ##b0b3c1;;
+  --secondary-text-clr: #E4E1E5;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0E1D59;
 }
 
 @media (prefers-color-scheme: dark) {

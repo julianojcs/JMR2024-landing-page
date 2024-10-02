@@ -3,40 +3,53 @@ import React from 'react'
 import Image from 'next/image'
 import styles from './Header.module.css'
 import JMR2024 from '../../public/jmr2024-red.svg'
-import map from '../../public/map.svg'
-import calendar from '../../public/calendar.svg'
+import { MapIcon, CalendarIcon, calendarEvent } from './icons'
 
 const Header = () => {
+  // Desestruturando todas as classes usadas do objeto styles
+  const {
+    container,
+    image,
+    direita,
+    gap1,
+    date,
+    icon,
+    toHide,
+    toShow,
+    address
+  } = styles
+
   return (
-    <section className={styles.container}>
+    <section className={container}>
       <Image
         src={JMR2024}
         priority
-        alt='X Jornada Mineira de Radiologia & I Jornada Mineira de POCUS ABRAMEDE/MG e SRMG | 01 e 02 de Novembro de 2024'
-        className={styles.image}
+        alt={calendarEvent.title}
+        className={image}
       />
-      <div className={styles.direita}>
-        <div className={styles.gap1}>
-          <div className={styles.date}>
-            <Image
-              className={styles.icon}
-              src={calendar}
-              priority
-              alt='01 e 02 de Novembro de 2024'
-            />
-            <p>01 e 02 de Novembro de 2024</p>
+      <div className={direita}>
+        <div className={gap1}>
+          <div className={date}>
+            <CalendarIcon className={icon} />
+            <p>
+              <span className={toHide}>{calendarEvent.extendedDataPeriod}</span>
+            </p>
+            <p>
+              <span className={toShow}>{calendarEvent.shortDataPeriod}</span>
+            </p>
           </div>
-          <div className={styles.address}>
-            <Image
-              className={styles.icon}
-              src={map}
-              priority
-              alt='Associação Médica de Minas Gerais'
-            />
+          <div className={address}>
+            <MapIcon className={icon} />
             <div>
-              <p>Associação Médica de Minas Gerais</p>
-              <p>Av. João PInheiro 161, Centro</p>
-              <p>Belo Horizonte | Minas Gerais</p>
+              <p>
+                <span className={toHide}>{calendarEvent.shortPromoter}</span>
+              </p>
+              <p>{`${calendarEvent.street} ${calendarEvent.StreetNumber}, ${calendarEvent.neighborhood}`}</p>
+              <p>
+                <span className={toHide}>
+                  {`${calendarEvent.city}/${calendarEvent.state}`}
+                </span>
+              </p>
             </div>
           </div>
         </div>

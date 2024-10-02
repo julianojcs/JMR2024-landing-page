@@ -1,0 +1,96 @@
+import React from 'react'
+import styles from './icon.module.css'
+
+// Codigo para incluir no calendário início do evento no dia 01 as 08:30 e fim no dia 02 as 18:00
+// const startDate = '20241101T083000-0300'; // Data de início no formato GMT -3
+// const endDate = '20241102T180000-0300'; // Data de término no formato GMT -3
+// const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${startDate}/${endDate}&details=${eventDetails}&location=${eventLocation}`;
+
+// Codigo para incluir no calendário início do evento no dia 01 das 08:30 as 18:00, se repetindo no dia 02 das 08:30 as 18:00
+const calendarEvent = {
+  promoter:
+    'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e Associação Brasileira de Medicina de Emergência (Abramede) – MG',
+  shortPromoter: 'Associação Médica de Minas Gerais',
+  abbreviatedPromoter: 'SRMG e Abramede/MG',
+  title:
+    'X Jornada Mineira de Radiologia & I Jornada Mineira de POCUS ABRAMEDE/MG e SRMG | 01 e 02 de Novembro de 2024',
+  startDate: '20241101T083000-0300',
+  endDate: '20241102T180000-0300',
+  extendedDataPeriod: '01 e 02 de Novembro de 2024',
+  shortDataPeriod: '01 e 02/11/2024',
+  recurrenceRule: 'RRULE:FREQ=DAILY;COUNT=2',
+  location: encodeURIComponent(
+    'Associação Médica de Minas Gerais - Av. João Pinheiro, 161 - Centro, Belo Horizonte - MG, 30130-183'
+  ),
+  city: 'Belo Horizonte',
+  state: 'MG',
+  street: 'Av. João Pinheiro',
+  StreetNumber: '161',
+  neighborhood: 'Centro',
+  zipCode: '30130-183',
+  details: encodeURIComponent(
+    'A X Jornada Mineira de Radiologia e Diagnóstico por Imagem (JMR) e a I Jornada de POCUS ABRAMEDE/MG e SRMG acontecerão nos dias 1º e 2 de novembro de 2024, na Associação Médica de Minas Gerais, em Belo Horizonte. O encontro vai reunir profissionais renomados, especialistas e estudantes para discutir as mais recentes inovações e técnicas em radiologia e ultrassonografia, com foco no aprimoramento de práticas clínicas ligadas ao abdômen,  radiologia musculoesquelética e intervenção guiada por imagem. Durante os dias de evento, os participantes terão a oportunidade de assistir a palestras, workshops e mesas-redondas, abordando temas relevantes e atuais que impactam diretamente o dia a dia dos profissionais da saúde. Além disso, a JMR 2024 será uma excelente oportunidade para networking, permitindo a troca de experiências entre colegas e o fortalecimento das conexões profissionais. O evento é promovido pela Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e pela Associação Brasileira de Medicina de Emergência (Abramede) – MG.'
+  )
+}
+
+// const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${eventLocation}`
+const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${calendarEvent.location}`
+const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${calendarEvent.title}&dates=${calendarEvent.startDate}/${calendarEvent.endDate}&details=${calendarEvent.details}&location=${calendarEvent.location}&recur=${calendarEvent.recurrenceRule}`
+
+const CalendarIcon = ({ fill, width, height }) => {
+  return (
+    <a
+      href={googleCalendarUrl}
+      target='_blank'
+      rel='noopener noreferrer'
+      title='Clique aqui para adicionar o evento ao seu calendário'
+    >
+      <svg
+        className={styles.icon}
+        xmlns='http://www.w3.org/2000/svg'
+        width={width || '1.5rem'}
+        height={height || '1.5rem'}
+        fill={fill || 'currentcolor'}
+        version='1'
+        viewBox='397 378.2 3206 3226.6'
+      >
+        <g>
+          <path d='M908.14 2246.04h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02H908.14c-35.35 0-64.02 28.66-64.02 64.02v254.95c0 35.36 28.67 64.02 64.02 64.02zM908.14 2773.13h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02H908.14c-35.35 0-64.02 28.66-64.02 64.02v254.95c0 35.36 28.67 64.02 64.02 64.02zM908.14 3300.22h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02H908.14c-35.35 0-64.02 28.66-64.02 64.02v254.95c0 35.36 28.67 64.02 64.02 64.02zM1551.06 2246.04h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02h-254.95c-35.36 0-64.02 28.66-64.02 64.02v254.95c.01 35.36 28.67 64.02 64.02 64.02zM1551.06 2773.13h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02h-254.95c-35.36 0-64.02 28.66-64.02 64.02v254.95c.01 35.36 28.67 64.02 64.02 64.02zM1551.06 3300.22h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02h-254.95c-35.36 0-64.02 28.66-64.02 64.02v254.95c.01 35.36 28.67 64.02 64.02 64.02zM2193.99 2246.04h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02h-254.95c-35.35 0-64.01 28.66-64.01 64.02v254.95c-.01 35.36 28.65 64.02 64.01 64.02zM2448.94 2917.23h-254.95c-35.35 0-64.01 28.66-64.01 64.02v254.95c0 35.35 28.66 64.02 64.01 64.02h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c-.01-35.36-28.67-64.02-64.02-64.02zM2836.91 2246.04h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02h-254.95c-35.35 0-64.02 28.66-64.02 64.02v254.95c0 35.36 28.66 64.02 64.02 64.02zM2836.91 2773.13h254.95c35.35 0 64.02-28.66 64.02-64.02v-254.95c0-35.35-28.66-64.02-64.02-64.02h-254.95c-35.35 0-64.02 28.66-64.02 64.02v254.95c0 35.36 28.66 64.02 64.02 64.02z'></path>
+          <path d='M2851 378.18c-60.05 0-108.73 48.68-108.73 108.73V705.4H1263.34V486.91c0-60.05-48.68-108.73-108.73-108.73-60.05 0-108.73 48.68-108.73 108.73V705.4H703.19C534.35 705.4 397 842.75 397 1011.58v2287.06c0 168.83 137.35 306.18 306.19 306.18h2593.63c168.83 0 306.18-137.35 306.18-306.18V1011.58c0-168.83-137.35-306.18-306.18-306.18h-337.09V486.91c0-60.05-48.68-108.73-108.73-108.73zm-1805.12 483.2v135c0 60.05 48.68 108.73 108.73 108.73 60.05 0 108.73-48.68 108.73-108.73v-135c39.4 31.78 64.61 80.44 64.61 135 0 95.74-77.61 173.35-173.35 173.35s-173.35-77.61-173.35-173.35c.01-54.56 25.22-103.22 64.63-135zm2406.27 2437.26c0 85.65-69.68 155.33-155.33 155.33H703.19c-85.65 0-155.33-69.68-155.33-155.33V1709.31h2904.29v1589.33zM3024.34 996.38c0 95.74-77.61 173.35-173.35 173.35s-173.35-77.61-173.35-173.35c0-54.56 25.21-103.22 64.61-135v134.99c0 60.05 48.68 108.73 108.73 108.73s108.73-48.68 108.73-108.73v-135c39.42 31.79 64.63 80.45 64.63 135.01z'></path>
+          <path d='M2301.29 2806.92l303.81-303.81c29.46-29.46 29.46-77.21 0-106.67-29.46-29.46-77.21-29.46-106.67 0l-197.14 197.14-79.17-79.17c-29.45-29.45-77.21-29.46-106.67 0-29.46 29.46-29.46 77.21 0 106.67l185.84 185.84z'></path>
+        </g>
+      </svg>
+    </a>
+  )
+}
+
+const MapIcon = ({ fill, width, height }) => {
+  return (
+    <a
+      href={googleMapsUrl}
+      target='_blank'
+      rel='noopener noreferrer'
+      title='Clique aqui para ver no mapa'
+    >
+      <svg
+        className={styles.icon}
+        xmlns='http://www.w3.org/2000/svg'
+        width={width || '1.5rem'}
+        height={height || '1.5rem'}
+        fill={fill || 'currentcolor'}
+        version='1'
+        viewBox='46.5 0 418.9 512'
+      >
+        <path d='M417.18 393.698c-25.036-10.001-58.991-17.511-96.755-21.488 48.852-65.902 102.936-149.914 102.936-204.85C423.36 75.077 348.283 0 256 0 163.718 0 88.641 75.077 88.641 167.36c0 33.848 21.286 83.552 63.265 147.731 12.876 19.686 26.598 39.078 39.894 57.095-37.823 3.968-71.836 11.477-96.917 21.486-39.953 15.944-48.34 34.245-48.34 46.79C46.543 486.928 154.46 512 256 512c101.54 0 209.458-25.072 209.458-71.537-.001-12.536-8.377-30.826-48.278-46.765zM104.641 167.36C104.641 83.9 172.54 16 256 16s151.36 67.9 151.36 151.36c0 31.019-20.127 77.537-59.822 138.261-31.46 48.126-67.997 94.129-91.534 123.481-46.94-58.649-151.363-191.95-151.363-261.742zM249.76 446.895a8 8 0 0012.48 0l2.36-2.941a4506.606 4506.606 0 0017.366-21.736c39.759 3.383 55.689 13.105 56.985 16.419-.657 1.58-5.967 6.504-23.082 10.958-16.232 4.224-37.494 6.55-59.869 6.55s-43.636-2.326-59.869-6.55c-17.115-4.454-22.424-9.378-23.081-10.958 1.295-3.316 17.239-13.043 57.032-16.423 7.482 9.48 14.173 17.819 19.678 24.681zm146.285 30.866C358.752 489.522 309.017 496 256 496c-53.017 0-102.752-6.478-140.045-18.239-33.445-10.548-53.412-24.492-53.412-37.298 0-20.391 52.434-45.628 140.455-53.282 5.316 7.037 10.5 13.793 15.462 20.186-24.065 3.007-61.441 10.954-61.441 31.272 0 26.448 62.218 33.505 98.982 33.505s98.982-7.057 98.982-33.505c0-20.293-37.298-28.246-61.343-31.26a1939.375 1939.375 0 0015.541-20.183c87.909 7.673 140.276 32.898 140.276 53.266 0 12.808-19.967 26.751-53.412 37.299zm-54.836-310.595c0-46.984-38.225-85.209-85.209-85.209-46.985 0-85.21 38.225-85.21 85.209 0 46.985 38.225 85.209 85.21 85.209 46.985 0 85.209-38.224 85.209-85.209zM256 236.375c-38.163 0-69.21-31.047-69.21-69.209S217.838 97.957 256 97.957c38.162 0 69.209 31.047 69.209 69.209S294.163 236.375 256 236.375z'></path>
+      </svg>
+    </a>
+  )
+}
+
+export {
+  CalendarIcon,
+  MapIcon,
+  calendarEvent,
+  googleCalendarUrl,
+  googleMapsUrl
+}
