@@ -1,0 +1,60 @@
+.description {
+  position: relative; /* Necessário para a sombra interna */
+  /* display: flex; */
+  justify-content: center;
+  justify-items: center;
+  margin: 5svh 5svw 0rem;
+  font-size: 1em;
+  font-weight: 300;
+  text-align: justify;  /* Adiciona justificação ao texto */
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 4; /* Mostra apenas 4 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden; /* Esconde o conteúdo que ultrapassa as 4 linhas */
+  text-overflow: ellipsis;
+
+  transition: box-shadow 0.3s ease; /* Transição suave para a sombra */
+  transition: -webkit-line-clamp 10.3s ease; /* Transição suave para a linha */
+}
+.description::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px; /* Ajuste conforme necessário */
+  background: linear-gradient(to bottom, rgba(236, 236, 236, 0), rgba(236, 236, 236, 1));
+  pointer-events: none; /* Permite clicar no texto através da sombra */
+  transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+  opacity: 1; /* Sombra visível por padrão */
+}
+
+.description.expanded {
+  -webkit-line-clamp: unset; /* Remove a limitação de linhas */
+}
+
+.description.expanded::after {
+  opacity: 0; /* Esconde a sombra quando expandido */
+}
+
+.buttonExpand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 auto; /* Centraliza o botão horizontalmente */
+  padding: 0px 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #333; /* Preto claro */
+  background-color: #f5f5f5; /* Branco fumaça */
+  border: 1px solid #e0e0e0; /* Branco fumaça mais escuro */
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.buttonExpand:hover {
+  background-color: #e0e0e0; /* Branco fumaça mais escuro */
+  color: var(--red); /* Preto */
+}

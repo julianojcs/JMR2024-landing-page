@@ -1,14 +1,13 @@
 .container {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.3vh 2vw;
-  border-radius: 2vw;
+  border-radius: 16px;
   font-size: 1.7vw;
   font-weight: 900;
   border: 1px solid var(--foreground);
-  margin: 2.3vh 21vw;
+  margin: 4vh 21vw;
   background-color: var(--secondary-text-clr);
   color: var(--foreground);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 5px, rgba(0, 0, 0, 0.2) 0px 3px 3px;
@@ -20,30 +19,39 @@
   flex-direction: column; /* Alinha os itens em coluna */
   justify-content: center; /* Centraliza verticalmente */
   align-items: center; /* Centraliza horizontalmente */
+  gap: 1vh; /* Espaçamento entre os elementos */
+  margin: 1vh 0; /* Margem superior e inferior */
 }
 
 /* Media queries para ajustar o tamanho do texto em diferentes larguras de tela */
 @media (min-width: 992px) {
-  .banner {
+  .container {
     font-size: 1.9vw;
     padding: 1vh 2vw;
+    margin: 4vh 20vw;
   }
 }
 
 @media (768px <= width <= 992px) {
-  .banner {
-    font-size: 1.7vw;
+  .container {
+    font-size: 2vw;
+    padding: 1vh 3vw;
+    margin: 3vh 20vw;
   }
 }
 
 @media (480px <= width <= 768px) {
-  .banner {
-    font-size: 2vw;
+  .container {
+    font-size: 2.5vw;
+    padding: 1vh 3vw;
+    margin: 3vh 15vw;
   }
 }
 
 @media (max-width: 480px) {
-  .banner {
-    font-size: 2vw;
+  .container {
+    font-size: 3vw;
+    padding: 1vh 3vw;
+    margin: 3vh 10vw;
   }
 }

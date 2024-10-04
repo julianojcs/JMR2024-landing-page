@@ -9,7 +9,7 @@ import styles from './icon.module.css'
 // Codigo para incluir no calendário início do evento no dia 01 das 08:30 as 18:00, se repetindo no dia 02 das 08:30 as 18:00
 const calendarEvent = {
   promoter:
-    'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e Associação Brasileira de Medicina de Emergência (Abramede) – MG',
+    'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e Associação Brasileira de Medicina de Emergência (Abramede) - MG',
   shortPromoter: 'Associação Médica de Minas Gerais',
   abbreviatedPromoter: 'SRMG e Abramede/MG',
   title:
@@ -19,23 +19,31 @@ const calendarEvent = {
   extendedDataPeriod: '01 e 02 de Novembro de 2024',
   shortDataPeriod: '01 e 02/11/2024',
   recurrenceRule: 'RRULE:FREQ=DAILY;COUNT=2',
-  location: encodeURIComponent(
-    'Associação Médica de Minas Gerais - Av. João Pinheiro, 161 - Centro, Belo Horizonte - MG, 30130-183'
-  ),
+  location:
+    'Associação Médica de Minas Gerais - Av. João Pinheiro, 161 - Centro, Belo Horizonte - MG, 30130-183',
   city: 'Belo Horizonte',
   state: 'MG',
   street: 'Av. João Pinheiro',
   StreetNumber: '161',
   neighborhood: 'Centro',
   zipCode: '30130-183',
-  details: encodeURIComponent(
-    'A X Jornada Mineira de Radiologia e Diagnóstico por Imagem (JMR) e a I Jornada de POCUS ABRAMEDE/MG e SRMG acontecerão nos dias 1º e 2 de novembro de 2024, na Associação Médica de Minas Gerais, em Belo Horizonte. O encontro vai reunir profissionais renomados, especialistas e estudantes para discutir as mais recentes inovações e técnicas em radiologia e ultrassonografia, com foco no aprimoramento de práticas clínicas ligadas ao abdômen,  radiologia musculoesquelética e intervenção guiada por imagem. Durante os dias de evento, os participantes terão a oportunidade de assistir a palestras, workshops e mesas-redondas, abordando temas relevantes e atuais que impactam diretamente o dia a dia dos profissionais da saúde. Além disso, a JMR 2024 será uma excelente oportunidade para networking, permitindo a troca de experiências entre colegas e o fortalecimento das conexões profissionais. O evento é promovido pela Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e pela Associação Brasileira de Medicina de Emergência (Abramede) – MG.'
-  )
+  details:
+    'A X Jornada Mineira de Radiologia e Diagnóstico por Imagem (JMR) e a I Jornada de POCUS ABRAMEDE/MG e SRMG acontecerão nos dias 1º e 2 de novembro de 2024, na Associação Médica de Minas Gerais, em Belo Horizonte. O encontro vai reunir profissionais renomados, especialistas e estudantes para discutir as mais recentes inovações e técnicas em radiologia e ultrassonografia, com foco no aprimoramento de práticas clínicas ligadas ao abdômen,  radiologia musculoesquelética e intervenção guiada por imagem. Durante os dias de evento, os participantes terão a oportunidade de assistir a palestras, workshops e mesas-redondas, abordando temas relevantes e atuais que impactam diretamente o dia a dia dos profissionais da saúde. Além disso, a JMR 2024 será uma excelente oportunidade para networking, permitindo a troca de experiências entre colegas e o fortalecimento das conexões profissionais. O evento é promovido pela Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e pela Associação Brasileira de Medicina de Emergência (Abramede) - MG.'
 }
 
 // const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${eventLocation}`
-const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${calendarEvent.location}`
-const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${calendarEvent.title}&dates=${calendarEvent.startDate}/${calendarEvent.endDate}&details=${calendarEvent.details}&location=${calendarEvent.location}&recur=${calendarEvent.recurrenceRule}`
+const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+  calendarEvent.location
+)}`
+const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${
+  calendarEvent.title
+}&dates=${calendarEvent.startDate}/${
+  calendarEvent.endDate
+}&details=${encodeURIComponent(
+  calendarEvent.details
+)}&location=${encodeURIComponent(calendarEvent.location)}&recur=${
+  calendarEvent.recurrenceRule
+}`
 
 const CalendarIcon = ({ fill, width, height }) => {
   return (

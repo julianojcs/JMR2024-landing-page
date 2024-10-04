@@ -1,0 +1,109 @@
+import Card from './Card'
+import {
+  container,
+  columnTitle,
+  column,
+  columnCards,
+  firstRow,
+  secondRow,
+  card1,
+  card2,
+  card3,
+  card4,
+  card5,
+  card6,
+  card7,
+  card8,
+  card9
+} from './Events.module.css'
+import ia from '../../assets/images/cards/ia.png'
+import gastrointestinal from '../../assets/images/cards/gastrointestinal.png'
+import geniturinario from '../../assets/images/cards/geniturinario.png'
+import mama from '../../assets/images/cards/mama.png'
+import msk from '../../assets/images/cards/msk.png'
+import pocus from '../../assets/images/cards/pocus.png'
+import biRads from '../../assets/images/cards/bi-rads.png'
+import intervencaoMamaria from '../../assets/images/cards/intervencao-mamaria.png'
+import intervencaoNaoVascular from '../../assets/images/cards/intervencao-nao-vascular.png'
+
+const Events = () => {
+  return (
+    <section className={container}>
+      <h2 className={columnTitle}>Programação Científica</h2>
+      <div className={firstRow}>
+        <Card
+          color={card1}
+          title='POCUS'
+          footer='SRMG ABRAMED'
+          img={pocus}
+          width='100px'
+          height='125'
+        />
+        <Card
+          color={card2}
+          title='Gastrointestinal'
+          img={gastrointestinal}
+          width='100px'
+          height='125'
+        />
+        <Card
+          color={card3}
+          title='Geniturinário'
+          img={geniturinario}
+          width='100px'
+          height='125'
+        />
+        <Card
+          color={card4}
+          title='Mama'
+          img={mama}
+          width='126px'
+          height='125'
+        />
+        <Card color={card5} title='MSK' img={msk} width='126px' height='125' />
+      </div>
+      <div className={secondRow}>
+        <div className={column}>
+          <h2 className={columnTitle}>Hands On</h2>
+          <div className={columnCards}>
+            <Card
+              color={card6}
+              title='Intervenção Mamária'
+              img={intervencaoMamaria}
+              width='139px'
+              height='125'
+            />
+            <Card
+              color={card7}
+              title='BI-RADS'
+              img={biRads}
+              width='180px'
+              height='70px'
+            />
+          </div>
+        </div>
+        <div className={column}>
+          <h2 className={columnTitle}>Cursos Intensivos</h2>
+          <div className={columnCards}>
+            <Card
+              color={card8}
+              title='Intervenção não vascular'
+              img={intervencaoNaoVascular}
+              width='100px'
+              height='100px'
+            />
+            <Card
+              color={card9}
+              title='Inovação/IA'
+              img={ia}
+              width='124px'
+              height='125px'
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Events

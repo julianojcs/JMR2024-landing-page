@@ -1,4 +1,9 @@
-import styles from './page.module.css'
+import Banner from './components/Banner'
+import CallToAct from './components/CallToAct'
+import Promoters from './components/Promoters'
+import Description from './components/Description'
+import Events from './components/Events'
+import Card from './components/Card'
 
 export const metadata = {
   title:
@@ -6,7 +11,21 @@ export const metadata = {
 }
 
 const Home = () => {
-  return <div className={styles.page}>Home</div>
+  return (
+    <>
+      <Banner />
+      <Description />
+      <CallToAct />
+      <Promoters />
+      <Events>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </Events>
+    </>
+  )
 }
 
 export default Home

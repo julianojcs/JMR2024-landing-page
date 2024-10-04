@@ -1,11 +1,20 @@
 .icon {
   height: 1.5rem;
   width: 1.5rem;
-  color: #BB2426;
+  flex-shrink: 0;
+  /* color: var(--red); */
+  fill: var(--red);
 }
 .icon:hover {
   cursor: pointer;
-  color: var(--accent-clr);
+  /* color: var(--accent-clr); */
+  fill: var(--accent-clr);
+  transition: background-color 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 400px) {
