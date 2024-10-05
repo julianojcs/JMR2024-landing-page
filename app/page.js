@@ -3,7 +3,7 @@ import CallToAct from './components/CallToAct'
 import Promoters from './components/Promoters'
 import Description from './components/Description'
 import Events from './components/Events'
-import Card from './components/Card'
+import Comission from './components/Comission'
 
 export const metadata = {
   title:
@@ -11,19 +11,37 @@ export const metadata = {
 }
 
 const Home = () => {
+  const callToAct = {
+    buttom01: {
+      caption: 'Faça sua inscrição',
+      link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
+    },
+    buttom02: {
+      caption: 'Se inscreva agora na Jornada',
+      link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
+    }
+  }
+  const caption = 'Faça sua inscrição'
+  const link =
+    'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
+
   return (
     <>
       <Banner />
-      <Description />
-      <CallToAct />
+      <Description>
+        <CallToAct
+          caption={callToAct.buttom01.caption}
+          link={callToAct.buttom01.link}
+        />
+      </Description>
       <Promoters />
       <Events>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <CallToAct
+          caption={callToAct.buttom02.caption}
+          link={callToAct.buttom02.link}
+        />
       </Events>
+      <Comission />
     </>
   )
 }

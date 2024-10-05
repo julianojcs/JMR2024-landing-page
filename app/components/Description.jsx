@@ -1,10 +1,16 @@
 'use client'
 import { useState } from 'react'
 import classnames from 'classnames'
-import { description, expanded, buttonExpand } from './Description.module.css'
+import {
+  container,
+  collapsible,
+  collapsed,
+  buttonCollapse,
+  mt5vh
+} from './Description.module.css'
 import { calendarEvent, ArrowDownIcon } from './icons'
 
-const Description = () => {
+const Description = ({ children }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleExpand = () => {
@@ -12,16 +18,22 @@ const Description = () => {
   }
 
   return (
-    <section>
+    <section className={container}>
       <div
-        className={classnames(`${description} ${isExpanded ? expanded : ''}`)}
+        className={classnames(`${collapsible} ${isExpanded ? collapsed : ''}`)}
       >
         <p>{calendarEvent.details}</p>
       </div>
-      <button className={buttonExpand} onClick={toggleExpand}>
+      <button
+        className={classnames(
+          `${buttonCollapse} ${isExpanded ? collapsed : ''}`
+        )}
+        onClick={toggleExpand}
+      >
         <ArrowDownIcon fill={'var(--red)'} toggle={isExpanded} />
         {isExpanded ? 'Mostrar menos' : 'Continue lendo...'}
       </button>
+      {children && <div className={mt5vh}>{children}</div>}
     </section>
   )
 }

@@ -26,7 +26,7 @@ import biRads from '../../assets/images/cards/bi-rads.png'
 import intervencaoMamaria from '../../assets/images/cards/intervencao-mamaria.png'
 import intervencaoNaoVascular from '../../assets/images/cards/intervencao-nao-vascular.png'
 
-const Events = () => {
+const Events = ({ children }) => {
   return (
     <section className={container}>
       <h2 className={columnTitle}>Programação Científica</h2>
@@ -34,7 +34,7 @@ const Events = () => {
         <Card
           color={card1}
           title='POCUS'
-          footer='SRMG ABRAMED'
+          subtitle='SRMG ABRAMED'
           img={pocus}
           width='100px'
           height='125'
@@ -102,6 +102,7 @@ const Events = () => {
           </div>
         </div>
       </div>
+      {children}
     </section>
   )
 }

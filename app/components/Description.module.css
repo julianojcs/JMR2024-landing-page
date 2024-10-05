@@ -1,9 +1,12 @@
-.description {
+.container {
+  margin: 5svh 5svw 0rem;
+}
+
+.collapsible {
   position: relative; /* Necessário para a sombra interna */
   /* display: flex; */
   justify-content: center;
   justify-items: center;
-  margin: 5svh 5svw 0rem;
   font-size: 1em;
   font-weight: 300;
   text-align: justify;  /* Adiciona justificação ao texto */
@@ -18,7 +21,7 @@
   transition: box-shadow 0.3s ease; /* Transição suave para a sombra */
   transition: -webkit-line-clamp 10.3s ease; /* Transição suave para a linha */
 }
-.description::after {
+.collapsible::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -31,15 +34,15 @@
   opacity: 1; /* Sombra visível por padrão */
 }
 
-.description.expanded {
+.collapsible.collapsed {
   -webkit-line-clamp: unset; /* Remove a limitação de linhas */
 }
 
-.description.expanded::after {
+.collapsible.collapsed::after {
   opacity: 0; /* Esconde a sombra quando expandido */
 }
 
-.buttonExpand {
+.buttonCollapse {
   position: relative;
   display: flex;
   align-items: center;
@@ -54,7 +57,14 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.buttonExpand:hover {
+.buttonCollapse.collapsed {
+  margin-top: 0.5rem; /* Espaçamento superior quando recolhido */
+}
+.buttonCollapse:hover {
   background-color: #e0e0e0; /* Branco fumaça mais escuro */
   color: var(--red); /* Preto */
+}
+
+.mt5vh {
+  margin-top: 5vh;
 }

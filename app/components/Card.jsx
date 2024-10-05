@@ -2,18 +2,22 @@ import Image from 'next/image'
 import classnames from 'classnames'
 import { card } from './Card.module.css'
 
-const Card = ({ title, footer, img, height, width, color }) => {
+const Card = ({ title, subtitle, img, height, width, color }) => {
   return (
     <div className={classnames(card, color)}>
-      <p>{title}</p>
-      <Image
-        className={''}
-        src={img}
-        alt={title}
-        width={width}
-        height={height}
-      />
-      {footer && <p>{footer}</p>}
+      <div>{title}</div>
+      <div>
+        <Image
+          className={''}
+          src={img}
+          alt={subtitle}
+          width={width}
+          height={height}
+        />
+      </div>
+      <div>
+        <p>{subtitle}</p>
+      </div>
     </div>
   )
 }
