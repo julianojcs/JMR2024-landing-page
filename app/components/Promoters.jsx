@@ -8,7 +8,7 @@ import {
   srmg,
   promoters,
   containerPromoters
-} from './promoters.module.css'
+} from './Promoters.module.css'
 
 const Promoters = () => (
   <section className={containerPromoters}>
