@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from './Header.module.css'
-import JMR2024 from '../../public/jmr2024-red.svg'
+import JMR2024 from '/public/jmr2024-red.svg'
 import { MapIcon, CalendarIcon, calendarEvent } from './icons'
 
 const Header = () => {

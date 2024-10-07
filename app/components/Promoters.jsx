@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import Image from 'next/image'
-import abramedeLogo from '../../assets/images/logo/ABRAMEDE-MG/abramed-mg.png'
-import srmgLogo from '../../assets/images/logo/SRMG/srmg.png'
+import abramedeLogo from '/public/logo/abramed-mg.png'
+import srmgLogo from '/public/logo/srmg.png'
 import Link from 'next/link'
 import {
   abramede,
