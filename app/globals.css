@@ -23,14 +23,32 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --base-clr: #f2f5f7;
+    /* --base-clr: #f2f5f7;
     --line-clr: #42434a;
     --hover-clr: #222533;
     --primary-text-clr: #f2f5f7;
     --secondary-text-clr: #E4E1E5;
-    --accent-clr: #BB2426; /* cor de destaque*/
+    --accent-clr: #BB2426;
     --background: #292b2c;
-    --foreground: #f7f7f7; /* branco fumaça*/
+    --foreground: #f7f7f7; */
+
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --primary-text-clr: #212529;
+    --secondary-text-clr: #E4E1E5;
+    --accent-clr: #BB2426; /* cor de destaque*/
+    --background: #F5F5F5; /* branco fumaça*/
+    --foreground: #1F1F1F;
+    --primary-clr: #0E1D59;
+    --secondary-clr: #6640A4;
+    --danger-clr: #dc3545;
+    --success-clr: #198754;
+    --warning-clr: #ffc107;
+    --info-clr: #0dcaf0;
+    --light-clr: #f8f9fa;
+    --dark-clr: #212529;
+    font-family: 'Inter', 'Open Sans', sans-serif;
   }
 }
 
