@@ -30,7 +30,7 @@ const Description = ({ children }) => {
         )}
         onClick={toggleExpand}
       >
-        <ArrowDownIcon fill={'var(--red)'} toggle={isExpanded} />
+        <ArrowDownIcon fill={'var(--danger-clr)'} toggle={isExpanded} />
         {isExpanded ? 'Mostrar menos' : 'Continue lendo...'}
       </button>
       {children && <div className={mt5vh}>{children}</div>}

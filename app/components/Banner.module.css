@@ -1,4 +1,8 @@
 .container {
+  background-color: var(--background);
+}
+
+.banner {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,9 +15,10 @@
   background-color: var(--secondary-text-clr);
   color: var(--foreground);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 5px, rgba(0, 0, 0, 0.2) 0px 3px 3px;
+  background-image: linear-gradient(white, #e0e0e0);
 }
 
-.banner {
+.bannerText {
   text-align: center; /* Alinha o texto ao centro */
   display: flex; /* Utiliza flexbox para alinhamento */
   flex-direction: column; /* Alinha os itens em coluna */
@@ -23,9 +28,13 @@
   margin: 1vh 0; /* Margem superior e inferior */
 }
 
+.bannerText > p {
+  color: var(--danger-clr); /* Cor do texto */
+}
+
 /* Media queries para ajustar o tamanho do texto em diferentes larguras de tela */
 @media (min-width: 992px) {
-  .container {
+  .banner {
     font-size: 1.9vw;
     padding: 1vh 2vw;
     margin: 4vh 20vw;
@@ -33,7 +42,7 @@
 }
 
 @media (768px <= width <= 992px) {
-  .container {
+  .banner {
     font-size: 2vw;
     padding: 1vh 3vw;
     margin: 3vh 20vw;
@@ -41,7 +50,7 @@
 }
 
 @media (480px <= width <= 768px) {
-  .container {
+  .banner {
     font-size: 2.5vw;
     padding: 1vh 3vw;
     margin: 3vh 15vw;
@@ -49,7 +58,7 @@
 }
 
 @media (max-width: 480px) {
-  .container {
+  .banner {
     font-size: 3vw;
     padding: 1vh 3vw;
     margin: 3vh 10vw;

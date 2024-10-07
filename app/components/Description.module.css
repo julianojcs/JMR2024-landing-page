@@ -1,5 +1,7 @@
 .container {
   margin: 5svh 5svw 0rem;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .collapsible {
@@ -10,6 +12,8 @@
   font-size: 1em;
   font-weight: 300;
   text-align: justify;  /* Adiciona justificação ao texto */
+  background-color: inherit;
+  color: inherit;
 
   display: -webkit-box;
 
@@ -32,6 +36,9 @@
   pointer-events: none; /* Permite clicar no texto através da sombra */
   transition: opacity 0.3s ease; /* Transição suave para a opacidade */
   opacity: 1; /* Sombra visível por padrão */
+}
+.collapsible > p {
+  background-color: var(--background);
 }
 
 .collapsible.collapsed {
@@ -62,7 +69,7 @@
 }
 .buttonCollapse:hover {
   background-color: #e0e0e0; /* Branco fumaça mais escuro */
-  color: var(--red); /* Preto */
+  color: var(--danger-clr); /* Preto */
 }
 
 .mt5vh {

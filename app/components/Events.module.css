@@ -9,7 +9,7 @@
 /* Título */
 .container h2 {
   text-align: center;
-  color: var(--red);
+  color: var(danger-clr);
 }
 
 /* Seleciona os divs .firstRow e .secondRow e aplica o padding bottom */

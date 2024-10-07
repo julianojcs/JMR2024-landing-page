@@ -2,13 +2,13 @@
   height: 1.5rem;
   width: 1.5rem;
   flex-shrink: 0;
-  /* color: var(--red); */
-  fill: var(--red);
+  /* color: var(danger-clr); */
+  fill: var(--accent-clr);
 }
 .icon:hover {
   cursor: pointer;
   /* color: var(--accent-clr); */
-  fill: var(--accent-clr);
+  fill: var(--secondary-clr);
   transition: background-color 0.3s ease;
 }
 

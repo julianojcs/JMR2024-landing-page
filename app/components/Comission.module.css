@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: #0E1D59;
+  background-color: var(--primary-clr);
 }
 
 .comissionColumn1, .comissionColumn2 {
@@ -24,7 +24,7 @@
 }
 
 .comissionTitle {
-  background-color: #68517F;
+  background-color: var(--secondary-clr);
   color: white;
   padding: 2svh 0;
   text-align: center;

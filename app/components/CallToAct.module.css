@@ -12,7 +12,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
-  background-color: var(--red);
+  background-color: var(--danger-clr);
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -20,7 +20,7 @@
 }
 
 .button:hover {
-  background-color: var(--accent-clr);
+  background-color: var(--primary-clr);
 }
 
 @media (max-width: 600px) {

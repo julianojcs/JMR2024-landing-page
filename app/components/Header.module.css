@@ -1,6 +1,7 @@
 .icon {
   height: 1.5rem;
   width: 1.5rem;
+  color: var(--danger-clr);
 }
 
 .container {
@@ -10,7 +11,7 @@
   grid-gap: 1rem;
   align-content: center;
   padding: 1rem 2rem;
-  background-color: #0E1D59;
+  background-color: var(--primary-clr);
   color: white;
   height: 25vw;
   max-height: 35vh;

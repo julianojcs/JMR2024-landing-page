@@ -30,7 +30,7 @@ const Header = () => {
       <div className={direita}>
         <div className={gap1}>
           <div className={date}>
-            <CalendarIcon className={icon} />
+            <CalendarIcon className={icon} fill={'#dc3545'} />
             <p>
               <span className={toHide}>{calendarEvent.extendedDataPeriod}</span>
             </p>
@@ -39,7 +39,7 @@ const Header = () => {
             </p>
           </div>
           <div className={address}>
-            <MapIcon className={icon} />
+            <MapIcon className={icon} fill={'#dc3545'} />
             <div>
               <p>
                 <span className={toHide}>{calendarEvent.shortPromoter}</span>
