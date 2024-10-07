@@ -1,56 +1,95 @@
-import classnames from 'classnames'
-import Image from 'next/image'
-import abramedeLogo from '../../assets/images/logo/ABRAMEDE-MG/abramed-mg.png'
-import srmgLogo from '../../assets/images/logo/SRMG/srmg.png'
-import avatar from '../../assets/images/avatars/raquel-del-fraro-rabelo.png'
-import gridCircles from '../../assets/images/svg/grid-circles.svg'
 import Link from 'next/link'
+import Image from 'next/image'
+import classnames from 'classnames'
+import AvatarCard from './AvatarCard'
+import abramedeLogo from '/public/logo/abramed-mg.png'
+import srmgLogo from '/public/logo/srmg.png'
+import { loadImagesFromFolders } from '../util/imageLoader'
 import {
   container,
-  abramede,
-  srmg,
+  comissionContainer,
+  comissionColumn1,
+  comissionColumn2,
+  comissionTitle,
+  medicosContainer,
   promoters,
-  firstCollumn,
-  secondCollumn,
-  avatars,
-  gridCircle
+  srmg,
+  abramede
 } from './Comission.module.css'
 
-const Comission = () => (
-  <section className={container}>
-    <div className={firstCollumn}>
-      <Link href='https://srmg.org.br/' target='_blank'>
-        <Image
-          className={classnames(srmg, promoters)}
-          src={srmgLogo}
-          alt='srmg Logo'
-          width={280}
-          height={80}
-          // width={'30.75svh'}
-          // height={'8.78svh'}
-        />
-      </Link>
-      <h2>Comissão Científica SRMG</h2>
-      <div className={classnames(avatars)}>
-        <div className={classnames(gridCircle)}></div>
+const Comission = () => {
+  const { srmg: SrmgMedicos, abramede: AbramedeMedicos } =
+    loadImagesFromFolders('public/avatars')
+
+  const sortedSrmgMedicos = SrmgMedicos.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  )
+  const sortedAbramedeMedicos = AbramedeMedicos.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  )
+
+  return (
+    <section className={container}>
+      <div className={comissionContainer}>
+        <div className={comissionColumn1}>
+          <div className={comissionTitle}>
+            <Link href='https://srmg.org.br/' target='_blank'>
+              <Image
+                className={classnames(srmg, promoters)}
+                src={srmgLogo}
+                alt='srmg Logo'
+                width={280}
+                height={80}
+                // width={'30.75svh'}
+                // height={'8.78svh'}
+              />
+            </Link>
+            <h2>Comissão Científica SRMG</h2>
+          </div>
+          <div className={medicosContainer}>
+            {sortedSrmgMedicos.map((avatar) => {
+              return (
+                <AvatarCard
+                  key={avatar.fileName}
+                  fullName={avatar.name}
+                  photo={avatar.imagePath}
+                  width={150}
+                  height={150}
+                />
+              )
+            })}
+          </div>
+        </div>
+        <div className={comissionColumn2}>
+          <div className={comissionTitle}>
+            <Link href='https://www.abramedemg.org.br/' target='_blank'>
+              <Image
+                className={classnames(abramede, promoters)}
+                src={abramedeLogo}
+                alt='Abramede MG Logo'
+                // width={200}
+                // height={80}
+              />
+            </Link>
+            <h2>Comissão Científica ABRAMEDE</h2>
+          </div>
+          <div className={medicosContainer}>
+            {sortedAbramedeMedicos.map((avatar) => {
+              return (
+                <AvatarCard
+                  key={avatar.fileName}
+                  fullName={avatar.name}
+                  photo={avatar.imagePath}
+                  width={150}
+                  height={150}
+                />
+              )
+            })}
+          </div>
+        </div>
       </div>
-    </div>
-    <div className={secondCollumn}>
-      <Link href='https://www.abramedemg.org.br/' target='_blank'>
-        <Image
-          className={classnames(abramede, promoters)}
-          src={abramedeLogo}
-          alt='Abramede MG Logo'
-          // width={200}
-          // height={80}
-        />
-      </Link>
-      <h2>Comissão Científica ABRAMEDE</h2>
-      <div className={classnames(avatars)}>
-        <div className={classnames(gridCircle)}></div>
-      </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
 export default Comission

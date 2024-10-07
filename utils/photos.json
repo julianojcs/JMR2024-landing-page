@@ -1,0 +1,101 @@
+{
+  "abramede": [
+    {
+      "imagePath": "/avatars/abramede/Arthur-Elias-de-Aguiar-Machado.jpg",
+      "name": "Arthur Elias de Aguiar Machado",
+      "fileName": "Arthur-Elias-de-Aguiar-Machado.jpg"
+    },
+    {
+      "imagePath": "/avatars/abramede/Luiz-Ernani-Meira-Júnior.png",
+      "name": "Luiz Ernani Meira Júnior",
+      "fileName": "Luiz-Ernani-Meira-Júnior.png"
+    },
+    {
+      "imagePath": "/avatars/abramede/Marcus-Vinicius-Melo-Andrade.jpg",
+      "name": "Marcus Vinicius Melo Andrade",
+      "fileName": "Marcus-Vinicius-Melo-Andrade.jpg"
+    },
+    {
+      "imagePath": "/avatars/abramede/Maria-Aparecida-Braga.png",
+      "name": "Maria Aparecida Braga",
+      "fileName": "Maria-Aparecida-Braga.png"
+    }
+  ],
+  "srmg": [
+    {
+      "imagePath": "/avatars/srmg/Adriene-Moraes-Campos.jpg",
+      "name": "Adriene Moraes Campos",
+      "fileName": "Adriene-Moraes-Campos.jpg"
+    },
+    {
+      "imagePath": "/avatars/srmg/Anna-Christina-Gruber.jpg",
+      "name": "Anna Christina Gruber",
+      "fileName": "Anna-Christina-Gruber.jpg"
+    },
+    {
+      "imagePath": "/avatars/srmg/Benito-Pio-Ceccato-Júnior.png",
+      "name": "Benito Pio Ceccato Júnior",
+      "fileName": "Benito-Pio-Ceccato-Júnior.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Elísio-José-Salgado-Ribeiro.png",
+      "name": "Elísio José Salgado Ribeiro",
+      "fileName": "Elísio-José-Salgado-Ribeiro.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Flávio-Coelho-Barros.jpg",
+      "name": "Flávio Coelho Barros",
+      "fileName": "Flávio-Coelho-Barros.jpg"
+    },
+    {
+      "imagePath": "/avatars/srmg/Francisco-Ribeiro-Teixeira-Junior.png",
+      "name": "Francisco Ribeiro Teixeira Junior",
+      "fileName": "Francisco-Ribeiro-Teixeira-Junior.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Ivie-Braga-de-Paula.jpg",
+      "name": "Ivie Braga de Paula",
+      "fileName": "Ivie-Braga-de-Paula.jpg"
+    },
+    {
+      "imagePath": "/avatars/srmg/Luciana-Costa-Silva.png",
+      "name": "Luciana Costa Silva",
+      "fileName": "Luciana-Costa-Silva.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Luis-Ronan-MF-de-Souza.png",
+      "name": "Luis Ronan MF de Souza",
+      "fileName": "Luis-Ronan-MF-de-Souza.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Marcus-Vinicius-Amorim.png",
+      "name": "Marcus Vinicius Amorim",
+      "fileName": "Marcus-Vinicius-Amorim.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Maria-Fernanda-Borges-Abreu.png",
+      "name": "Maria Fernanda Borges Abreu",
+      "fileName": "Maria-Fernanda-Borges-Abreu.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Paula-Figueiredo-Rocha.jpg",
+      "name": "Paula Figueiredo Rocha",
+      "fileName": "Paula-Figueiredo-Rocha.jpg"
+    },
+    {
+      "imagePath": "/avatars/srmg/Raquel-Del-Fraro-Rabelo.jpg",
+      "name": "Raquel Del Fraro Rabelo",
+      "fileName": "Raquel-Del-Fraro-Rabelo.jpg"
+    },
+    {
+      "imagePath": "/avatars/srmg/Raquel-Sadala-Mendes.png",
+      "name": "Raquel Sadala Mendes",
+      "fileName": "Raquel-Sadala-Mendes.png"
+    },
+    {
+      "imagePath": "/avatars/srmg/Rogerio-Augusto-Pinto-Silva.png",
+      "name": "Rogerio Augusto Pinto Silva",
+      "fileName": "Rogerio-Augusto-Pinto-Silva.png"
+    }
+  ]
+}

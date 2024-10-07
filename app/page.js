@@ -21,9 +21,6 @@ const Home = () => {
       link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
     }
   }
-  const caption = 'Faça sua inscrição'
-  const link =
-    'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
 
   return (
     <>
