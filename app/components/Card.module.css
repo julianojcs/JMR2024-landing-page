@@ -1,7 +1,7 @@
 /* Estilo dos cards */
 .card {
   width: 195px;
-  height: 250px;
+  height: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,6 @@
   font-size: 1.5rem;
   text-align: center;
   border: 0px solid #fff;
-  cursor: pointer;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
@@ -28,5 +27,9 @@
 
 .card >div:nth-child(3)  {
   font-size: 1rem;
+}
+
+.card a {
+  margin: 10px 0 -5px;
 }
 

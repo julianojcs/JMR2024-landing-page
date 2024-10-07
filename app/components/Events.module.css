@@ -56,15 +56,15 @@
 }
 
 /* Cores dos cards */
-.card1 { background-color: #0E1D59; }
-.card2 { background-color: #760780; }
-.card3 { background-color: #A39E94; }
-.card4 { background-color: #FF69B4; }
-.card5 { background-color: #545454; }
-.card6 { background-color: #DB8D3A; }
+.card1 { background-color: #052c65; }
+.card2 { background-color: #084298; }
+.card3 { background-color: #0a58ca; }
+.card4 { background-color: #3d8bfd; }
+.card5 { background-color: #6ea8fe; }
+.card6 { background-color: #616161; }
 .card7 { background-color: #010101; }
-.card8 { background-color: #34AA50; }
-.card9 { background-color: #FFA07A; }
+.card8 { background-color: #00695c; }
+.card9 { background-color: #26a69a; }
 
 /* Responsividade */
 @media (min-width: 1201px) {

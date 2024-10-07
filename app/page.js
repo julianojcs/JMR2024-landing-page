@@ -4,6 +4,7 @@ import Promoters from './components/Promoters'
 import Description from './components/Description'
 import Events from './components/Events'
 import Comission from './components/Comission'
+import Sponsor from './components/Sponsor'
 
 export const metadata = {
   title:
@@ -39,6 +40,7 @@ const Home = () => {
         />
       </Events>
       <Comission />
+      <Sponsor />
     </>
   )
 }

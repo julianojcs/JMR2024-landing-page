@@ -38,8 +38,8 @@ const Comission = () => {
                 className={classnames(srmg, promoters)}
                 src={srmgLogo}
                 alt='srmg Logo'
-                width={280}
-                height={80}
+                width={210}
+                height={60}
                 // width={'30.75svh'}
                 // height={'8.78svh'}
               />
@@ -67,8 +67,8 @@ const Comission = () => {
                 className={classnames(abramede, promoters)}
                 src={abramedeLogo}
                 alt='Abramede MG Logo'
-                // width={200}
-                // height={80}
+                width={150}
+                height={60}
               />
             </Link>
             <h2>Comissão Científica ABRAMEDE</h2>

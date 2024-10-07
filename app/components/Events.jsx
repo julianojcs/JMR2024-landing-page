@@ -36,6 +36,7 @@ const Events = ({ children }) => {
           title='POCUS'
           subtitle='SRMG ABRAMED'
           img={pocus}
+          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727292011Grade_sem_nome_02.11_CURSO_HANDS-ON_MAMA_25.09.pdf'
           width='100px'
           height='125'
         />
@@ -43,6 +44,7 @@ const Events = ({ children }) => {
           color={card2}
           title='Gastrointestinal'
           img={gastrointestinal}
+          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727294468Grade_sem_nome_02.11_CURSO_RADIOLOGIA_MAMRIA_20.09.pdf'
           width='100px'
           height='125'
         />
@@ -50,6 +52,7 @@ const Events = ({ children }) => {
           color={card3}
           title='Geniturinário'
           img={geniturinario}
+          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727294569Grade_sem_nome_01.11_CURSO_GENITURINRIO_20.09.pdf'
           width='100px'
           height='125'
         />
@@ -60,25 +63,32 @@ const Events = ({ children }) => {
           width='126px'
           height='125'
         />
-        <Card color={card5} title='MSK' img={msk} width='126px' height='125' />
+        <Card
+          color={card5}
+          title='MSK'
+          img={msk}
+          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727292385Grade_sem_nome_02.11_CURSO_MUSCULOESQUELTICO_25.09.pdf'
+          width='126px'
+          height='125'
+        />
       </div>
       <div className={secondRow}>
         <div className={column}>
           <h2 className={columnTitle}>Hands On</h2>
           <div className={columnCards}>
             <Card
-              color={card6}
-              title='Intervenção Mamária'
-              img={intervencaoMamaria}
-              width='139px'
-              height='125'
-            />
-            <Card
               color={card7}
               title='BI-RADS'
               img={biRads}
               width='180px'
               height='70px'
+            />
+            <Card
+              color={card6}
+              title='Intervenção Mamária'
+              img={intervencaoMamaria}
+              width='139px'
+              height='125'
             />
           </div>
         </div>
@@ -89,6 +99,7 @@ const Events = ({ children }) => {
               color={card8}
               title='Intervenção não vascular'
               img={intervencaoNaoVascular}
+              link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727294723Grade_sem_nome_01.11_CURSO_DE_RADIOLOGIA_INTERVENCIONISTA_NO-VASCULAR_20.09_2.pdf'
               width='100px'
               height='100px'
             />

@@ -25,7 +25,6 @@ function loadImagesFromFolders(folderPath) {
       const name = file.replace(extname(file), '').replace(/-/g, ' ')
       // .replace(/^\w/, (char) => char.toUpperCase())
 
-      console.log(name)
       return { imagePath: imagePath, name: name, fileName: file }
     })
   })
