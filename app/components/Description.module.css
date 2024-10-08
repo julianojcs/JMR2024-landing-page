@@ -75,3 +75,7 @@
 .mt5vh {
   margin-top: 5vh;
 }
+
+@media (max-width: 400px) {
+  font-size: 0.7em;
+}

@@ -102,16 +102,23 @@
 }
 @media (300px <= width <= 400px) {
   .container {
-    /* grid-template-columns: minmax(200px, 1fr) 1fr; */
+    display: flex;
+    flex-direction: column;
     grid-template-columns: unset;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: unset;
     padding: 0.3rem 1rem;
     min-width: unset;
     grid-gap: 0.3rem;
+    height: 20vh;
+  }
+  .container > img:nth-of-type(1) {
+    height: 71%;
+    width: unset;
+    transform: scale(1.6);
   }
   .direita {
     justify-content: center;
-    font-size: 0.50rem;
+    font-size: 0.8rem;
     .gap1 {
       flex-direction: unset;
     }

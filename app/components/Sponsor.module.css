@@ -5,10 +5,10 @@
   align-items: center;
   padding: 5svh 5svw;
   background-image: linear-gradient(white, #e0e0e0);
-  /* background-image: url('../../assets/images/12.png'); */
-  background-size: cover;
+  /* background-image: url('../../public/4.png'); */
+  /* background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 .containerSponsors > p {
