@@ -21,7 +21,7 @@ import {
 export default function Tables({ children }) {
   const callToAct = {
     buttom03: {
-      caption: 'Se inscreva no Hands On Mamas Intervencionistas',
+      caption: 'Se inscreva no Hands On Intervenção Mamária',
       link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
     },
     buttom04: {
