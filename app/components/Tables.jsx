@@ -153,8 +153,8 @@ export default function Tables({ children }) {
       </div>
       <div className={buttonCTA}>
         <CallToAct
-          caption={callToAct.buttom04.caption}
-          link={callToAct.buttom04.link}
+          caption={callToAct.buttom03.caption}
+          link={callToAct.buttom03.link}
         />
       </div>
 
