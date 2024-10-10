@@ -2,7 +2,7 @@
   height: 1.5rem;
   width: 1.5rem;
   flex-shrink: 0;
-  /* color: var(danger-clr); */
+  /* color: var(--danger-clr); */
   fill: var(--accent-clr);
 }
 .icon:hover {
