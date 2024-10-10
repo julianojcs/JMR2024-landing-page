@@ -76,13 +76,13 @@ export default function Tables({ children }) {
               <td className={td}>Não Associados ou Inadimplentes</td>
               <td className={classnames(td, tdValue)}>R$ 500,00</td>
               <td className={classnames(td, tdValue)}>R$ 550,00</td>
-              <td className={classnames(td, tdValue)}>R$ 600,00</td>
+              <td className={classnames(td, tdValue)}>R$ 650,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
               <td className={classnames(td, tdValue)}>R$ 250,00</td>
-              <td className={classnames(td, tdValue)}>R$ 260,00</td>
-              <td className={classnames(td, tdValue)}>R$ 280,00</td>
+              <td className={classnames(td, tdValue)}>R$ 340,00</td>
+              <td className={classnames(td, tdValue)}>R$ 3900,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Acadêmicos</td>
@@ -133,20 +133,20 @@ export default function Tables({ children }) {
             <tr className={tr}>
               <td className={td}>Associados Quites</td>
               <td className={classnames(td, tdValue)}>R$ 320,00</td>
-              <td className={classnames(td, tdValue)}>R$ 330,00</td>
-              <td className={classnames(td, tdValue)}>R$ 420,00</td>
+              <td className={classnames(td, tdValue)}>R$ 360,00</td>
+              <td className={classnames(td, tdValue)}>R$ 400,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
               <td className={classnames(td, tdValue)}>R$ 460,00</td>
-              <td className={classnames(td, tdValue)}>R$ 480,00</td>
               <td className={classnames(td, tdValue)}>R$ 500,00</td>
+              <td className={classnames(td, tdValue)}>R$ 550,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
               <td className={classnames(td, tdValue)}>R$ 260,00</td>
               <td className={classnames(td, tdValue)}>R$ 300,00</td>
-              <td className={classnames(td, tdValue)}>R$ 320,00</td>
+              <td className={classnames(td, tdValue)}>R$ 340,00</td>
             </tr>
           </tbody>
         </table>
@@ -159,7 +159,7 @@ export default function Tables({ children }) {
       </div>
 
       <h1 className={classnames(p1, p2, primaryClr, smallCaps)}>
-        Curso Intensivo de Inteligëncia Artificial
+        Curso Intensivo de Inteligência Artificial
       </h1>
       <div className={tableContainer}>
         <table className={table}>
