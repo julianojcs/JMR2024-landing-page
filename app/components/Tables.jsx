@@ -82,7 +82,7 @@ export default function Tables({ children }) {
               <td className={td}>Residentes</td>
               <td className={classnames(td, tdValue)}>R$ 250,00</td>
               <td className={classnames(td, tdValue)}>R$ 340,00</td>
-              <td className={classnames(td, tdValue)}>R$ 3900,00</td>
+              <td className={classnames(td, tdValue)}>R$ 390,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Acadêmicos</td>
