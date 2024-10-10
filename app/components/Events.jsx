@@ -32,42 +32,48 @@ const Events = ({ children }) => {
       <h2 className={columnTitle}>Programação Científica</h2>
       <div className={firstRow}>
         <Card
+          date='01 e 02/11'
           color={card1}
           title='POCUS'
           subtitle='SRMG ABRAMED'
           img={pocus}
-          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727292011Grade_sem_nome_02.11_CURSO_HANDS-ON_MAMA_25.09.pdf'
+          link='/pdf/01-e-02-11-pocus.pdf'
           width='100px'
           height='125'
         />
         <Card
+          date='02/11'
           color={card2}
           title='Gastrointestinal'
           img={gastrointestinal}
-          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727294468Grade_sem_nome_02.11_CURSO_RADIOLOGIA_MAMRIA_20.09.pdf'
+          link='/pdf/02-11-gastrointestinal_01-out-final.pdf'
           width='100px'
           height='125'
         />
         <Card
+          date='01/11'
           color={card3}
           title='Geniturinário'
           img={geniturinario}
-          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727294569Grade_sem_nome_01.11_CURSO_GENITURINRIO_20.09.pdf'
+          link='/pdf/01-11-geniturinário-01-out-lc.pdf'
           width='100px'
           height='125'
         />
         <Card
+          date='01/11'
           color={card4}
           title='Mama'
           img={mama}
+          link='/pdf/01-11-mama.pdf'
           width='126px'
           height='125'
         />
         <Card
+          date='02/11'
           color={card5}
           title='MSK'
           img={msk}
-          link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727292385Grade_sem_nome_02.11_CURSO_MUSCULOESQUELTICO_25.09.pdf'
+          link='/pdf/02-11-musculoesquelético-01-out-final.pdf'
           width='126px'
           height='125'
         />
@@ -77,15 +83,19 @@ const Events = ({ children }) => {
           <h2 className={columnTitle}>Hands On</h2>
           <div className={columnCards}>
             <Card
+              date='02/11'
               color={card7}
               title='BI-RADS'
               img={biRads}
+              link='/pdf/02-11-hands-on-bi-rads.pdf'
               width='180px'
               height='70px'
             />
             <Card
+              date='02/11'
               color={card6}
               title='Intervenção Mamária'
+              link='/pdf/02-11-hands-on-intervenção-mamaria.pdf'
               img={intervencaoMamaria}
               width='139px'
               height='125'
@@ -96,17 +106,20 @@ const Events = ({ children }) => {
           <h2 className={columnTitle}>Cursos Intensivos</h2>
           <div className={columnCards}>
             <Card
+              date='01/11'
               color={card8}
               title='Intervenção não vascular'
               img={intervencaoNaoVascular}
-              link='https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F326123%2F1727294723Grade_sem_nome_01.11_CURSO_DE_RADIOLOGIA_INTERVENCIONISTA_NO-VASCULAR_20.09_2.pdf'
+              link='/pdf/01-11_radiologia-intervencionista-não-vascular.pdf'
               width='100px'
               height='100px'
             />
             <Card
+              date='02/11'
               color={card9}
               title='Inovação/IA'
               img={ia}
+              link='/pdf/02-11-inovacao-inteligencia-artificial-em-radiologia.pdf'
               width='124px'
               height='125px'
             />

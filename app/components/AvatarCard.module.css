@@ -1,7 +1,7 @@
 /* Estilo dos cards */
 .card {
   width: 150px;
-  height: 150px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,9 +10,7 @@
   font-size: 1rem;
   text-align: center;
   border: 0px;
-  cursor: pointer;
   overflow: hidden;
-  pointer-events: none;
 }
 
 .card >div:nth-child(1) {
@@ -22,6 +20,7 @@
   border-radius: 50%;
   width: 100px;
   height: 100px;
+  position: relative;
 }
 
 .card >div:nth-child(2) {
@@ -30,10 +29,18 @@
 }
 
 .avatar {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
+  overflow: hidden;
+}
+.avatar:hover {
+  transform: scale(1.5);
+  transition: transform 0.5s ease;
 }
 
 .card >div:nth-child(1) {

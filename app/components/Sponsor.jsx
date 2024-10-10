@@ -13,6 +13,7 @@ import bracco from '/public/logo/bronze/bracco.png'
 import ceu from '/public/logo/bronze/ceu-diagnosticos.png'
 import cbr from '/public/logo/apoio/cbr.png'
 import ammg from '/public/logo/apoio/ammg.png'
+import core from '/public/logo/organizacao/core.png'
 import {
   containerSponsors,
   promoters,
@@ -163,6 +164,18 @@ const Sponsor = () => (
           src={ammg}
           alt='AMMG'
           width={'281.32'}
+          height={60}
+        />
+      </Link>
+    </div>
+    <p>Organização:</p>
+    <div className={promoters}>
+      <Link href='#' target='_blank'>
+        <Image
+          className={classnames(imgSponsors)}
+          src={core}
+          alt='Core'
+          width={'250%'}
           height={60}
         />
       </Link>

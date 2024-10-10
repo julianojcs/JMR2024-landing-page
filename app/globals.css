@@ -19,6 +19,17 @@
   --light-clr: #f8f9fa;
   --dark-clr: #212529;
   font-family: 'Inter', 'Open Sans', sans-serif;
+
+  /* Cores dos cards */
+  --card1-clr: #052c65;
+  --card2-clr: #084298;
+  --card3-clr: #0a58ca;
+  --card4-clr: #3d8bfd;
+  --card5-clr: #6ea8fe;
+  --card6-clr: #616161;
+  --card7-clr: #010101;
+  --card8-clr: #00695c;
+  --card9-clr: #26a69a;
 }
 
 /* @media (prefers-color-scheme: dark) {

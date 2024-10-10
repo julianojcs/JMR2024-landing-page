@@ -16,19 +16,19 @@ const Home = () => {
   const callToAct = {
     buttom01: {
       caption: 'Faça sua inscrição',
-      link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
+      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
     buttom02: {
       caption: 'Se inscreva agora na Jornada',
-      link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
+      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
     buttom03: {
       caption: 'Se inscreva Hands On Mamas Intervencionistas',
-      link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
+      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
     buttom04: {
       caption: 'Se inscreva Hands On BI-RADS',
-      link: 'https://cursos.abramedemg.org.br/turmas-disponiveis/congresso/x-jornada-mineira-de-radiologia-e--i-jornada-mineira-de-pocus-abramedemg-e-srmg/1/61/225'
+      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     }
   }
 

@@ -10,11 +10,13 @@ const Avatar = ({ photo, fullName, height, width }) => {
       alt={fullName}
       width={width}
       height={height}
+      // style={{ objectFit: 'fill' }}
+      loading='lazy'
     />
   )
 }
 
-const AvatarCard = ({ fullName, photo, height, width }) => {
+const AvatarCard = ({ fullName, photo, height, width, link }) => {
   return (
     <div className={classnames(card)}>
       <div>

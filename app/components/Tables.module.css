@@ -7,30 +7,39 @@
   padding: 5svw;
   background-color: var(--accent-clr);
   background-image: linear-gradient(10deg, var(--accent-clr) 0%, var(--secondary-clr) 50%, var(--primary-clr) 100%);
+  cursor: default;
     /* background-image: url('../../public/4.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right; */
 }
-.container > p {
+.container > h1 {
   font-weight: 600;
   text-align: center;
 }
-.container > p:nth-of-type(1) {
+.green {
   color: var(--success-clr);
-  font-size: 2.5rem;
-  padding-top: 7svh;
+}
+.white {
+  color: var(--light-clr);
+}
+.p1 {
+  padding-top: 5svh;
+}
+.p2 {
+  margin: 0 0 5vh;
+}
+.mb1 {
+  margin-bottom: 1vh;
+}
+.primaryClr {
+  color: var(--primary-clr);
+}
+.secondaryClr {
+  color: var(--secondary-clr);
+}
+.smallCaps {
   font-variant: small-caps;
-}
-.container > p:nth-of-type(2) {
-  color: var(--light-clr);
-  font-size: 2rem;
-}
-.container > p:nth-of-type(3) {
-  color: var(--light-clr);
-  font-size: 1.5rem;
-  letter-spacing: .2rem;
-  margin: 5vh 0;
 }
 
 .tableContainer {
@@ -60,6 +69,7 @@
   font-weight: 500;
   text-align: center;
   padding: 1rem;
+  font-variant: small-caps;
 }
 
 /* .tr:nth-child(even) {
@@ -67,6 +77,12 @@
 } */
 .tr:hover {
   background-color: var(--accent-clr);
+  /* transition: transform 0.5s ease-in-out; */
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
+  -ms-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .th {
@@ -85,7 +101,7 @@
 .td {
   border-bottom: 1px;
   white-space: normal;
-  word-break: break-word;
+  word-break: normal;
   text-align: center;
   border: 1px solid var(--secondary-text-clr);
   padding: 10px 16px;
@@ -113,22 +129,25 @@
   justify-content: space-evenly;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 790px) {
   .tableContainer {
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
   }
-  .container > p:nth-of-type(1) {
+  .container > h1 {
     font-size: 1.5rem;
-    padding-top: 5svh;
   }
-  .container > p:nth-of-type(2) {
-    font-size: 1.2rem;
+  .container > h2 {
+    font-size: 1.17rem;
   }
-  .container > p:nth-of-type(3) {
+  .container > h3 {
     font-size: 1rem;
-    letter-spacing: .1rem;
-    margin: 3vh 0;
+  }
+  .p1 {
+    padding-top: 3svh;
+  }
+  .p2 {
+    margin: 0 0 3vh;
   }
   .thead {
     font-size: 0.7rem;

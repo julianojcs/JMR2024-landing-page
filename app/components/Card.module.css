@@ -1,5 +1,6 @@
 /* Estilo dos cards */
 .card {
+  position: relative;
   width: 195px;
   height: 260px;
   display: flex;
@@ -12,25 +13,74 @@
   font-size: 1.5rem;
   text-align: center;
   border: 0px solid #fff;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+  & div:nth-of-type(2) {
+    transform-origin: 50% 50% 0px;
+  }
+
+  & div:nth-of-type(3) {
+    display: block;
+    margin: auto 0;
+  }
+
+  & div:nth-of-type(4)  {
+    font-size: 1rem;
+  }
+
+  & a {
+    margin: 10px 0 -5px;
+  }
+
+
 }
 
-.card > div:nth-of-type(1) {
-  transform-origin: 50% 50% 0px;
+.ribbonContent {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 72px;
+  height: 75px;
+  overflow: hidden;
+  }
+
+.ribbon {
+  display: inline-block;
+  position: absolute;
+  padding: 2px 0;
+  left: -21px;
+  top: 19px;
+  width: 127px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 16px;
+  background: linear-gradient(to right, var(--danger-clr) 0%, var(--accent-clr) 100%);
+  color: #fff;
+  text-shadow: 0 2px 2px #56a1f3;
+  letter-spacing: 0.05em;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.ribbon::before, .ribbon::after {
+  position: absolute;
+  content: "";
+  border-top: 4px solid var(--accent-clr);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  bottom: -4px;
+}
+.ribbon::before {
+  left: 14px;
+}
+.ribbon::after {
+  right: 13px;
 }
 
-.card > div:nth-of-type(2) {
-  display: block;
-  margin: auto 0;
-}
-
-.card > div:nth-of-type(3)  {
-  font-size: 1rem;
-}
-
-.card a {
-  margin: 10px 0 -5px;
+.card:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
 }
 
 @media (max-width: 400px) {
