@@ -41,6 +41,17 @@
   }
 }
 
+@media (max-width: 992px) {
+  .bannerText {
+    margin: unset;
+  }
+}
+@media (max-width: 768px) {
+  .bannerText {
+    gap: 0.5svh;
+  }
+}
+
 @media (768px <= width <= 992px) {
   .banner {
     font-size: 2vw;

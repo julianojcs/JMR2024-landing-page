@@ -45,11 +45,7 @@ const Header = () => {
                 <span className={toHide}>{calendarEvent.shortPromoter}</span>
               </p>
               <p>{`${calendarEvent.street} ${calendarEvent.StreetNumber}, ${calendarEvent.neighborhood}`}</p>
-              <p>
-                <span className={toHide}>
-                  {`${calendarEvent.city}/${calendarEvent.state}`}
-                </span>
-              </p>
+              <p>{`${calendarEvent.city}/${calendarEvent.state}`}</p>
             </div>
           </div>
         </div>

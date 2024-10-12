@@ -25,8 +25,8 @@
 
 @media (max-width: 400px) {
   .icon {
-    height: 0.6rem;
-    width: 0.6rem;
+    height: 0.7rem;
+    width: 0.7rem;
   }
 }
 @media (400px <= width <= 600px) {
