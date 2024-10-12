@@ -1,9 +1,10 @@
 .footer {
   display: flex;
-  justify-content: center;
-  justify-items: flex-end;
   margin: 5svh 5svw 1svh;
   font-size: 0.75em;
   font-weight: 500;
-  text-align: justify;  /* Adiciona justificação ao texto */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  /* justify-items: center; */
 }

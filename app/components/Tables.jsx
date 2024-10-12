@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import CallToAct from './CallToAct'
+import { verificarData } from '../util/util'
 import {
   container,
   tableContainer,
@@ -19,13 +20,14 @@ import {
   white,
   primaryClr,
   smallCaps,
+  textoTachado,
   buttonCTA
 } from './Tables.module.css'
 
 // style={{marginRight: spacing + 'em'}}
 // style={{background-color: + 'var(' + clr + ')'}}
 
-export default function Tables({ children }) {
+export default function Tables() {
   const callToAct = {
     buttom03: {
       caption: 'Se inscreva no Hands On',
@@ -40,6 +42,12 @@ export default function Tables({ children }) {
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     }
   }
+  const bestBefore = {
+    october10: verificarData('10102024') ? '' : textoTachado,
+    october20: verificarData('20102024') ? '' : textoTachado,
+    october30: verificarData('30102024') ? '' : textoTachado
+  }
+
   return (
     <div className={container}>
       <h1 className={classnames(p1, green, smallCaps)}>
@@ -68,26 +76,42 @@ export default function Tables({ children }) {
           <tbody className={tbody}>
             <tr className={tr}>
               <td className={td}>Associados Quites</td>
-              <td className={classnames(td, tdValue)}>R$ 290,00</td>
-              <td className={classnames(td, tdValue)}>R$ 330,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 290,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 330,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 420,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
-              <td className={classnames(td, tdValue)}>R$ 500,00</td>
-              <td className={classnames(td, tdValue)}>R$ 550,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october10)}>
+                R$ 500,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 550,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 650,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
-              <td className={classnames(td, tdValue)}>R$ 250,00</td>
-              <td className={classnames(td, tdValue)}>R$ 340,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 250,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 340,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 390,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Acadêmicos</td>
-              <td className={classnames(td, tdValue)}>R$ 80,00</td>
-              <td className={classnames(td, tdValue)}>R$ 90,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 80,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 90,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 100,00</td>
             </tr>
           </tbody>
@@ -132,20 +156,32 @@ export default function Tables({ children }) {
           <tbody className={tbody}>
             <tr className={tr}>
               <td className={td}>Associados Quites</td>
-              <td className={classnames(td, tdValue)}>R$ 320,00</td>
-              <td className={classnames(td, tdValue)}>R$ 360,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 320,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 360,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 400,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
-              <td className={classnames(td, tdValue)}>R$ 460,00</td>
-              <td className={classnames(td, tdValue)}>R$ 500,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 460,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 500,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 550,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
-              <td className={classnames(td, tdValue)}>R$ 260,00</td>
-              <td className={classnames(td, tdValue)}>R$ 300,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 260,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 300,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 340,00</td>
             </tr>
           </tbody>
@@ -180,26 +216,42 @@ export default function Tables({ children }) {
           <tbody className={tbody}>
             <tr className={tr}>
               <td className={td}>Associados Quites</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 0,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 0,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 0,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 0,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 0,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 0,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Acadêmicos</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
+                R$ 0,00
+              </td>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
+                R$ 0,00
+              </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
             </tr>
           </tbody>

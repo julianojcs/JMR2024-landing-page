@@ -1,4 +1,5 @@
 import { footer } from './Footer.module.css'
+import { WhatsAppIcon } from './icons'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -7,7 +8,11 @@ const Footer = () => {
       <div className=''>
         <div>
           <p className={footer}>
-            &copy; {currentYear} Juliano Costa. All rights reserved.
+            <span>
+              &copy; {currentYear} Juliano Costa - Todos os direitos reservados
+              {'   '}
+            </span>
+            <WhatsAppIcon />
           </p>
         </div>
       </div>

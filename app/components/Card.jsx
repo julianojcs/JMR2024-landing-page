@@ -22,7 +22,7 @@ const Card = ({ date, title, subtitle, img, height, width, color, link }) => {
       <Image
         className={imageCard}
         src={img}
-        alt={subtitle}
+        alt={title}
         width={width}
         height={height}
       />

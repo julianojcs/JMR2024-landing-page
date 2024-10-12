@@ -13,9 +13,15 @@
     background-repeat: no-repeat;
     background-position: right; */
 }
+.contain >  h1,
+.contain > h2,
+.contain > h3,
+.contain > h4,
+.contain > p {
+  text-align: center;
+}
 .container > h1 {
   font-weight: 600;
-  text-align: center;
 }
 .green {
   color: var(--success-clr);
@@ -40,6 +46,13 @@
 }
 .smallCaps {
   font-variant: small-caps;
+}
+.textoTachado {
+  text-decoration: line-through;
+  text-decoration-color: var(--accent-clr);
+  text-decoration-thickness: 3px;
+  text-decoration-style: solid;
+  color: var(--disabled-clr);
 }
 
 .tableContainer {
