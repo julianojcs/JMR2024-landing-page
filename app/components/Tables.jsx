@@ -86,7 +86,7 @@ export default function Tables() {
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
-              <td className={classnames(td, tdValue, bestBefore.october10)}>
+              <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 500,00
               </td>
               <td className={classnames(td, tdValue, bestBefore.october30)}>
