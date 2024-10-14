@@ -13,7 +13,6 @@
 
 .comissionColumn1, .comissionColumn2 {
   flex: 1;
-  min-width: 300px;
 }
 
 .comissionColumn1 {
@@ -68,6 +67,9 @@
 @media (max-width: 768px) {
   .comissionColumn1, .comissionColumn2 {
     flex: 1 1 100%;
+  }
+  .comissionTitle h2 {
+    width: 95svw;
   }
 }
 @media (min-width: 1000px) {

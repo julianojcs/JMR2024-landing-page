@@ -4,10 +4,9 @@ import Image from 'next/image'
 import styles from './Header.module.css'
 import JMR2024 from '/public/jmr2024.png'
 import { MapIcon, CalendarIcon, calendarEvent } from './icons'
-// import SocialMedias from './SocialMedias'
+import SocialMedias from './SocialMedias'
 
-// const Header = ({ children }) => {
-const Header = () => {
+const Header = ({ children }) => {
   // Desestruturando todas as classes usadas do objeto styles
   const {
     container,
@@ -23,7 +22,7 @@ const Header = () => {
 
   return (
     <section className={container}>
-      {/* {children && <SocialMedias />} */}
+      {children && <SocialMedias />}
       <Image
         src={JMR2024}
         priority
@@ -33,7 +32,7 @@ const Header = () => {
       <div className={direita}>
         <div className={gap1}>
           <div className={date}>
-            <CalendarIcon className={icon} fill={'#dc3545'} />
+            <CalendarIcon className={icon} fill={'var(--danger-clr)'} />
             <p>
               <span className={toHide}>{calendarEvent.extendedDataPeriod}</span>
             </p>
@@ -42,7 +41,7 @@ const Header = () => {
             </p>
           </div>
           <div className={address}>
-            <MapIcon className={icon} fill={'#dc3545'} />
+            <MapIcon className={icon} fill={'var(--danger-clr)'} />
             <div>
               <p>
                 <span className={toHide}>{calendarEvent.shortPromoter}</span>
