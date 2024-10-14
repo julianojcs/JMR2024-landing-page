@@ -4,8 +4,9 @@ import Image from 'next/image'
 import styles from './Header.module.css'
 import JMR2024 from '/public/jmr2024.png'
 import { MapIcon, CalendarIcon, calendarEvent } from './icons'
+import SocialMedias from './SocialMedias'
 
-const Header = () => {
+const Header = ({ children }) => {
   // Desestruturando todas as classes usadas do objeto styles
   const {
     container,
@@ -21,6 +22,7 @@ const Header = () => {
 
   return (
     <section className={container}>
+      {children && <SocialMedias />}
       <Image
         src={JMR2024}
         priority
