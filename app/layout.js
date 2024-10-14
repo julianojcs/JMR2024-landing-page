@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from './components/Header'
 import Footer from './components/Footer'
 import RT from './components/RT'
+import SocialMedias from './components/SocialMedias'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -49,10 +50,10 @@ export default function RootLayout({ children }) {
           content='Junte-se à Jornada Mineira de Radiologia 2024 e descubra as inovações na área de diagnóstico por imagem.'
         />
         <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://jmr2024.srmg.com.br' />
+        <meta property='og:url' content='https://jornada.srmg.com.br/2024' />
         <meta
           property='og:image'
-          content='https://jmr2024.srmg.com.br/jmr2024.jpg'
+          content='https://jornada.srmg.com.br/jmr2024.jpg'
         />
         <meta property='og:image:width' content='1200' />
         <meta property='og:image:height' content='630' />
@@ -69,15 +70,17 @@ export default function RootLayout({ children }) {
         />
         <meta
           name='twitter:image'
-          content='https://jmr2024.srmg.com.br/jmr2024.jpg'
+          content='https://jornada.srmg.com.br/jmr2024.jpg'
         />
 
         {/* Link canônico */}
-        <link rel='canonical' href='https://jmr2024.srmg.com.br'></link>
+        <link rel='canonical' href='https://jornada.srmg.com.br'></link>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <RT />
-        <Header />
+        <Header>
+          <SocialMedias />
+        </Header>
         {children}
         <Footer />
       </body>
