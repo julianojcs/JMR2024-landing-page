@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from './components/Header'
 import Footer from './components/Footer'
 import RT from './components/RT'
-import SocialMedias from './components/SocialMedias'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -78,9 +77,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <RT />
-        <Header>
-          <SocialMedias />
-        </Header>
+        <Header />
         {children}
         <Footer />
       </body>
