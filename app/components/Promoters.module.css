@@ -1,3 +1,13 @@
+.container {
+  margin: 5svh 0 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  /* background-image: url('/12.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
 .containerPromoters {
   display: flex;
   justify-content: space-evenly;
@@ -26,6 +36,10 @@
 .promoters:hover {
   cursor: pointer;
   filter: sepia(100%); /* Opacidade ao passar o mouse */
+}
+
+.mw5vw {
+  margin: 5vw 0;
 }
 
 @media (768px <= width <= 992px) {

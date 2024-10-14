@@ -35,13 +35,13 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <Description>
+      <Description />
+      <Promoters >
         <CallToAct
           caption={callToAct.buttom01.caption}
           link={callToAct.buttom01.link}
         />
-      </Description>
-      <Promoters />
+      </Promoters>
       <Events>
         <CallToAct
           caption={callToAct.buttom02.caption}

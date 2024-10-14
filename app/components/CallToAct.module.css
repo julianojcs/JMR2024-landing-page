@@ -24,10 +24,7 @@
 }
 
 @media (max-width: 600px) {
-  .container>a {
-    width: 100%;
-  }
-  .button {
+  .container, .container > a, .button {
     width: 100%;
   }
 }
