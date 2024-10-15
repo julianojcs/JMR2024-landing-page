@@ -26,7 +26,12 @@ import {
   hr3,
   sponsorsBox,
   abramede,
-  srmg
+  srmg,
+  bayerClass,
+  dasaClass,
+  braccoClass,
+  ceuClass,
+  saoMarcosClass
 } from './Sponsor.module.css'
 
 const Sponsor = () => (
@@ -39,7 +44,7 @@ const Sponsor = () => (
           src={srmgLogo}
           alt='srmg Logo'
           width={210}
-          height={60}
+          height={80}
           // width={'30.75svh'}
           // height={'8.78svh'}
         />
@@ -50,7 +55,7 @@ const Sponsor = () => (
           src={abramedeLogo}
           alt='Abramede MG Logo'
           width={150}
-          height={60}
+          height={80}
         />
       </Link>
     </div>
@@ -71,7 +76,7 @@ const Sponsor = () => (
           </Link>
           <Link href='https://www.bayer.com.br/pt/' target='_blank'>
             <Image
-              className={classnames(imgSponsors)}
+              className={classnames(imgSponsors, bayerClass)}
               src={bayer}
               alt='Bayer'
               width={80}
@@ -104,7 +109,7 @@ const Sponsor = () => (
           </Link>
           <Link href='https://saomarcoslaboratorio.com.br/' target='_blank'>
             <Image
-              className={classnames(imgSponsors)}
+              className={classnames(imgSponsors, saoMarcosClass)}
               src={saoMarco}
               alt='São Marcos'
               width={'117.43%'}
@@ -113,7 +118,7 @@ const Sponsor = () => (
           </Link>
           <Link href='https://dasa.com.br/' target='_blank'>
             <Image
-              className={classnames(imgSponsors)}
+              className={classnames(imgSponsors, dasaClass)}
               src={dasa}
               alt='Dasa'
               width={'178.57%'}
@@ -128,7 +133,7 @@ const Sponsor = () => (
         <div className={sponsorsBox}>
           <Link href='https://www.bracco.com/pt-br' target='_blank'>
             <Image
-              className={classnames(imgSponsors)}
+              className={classnames(imgSponsors, braccoClass)}
               src={bracco}
               alt='Bracco'
               width={'113.77%'}
@@ -137,7 +142,7 @@ const Sponsor = () => (
           </Link>
           <Link href='https://www.clinicaceu.com.br/' target='_blank'>
             <Image
-              className={classnames(imgSponsors)}
+              className={classnames(imgSponsors, ceuClass)}
               src={ceu}
               alt='CEU Diagnósticos'
               width={'185.50%'}
