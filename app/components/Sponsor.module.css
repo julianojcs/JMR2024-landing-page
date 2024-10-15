@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 5svh 5svw;
+  padding: 1.5rem;
   background-image: linear-gradient(white, #e0e0e0);
   /* background-image: url('../../public/4.png'); */
   /* background-size: cover;

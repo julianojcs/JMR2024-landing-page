@@ -49,7 +49,7 @@ export default function Tables() {
   }
 
   return (
-    <div className={container}>
+    <section className={container}>
       <h1 className={classnames(p1, green, smallCaps)}>
         X Jornada Miniera de Radiologia
       </h1>
@@ -263,6 +263,6 @@ export default function Tables() {
           link={callToAct.buttom05.link}
         />
       </div>
-    </div>
+    </section>
   )
 }

@@ -8,13 +8,12 @@ import {
   srmg,
   promoters,
   container,
-  containerPromoters,
-  mw5vw
+  containerPromoters
 } from './Promoters.module.css'
 
 const Promoters = ({ children }) => (
   <section className={container}>
-    {children && <div className={mw5vw}>{children}</div>}
+    {children && <div style={{padding: '1.5rem'}}>{children}</div>}
     <div className={containerPromoters}>
       <Link href='https://srmg.org.br/' target='_blank'>
         <Image
