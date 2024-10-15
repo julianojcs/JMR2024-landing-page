@@ -58,8 +58,8 @@
   font-size: 0.7rem;
   font-weight: bold;
   color: #333; /* Preto claro */
-  background-color: #f5f5f5; /* Branco fumaça */
-  border: 1px solid #e0e0e0; /* Branco fumaça mais escuro */
+  background-color: var(--background); /* Branco fumaça */
+  border: 1px solid var(--secondary-text-clr); /* Branco fumaça mais escuro */
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;

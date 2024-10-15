@@ -76,13 +76,15 @@ export default function RootLayout({ children }) {
         {/* Link canônico */}
         <link rel='canonical' href='https://jornada.srmg.com.br'></link>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <RT />
-        <Header>
-          <SocialMedias />
-        </Header>
-        {children}
-        <Footer />
+      <body className={`${geistSans.variable} ${geistMono.variable}`} style={{maxWidth: '1300px', marginInline: 'auto', backgroundColor: 'var(--foreground)'}}>
+        <div  style={{backgroundColor: 'var(--background)'}}>
+          <RT />
+          <Header>
+            <SocialMedias />
+          </Header>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   )
