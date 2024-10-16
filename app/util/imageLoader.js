@@ -22,7 +22,7 @@ function loadImagesFromFolders(folderPath) {
       const imagePath = join(subfolderPath, file)
         .replace('public', '') // Remove a pasta public
         .replace(/\\/g, '/') // Corrige o caminho para usar barras
-      const name = file.replace(extname(file), '').replace(/-/g, ' ')
+      const name = file.replace(extname(file), '').replace(/_/g, ' ')
       // .replace(/^\w/, (char) => char.toUpperCase())
 
       return { imagePath: imagePath, name: name, fileName: file }
