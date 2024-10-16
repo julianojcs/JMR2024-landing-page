@@ -84,7 +84,7 @@
   background-color: #f2f2f2;
 } */
 .tr:hover {
-  background-color: var(--accent-clr);
+  background-color: var(--secondary-clr);
   /* transition: transform 0.5s ease-in-out; */
   -webkit-transition: background-color 0.5s ease-in-out;
   -moz-transition: background-color 0.5s ease-in-out;
