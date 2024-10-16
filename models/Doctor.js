@@ -21,7 +21,7 @@ const DoctorSchema = new Schema(
       {
         type: String,
         enum: [
-          'POCUS SRMG/ ABRAMEDE',
+          'POCUS SRMG/ ABRAMEDE/MG',
           'Mama',
           'Musculoesquelético',
           'Gastrointestinal',

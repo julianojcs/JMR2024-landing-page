@@ -66,12 +66,12 @@ const Comission = () => {
               <Image
                 className={classnames(abramede, promoters)}
                 src={abramedeLogo}
-                alt='Abramede MG Logo'
+                alt='Abramede/MG Logo'
                 width={150}
                 height={60}
               />
             </Link>
-            <h2>Comissão Científica ABRAMEDE/MR</h2>
+            <h2>Comissão Científica ABRAMEDE/MG</h2>
           </div>
           <div className={medicosContainer}>
             {sortedAbramedeMedicos.map((avatar) => {
