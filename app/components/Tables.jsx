@@ -55,7 +55,7 @@ export default function Tables() {
       </h1>
       <h2 className={classnames(white)}>&</h2>
       <h1 className={classnames(p2, green, smallCaps)}>
-        I Jornada Mineira POCUS ABRAMEDE-MG e SRMG
+        I Jornada Mineira POCUS ABRAMEDE/MG e SRMG
       </h1>
       <div className={tableContainer}>
         <table className={table}>

@@ -71,7 +71,7 @@ const Comission = () => {
                 height={60}
               />
             </Link>
-            <h2>Comissão Científica ABRAMEDE</h2>
+            <h2>Comissão Científica ABRAMEDE/MR</h2>
           </div>
           <div className={medicosContainer}>
             {sortedAbramedeMedicos.map((avatar) => {
