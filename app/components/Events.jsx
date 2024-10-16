@@ -35,19 +35,19 @@ const Events = ({ children }) => {
           date='01 e 02/11'
           color={card1}
           title='POCUS'
-          subtitle='SRMG ABRAMED'
+          subtitle='SRMG ABRAMEDE/MG'
           img={pocus}
           link='/pdf/01-e-02-11-pocus.pdf'
           width='100px'
           height='125'
         />
         <Card
-          date='02/11'
+          date='01/11'
           color={card2}
-          title='Gastrointestinal'
-          img={gastrointestinal}
-          link='/pdf/02-11-gastrointestinal_01-out-final.pdf'
-          width='100px'
+          title='Mama'
+          img={mama}
+          link='/pdf/01-11-mama.pdf'
+          width='126px'
           height='125'
         />
         <Card
@@ -60,12 +60,12 @@ const Events = ({ children }) => {
           height='125'
         />
         <Card
-          date='01/11'
+          date='02/11'
           color={card4}
-          title='Mama'
-          img={mama}
-          link='/pdf/01-11-mama.pdf'
-          width='126px'
+          title='Gastrointestinal'
+          img={gastrointestinal}
+          link='/pdf/02-11-gastrointestinal_01-out-final.pdf'
+          width='100px'
           height='125'
         />
         <Card
