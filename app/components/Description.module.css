@@ -6,7 +6,7 @@
 
 .collapsible {
   position: relative; /* Necessário para a sombra interna */
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   justify-items: center;
   font-size: 1em;
@@ -15,15 +15,17 @@
   background-color: inherit;
   color: inherit;
 
-  display: -webkit-box;
+  /* display: -webkit-box; */
 
-  -webkit-line-clamp: 4; /* Mostra apenas 4 linhas */
-  -webkit-box-orient: vertical;
+  /* -webkit-line-clamp: 4; /* Mostra apenas 4 linhas */
+  /* -webkit-box-orient: vertical; */
+  height: 4em; /* 4 linhas de texto */
   overflow: hidden; /* Esconde o conteúdo que ultrapassa as 4 linhas */
   text-overflow: ellipsis;
 
   transition: box-shadow 0.3s ease; /* Transição suave para a sombra */
-  transition: -webkit-line-clamp 10.3s ease; /* Transição suave para a linha */
+  /* transition: -webkit-line-clamp 10.3s ease; Transição suave para a linha */
+  transition: height 0.3s ease; /* Transição suave para a linha */
 }
 .collapsible::after {
   content: '';
@@ -42,7 +44,8 @@
 }
 
 .collapsible.collapsed {
-  -webkit-line-clamp: unset; /* Remove a limitação de linhas */
+  /* -webkit-line-clamp: unset; Remove a limitação de linhas */
+  height: auto; /* Mostra todo o conteúdo */
 }
 
 .collapsible.collapsed::after {
@@ -53,7 +56,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin: 0 auto; /* Centraliza o botão horizontalmente */
+  margin: 8px auto 0; /* Centraliza o botão horizontalmente */
   padding: 0px 8px;
   font-size: 0.7rem;
   font-weight: bold;
