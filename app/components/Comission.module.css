@@ -24,8 +24,9 @@
 
 .comissionTitle {
   background-color: var(--secondary-clr);
-  color: white;
-  padding: 2svh 0;
+  color: var(--secondary-text-clr);
+  padding-top: 2svh;
+  min-height: 160px;
   text-align: center;
 }
 
