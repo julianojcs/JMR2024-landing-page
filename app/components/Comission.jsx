@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import AvatarCard from './AvatarCard'
 import abramedeLogo from '/public/logo/abramed-mg.png'
 import srmgLogo from '/public/logo/srmg.png'
-import { loadImagesFromFolders } from '../util/imageLoader'
+import { loadImagesFromFolders } from '../util/functions'
 import {
   container,
   comissionContainer,
