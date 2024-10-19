@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import CallToAct from './CallToAct'
-import { verificarData } from '../util/util'
+import { verifyDate } from '../util/functions'
 import {
   container,
   tableContainer,
@@ -43,9 +43,9 @@ export default function Tables() {
     }
   }
   const bestBefore = {
-    october10: verificarData('10102024') ? '' : textoTachado,
-    october20: verificarData('20102024') ? '' : textoTachado,
-    october30: verificarData('30102024') ? '' : textoTachado
+    october10: verifyDate('10102024') ? '' : textoTachado,
+    october20: verifyDate('20102024') ? '' : textoTachado,
+    october30: verifyDate('30102024') ? '' : textoTachado
   }
 
   return (
