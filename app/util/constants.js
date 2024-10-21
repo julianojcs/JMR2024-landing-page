@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const sponsorsLogo = {
   promoters: {
     title: 'Realização:',
@@ -64,6 +62,13 @@ export const sponsorsLogo = {
             width: 53.57,
             height: 30,
             className: 'dasaClass',
+          }, {
+            name: 'Prontofar',
+            src: '/logo/silver/prontofar.png',
+            href: 'https://www.prontofar.com.br/',
+            width: 136.17,
+            height: 50,
+            className: null,
           }, {
             name: 'São Marcos',
             src: '/logo/silver/sao-marcos.png',
