@@ -62,7 +62,7 @@ export const sponsorsLogo = {
             width: 189,
             height: 60,
             className: null,
-          },{
+          }, {
             name: 'Dasa',
             src: '/logo/silver/dasa.png',
             href: 'https://www.dasa.com.br/',
@@ -98,19 +98,19 @@ export const sponsorsLogo = {
         className: 'bronze',
         brands: [
           {
-            name: 'Bracco',
-            src: '/logo/bronze/bracco.png',
-            href: 'https://www.bracco.com.br/pt-br/',
-            width: 91,
-            height: 80,
-            className: 'braccoClass',
-          },{
             name: 'Agis',
             src: '/logo/bronze/agis.png',
             href: 'https://agismedical.com.br/',
             width: 197.5,
             height: 50,
             className: 'agisClass',
+          }, {
+            name: 'Bracco',
+            src: '/logo/bronze/bracco.png',
+            href: 'https://www.bracco.com.br/pt-br/',
+            width: 91,
+            height: 80,
+            className: 'braccoClass',
           }, {
               name: 'Canon Medical Systems',
               src: '/logo/bronze/canon-medical-systems.png',
