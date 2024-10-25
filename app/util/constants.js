@@ -56,6 +56,13 @@ export const sponsorsLogo = {
         className: 'silver',
         brands: [
           {
+            name: 'Guerbet',
+            src: '/logo/silver/guerbet.png',
+            href: 'https://www.guerbet.com/pt-br',
+            width: 189,
+            height: 60,
+            className: null,
+          },{
             name: 'Dasa',
             src: '/logo/silver/dasa.png',
             href: 'https://www.dasa.com.br/',
@@ -63,19 +70,19 @@ export const sponsorsLogo = {
             height: 30,
             className: 'dasaClass',
           }, {
-            name: 'Prontofar',
-            src: '/logo/silver/prontofar.png',
-            href: 'https://www.prontofar.com.br/',
-            width: 136.17,
-            height: 50,
-            className: null,
-          }, {
             name: 'São Marcos',
             src: '/logo/silver/sao-marcos.png',
             href: 'https://saomarcoslaboratorio.com.br/',
             width: 82.2,
             height: 70,
             className: 'saoMarcosClass',
+          }, {
+            name: 'Prontofar',
+            src: '/logo/silver/prontofar.png',
+            href: 'https://www.prontofar.com.br/',
+            width: 136.17,
+            height: 50,
+            className: null,
           }, {
             name: 'Unimed BH',
             src: '/logo/silver/unimed-bh.png',
@@ -90,14 +97,21 @@ export const sponsorsLogo = {
         title: 'Bronze',
         className: 'bronze',
         brands: [
-            {
-              name: 'Bracco',
-              src: '/logo/bronze/bracco.png',
-              href: 'https://www.bracco.com.br/pt-br/',
-              width: 91,
-              height: 80,
-              className: 'braccoClass',
-            }, {
+          {
+            name: 'Bracco',
+            src: '/logo/bronze/bracco.png',
+            href: 'https://www.bracco.com.br/pt-br/',
+            width: 91,
+            height: 80,
+            className: 'braccoClass',
+          },{
+            name: 'Agis',
+            src: '/logo/bronze/agis.png',
+            href: 'https://agismedical.com.br/',
+            width: 197.5,
+            height: 50,
+            className: 'agisClass',
+          }, {
               name: 'Canon Medical Systems',
               src: '/logo/bronze/canon-medical-systems.png',
               href: 'https://br.medical.canon/',

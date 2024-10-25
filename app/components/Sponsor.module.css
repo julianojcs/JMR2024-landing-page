@@ -38,7 +38,7 @@
   width: 40px !important;
   height: auto;
 }
-.dasaClass, .canonClass {
+.dasaClass , .canonClass {
   width: 50px !important;
   height: auto;
 }
@@ -54,7 +54,7 @@
   width: 100px !important;
   height: auto;
 }
-.ceuClass {
+.ceuClass, .agisClass {
   width: 60px !important;
   height: auto;
 }
