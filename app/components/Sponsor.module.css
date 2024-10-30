@@ -47,14 +47,14 @@
   height: auto;
 }
 .mhedicaClass {
-  width: 90px !important;
+  width: 80px !important;
   height: auto;
 }
 .fleuryClass, .supriMedicalClass {
   width: 100px !important;
   height: auto;
 }
-.ceuClass, .agisClass {
+.ceuClass, .agisClass, .gphantomClass, .crmmgClass {
   width: 60px !important;
   height: auto;
 }
