@@ -59,6 +59,12 @@
   height: auto;
 }
 
+.joinClass {
+  width: 45px !important;
+  height: auto;
+  border-radius: 50%;
+}
+
 .sponsors {
   display: flex;
   flex-direction: row;

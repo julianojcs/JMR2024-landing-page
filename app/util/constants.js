@@ -153,6 +153,13 @@ export const sponsorsLogo = {
               width: 189,
               height: 60,
               className: 'crmmgClass',
+            }, {
+              name: 'Join',
+              src: '/logo/bronze/join.png',
+              href: 'https://www.joindigitalsolution.com.br/',
+              width: 80,
+              height: 80,
+              className: 'joinClass',
             },
         ],
       },
