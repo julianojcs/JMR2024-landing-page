@@ -37,8 +37,6 @@ export default function RootLayout({ children }) {
         <link rel='icon' href='/favicon.ico' />
         <meta name='robots' content='index, follow' />
         <meta name='author' content='APF Juliano' />
-        <meta charSet='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
         {/* Open Graph para redes sociais */}
         <meta
