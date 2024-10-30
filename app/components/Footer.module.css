@@ -8,3 +8,12 @@
   justify-content: center;
   /* justify-items: center; */
 }
+
+.join {
+  color: var(--card2-clr);
+  &:hover {
+    color: var(--card3-clr);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-clr);
+  }
+}
