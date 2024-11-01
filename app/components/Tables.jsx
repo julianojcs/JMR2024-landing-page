@@ -79,7 +79,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 290,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 330,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 420,00</td>
@@ -89,7 +89,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 500,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 550,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 650,00</td>
@@ -99,7 +99,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 250,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 340,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 390,00</td>
@@ -109,7 +109,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 80,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 90,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 100,00</td>
@@ -159,7 +159,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 320,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 360,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 400,00</td>
@@ -169,7 +169,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 460,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 500,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 550,00</td>
@@ -179,7 +179,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 260,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 300,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 340,00</td>
@@ -219,7 +219,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 0,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
@@ -229,7 +229,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 0,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
@@ -239,7 +239,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 0,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
@@ -249,7 +249,7 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, bestBefore.october30)}>
+              <td className={classnames(td, tdValue, textoTachado)}>
                 R$ 0,00
               </td>
               <td className={classnames(td, tdValue)}>R$ 0,00</td>
