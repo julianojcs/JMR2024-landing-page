@@ -33,15 +33,19 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <span
-      style={{
-        fontFamily: 'Digital-7, Consolas, monospace',
-        fontSize: 'larger',
-        fontWeight: 600,
-      }}>
-      <span>{timeLeft.d}d </span>
-      <span>{timeLeft.h}:{timeLeft.m}:{timeLeft.s}</span>
-    </span>
+    timeLeft.h ? (
+      <span
+        style={{
+          fontFamily: 'Digital-7, Consolas, monospace',
+          fontSize: 'larger',
+          fontWeight: 600,
+        }}>
+        <span>{timeLeft.d}d </span>
+        <span>{timeLeft.h}:{timeLeft.m}:{timeLeft.s}</span>
+      </span>
+    ) : (
+      <span></span>
+    )
   );
 };
 
