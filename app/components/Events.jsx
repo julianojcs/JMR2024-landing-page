@@ -1,5 +1,6 @@
 import Card from './Card'
 import CountdownTimer from './CountdownTimer'
+import CallToAct from '../components/CallToAct'
 import {
   container,
   columnTitle,
@@ -30,7 +31,8 @@ import biRads from '../../assets/images/cards/bi-rads.png'
 import intervencaoMamaria from '../../assets/images/cards/intervencao-mamaria.png'
 import intervencaoNaoVascular from '../../assets/images/cards/intervencao-nao-vascular.png'
 
-const Events = ({ children }) => {
+const Events = ({button}) => {
+  const { caption, link } = button;
   return (
     <section className={container}>
       <div>
@@ -148,7 +150,7 @@ const Events = ({ children }) => {
           </div>
         </div>
       </div>
-      {children}
+      <CallToAct {...button} />
     </section>
   )
 }

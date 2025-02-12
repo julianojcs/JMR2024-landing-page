@@ -1,5 +1,4 @@
 import Banner from '../components/Banner'
-import CallToAct from '../components/CallToAct'
 import Promoters from '../components/Promoters'
 import Description from '../components/Description'
 import Events from '../components/Events'
@@ -14,27 +13,27 @@ export const metadata = {
 
 const Home = () => {
   const callToAct = {
-    buttom01: {
+    button01: {
       // caption: 'Faça sua inscrição',
       caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
-    buttom02: {
+    button02: {
       //caption: 'Se inscreva agora na Jornada',
       caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
-    buttom03: {
+    button03: {
       // caption: 'Se inscreva Hands On',
       caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
-    buttom04: {
+    button04: {
       // caption: 'Se inscreva na Jornada',
       caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
-    buttom05: {
+    button05: {
       // caption: 'Se inscreva no Curso de IA',
       caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
@@ -45,28 +44,18 @@ const Home = () => {
     <>
       <Banner />
       <Description />
-      <Promoters >
-        <CallToAct
-          {...callToAct.buttom01}
-        />
-      </Promoters>
-      <Events>
-        <CallToAct
-          {...callToAct.buttom02}
-        />
-      </Events>
+      <Promoters
+        button={callToAct.button01}
+      />
+      <Events
+        button={callToAct.button02}
+      />
       <Comission />
-      <Tables >
-          <CallToAct
-            {...callToAct.buttom03}
-          />
-          <CallToAct
-            {...callToAct.buttom04}
-          />
-          <CallToAct
-            {...callToAct.buttom05}
-          />
-      </Tables>
+      <Tables
+        buttons={
+          [callToAct.button03, callToAct.button04, callToAct.button05]
+        }
+      />
       <Sponsor />
     </>
   )

@@ -6,11 +6,10 @@ import {
   collapsible,
   collapsed,
   buttonCollapse,
-  mt5vh
 } from './Description.module.css'
 import { calendarEvent, ArrowDownIcon } from './icons'
 
-const Description = ({ children }) => {
+const Description = () => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleExpand = () => {
@@ -33,7 +32,6 @@ const Description = ({ children }) => {
         <ArrowDownIcon fill={'var(--danger-clr)'} toggle={isExpanded} />
         {isExpanded ? 'Mostrar menos' : 'Continue lendo...'}
       </button>
-      {children && <div className={mt5vh}>{children}</div>}
     </section>
   )
 }

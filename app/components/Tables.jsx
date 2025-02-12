@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import CallToAct from '../components/CallToAct'
 import { verifyDate } from '../util/functions'
 import {
   container,
@@ -26,7 +27,7 @@ import {
 // style={{marginRight: spacing + 'em'}}
 // style={{background-color: + 'var(' + clr + ')'}}
 
-export default function Tables({children}) {
+export default function Tables({buttons}) {
   const bestBefore = {
     october20: verifyDate('20102024') ? '' : textoTachado,
     october30: verifyDate('30102024') ? '' : textoTachado,
@@ -103,7 +104,7 @@ export default function Tables({children}) {
         </table>
       </div>
       <div className={buttonCTA}>
-        {children[0]} {/* CallToAct */}
+        <CallToAct {...buttons[0]} />
       </div>
 
       <h1 className={classnames(p1, green, smallCaps)}>
@@ -170,7 +171,7 @@ export default function Tables({children}) {
         </table>
       </div>
       <div className={buttonCTA}>
-        {children[1]} {/* CallToAct */}
+        <CallToAct {...buttons[1]} />
       </div>
 
       <h1 className={classnames(p1, p2, primaryClr, smallCaps)}>
@@ -237,7 +238,7 @@ export default function Tables({children}) {
         </table>
       </div>
       <div className={buttonCTA}>
-        {children[2]} {/* CallToAct */}
+        <CallToAct {...buttons[2]} />
       </div>
     </section>
   )
