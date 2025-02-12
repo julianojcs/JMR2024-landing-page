@@ -15,19 +15,28 @@ export const metadata = {
 const Home = () => {
   const callToAct = {
     buttom01: {
-      caption: 'Faça sua inscrição',
+      // caption: 'Faça sua inscrição',
+      caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
     buttom02: {
-      caption: 'Se inscreva agora na Jornada',
+      //caption: 'Se inscreva agora na Jornada',
+      caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
     buttom03: {
-      caption: 'Se inscreva Hands On Mamas Intervencionistas',
+      // caption: 'Se inscreva Hands On',
+      caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     },
     buttom04: {
-      caption: 'Se inscreva Hands On BI-RADS',
+      // caption: 'Se inscreva na Jornada',
+      caption: 'Emita o seu certificado',
+      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
+    },
+    buttom05: {
+      // caption: 'Se inscreva no Curso de IA',
+      caption: 'Emita o seu certificado',
       link: 'https://eventosis.com.br/credenciamento/jmr2024/'
     }
   }
@@ -38,18 +47,26 @@ const Home = () => {
       <Description />
       <Promoters >
         <CallToAct
-          caption={callToAct.buttom01.caption}
-          link={callToAct.buttom01.link}
+          {...callToAct.buttom01}
         />
       </Promoters>
       <Events>
         <CallToAct
-          caption={callToAct.buttom02.caption}
-          link={callToAct.buttom02.link}
+          {...callToAct.buttom02}
         />
       </Events>
       <Comission />
-      <Tables />
+      <Tables >
+          <CallToAct
+            {...callToAct.buttom03}
+          />
+          <CallToAct
+            {...callToAct.buttom04}
+          />
+          <CallToAct
+            {...callToAct.buttom05}
+          />
+      </Tables>
       <Sponsor />
     </>
   )

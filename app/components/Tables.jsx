@@ -1,5 +1,4 @@
 import classnames from 'classnames'
-import CallToAct from './CallToAct'
 import { verifyDate } from '../util/functions'
 import {
   container,
@@ -27,25 +26,11 @@ import {
 // style={{marginRight: spacing + 'em'}}
 // style={{background-color: + 'var(' + clr + ')'}}
 
-export default function Tables() {
-  const callToAct = {
-    buttom03: {
-      caption: 'Se inscreva no Hands On',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    },
-    buttom04: {
-      caption: 'Se inscreva na Jornada',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    },
-    buttom05: {
-      caption: 'Se inscreva no Curso de IA',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    }
-  }
+export default function Tables({children}) {
   const bestBefore = {
-    october10: verifyDate('10102024') ? '' : textoTachado,
     october20: verifyDate('20102024') ? '' : textoTachado,
-    october30: verifyDate('30102024') ? '' : textoTachado
+    october30: verifyDate('30102024') ? '' : textoTachado,
+    november02: verifyDate('10102024') ? '' : textoTachado
   }
 
   return (
@@ -79,49 +64,46 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 290,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 330,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 420,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 420,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 500,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 550,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 650,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 650,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 250,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 340,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 390,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 390,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Acadêmicos</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 80,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 90,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 100,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 100,00</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div className={buttonCTA}>
-        <CallToAct
-          caption={callToAct.buttom04.caption}
-          link={callToAct.buttom04.link}
-        />
+        {children[0]} {/* CallToAct */}
       </div>
 
       <h1 className={classnames(p1, green, smallCaps)}>
@@ -159,39 +141,36 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 320,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 360,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 400,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 400,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 460,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 500,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 550,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 550,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 260,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 300,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 340,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 340,00</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div className={buttonCTA}>
-        <CallToAct
-          caption={callToAct.buttom03.caption}
-          link={callToAct.buttom03.link}
-        />
+        {children[1]} {/* CallToAct */}
       </div>
 
       <h1 className={classnames(p1, p2, primaryClr, smallCaps)}>
@@ -219,49 +198,46 @@ export default function Tables() {
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 0,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Não Associados ou Inadimplentes</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 0,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Residentes</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 0,00</td>
             </tr>
             <tr className={tr}>
               <td className={td}>Acadêmicos</td>
               <td className={classnames(td, tdValue, bestBefore.october20)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue, textoTachado)}>
+              <td className={classnames(td, tdValue, bestBefore.october30)}>
                 R$ 0,00
               </td>
-              <td className={classnames(td, tdValue)}>R$ 0,00</td>
+              <td className={classnames(td, tdValue, bestBefore.november02)}>R$ 0,00</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div className={buttonCTA}>
-        <CallToAct
-          caption={callToAct.buttom05.caption}
-          link={callToAct.buttom05.link}
-        />
+        {children[2]} {/* CallToAct */}
       </div>
     </section>
   )
