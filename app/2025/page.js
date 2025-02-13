@@ -2,7 +2,7 @@ import Image from 'next/image'
 import saveTheDate from '/public/save_the_date.png'
 import { imagem, container, content, footer } from './page.module.css'
 
-export const metadata = {
+const metadata = {
   title:
     'Save the date - XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher',
   description:

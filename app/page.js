@@ -9,7 +9,7 @@ import Header from './components/Header'
 import SocialMedias from './components/SocialMedias'
 import { MapIcon, CalendarIcon, calendarEvent } from './components/icons'
 
-export const metadata = {
+const metadata = {
   title:
     'X Jornada Mineira de Radiologia e a I Jornada de POCUS ABRAMEDE/MG e SRMG',
   description:
