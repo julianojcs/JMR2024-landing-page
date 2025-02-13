@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import saveTheDate from '/public/save_the_date.png'
-import { imagem, container, content, footer } from './page.module.css'
+import { imagem, container, content, footer } from '../page.module.css'
 
 const metadata = {
   title:
