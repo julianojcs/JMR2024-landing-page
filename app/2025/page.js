@@ -31,6 +31,10 @@ export const metadata = {
   }
 }
 
+export async function generateMetadata() {
+  return metadata
+}
+
 const Home = () => {
   return (
     <div className={container}>

@@ -38,6 +38,10 @@ export const metadata = {
   }
 }
 
+export async function generateMetadata() {
+  return metadata
+}
+
 const Home = () => {
   const props = {
     MapIcon,
