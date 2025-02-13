@@ -3,6 +3,7 @@ import Image from 'next/image'
 import abramedeLogo from '/public/logo/abramed-mg.png'
 import srmgLogo from '/public/logo/srmg.png'
 import Link from 'next/link'
+import CallToAct from './CallToAct'
 import {
   abramede,
   srmg,
@@ -11,9 +12,12 @@ import {
   containerPromoters
 } from './Promoters.module.css'
 
-const Promoters = ({ children }) => (
+const Promoters = ({ button }) => (
   <section className={container}>
-    {children && <div style={{padding: '1.5rem'}}>{children}</div>}
+    {button &&
+      <div style={{padding: '1.5rem'}}>
+        <CallToAct  {...button} />
+      </div>}
     <div className={containerPromoters}>
       <Link href='https://srmg.org.br/' target='_blank'>
         <Image

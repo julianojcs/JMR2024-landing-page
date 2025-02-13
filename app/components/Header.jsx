@@ -1,12 +1,14 @@
 // components/Header.tsx
 import React from 'react'
-import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import styles from './Header.module.css'
-import JMR2024 from '/public/jmr2024.png'
-import { MapIcon, CalendarIcon, calendarEvent } from './icons'
 import SocialMedias from './SocialMedias'
+import { loadImagesFromFolders } from '../util/functions'
 
-const Header = ({ children }) => {
+// Importando o componente DynamicImage dinamicamente
+const DynamicImage = dynamic(() => import('./DynamicImage'))
+
+const Header = ({ children, props }) => {
   // Desestruturando todas as classes usadas do objeto styles
   const {
     container,
@@ -20,14 +22,29 @@ const Header = ({ children }) => {
     address
   } = styles
 
+  const { logoName, MapIcon, CalendarIcon, calendarEvent } = props
+
+  // Carregar imagens do diretório 'public'
+  const images = loadImagesFromFolders('public/logo_jornada')
+
+  // Verificar se a imagem existe e obter o caminho da imagem
+  const logoSrc = images['public'].reduce((acc, img) => {
+    if (img.fileName === logoName) {
+      acc = img.imagePath;
+    }
+    return acc;
+  }, '/logo_jornada/jmr2024.png'); // Caminho para uma imagem padrão caso a imagem não exista
+
   return (
     <section className={container}>
       {children && <SocialMedias />}
-      <Image
-        src={JMR2024}
+      <DynamicImage
+        src={logoSrc}
         priority
         alt={calendarEvent.title}
         className={image}
+        width={500} // Adicione a largura da imagem
+        height={500} // Adicione a altura da imagem
       />
       <div className={direita}>
         <div className={gap1}>

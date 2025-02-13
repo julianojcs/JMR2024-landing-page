@@ -29,14 +29,30 @@ export function loadImagesFromFolders(folderPath) {
     return lstatSync(join(folderPath, subfolder)).isDirectory()
   })
 
-  subfolders.forEach((subfolder) => {
-    const subfolderPath = join(folderPath, subfolder)
-    const imageFiles = readdirSync(subfolderPath).filter((file) => {
+  if (subfolders.length !== 0) {
+    subfolders.forEach((subfolder) => {
+      const subfolderPath = join(folderPath, subfolder)
+      const imageFiles = readdirSync(subfolderPath).filter((file) => {
+        return ['.jpeg', '.jpg', '.png'].includes(extname(file).toLowerCase())
+      })
+
+      result[subfolder] = imageFiles.map((file) => {
+        const imagePath = join(subfolderPath, file)
+          .replace('public', '') // Remove a pasta public
+          .replace(/\\/g, '/') // Corrige o caminho para usar barras
+        const name = file.replace(extname(file), '').replace(/_/g, ' ')
+        // .replace(/^\w/, (char) => char.toUpperCase())
+
+        return { imagePath: imagePath, name: name, fileName: file }
+      })
+    })
+  } else {
+    const imageFiles = readdirSync(folderPath).filter((file) => {
       return ['.jpeg', '.jpg', '.png'].includes(extname(file).toLowerCase())
     })
 
-    result[subfolder] = imageFiles.map((file) => {
-      const imagePath = join(subfolderPath, file)
+    result['public'] = imageFiles.map((file) => {
+      const imagePath = join(folderPath, file)
         .replace('public', '') // Remove a pasta public
         .replace(/\\/g, '/') // Corrige o caminho para usar barras
       const name = file.replace(extname(file), '').replace(/_/g, ' ')
@@ -44,7 +60,7 @@ export function loadImagesFromFolders(folderPath) {
 
       return { imagePath: imagePath, name: name, fileName: file }
     })
-  })
-
+  }
+  // console.log("result", result)
   return result
 }

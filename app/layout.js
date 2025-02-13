@@ -1,9 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from './components/Header'
 import Footer from './components/Footer'
 import RT from './components/RT'
-import SocialMedias from './components/SocialMedias'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -27,7 +25,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html lang='pt-BR'>
       <head>
         <title>{metadata.title}</title>
         <meta name='description' content={metadata.description} />
@@ -77,9 +75,6 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`} style={{maxWidth: '1300px', marginInline: 'auto', backgroundColor: 'var(--foreground)'}}>
         <div  style={{backgroundColor: 'var(--background)'}}>
           <RT />
-          <Header>
-            <SocialMedias />
-          </Header>
           {children}
           <Footer />
         </div>

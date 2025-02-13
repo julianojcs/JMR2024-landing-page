@@ -6,22 +6,20 @@ const Footer = () => {
   return (
     <footer className=''>
       <div className=''>
-        <div>
-          <p className={footer}>
-            <span>
-              &copy; {currentYear}{' '}
-              <a
-                className={join}
-                href='https://wa.me/5527981330708'
-                // href='https://www.joindigitalsolutions.com.br'
-                target='_blank'
-                rel='noreferrer'
-              >Join Digital Solutions
-              </a>{' - Todos os direitos reservados'}
-            </span>
-            <WhatsAppIcon />
-          </p>
-        </div>
+        <p className={footer}>
+          <span>
+            &copy; {currentYear}{' '}
+            <a
+              className={join}
+              href='https://wa.me/5527981330708'
+              // href='https://www.joindigitalsolutions.com.br'
+              target='_blank'
+              rel='noreferrer'
+            >Join Digital Solutions
+            </a>{' - Todos os direitos reservados'}
+          </span>
+          <WhatsAppIcon />
+        </p>
       </div>
     </footer>
   )

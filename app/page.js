@@ -5,13 +5,21 @@ import Events from './components/Events'
 import Comission from './components/Comission'
 import Sponsor from './components/Sponsor'
 import Tables from './components/Tables'
+import Header from './components/Header'
+import SocialMedias from './components/SocialMedias'
+import { MapIcon, CalendarIcon, calendarEvent } from './components/icons'
 
 export const metadata = {
-  title:
-    'X Jornada Mineira de Radiologia & I Jornada Mineira de POCUS ABRAMEDE/MG e SRMG | 01 e 02 de Novembro de 2024'
+  title: calendarEvent.title
 }
 
 const Home = () => {
+  const props = {
+    MapIcon,
+    CalendarIcon,
+    calendarEvent,
+    logoName: 'jmr2024.png'
+  }
   const callToAct = {
     button01: {
       // caption: 'Faça sua inscrição',
@@ -42,7 +50,14 @@ const Home = () => {
 
   return (
     <>
-      <Banner />
+      <Header
+        props={props}
+      >
+        <SocialMedias />
+      </Header>
+      <Banner
+        lstBannerText={['Emita o seu certificado', 'clicando em um dos botões abaixo.']}
+      />
       <Description/>
       <Promoters
         button={callToAct.button01}

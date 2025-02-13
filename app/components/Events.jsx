@@ -32,7 +32,6 @@ import intervencaoMamaria from '../../assets/images/cards/intervencao-mamaria.pn
 import intervencaoNaoVascular from '../../assets/images/cards/intervencao-nao-vascular.png'
 
 const Events = ({button}) => {
-  const { caption, link } = button;
   return (
     <section className={container}>
       <div>
