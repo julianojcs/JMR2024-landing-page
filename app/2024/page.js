@@ -7,7 +7,7 @@ import Sponsor from '../components/Sponsor'
 import Tables from '../components/Tables'
 import Header from '../components/Header'
 import SocialMedias from '../components/SocialMedias'
-import { MapIcon, CalendarIcon } from '../components/Icons'
+import { MapIcon, CalendarIcon } from '../components/icons'
 import { eventData } from '../data/constants'
 
 const metadata = {
