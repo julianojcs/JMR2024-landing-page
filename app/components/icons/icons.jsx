@@ -1,51 +1,21 @@
 import React from 'react'
-import styles from './icon.module.css'
+import styles from './icons.module.css'
+import { eventData } from '@/app/data/constants'
 
-// Codigo para incluir no calendário início do evento no dia 01 as 08:30 e fim no dia 02 as 18:00
-// const startDate = '20241101T083000-0300'; // Data de início no formato GMT -3
-// const endDate = '20241102T180000-0300'; // Data de término no formato GMT -3
-// const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${startDate}/${endDate}&details=${eventDetails}&location=${eventLocation}`;
+// SVG icon
+const CalendarIcon = ({ year, fill, width, height }) => {
+  const calendarEvent = eventData[year]
 
-// Codigo para incluir no calendário início do evento no dia 01 das 08:30 as 18:00, se repetindo no dia 02 das 08:30 as 18:00
-const calendarEvent = {
-  promoter:
-    'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e Associação Brasileira de Medicina de Emergência (Abramede) - MG',
-  shortPromoter: 'Associação Médica de Minas Gerais',
-  abbreviatedPromoter: 'SRMG e Abramede/MG',
-  title:
-    'X Jornada Mineira de Radiologia & I Jornada Mineira de POCUS ABRAMEDE/MG e SRMG | 01 e 02 de Novembro de 2024',
-  startDate: '20241101T083000-0300',
-  endDate: '20241102T180000-0300',
-  extendedDataPeriod: '01 e 02 de Novembro de 2024',
-  shortDataPeriod: '01 e 02/11/2024',
-  recurrenceRule: 'RRULE:FREQ=DAILY;COUNT=2',
-  location:
-    'Associação Médica de Minas Gerais - Av. João Pinheiro, 161 - Centro, Belo Horizonte - MG, 30130-183',
-  city: 'Belo Horizonte',
-  state: 'MG',
-  street: 'Av. João Pinheiro',
-  StreetNumber: '161',
-  neighborhood: 'Centro',
-  zipCode: '30130-183',
-  details:
-    'A X Jornada Mineira de Radiologia e Diagnóstico por Imagem (JMR) e a I Jornada de POCUS ABRAMEDE/MG e SRMG acontecerão nos dias 1º e 2 de novembro de 2024, na Associação Médica de Minas Gerais, em Belo Horizonte. O encontro vai reunir profissionais renomados, especialistas e estudantes para discutir as mais recentes inovações e técnicas em radiologia e ultrassonografia, com foco no aprimoramento de práticas clínicas ligadas ao abdômen,  radiologia musculoesquelética e intervenção guiada por imagem. Durante os dias de evento, os participantes terão a oportunidade de assistir a palestras, workshops e mesas-redondas, abordando temas relevantes e atuais que impactam diretamente o dia a dia dos profissionais da saúde. Além disso, a JMR 2024 será uma excelente oportunidade para networking, permitindo a troca de experiências entre colegas e o fortalecimento das conexões profissionais. O evento é promovido pela Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG) e pela Associação Brasileira de Medicina de Emergência (Abramede) - MG.'
-}
+  const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${
+    calendarEvent.title
+  }&dates=${calendarEvent.date.start}/${
+    calendarEvent.date.end
+  }&details=${encodeURIComponent(
+    calendarEvent.description
+  )}&location=${encodeURIComponent(calendarEvent.location.fullAddress)}&recur=${
+    calendarEvent.recurrenceRule
+  }`
 
-// const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${eventLocation}`
-const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-  calendarEvent.location
-)}`
-const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${
-  calendarEvent.title
-}&dates=${calendarEvent.startDate}/${
-  calendarEvent.endDate
-}&details=${encodeURIComponent(
-  calendarEvent.details
-)}&location=${encodeURIComponent(calendarEvent.location)}&recur=${
-  calendarEvent.recurrenceRule
-}`
-
-const CalendarIcon = ({ fill, width, height }) => {
   return (
     <a
       href={googleCalendarUrl}
@@ -72,7 +42,14 @@ const CalendarIcon = ({ fill, width, height }) => {
   )
 }
 
-const MapIcon = ({ fill, width, height }) => {
+// SVG icon
+const MapIcon = ({ year, fill, width, height }) => {
+  const calendarEvent = eventData[year]
+  // const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${eventLocation}`
+  const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    calendarEvent.location.fullAddress
+  )}`
+
   return (
     <a
       href={googleMapsUrl}
@@ -97,8 +74,5 @@ const MapIcon = ({ fill, width, height }) => {
 
 export {
   CalendarIcon,
-  MapIcon,
-  calendarEvent,
-  googleCalendarUrl,
-  googleMapsUrl
+  MapIcon
 }

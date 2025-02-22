@@ -1,46 +1,42 @@
-import classnames from 'classnames'
-import Image from 'next/image'
-import abramedeLogo from '/public/logo/abramed-mg.png'
-import srmgLogo from '/public/logo/srmg.png'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import CallToAct from './CallToAct'
 import {
-  abramede,
-  srmg,
   promoters,
   container,
   containerPromoters
 } from './Promoters.module.css'
+import { eventData } from '../data/constants'
 
-const Promoters = ({ button }) => (
-  <section className={container}>
-    {button &&
-      <div style={{padding: '1.5rem'}}>
-        <CallToAct  {...button} />
-      </div>}
-    <div className={containerPromoters}>
-      <Link href='https://srmg.org.br/' target='_blank'>
-        <Image
-          className={classnames(srmg, promoters)}
-          src={srmgLogo}
-          alt='srmg Logo'
-          width={280}
-          height={80}
-          // width={'30.75svh'}
-          // height={'8.78svh'}
-        />
-      </Link>
-      <Link href='https://www.abramedemg.org.br/' target='_blank'>
-        <Image
-          className={classnames(abramede, promoters)}
-          src={abramedeLogo}
-          alt='Abramede MG Logo'
-          // width={200}
-          // height={80}
-        />
-      </Link>
-    </div>
-  </section>
-)
+// Importando o componente DynamicImage dinamicamente
+const DynamicImage = dynamic(() => import('./DynamicImage'))
+
+const Promoters = ({ button, year }) => {
+  const data = eventData[year];
+
+  return (
+    <section className={container}>
+      {button &&
+        <div style={{padding: '1.5rem'}}>
+          <CallToAct {...button} />
+        </div>}
+      <div className={containerPromoters}>
+        {
+          data.promoters.map((promoter, index) => (
+            <Link key={index} href={promoter.link} target='_blank'>
+              <DynamicImage
+                className={promoters}
+                src={promoter.src}
+                alt={promoter.alt}
+                width={200}
+                height={80}
+              />
+            </Link>
+          ))
+        }
+      </div>
+    </section>
+  )
+}
 
 export default Promoters

@@ -7,7 +7,8 @@ import Sponsor from '../components/Sponsor'
 import Tables from '../components/Tables'
 import Header from '../components/Header'
 import SocialMedias from '../components/SocialMedias'
-import { MapIcon, CalendarIcon, calendarEvent } from '../components/icons'
+import { MapIcon, CalendarIcon } from '../components/Icons'
+import { eventData } from '../data/constants'
 
 const metadata = {
   title:
@@ -43,39 +44,14 @@ export async function generateMetadata() {
 }
 
 const Home = () => {
+  const data = eventData[2024]
   const props = {
+    year: 2024,
     MapIcon,
     CalendarIcon,
-    calendarEvent,
     logoName: 'jmr2024.png'
   }
-  const callToAct = {
-    button01: {
-      // caption: 'Faça sua inscrição',
-      caption: 'Emita o seu certificado',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    },
-    button02: {
-      //caption: 'Se inscreva agora na Jornada',
-      caption: 'Emita o seu certificado',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    },
-    button03: {
-      // caption: 'Se inscreva Hands On',
-      caption: 'Emita o seu certificado',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    },
-    button04: {
-      // caption: 'Se inscreva na Jornada',
-      caption: 'Emita o seu certificado',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    },
-    button05: {
-      // caption: 'Se inscreva no Curso de IA',
-      caption: 'Emita o seu certificado',
-      link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-    }
-  }
+  const callToAct = data.callToAct
 
   return (
     <>
@@ -87,9 +63,10 @@ const Home = () => {
       <Banner
         lstBannerText={['Emita o seu certificado', 'clicando em um dos botões abaixo.']}
       />
-      <Description />
+      <Description description={data.description}/>
       <Promoters
         button={callToAct.button01}
+        year={2024}
       />
       <Events
         button={callToAct.button02}

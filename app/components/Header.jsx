@@ -2,8 +2,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import styles from './Header.module.css'
-import SocialMedias from './SocialMedias'
 import { loadImagesFromFolders } from '../util/functions'
+import { eventData } from '../data/constants'
 
 // Importando o componente DynamicImage dinamicamente
 const DynamicImage = dynamic(() => import('./DynamicImage'))
@@ -22,7 +22,9 @@ const Header = ({ children, props }) => {
     address
   } = styles
 
-  const { logoName, MapIcon, CalendarIcon, calendarEvent } = props
+  const { year, MapIcon, CalendarIcon } = props
+  const logoName = `jmr${year}.png`
+  const data = eventData[year]
 
   // Carregar imagens do diretório 'public'
   const images = loadImagesFromFolders('public/logo_jornada')
@@ -33,15 +35,15 @@ const Header = ({ children, props }) => {
       acc = img.imagePath;
     }
     return acc;
-  }, '/logo_jornada/jmr2024.png'); // Caminho para uma imagem padrão caso a imagem não exista
+  }, '/logo_jornada/jmr2025.png'); // Caminho para uma imagem padrão caso a imagem não exista
 
   return (
     <section className={container}>
-      {children && <SocialMedias />}
+      {children}
       <DynamicImage
         src={logoSrc}
         priority
-        alt={calendarEvent.title}
+        alt={data.title}
         className={image}
         width={500} // Adicione a largura da imagem
         height={500} // Adicione a altura da imagem
@@ -49,22 +51,30 @@ const Header = ({ children, props }) => {
       <div className={direita}>
         <div className={gap1}>
           <div className={date}>
-            <CalendarIcon className={icon} fill={'var(--danger-clr)'} />
+            <CalendarIcon
+              year={year}
+              className={icon}
+              fill={'var(--danger-clr)'}
+            />
             <p>
-              <span className={toHide}>{calendarEvent.extendedDataPeriod}</span>
+              <span className={toHide}>{data.date.extendedDatePeriod}</span>
             </p>
             <p>
-              <span className={toShow}>{calendarEvent.shortDataPeriod}</span>
+              <span className={toShow}>{data.date.shortDatePeriod}</span>
             </p>
           </div>
           <div className={address}>
-            <MapIcon className={icon} fill={'var(--danger-clr)'} />
+            <MapIcon
+              year={year}
+              className={icon}
+              fill={'var(--danger-clr)'}
+            />
             <div>
               <p>
-                <span className={toHide}>{calendarEvent.shortPromoter}</span>
+                <span className={toHide}>{data.location.name}</span>
               </p>
-              <p>{`${calendarEvent.street} ${calendarEvent.StreetNumber}, ${calendarEvent.neighborhood}`}</p>
-              <p>{`${calendarEvent.city}/${calendarEvent.state}`}</p>
+              <p>{`${data.location.street} ${data.location.StreetNumber}, ${data.location.neighborhood}`}</p>
+              <p>{`${data.location.city}/${data.location.state}`}</p>
             </div>
           </div>
         </div>

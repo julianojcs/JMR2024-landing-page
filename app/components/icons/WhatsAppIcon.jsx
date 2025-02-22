@@ -1,4 +1,4 @@
-import { whatsapp } from './icon.module.css'
+import { whatsapp } from './icons.module.css'
 
 const WhatsAppIcon = ({ width = '1.17rem', height = '1.17rem' }) => {
   return (

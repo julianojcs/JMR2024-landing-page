@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@constants/*": ["./data/constants/*"],
+      "@components/*": ["./app/components/*"],
     }
-  }
+  },
+  "include": ["app/**/*", "data/**/*"]
 }

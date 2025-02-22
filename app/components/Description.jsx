@@ -7,9 +7,9 @@ import {
   collapsed,
   buttonCollapse,
 } from './Description.module.css'
-import { calendarEvent, ArrowDownIcon } from './icons'
+import { ArrowDownIcon } from './Icons'
 
-const Description = () => {
+const Description = ( {description} ) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleExpand = () => {
@@ -21,7 +21,7 @@ const Description = () => {
       <div
         className={classnames(`${collapsible} ${isExpanded ? collapsed : ''}`)}
       >
-        <p>{calendarEvent.details}</p>
+        <p>{description}</p>
       </div>
       <button
         className={classnames(

@@ -1,14 +1,14 @@
 import classnames from 'classnames'
 import { container, socialContainer } from './SocialMedias.module.css'
 
-const SocialMedias = () => {
+const SocialMedias = ({ url }) => {
   return (
     <section className={classnames(container)}>
       <div className={classnames(socialContainer)}>
         <a
           datasocial='Instagram'
           style={{ '--social-clr': 'var(--instagram-clr)' }}
-          href='https://www.instagram.com/sociedaderadiologiamg/'
+          href={url}
           target='_blank'
         >
           <svg

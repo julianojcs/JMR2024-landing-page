@@ -1,4 +1,4 @@
-import { rotate } from './icon.module.css'
+import { rotate } from './icons.module.css'
 import classnames from 'classnames'
 
 function ArrowDownIcon({ fill, width, height, toggle }) {

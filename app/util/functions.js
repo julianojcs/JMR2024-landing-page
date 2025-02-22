@@ -1,6 +1,16 @@
 import { existsSync, lstatSync, readdirSync } from 'fs'
 import { join, extname } from 'path'
 
+export async function GET(request) {
+  try {
+    const folderPath = join(process.cwd(), 'public/logo_jornada');
+    const result = loadImagesFromFolders(folderPath);
+    return Response.json(result);
+  } catch (error) {
+    return Response.json({ error: error.message }, { status: 500 });
+  }
+}
+
 export function verifyDate(ddmmaaaa) {
   // Extrair o dia, mês e ano da string DDMMAAAA
   const dia = parseInt(ddmmaaaa.slice(0, 2), 10)
