@@ -7,7 +7,7 @@ import {
   collapsed,
   buttonCollapse,
 } from './Description.module.css'
-import { ArrowDownIcon } from './Icons'
+import { ArrowDownIcon } from './Icons/ArrowDownIcon'
 
 const Description = ( {description} ) => {
   const [isExpanded, setIsExpanded] = useState(false)
