@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import SocialMedias from '../components/SocialMedias'
 import Description from '../components/Description'
 import Promoters from '../components/Promoters'
-import { MapIcon, CalendarIcon } from '../components/Icons/icons'
+import { MapIcon, CalendarIcon } from '../components/Icons'
 import { eventData } from '../data/constants'
 
 export async function getServerSideProps(context) {

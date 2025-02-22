@@ -1,5 +1,5 @@
 import { footer, join } from './Footer.module.css'
-import { WhatsAppIcon } from './Icons/WhatsAppIcon'
+import { WhatsAppIcon } from './Icons'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
