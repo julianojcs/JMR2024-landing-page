@@ -15,6 +15,26 @@ export default function StateSelect({ value, onChange, states }) {
     setSelectedState(state)
     onChange({ target: { name: 'state', value: state.value } })
     setIsOpen(false)
+    selectRef.current?.focus()
+  }
+
+  const handleKeyDown = (e) => {
+    switch (e.key) {
+      case 'Enter':
+      case ' ':
+        e.preventDefault()
+        setIsOpen(!isOpen)
+        break
+      case 'Escape':
+        setIsOpen(false)
+        break
+      case 'Tab':
+        if (isOpen) {
+          e.preventDefault()
+          setIsOpen(false)
+        }
+        break
+    }
   }
 
   // Update the display value when the parent's value changes
@@ -62,13 +82,16 @@ export default function StateSelect({ value, onChange, states }) {
   }, [isOpen])
 
   return (
-    <div className={styles.selectContainer} ref={selectRef}>
+    <div className={styles.selectContainer} ref={selectRef} id="state" aria-labelledby="state-label">
       <div
+        tabIndex={0}
         className={styles.select}
         onClick={() => setIsOpen(!isOpen)}
+        onKeyDown={handleKeyDown}
         role="combobox"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        aria-controls="state-listbox"
       >
         {value ? (
           <>
@@ -88,9 +111,11 @@ export default function StateSelect({ value, onChange, states }) {
 
       {isOpen && (
         <div
+          id="state-listbox"
           className={styles.optionsContainer}
           ref={optionsRef}
           role="listbox"
+          aria-labelledby="state-label"
           style={{
             top: position.top,
             left: position.left,
@@ -100,6 +125,7 @@ export default function StateSelect({ value, onChange, states }) {
           {states.map(state => (
             <div
               key={state.value}
+              tabIndex={-1}
               className={`${styles.option} ${selectedState?.value === state.value ? styles.selected : ''}`}
               onClick={() => handleStateSelect(state)}
               role="option"

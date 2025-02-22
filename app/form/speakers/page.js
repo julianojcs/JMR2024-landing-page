@@ -320,7 +320,7 @@ const SpeakersForm = () => {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="state">Estado</label>
+          <label htmlFor="state" id="state-label">Estado</label>
           <StateSelect
             value={states.find(s => s.value === formData.state)}
             onChange={handleInputChange}
