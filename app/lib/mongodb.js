@@ -4,9 +4,16 @@ import mongoose from 'mongoose';
 async function connectToDatabase() {
   try {
     if (!mongoose.connections[0].readyState) {
-      await mongoose.connect(process.env.MONGODB_URI, {
-        dbName: process.env.MONGODB_DB || 'jornada'
-      });
+
+      const connectOptions = {
+        dbName: process.env.MONGODB_DB || 'jornada',
+        connectTimeoutMS: 10000,
+        serverSelectionTimeoutMS: 10000,
+        heartbeatFrequencyMS: 2000,
+        retryWrites: true,
+      };
+
+      await mongoose.connect(process.env.MONGODB_URI, connectOptions);
       console.log('MongoDB connected successfully');
     }
     // Return the mongoose connection
