@@ -3,11 +3,10 @@ import mongoose from 'mongoose';
 
 export async function GET() {
   const diagnostics = {
-    mongoUrl: process.env.MONGODB_URI ? 'Configurado' : 'Não configurado',
-    dbName: process.env.MONGODB_DB || 'jornada',
+    mongoUrl: `${process.env.MONGODB_URI}` ? 'Configurado' : 'Não configurado',
+    dbName: `${process.env.MONGODB_DB}` || 'jornada',
     connectionState: 'Não iniciada',
     connectionTime: null,
-    databaseName: null,
     host: null,
     error: null,
     mongooseVersion: mongoose.version,
@@ -17,7 +16,7 @@ export async function GET() {
   try {
     // Adiciona timeout explícito
     const connectOptions = {
-      dbName: process.env.MONGODB_DB || 'jornada',
+      dbName: `${process.env.MONGODB_DB}teste` || 'jornada',
       connectTimeoutMS: 10000, // 10 segundos
       serverSelectionTimeoutMS: 10000,
     };
@@ -30,7 +29,7 @@ export async function GET() {
 
     diagnostics.connectionTime = `${Date.now() - startTime}ms`;
     diagnostics.connectionState = mongoose.connection.readyState === 1 ? 'Conectado' : 'Não conectado';
-    diagnostics.databaseName = mongoose.connection.name;
+    diagnostics.dbName = mongoose.connection.name;
     diagnostics.host = mongoose.connection.host;
 
     return NextResponse.json({
