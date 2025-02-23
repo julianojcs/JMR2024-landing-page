@@ -80,6 +80,10 @@ export const eventData =
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
       rota: '/form/speakers',
+      list: {
+        title: 'Lista de palestrantes',
+        rota: '/speakers',
+      }
     },
   },
   2024: {
@@ -156,6 +160,10 @@ export const eventData =
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2024',
       rota: '/form/speakers',
+      list: {
+        title: 'Lista de palestrantes',
+        rota: '/speakers',
+      },
     },
   },
   2025: {
@@ -232,6 +240,10 @@ export const eventData =
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
       rota: '/form/speakers',
+      list: {
+        title: 'Lista de palestrantes 2025',
+        rota: '/speakers',
+      },
     },
   },
   2026: {
@@ -308,6 +320,10 @@ export const eventData =
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2026',
       rota: '/form/speakers',
+      list: {
+        title: 'Lista de palestrantes',
+        rota: '/speakers',
+      },
     },
   },
 }

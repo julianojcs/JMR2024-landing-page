@@ -38,6 +38,11 @@ const speakerSchema = new Schema({
   },
   lectureName: String,
   photoPath: String,
+  year: {
+    type: Number,
+    default: () => new Date().getFullYear(),
+    required: [true, 'Ano é obrigatório']
+  },
   createdAt: { type: Date, default: Date.now }
 },
 {
