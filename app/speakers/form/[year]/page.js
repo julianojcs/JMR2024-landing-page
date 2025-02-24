@@ -7,6 +7,37 @@ import { validateCPF, formatPhone } from '@/utils';
 import { states } from '../../../data/states';
 import StateSelect from '../../../components/StateSelect'
 
+const metadata = {
+  title:
+    'Formulário de inscrição de palestrantes / convidados da XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
+  description:
+    'JMR 2025 acontecerá nos dias 27 e 28 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+  openGraph: {
+    title: 'JMR 2025 - Formulário de inscrição de palestrantes / convidados',
+    description: 'XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher.',
+    type: 'website',
+    url: 'https://jornada.srmg.org.br/speakers/form/2025',
+    images: [
+      {
+        url: 'https://jornada.srmg.com.br/jmr2025.png',
+        width: 1200,
+        height: 630,
+        alt: 'JMR 2025 - Formulário de inscrição'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JMR 2025 - Formulário de inscrição',
+    description: 'Formulário de inscrição de palestrantes / convidados da XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
+    image: 'https://jornada.srmg.com.br/jmr2025.png'
+  }
+}
+
+export async function generateMetadata() {
+  return metadata
+}
+
 const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
 
 const SpeakersForm = ({ params }) => {
