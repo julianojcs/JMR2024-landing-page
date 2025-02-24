@@ -35,7 +35,7 @@
   background-color: #f0f4f8;
   color: #2d3748;
   font-weight: 600;
-  padding: 1rem;
+  padding: .5rem .25rem;
   text-align: left;
   border-bottom: 2px solid #e2e8f0;
 }
@@ -91,6 +91,29 @@
   font-size: 1.1rem;
   padding: 0.5rem;
   border-bottom: 1px solid #eaeaea;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.toggleButton:focus {
+  outline: 2px solid #0070f3;
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {

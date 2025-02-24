@@ -43,6 +43,16 @@ export default function SpeakersList({ params }) {
     setExpandedRows(newExpandedRows)
   }
 
+  const toggleAllRows = () => {
+    if (expandedRows.size === speakers.length) {
+      // If all rows are expanded, collapse all
+      setExpandedRows(new Set())
+    } else {
+      // Otherwise, expand all rows
+      setExpandedRows(new Set(speakers.map(speaker => speaker.id)))
+    }
+  }
+
   useEffect(() => {
     const fetchSpeakers = async () => {
       try {
@@ -75,7 +85,23 @@ export default function SpeakersList({ params }) {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th></th>
+            <th>
+                <button
+                  onClick={toggleAllRows}
+                  className={styles.toggleButton}
+                  aria-label={expandedRows.size === speakers.length ? "Recolher todos" : "Expandir todos"}
+                >
+                  {expandedRows.size === speakers.length ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M4 11h16v2H4zm2-5h12v2H6zm0 10h12v2H6z" fill="currentColor"/>
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" fill="currentColor"/>
+                    </svg>
+                  )}
+                </button>
+              </th>
               <th>Foto</th>
               <th>Nome</th>
               <th>Crachá</th>
