@@ -2,12 +2,12 @@ import Image from 'next/image'
 import classnames from 'classnames'
 import { card, avatar } from './AvatarCard.module.css'
 
-const Avatar = ({ photo, fullName, height, width }) => {
+const Avatar = ({ photo, full_name, height, width }) => {
   return (
     <Image
       className={classnames(avatar)}
       src={photo}
-      alt={fullName}
+      alt={full_name}
       width={width}
       height={height}
       // style={{ objectFit: 'fill' }}
@@ -16,19 +16,19 @@ const Avatar = ({ photo, fullName, height, width }) => {
   )
 }
 
-const AvatarCard = ({ fullName, photo, height, width, link }) => {
+const AvatarCard = ({ full_name, photo, height, width, link }) => {
   return (
     <div className={classnames(card)}>
       <div>
         <Avatar
           photo={photo}
-          fullName={fullName}
+          full_name={full_name}
           width={width}
           height={height}
         />
       </div>
       <div>
-        <p>{fullName}</p>
+        <p>{full_name}</p>
       </div>
     </div>
   )

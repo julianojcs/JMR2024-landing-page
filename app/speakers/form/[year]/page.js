@@ -17,18 +17,18 @@ const SpeakersForm = ({ params }) => {
   const logoSrc = `/logo_jornada/jmr${2025}_roxo.png`;
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    badgeName: '',
+    full_name: '',
+    badge_name: '',
     email: '',
     phone: '',
     cpf: '',
     city: '',
     state: '',
     category: 'Palestrante',
-    otherCategory: '',
+    other_category: '',
     curriculum: '',
-    lectureName: '',
-    photo: null
+    lecture_name: '',
+    photo_path: null
   });
 
   const handleInputChange = (e) => {
@@ -44,8 +44,8 @@ const SpeakersForm = ({ params }) => {
       setFormData(prev => ({
         ...prev,
         [name]: value,
-        // Clear otherCategory if switching to a different category
-        otherCategory: value === 'other' ? prev.otherCategory : ''
+        // Clear other_category if switching to a different category
+        other_category: value === 'other' ? prev.other_category : ''
       }));
     } else {
       setFormData(prev => ({
@@ -85,8 +85,8 @@ const SpeakersForm = ({ params }) => {
       newErrors.cpf = 'CPF inválido';
     }
 
-    if (!formData.photo) {
-      newErrors.photo = 'A foto é obrigatória';
+    if (!formData.photo_path) {
+      newErrors.photo_path = 'A foto é obrigatória';
     }
 
     setErrors(newErrors);
@@ -106,14 +106,14 @@ const SpeakersForm = ({ params }) => {
 
       setFormData(prev => ({
         ...prev,
-        photo: newFile
+        photo_path: newFile
       }));
 
       // Limpar erro da foto se existir
       if (errors.photo) {
         setErrors(prev => ({
           ...prev,
-          photo: null
+          photo_path: null
         }));
       }
     }
@@ -130,9 +130,9 @@ const SpeakersForm = ({ params }) => {
       hasErrors = true;
     }
 
-    // Validate otherCategory when 'other' is selected
-    if (formData.category === 'other' && !formData.otherCategory?.trim()) {
-      newErrors.otherCategory = 'Por favor, especifique a categoria';
+    // Validate other_category when 'other' is selected
+    if (formData.category === 'other' && !formData.other_category?.trim()) {
+      newErrors.other_category = 'Por favor, especifique a categoria';
       hasErrors = true;
     }
 
@@ -147,7 +147,7 @@ const SpeakersForm = ({ params }) => {
 
     const formDataToSend = new FormData();
     Object.keys(formData).forEach(key => {
-      if (key === 'photo') {
+      if (key === 'photo_path') {
         if (formData[key]) {
           formDataToSend.append(key, formData[key]);
         }
@@ -164,7 +164,7 @@ const SpeakersForm = ({ params }) => {
 
       if (response.ok) {
         alert('Dados enviados com sucesso!');
-        // Limpar formulário ou redirecionar
+        clearForm(); // Clear form on successful submission
       } else {
         throw new Error('Erro ao enviar dados');
       }
@@ -177,9 +177,9 @@ const SpeakersForm = ({ params }) => {
     setPhotoPreview(null);
     setFormData(prev => ({
       ...prev,
-      photo: null
+      photo_path: null
     }));
-    const photoInput = document.getElementById('photo');
+    const photoInput = document.getElementById('photo_path');
     if (photoInput) {
       photoInput.value = '';
     }
@@ -187,22 +187,22 @@ const SpeakersForm = ({ params }) => {
 
   const clearForm = () => {
     setFormData({
-      fullName: '',
-      badgeName: '',
+      full_name: '',
+      badge_name: '',
       email: '',
       phone: '',
       cpf: '',
       city: '',
       state: '',
       category: 'Palestrante',
-      otherCategory: '',
+      other_category: '',
       curriculum: '',
-      lectureName: '',
-      photo: null
+      lecture_name: '',
+      photo_path: null
     });
     setPhotoPreview(null);
     setErrors({});
-    const photoInput = document.getElementById('photo');
+    const photoInput = document.getElementById('photo_path');
     if (photoInput) {
       photoInput.value = '';
     }
@@ -235,29 +235,29 @@ const SpeakersForm = ({ params }) => {
 
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
-          <label htmlFor="fullName">Nome completo<span className={styles.required}>*</span></label>
+          <label htmlFor="full_name">Nome completo<span className={styles.required}>*</span></label>
           <input
             type="text"
-            id="fullName"
-            name="fullName"
+            id="full_name"
+            name="full_name"
             maxLength={150}
             required
-            value={formData.fullName}
+            value={formData.full_name}
             onChange={handleInputChange}
             className={styles.formControl}
           />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="badgeName">Nome para crachá (até 25 caracteres)
+          <label htmlFor="badge_name">Nome para crachá (até 25 caracteres)
           <span className={styles.required}>*</span></label>
           <input
             type="text"
-            id="badgeName"
-            name="badgeName"
+            id="badge_name"
+            name="badge_name"
             maxLength={25}
             required
-            value={formData.badgeName}
+            value={formData.badge_name}
             onChange={handleInputChange}
             className={styles.formControl}
           />
@@ -375,8 +375,8 @@ const SpeakersForm = ({ params }) => {
             {formData.category === 'other' && (
               <input
                 type="text"
-                name="otherCategory"
-                value={formData.otherCategory}
+                name="other_category"
+                value={formData.other_category}
                 onChange={handleInputChange}
                 className={styles.formControl}
                 placeholder="Especifique"
@@ -400,29 +400,29 @@ const SpeakersForm = ({ params }) => {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="lectureName">Nome da palestra (para emissão do certificado)</label>
+          <label htmlFor="lecture_name">Nome da palestra (para emissão do certificado)</label>
           <input
             type="text"
-            id="lectureName"
-            name="lectureName"
-            value={formData.lectureName}
+            id="lecture_Name"
+            name="lecture_name"
+            value={formData.lecture_name}
             onChange={handleInputChange}
             className={styles.formControl}
           />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="photo">Foto  (JPEG ou PNG) - meio corpo, com fundo neutro para ser usada no site e divulgações do evento<span className={styles.required}>*</span></label>
+          <label htmlFor="photo_path">Foto  (JPEG ou PNG) - meio corpo, com fundo neutro para ser usada no site e divulgações do evento<span className={styles.required}>*</span></label>
           <input
             type="file"
-            id="photo"
-            name="photo"
+            id="photo_path"
+            name="photo_path"
             accept="image/*"
             required
             onChange={handlePhotoChange}
             className={styles.formControl}
           />
-          {errors.photo && <span className={styles.errorMessage}>{errors.photo}</span>}
+          {errors.photo_path && <span className={styles.errorMessage}>{errors.photo_path}</span>}
 
           {photoPreview && (
             <div className={styles.photoPreviewContainer}>

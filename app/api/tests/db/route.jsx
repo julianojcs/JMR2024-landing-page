@@ -1,59 +1,69 @@
-import { NextResponse } from 'next/server';
-import mongoose from 'mongoose';
+import { NextResponse } from 'next/server'
+import prisma from '@/lib/prisma'
 
 export async function GET() {
   const diagnostics = {
-    mongoUrl: `${process.env.MONGODB_URI}` ? 'Configurado' : 'Não configurado',
-    dbName: `${process.env.MONGODB_DB}` || 'jornada',
+    environment: process.env.NODE_ENV,
+    dbUrl: process.env.POSTGRES_PRISMA_URL ? 'Configurado' : 'Não configurado',
     connectionState: 'Não iniciada',
     connectionTime: null,
-    host: null,
+    databaseInfo: null,
     error: null,
-    mongooseVersion: mongoose.version,
-    nodeVersion: process.version,
-  };
+    timestamp: new Date().toISOString()
+  }
 
   try {
-    // Adiciona timeout explícito
-    const connectOptions = {
-      dbName: `${process.env.MONGODB_DB}teste` || 'jornada',
-      connectTimeoutMS: 10000, // 10 segundos
-      serverSelectionTimeoutMS: 10000,
-    };
+    diagnostics.connectionState = 'Conectando...'
+    const startTime = Date.now()
 
-    // Tenta conectar com timeout
-    diagnostics.connectionState = 'Conectando...';
-    const startTime = Date.now();
+    // Simple query to test connection
+    const result = await prisma.$queryRaw`SELECT current_timestamp`
 
-    await mongoose.connect(process.env.MONGODB_URI, connectOptions);
+    diagnostics.connectionState = 'Conectado'
+    diagnostics.connectionTime = `${Date.now() - startTime}ms`
+    diagnostics.databaseInfo = {
+      timestamp: result[0].current_timestamp,
+      prismaVersion: prisma._engineConfig?.version || 'unknown'
+    }
 
-    diagnostics.connectionTime = `${Date.now() - startTime}ms`;
-    diagnostics.connectionState = mongoose.connection.readyState === 1 ? 'Conectado' : 'Não conectado';
-    diagnostics.dbName = mongoose.connection.name;
-    diagnostics.host = mongoose.connection.host;
+    // Only try to count speakers if connection is successful
+    try {
+      const speakersCount = await prisma.speaker.count()
+      diagnostics.databaseInfo.speakersCount = speakersCount
+    } catch (e) {
+      diagnostics.databaseInfo.speakersCount = 'Tabela não encontrada'
+    }
 
     return NextResponse.json({
       success: true,
-      diagnostics,
-    }, { status: 200 });
+      diagnostics
+    }, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
 
   } catch (error) {
-    diagnostics.connectionState = 'Falha';
+    console.error('Database connection test failed:', error)
+
+    diagnostics.connectionState = 'Falha'
     diagnostics.error = {
       name: error.name,
       message: error.message,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
       code: error.code,
-    };
+      meta: error.meta,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    }
 
     return NextResponse.json({
       success: false,
-      diagnostics,
-    }, { status: 500 });
-  } finally {
-    // Fecha a conexão se estiver aberta
-    if (mongoose.connection.readyState === 1) {
-      await mongoose.disconnect();
-    }
+      diagnostics
+    }, {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   }
 }

@@ -15,6 +15,10 @@
 
 # production
 /build
+/public/uploads/*
+!public/uploads/.gitkeep
+!/prisma/migrations/
+!/prisma/schema.prisma
 
 # misc
 .DS_Store

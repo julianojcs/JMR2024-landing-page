@@ -1,43 +1,36 @@
-import { connectToDatabase } from '@/lib/mongodb'
-import Speaker from '@/models/Speaker'
+import { NextResponse } from 'next/server';
+import { connectToDatabase } from '../../../../lib/database';
 
-export const GET = async (request, { params }) => {
+export async function GET(request, { params }) {
   try {
-    const { year } = params
-    await connectToDatabase()
+    const { year } = params;
+    const pool = await connectToDatabase();
 
-    // Use mongoose aggregation
-    const speakers = await Speaker.aggregate([
-      {
-        $match: { year: Number(year) }
-      },
-      {
-        $sort: { updatedAt: -1 }
-      },
-      {
-        $group: {
-          _id: "$cpf",
-          doc: { $first: "$$ROOT" }
-        }
-      },
-      {
-        $replaceRoot: { newRoot: "$doc" }
-      },
-      {
-        $sort: { fullName: 1 }
-      }
-    ]);
+    const query = `
+      SELECT DISTINCT ON (cpf) *
+      FROM speakers
+      WHERE EXTRACT(YEAR FROM created_at) = $1
+      ORDER BY cpf, updated_at DESC, full_name ASC
+    `;
 
-    return new Response(JSON.stringify(speakers), {
+    const { rows: speakers } = await pool.query(query, [year]);
+
+    // Sort speakers array by full_name
+    const sortedSpeakers = speakers.sort((a, b) =>
+      a.full_name.localeCompare(b.full_name, 'pt-BR')
+    );
+
+    return NextResponse.json(sortedSpeakers, {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
       },
-    })
+    });
   } catch (error) {
     console.error('API Error:', error);
-    return new Response(JSON.stringify({ message: error.message }), {
-      status: 500
-    })
+    return NextResponse.json(
+      { message: error.message },
+      { status: 500 }
+    );
   }
 }

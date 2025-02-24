@@ -5,6 +5,12 @@ import { eventData } from '@/app/data/constants'
 import styles from './SpeakersList.module.css'
 import Image from 'next/image'
 
+
+export const formatCPF = (cpf) => {
+  if (!cpf) return '';
+  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+};
+
 export default function SpeakersList({ params }) {
   const [speakers, setSpeakers] = useState([])
   const [loading, setLoading] = useState(true)
@@ -48,6 +54,9 @@ export default function SpeakersList({ params }) {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{pageTitle}</h1>
+      <div className={styles.totalSpeakers}>
+        Total de palestrantes: {speakers.length}
+      </div>
 
       <div className={styles.tableWrapper}>
         <table className={styles.table}>
@@ -57,6 +66,7 @@ export default function SpeakersList({ params }) {
               <th>Foto</th>
               <th>Nome</th>
               <th>Crachá</th>
+              <th>CPF</th>
               <th>Email</th>
               <th>Telefone</th>
               <th>Categoria</th>
@@ -66,14 +76,14 @@ export default function SpeakersList({ params }) {
           <tbody>
             {speakers.map((speaker) => (
               <>
-                <tr key={speaker._id}>
+                <tr key={speaker.id}>
                   <td>
                     <button
-                      onClick={() => toggleRow(speaker._id)}
+                      onClick={() => toggleRow(speaker.id)}
                       className={styles.toggleButton}
-                      aria-label={expandedRows.has(speaker._id) ? "Fechar detalhes" : "Abrir detalhes"}
+                      aria-label={expandedRows.has(speaker.id) ? "Fechar detalhes" : "Abrir detalhes"}
                     >
-                      {expandedRows.has(speaker._id) ? (
+                      {expandedRows.has(speaker.id) ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                           <path d="M19 13H5v-2h14v2z" fill="currentColor"/>
                         </svg>
@@ -87,28 +97,29 @@ export default function SpeakersList({ params }) {
                   <td>
                     <div className={styles.photoContainer}>
                       <Image
-                        src={speaker.photoPath}
-                        alt={`Foto de ${speaker.fullName}`}
+                        src={speaker.photo_path}
+                        alt={`Foto de ${speaker.full_name}`}
                         width={50}
                         height={50}
                         className={styles.photo}
                       />
                     </div>
                   </td>
-                  <td>{speaker.fullName}</td>
-                  <td>{speaker.badgeName}</td>
+                  <td>{speaker.full_name}</td>
+                  <td>{speaker.badge_name}</td>
+                  <td>{formatCPF(speaker.cpf)}</td>
                   <td>{speaker.email}</td>
                   <td>{speaker.phone}</td>
                   <td>{speaker.category}</td>
                   <td>{`${speaker.city}/${speaker.state}`}</td>
                 </tr>
-                {expandedRows.has(speaker._id) && (
+                {expandedRows.has(speaker.id) && (
                   <tr className={styles.expandedRow}>
                     <td colSpan={8}>
                       <div className={styles.expandedContent}>
-                        <div className={styles.lectureName}>
+                        <div className={styles.lecture_name}>
                           <strong>Nome da Palestra:</strong>
-                          <p>{speaker.lectureName || 'Não informado'}</p>
+                          <p>{speaker.lecture_name || 'Não informado'}</p>
                         </div>
                         <div className={styles.curriculum}>
                           <strong>Mini Currículo:</strong>

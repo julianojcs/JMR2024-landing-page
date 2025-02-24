@@ -51,7 +51,7 @@ const Comission = () => {
               return (
                 <AvatarCard
                   key={avatar.fileName}
-                  fullName={avatar.name}
+                  full_name={avatar.name}
                   photo={avatar.imagePath}
                   width={150}
                   height={150}
@@ -78,7 +78,7 @@ const Comission = () => {
               return (
                 <AvatarCard
                   key={avatar.fileName}
-                  fullName={avatar.name}
+                  full_name={avatar.name}
                   photo={avatar.imagePath}
                   width={150}
                   height={150}

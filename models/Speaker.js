@@ -1,12 +1,12 @@
 import { Schema, model, models } from 'mongoose';
 
 const speakerSchema = new Schema({
-  fullName: {
+  full_name: {
     type: String,
     required: [true, 'Nome completo é obrigatório'],
     maxLength: [150, 'Nome não pode ter mais que 150 caracteres']
   },
-  badgeName: {
+  badge_name: {
     type: String,
     required: [true, 'Nome do crachá é obrigatório'],
     maxLength: [25, 'Nome do crachá não pode ter mais que 25 caracteres']
@@ -36,14 +36,14 @@ const speakerSchema = new Schema({
     required: [true, 'Mini currículo é obrigatório'],
     maxLength: [500, 'Mini currículo não pode ter mais que 500 caracteres']
   },
-  lectureName: String,
-  photoPath: String,
+  lecture_name: String,
+  photo_path: String,
   year: {
     type: Number,
     default: () => new Date().getFullYear(),
     required: [true, 'Ano é obrigatório']
   },
-  createdAt: { type: Date, default: Date.now }
+  created_at: { type: Date, default: Date.now }
 },
 {
   timestamps: true

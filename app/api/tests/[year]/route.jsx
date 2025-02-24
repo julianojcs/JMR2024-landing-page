@@ -1,4 +1,4 @@
-import { connectToDatabase } from '@/lib/mongodb'
+import { connectToDatabase } from '@/app/lib/database'
 import Speaker from '@/models/Speaker'
 
 export const GET = async (request, { params }) => {
