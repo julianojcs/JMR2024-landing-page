@@ -79,6 +79,7 @@ export const eventData =
     },
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
+      description: 'JMR 2025 acontecerá nos dias 27 e 28 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       rota: '/form/speakers',
       list: {
         title: 'Lista de palestrantes',
@@ -159,6 +160,7 @@ export const eventData =
     },
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2024',
+      description: 'JMR 2025 acontecerá nos dias 27 e 28 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       rota: '/form/speakers',
       list: {
         title: 'Lista de palestrantes',
@@ -239,6 +241,7 @@ export const eventData =
     },
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
+      description: 'JMR 2025 acontecerá nos dias 27 e 28 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       rota: '/form/speakers',
       list: {
         title: 'Lista de palestrantes 2025',
@@ -319,6 +322,7 @@ export const eventData =
     },
     speakersForm: {
       title: 'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2026',
+      description: 'JMR 2025 acontecerá nos dias 27 e 28 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       rota: '/form/speakers',
       list: {
         title: 'Lista de palestrantes',

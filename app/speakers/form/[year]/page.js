@@ -13,7 +13,7 @@ const SpeakersForm = ({ params }) => {
   const { year } = params;
   const [errors, setErrors] = useState({});
   const [photoPreview, setPhotoPreview] = useState(null);
-  const data = eventData[2000];
+  const data = eventData[year];
   const logoSrc = `/logo_jornada/jmr${2025}_roxo.png`;
 
   const [formData, setFormData] = useState({
@@ -232,6 +232,7 @@ const SpeakersForm = ({ params }) => {
         />
       </div>
       <h1 className={styles.title}>{data.speakersForm.title}</h1>
+      <p className={styles.description}>{data.speakersForm.description}</p>
 
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>

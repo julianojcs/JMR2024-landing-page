@@ -268,3 +268,12 @@
   margin-top: 0.25rem;
   display: block;
 }
+
+.description {
+  text-align: center;
+  color: #666;
+  margin: 1rem 0 2rem;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
