@@ -25,7 +25,7 @@ async function main() {
       'Radiologia Intervencionista',
       'Diagnóstico por Imagem em Pediatria'
     ]),
-    photo_path: fakerPT_BR.image.avatar(),
+    photo_path: 'https://res.cloudinary.com/dixe3b2i5/image/upload/v1740370431/default-avatar_gabqax.png',
     year: 2025,
     created_at: new Date(),
     updated_at: new Date()

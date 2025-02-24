@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { connectToDatabase } from '../../../../lib/database';
+import cloudinary from '@/app/lib/cloudinary';
 
 export async function GET(request, { params }) {
   try {
@@ -15,10 +16,21 @@ export async function GET(request, { params }) {
 
     const { rows: speakers } = await pool.query(query, [year]);
 
-    // Sort speakers array by full_name
-    const sortedSpeakers = speakers.sort((a, b) =>
-      a.full_name.localeCompare(b.full_name, 'pt-BR')
-    );
+    // Add Cloudinary URLs for photos if they exist
+    const sortedSpeakers = speakers
+      .map(speaker => ({
+        ...speaker,
+        photo_path: speaker.photo_path 
+          ? cloudinary.url(speaker.photo_path, {
+              width: 50,
+              height: 50,
+              crop: 'fill',
+              quality: 'auto',
+              fetch_format: 'auto'
+            })
+          : null
+      }))
+      .sort((a, b) => a.full_name.localeCompare(b.full_name, 'pt-BR'));
 
     return NextResponse.json(sortedSpeakers, {
       status: 200,

@@ -1,43 +1,32 @@
 import { NextResponse } from 'next/server';
+import cloudinary from '@/app/lib/cloudinary';
 import { connectToDatabase } from '../../../../lib/database';
-import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 
 export async function POST(request) {
   try {
-    const pool = await connectToDatabase();
     const formData = await request.formData();
+    const photo = formData.get('photo_path');
     const cpf = formData.get('cpf');
 
-    // Handle photo upload
     let photo_path = null;
-    const photo = formData.get('photo_path');
 
     if (photo && photo.size > 0) {
       try {
+        // Convert file to base64
         const bytes = await photo.arrayBuffer();
         const buffer = Buffer.from(bytes);
+        const base64Image = `data:${photo.type};base64,${buffer.toString('base64')}`;
 
-        // Get file extension from original filename
-        const fileExtension = path.extname(photo.name).toLowerCase();
+        // Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(base64Image, {
+          folder: 'speakers',
+          public_id: cpf, // Use CPF as filename
+          overwrite: true // Update if exists
+        });
 
-        // Create filename using CPF
-        const fileName = `${cpf}${fileExtension}`;
-        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-        const filePath = path.join(uploadDir, fileName);
+        photo_path = result.secure_url;
 
-        // Ensure upload directory exists
-        try {
-          await mkdir(uploadDir, { recursive: true });
-        } catch (err) {
-          if (err.code !== 'EEXIST') throw err;
-        }
-
-        // Write file to disk
-        await writeFile(filePath, buffer);
-        photo_path = `/uploads/${fileName}`;
-
-        console.log('Photo uploaded successfully:', photo_path); // Debug log
       } catch (uploadError) {
         console.error('Photo upload error:', uploadError);
         return NextResponse.json({
@@ -46,9 +35,9 @@ export async function POST(request) {
           details: uploadError.message
         }, { status: 500 });
       }
-    } else {
-      console.log('No photo provided or empty file'); // Debug log
     }
+
+    const pool = await connectToDatabase();
 
     const query = `
       INSERT INTO speakers (
@@ -89,17 +78,6 @@ export async function POST(request) {
 
   } catch (error) {
     console.error('API Error:', error);
-
-    if (error.code === '23505') { // Unique violation
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'CPF já cadastrado',
-          field: 'cpf'
-        },
-        { status: 409 }
-      );
-    }
 
     return NextResponse.json(
       { success: false, error: error.message },

@@ -16,6 +16,19 @@ export default function SpeakersList({ params }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [expandedRows, setExpandedRows] = useState(new Set())
+  const defaultAvatar = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/v1/speakers/default-avatar.png`;
+
+  const getCloudinaryUrl = (photoPath) => {
+    if (!photoPath) return defaultAvatar;
+
+    // If already a Cloudinary URL, return as is
+    if (photoPath.includes('cloudinary.com')) {
+      return photoPath;
+    }
+
+    // If just the public_id, construct the URL
+    return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_fill,g_face,h_50,w_50,q_auto/${photoPath}`;
+  };
 
   const { year } = params
   const pageTitle = eventData[year]?.speakersForm?.list?.title || `Lista de Palestrantes ${year}`
@@ -97,11 +110,12 @@ export default function SpeakersList({ params }) {
                   <td>
                     <div className={styles.photoContainer}>
                       <Image
-                        src={speaker.photo_path}
+                        src={getCloudinaryUrl(speaker.photo_path)}
                         alt={`Foto de ${speaker.full_name}`}
                         width={50}
                         height={50}
                         className={styles.photo}
+                        unoptimized={true}
                       />
                     </div>
                   </td>

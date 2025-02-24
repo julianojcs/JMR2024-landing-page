@@ -8,14 +8,14 @@ export const GET = async (request, { params }) => {
     await connectToDatabase()
 
     return NextResponse.json(
-      { 
+      {
         success: true,
         message: 'Hello from the Test API',
-        year: year 
+        year: year
       },
       {
         status: 200,
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Cache-Control': 'public, max-age=60, s-maxage=60'
         },
@@ -24,9 +24,9 @@ export const GET = async (request, { params }) => {
   } catch (error) {
     console.error('API Error:', error)
     return NextResponse.json(
-      { 
+      {
         success: false,
-        message: error.message 
+        message: error.message
       },
       { status: 500 }
     )
