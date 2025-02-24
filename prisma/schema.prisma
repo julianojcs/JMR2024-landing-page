@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Speaker {
+  id          Int      @id @default(autoincrement())
+  full_name    String   @map("full_name") @db.VarChar(150)
+  badge_name   String   @map("badge_name") @db.VarChar(25)
+  email       String   @db.VarChar(150)
+  phone       String
+  cpf         String   @db.VarChar(11)
+  city        String?
+  state       String?
+  category    String
+  curriculum  String   @db.Text
+  lecture_name String?  @map("lecture_name")
+  photo_path   String?  @map("photo_path")
+  year        Int      @default(dbgenerated("EXTRACT(YEAR FROM CURRENT_DATE)"))
+  created_at   DateTime @default(now()) @map("created_at")
+  updated_at   DateTime @updatedAt @map("updated_at")
+
+  @@map("speakers")
+}
