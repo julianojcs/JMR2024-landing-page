@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
       url: `https://jornada.srmg.org.br/speakers/form/${year}`,
       images: [
         {
-          url: `https://jornada.srmg.org.br/jmr${year}.png`,
+          url: `https://jornada.srmg.org.br/jmr${year}.jpg`,
           width: 1200,
           height: 630,
           alt: `JMR ${year} - Formulário de inscrição`
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: `JMR ${year} - Formulário de inscrição`,
       description: data.speakersForm.description,
-      image: `https://jornada.srmg.org.br/jmr${year}.png`
+      image: `https://jornada.srmg.org.br/jmr${year}.jpg`
     }
   }
 }
