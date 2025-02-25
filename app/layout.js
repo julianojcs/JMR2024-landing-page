@@ -25,10 +25,10 @@ const geistMono = localFont({
 //     title: 'JMR 2024 - Jornada Mineira de Radiologia',
 //     description: 'Junte-se à Jornada Mineira de Radiologia 2024 e descubra as inovações na área de diagnóstico por imagem.',
 //     type: 'website',
-//     url: 'https://jornada.srmg.com.br/2024',
+//     url: 'https://jornada.srmg.org.br/2024',
 //     images: [
 //       {
-//         url: 'https://jornada.srmg.com.br/logo_jornada/jmr2024.jpg',
+//         url: 'https://jornada.srmg.org.br/logo_jornada/jmr2024.jpg',
 //         width: 1200,
 //         height: 630,
 //         alt: 'JMR 2024 - Jornada Mineira de Radiologia'
@@ -39,7 +39,7 @@ const geistMono = localFont({
 //     card: 'summary_large_image',
 //     title: 'JMR 2024 - Jornada Mineira de Radiologia',
 //     description: 'Participe da Jornada Mineira de Radiologia 2024 e fique por dentro das últimas inovações em diagnóstico por imagem.',
-//     image: 'https://jornada.srmg.com.br/logo_jornada/jmr2024.jpg'
+//     image: 'https://jornada.srmg.org.br/logo_jornada/jmr2024.jpg'
 //   }
 // }
 
@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
         <meta name='author' content='Join Digital Solutions' />
 
         {/* Link canônico */}
-        <link rel='canonical' href='https://jornada.srmg.com.br'></link>
+        <link rel='canonical' href='https://jornada.srmg.org.br'></link>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} style={{maxWidth: '1300px', marginInline: 'auto', backgroundColor: 'var(--foreground)'}}>
         <div  style={{backgroundColor: 'var(--background)'}}>

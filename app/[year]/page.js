@@ -34,10 +34,10 @@ export async function generateMetadata({ params }) {
       title: event.ogTitle,
       description: event.ogDescription,
       type: 'website',
-      url: `https://jornada.srmg.com.br/${year}`,
+      url: `https://jornada.srmg.org.br/${year}`,
       images: [
         {
-          url: `https://jornada.srmg.com.br/logo_jornada/jmr${year}.jpg`,
+          url: `https://jornada.srmg.org.br/logo_jornada/jmr${year}.jpg`,
           width: 1200,
           height: 630,
           alt: `JMR ${year} - Jornada Mineira de Radiologia`
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: `JMR ${year} - Jornada Mineira de Radiologia`,
       description: event.description,
-      image: `https://jornada.srmg.com.br/logo_jornada/jmr${year}.jpg`
+      image: `https://jornada.srmg.org.br/logo_jornada/jmr${year}.jpg`
     }
   };
 }

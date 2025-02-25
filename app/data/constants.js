@@ -16,7 +16,7 @@ export const eventData =
       {
         name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
         shortName: 'SRMG',
-        link: 'https://www.srmg.com.br',
+        link: 'https://www.srmg.org.br',
         alt: 'Logo da SRMG',
         src: '/logo/srmg.png'
       },
@@ -97,7 +97,7 @@ export const eventData =
       {
         name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
         shortName: 'SRMG',
-        link: 'https://www.srmg.com.br',
+        link: 'https://www.srmg.org.br',
         alt: 'Logo da SRMG',
         src: '/logo/srmg.png'
       },
@@ -178,7 +178,7 @@ export const eventData =
       {
         name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
         shortName: 'SRMG',
-        link: 'https://www.srmg.com.br',
+        link: 'https://www.srmg.org.br',
         alt: 'Logo da SRMG',
         src: '/logo/srmg.png'
       },
@@ -259,7 +259,7 @@ export const eventData =
       {
         name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
         shortName: 'SRMG',
-        link: 'https://www.srmg.com.br',
+        link: 'https://www.srmg.org.br',
         alt: 'Logo da SRMG',
         src: '/logo/srmg.png'
       },

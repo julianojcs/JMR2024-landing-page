@@ -13,10 +13,10 @@ const metadata = {
     title: 'JMR 2025 - Save the date',
     description: 'XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher.',
     type: 'website',
-    url: 'https://jornada.srmg.com.br/2025',
+    url: 'https://jornada.srmg.org.br/2025',
     images: [
       {
-        url: 'https://jornada.srmg.com.br/save_the_date_share.png',
+        url: 'https://jornada.srmg.org.br/save_the_date_share.png',
         width: 1200,
         height: 630,
         alt: 'JMR 2025 - save_the_date.png'
@@ -27,7 +27,7 @@ const metadata = {
     card: 'summary_large_image',
     title: 'JMR 2025 - save_the_date.png',
     description: 'XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher.',
-    image: 'https://jornada.srmg.com.br/save_the_date_share.png'
+    image: 'https://jornada.srmg.org.br/save_the_date_share.png'
   }
 }
 
