@@ -14,18 +14,19 @@ export async function generateMetadata({ params }) {
       url: `https://jornada.srmg.org.br/speakers/form/${year}`,
       images: [
         {
-          url: `https://jornada.srmg.com.br/jmr${year}.png`,
+          url: `https://jornada.srmg.org.br/jmr${year}.png`,
           width: 1200,
           height: 630,
           alt: `JMR ${year} - Formulário de inscrição`
         }
-      ]
+      ],
+      siteName: 'Jornada Mineira de Radiologia'
     },
     twitter: {
       card: 'summary_large_image',
       title: `JMR ${year} - Formulário de inscrição`,
       description: data.speakersForm.description,
-      image: `https://jornada.srmg.com.br/jmr${year}.png`
+      image: `https://jornada.srmg.org.br/jmr${year}.png`
     }
   }
 }
