@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build",
+  "ignoreCommand": "npm run prisma:generate",
+  "installCommand": "npm install"
+}
