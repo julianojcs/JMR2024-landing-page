@@ -51,9 +51,9 @@ model Speaker2 {
 model Lecture {
   id          Int               @id @default(autoincrement())
   name        String?           @db.VarChar(200)
-  is_fixed     Boolean           @default(false)
-  is_new         Boolean        @default(true)
-  created_at  DateTime          @default(now())
+  is_fixed     Boolean          @default(false)
+  is_new         Boolean          @default(true)
+  created_at  DateTime         @default(now())
   speakers    Speaker2Lecture[]
 
   @@map("lectures")
@@ -62,9 +62,9 @@ model Lecture {
 model Category {
   id          Int               @id @default(autoincrement())
   name        String            @db.VarChar(20)
-  is_fixed     Boolean           @default(false)
-  is_new         Boolean        @default(true)
-  created_at  DateTime          @default(now())
+  is_fixed     Boolean          @default(false)
+  is_new         Boolean          @default(true)
+  created_at  DateTime         @default(now())
   speakers    Speaker2Category[]
 
   @@map("categories")

@@ -10,8 +10,6 @@
     "build": "dotenv -e .env.production -- next build",
     "lint": "next lint",
     "seed": "node prisma/seed.js",
-    "prisma:generate": "prisma generate",
-    "postinstall": "prisma generate",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "migrate:test": "dotenv -e .env.development -- npx prisma migrate dev",
     "migrate:main": "dotenv -e .env.production -- npx prisma migrate deploy",
