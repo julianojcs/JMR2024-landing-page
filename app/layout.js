@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from './components/Footer'
 import RT from './components/RT'
+import ClientOnly from './components/ClientOnly'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -57,11 +58,13 @@ export default function RootLayout({ children }) {
         <link rel='canonical' href='https://jornada.srmg.org.br'></link>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} style={{maxWidth: '1300px', marginInline: 'auto', backgroundColor: 'var(--foreground)'}}>
+      {/* <ClientOnly> */}
         <div  style={{backgroundColor: 'var(--background)'}}>
           <RT />
           {children}
           <Footer />
         </div>
+      {/* </ClientOnly> */}
       </body>
     </html>
   )

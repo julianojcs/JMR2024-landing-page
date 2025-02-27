@@ -6,6 +6,10 @@ import styles from './SpeakersForm.module.css';
 import { validateCPF, formatPhone } from '@/utils';
 import { states } from '../../../data/states';
 import StateSelect from '../../../components/StateSelect'
+import Multselector from '@/app/components/Multselector';
+import LoadingSpinner from '@/app/components/LoadingSpinner';
+import LoadingSpinnerInput from '@/app/components/LoadingSpinnerInput';
+import '@/app/styles/react-select.css';
 
 const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
 
@@ -15,6 +19,8 @@ const SpeakersForm = ({ params }) => {
   const [photoPreview, setPhotoPreview] = useState(null);
   const data = eventData[year];
   const logoSrc = `/logo_jornada/jmr${2025}_roxo.png`;
+  const [lectures, setLectures] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const [formData, setFormData] = useState({
     full_name: '',
@@ -24,12 +30,12 @@ const SpeakersForm = ({ params }) => {
     cpf: '',
     city: '',
     state: '',
-    category: 'Palestrante',
-    other_category: '',
+    categories: [],
     curriculum: '',
-    lecture_name: '',
+    lectures: [],
     photo_path: null
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -39,13 +45,6 @@ const SpeakersForm = ({ params }) => {
       setFormData(prev => ({
         ...prev,
         [name]: formattedPhone
-      }));
-    } else if (name === 'category') {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value,
-        // Clear other_category if switching to a different category
-        other_category: value === 'other' ? prev.other_category : ''
       }));
     } else {
       setFormData(prev => ({
@@ -125,14 +124,8 @@ const SpeakersForm = ({ params }) => {
     const newErrors = {};
 
     // Validate required fields
-    if (!formData.category) {
-      newErrors.category = 'Categoria é obrigatória';
-      hasErrors = true;
-    }
-
-    // Validate other_category when 'other' is selected
-    if (formData.category === 'other' && !formData.other_category?.trim()) {
-      newErrors.other_category = 'Por favor, especifique a categoria';
+    if (!formData.categories.length === 0) {
+      newErrors.categories = 'Selecione uma Categoria';
       hasErrors = true;
     }
 
@@ -194,13 +187,14 @@ const SpeakersForm = ({ params }) => {
       cpf: '',
       city: '',
       state: '',
-      category: 'Palestrante',
-      other_category: '',
+      categories: [],
       curriculum: '',
-      lecture_name: '',
+      lectures: [],
       photo_path: null
     });
     setPhotoPreview(null);
+    setLectures([]);
+    setCategories([]);
     setErrors({});
     const photoInput = document.getElementById('photo_path');
     if (photoInput) {
@@ -215,6 +209,45 @@ const SpeakersForm = ({ params }) => {
       }
     };
   }, [photoPreview]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [lecturesResponse, categoriesResponse] = await Promise.all([
+          fetch('/api/lectures'),
+          fetch('/api/categories')
+        ]);
+
+        const lecturesData = await lecturesResponse.json();
+        const categoriesData = await categoriesResponse.json();
+
+        const formattedLectures = lecturesData.map(lecture => ({
+          value: lecture.id,
+          label: lecture.name,
+          isFixed: lecture.is_fixed
+        }));
+
+        const formattedCategories = categoriesData.map(category => ({
+          value: category.id,
+          label: category.name,
+          isFixed: category.is_fixed
+        }));
+
+        setLectures(formattedLectures);
+        setCategories(formattedCategories);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log('formData: ', formData);
+  }, [formData]);
 
   return (
     <div className={styles.formContainer}>
@@ -309,7 +342,7 @@ const SpeakersForm = ({ params }) => {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="city">Cidade</label>
+          <label htmlFor="city">Cidade<span className={styles.required}>*</span></label>
           <input
             type="text"
             id="city"
@@ -321,7 +354,7 @@ const SpeakersForm = ({ params }) => {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="state" id="state-label">Estado</label>
+          <label htmlFor="state" id="state-label">Estado<span className={styles.required}>*</span></label>
           <StateSelect
             value={states.find(s => s.value === formData.state)}
             onChange={handleInputChange}
@@ -330,83 +363,56 @@ const SpeakersForm = ({ params }) => {
         </div>
 
         <div className={styles.formGroup}>
-          <label>Categoria<span className={styles.required}>*</span></label>
-          <div className={styles.radioGroup}>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="Debatedor"
-                checked={formData.category === 'Debatedor'}
-                onChange={handleInputChange}
-                required
-              />
-              Debatedor
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="Moderador"
-                checked={formData.category === 'Moderador'}
-                onChange={handleInputChange}
-              />
-              Moderador
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="Palestrante"
-                checked={formData.category === 'Palestrante'}
-                onChange={handleInputChange}
-              />
-              Palestrante
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="other"
-                checked={formData.category === 'other'}
-                onChange={handleInputChange}
-              />
-              Outro
-            </label>
-            {formData.category === 'other' && (
-              <input
-                type="text"
-                name="other_category"
-                value={formData.other_category}
-                onChange={handleInputChange}
-                className={styles.formControl}
-                placeholder="Especifique"
-                required={formData.category === 'other'}
-              />
-            )}
+        <label htmlFor="categories">Categoria<span className={styles.required}>*</span></label>
+        {isLoading ? (
+          <div>
+            <LoadingSpinnerInput />
           </div>
+          ) : (
+            <Multselector
+              instanceId="categories-select"
+              options={categories}
+              defaultValue={formData.categories}
+              placeholder='Selecione ou crie uma nova categoria...'
+              onChange={(selectedOptions) => {
+                setFormData(prev => ({
+                  ...prev,
+                  categories: selectedOptions
+                }));
+              }}
+              isCreatable={true}  // Habilita a criação de novas opções
+            />
+          )}
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="curriculum">Mini currículo (até 500 caracteres) - resumo para ser apresentado antes da sua palestra<span className={styles.required}>*</span></label>
+        <label htmlFor="lectures">Nome da palestra (para emissão do certificado)<span className={styles.required}>*</span></label>
+          {isLoading ? (
+            <LoadingSpinnerInput />
+          ) : (
+            <Multselector
+              instanceId="lectures-select"
+              options={lectures}
+              defaultValue={formData.lectures}
+              placeholder='Selecione palestras ou digite para buscar ou criar...'
+              onChange={(selectedOptions) => {
+                setFormData(prev => ({
+                  ...prev,
+                  lectures: selectedOptions
+                }));
+              }}
+            />
+          )}
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="curriculum">Mini currículo (até 300 caracteres) - resumo para ser apresentado antes da sua palestra<span className={styles.required}>*</span></label>
           <textarea
             id="curriculum"
             name="curriculum"
-            maxLength={500}
+            maxLength={300}
             required
             value={formData.curriculum}
-            onChange={handleInputChange}
-            className={styles.formControl}
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="lecture_name">Nome da palestra (para emissão do certificado)</label>
-          <input
-            type="text"
-            id="lecture_Name"
-            name="lecture_name"
-            value={formData.lecture_name}
             onChange={handleInputChange}
             className={styles.formControl}
           />
