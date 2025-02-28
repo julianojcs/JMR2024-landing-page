@@ -4,16 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "dotenv -e .env.development -- next dev",
-    "prod": "dotenv -e .env.production -- next dev",
+    "clean": "rm -rf .next && rm -rf node_modules/.cache",
+    "dev": "npm run clean && dotenv -e .env.development -- next dev",
+    "prod": "npm run clean && dotenv -e .env.production -- next dev",
     "start": "dotenv -e .env.production -- next start",
     "build": "dotenv -e .env.production -- next build",
     "lint": "next lint",
     "seed": "node prisma/seed.js",
+    "seed:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" node prisma/seed.js",
+    "seed:dev": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=dev\" node prisma/seed.js",
+    "seed:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" node prisma/seed.js",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
-    "migrate:test": "dotenv -e .env.development -- npx prisma migrate dev",
-    "migrate:main": "dotenv -e .env.production -- npx prisma migrate deploy",
-    "generate": "npx prisma generate"
+    "migrate:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" prisma migrate dev --name test",
+    "migrate:dev": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=dev\" prisma migrate dev --name dev",
+    "migrate:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" prisma migrate deploy",
+    "generate": "npx prisma generate",
+    "custom-build": "prisma generate && next build",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

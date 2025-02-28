@@ -6,18 +6,17 @@ const prisma = new PrismaClient()
 
 async function main() {
   // Reset all tables and restart IDs
-  await prisma.$executeRaw`TRUNCATE TABLE "speakers2" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "speakers" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "lectures" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "categories" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "speaker2_lectures" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "speaker2_categories" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "speaker_lectures" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "speaker_categories" RESTART IDENTITY CASCADE`;
 
   // Create categories
   const createdCategories = await Promise.all(
     categories.map(category =>
       prisma.category.create({
-        data: { name: category.name, is_fixed: category.isFixed }
+        data: { name: category.name, is_fixed: category.isFixed, is_new: false }
       })
     )
   )
@@ -28,7 +27,8 @@ async function main() {
       prisma.lecture.create({
         data: {
           name: lecture.name,
-          is_fixed: lecture.isFixed
+          is_fixed: lecture.isFixed,
+          is_new: false,
         }
       })
     )
@@ -46,9 +46,9 @@ async function main() {
             cpf: speaker.cpf,
             city: speaker.city,
             state: speaker.state,
-            category: speaker.category,
             curriculum: speaker.curriculum,
-            lecture_name: speaker.lecture_name,
+            category: speaker.categories,
+            lectures: speaker.lectures,
             photo_path: speaker.photo_path,
             year: 2025
           }
@@ -56,8 +56,8 @@ async function main() {
       )
     );
 
-  // Create speakers2
-  const speakers2 = Array.from({ length: 10 }).map(() => {
+  // Create speakers
+  const speakers = Array.from({ length: 10 }).map(() => {
     // Get random unique categories
     const randomCategories = fakerPT_BR.helpers.arrayElements(
       createdCategories,
@@ -101,8 +101,8 @@ async function main() {
   });
 
   // Create speakers with their relationships
-  for (const speakerData of speakers2) {
-    await prisma.speaker2.create({
+  for (const speakerData of speakers) {
+    await prisma.speaker.create({
       data: speakerData
     })
   }
@@ -112,7 +112,7 @@ async function main() {
   console.log(`- ${createdSpeakers.length} users`)
   console.log(`- ${createdCategories.length} categories`)
   console.log(`- ${createdLectures.length} lectures`)
-  console.log(`- ${speakers2.length} speakers2`)
+  console.log(`- ${speakers.length} speakers`)
   console.log(`- ${speakers.length} speakers`)
 }
 

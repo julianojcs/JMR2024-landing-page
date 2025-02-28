@@ -35,9 +35,23 @@ const SpeakersForm = ({ params }) => {
     lectures: [],
     photo_path: null
   });
+
+  const [localValues, setLocalValues] = useState({
+    full_name: '',
+    badge_name: '',
+    email: '',
+    phone: '',
+    cpf: '',
+    city: '',
+    state: '',
+    categories: [],
+    curriculum: '',
+    lectures: [],
+    photo_path: null
+  });
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name === 'phone') {
@@ -52,11 +66,6 @@ const SpeakersForm = ({ params }) => {
         [name]: value
       }));
     }
-
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
 
     // Limpar erro quando o usuário começar a digitar
     if (errors[name]) {
@@ -123,10 +132,20 @@ const SpeakersForm = ({ params }) => {
     let hasErrors = false;
     const newErrors = {};
 
-    // Validate required fields
+    if (!validateForm()) return
+
     if (!formData.categories.length === 0) {
       newErrors.categories = 'Selecione uma Categoria';
       hasErrors = true;
+    } else {
+      newErrors.categories = null;
+    }
+
+    if (!formData.lectures.length === 0) {
+      newErrors.lectures = 'Selecione uma Palestra';
+      hasErrors = true;
+    } else {
+      newErrors.lectures = null;
     }
 
     if (hasErrors) {
@@ -137,17 +156,28 @@ const SpeakersForm = ({ params }) => {
     if (!validateForm()) {
       return;
     }
+    // Add all text fields
+    const textFields = [
+      'full_name', 'badge_name', 'email', 'phone',
+      'cpf', 'city', 'state', 'curriculum'
+    ]
 
-    const formDataToSend = new FormData();
-    Object.keys(formData).forEach(key => {
-      if (key === 'photo_path') {
-        if (formData[key]) {
-          formDataToSend.append(key, formData[key]);
-        }
-      } else {
-        formDataToSend.append(key, formData[key]);
-      }
-    });
+    const formDataToSend = new FormData()
+    textFields.forEach(field => {
+      formDataToSend.append(field, formData[field])
+    })
+
+    // Add arrays as JSON strings
+    formDataToSend.append('categories', JSON.stringify(formData.categories))
+    formDataToSend.append('lectures', JSON.stringify(formData.lectures))
+
+    console.log('Form data:', formData);
+    console.log('Form data to send:', formDataToSend);
+
+    // Add photo if exists
+    if (formData.photo_path) {
+      formDataToSend.append('photo_path', formData.photo_path)
+    }
 
     try {
       const response = await fetch(`/api/speakers/form/${year}`, {
@@ -159,7 +189,8 @@ const SpeakersForm = ({ params }) => {
         alert('Dados enviados com sucesso!');
         clearForm(); // Clear form on successful submission
       } else {
-        throw new Error('Erro ao enviar dados');
+        const error = await response.json()
+        throw new Error(error.message || 'Erro ao enviar formulário')
       }
     } catch (error) {
       alert('Erro ao enviar dados: ' + error.message);
@@ -277,7 +308,7 @@ const SpeakersForm = ({ params }) => {
             maxLength={150}
             required
             value={formData.full_name}
-            onChange={handleInputChange}
+            onChange={handleChange}
             className={styles.formControl}
           />
         </div>
@@ -292,7 +323,7 @@ const SpeakersForm = ({ params }) => {
             maxLength={25}
             required
             value={formData.badge_name}
-            onChange={handleInputChange}
+            onChange={handleChange}
             className={styles.formControl}
           />
         </div>
@@ -306,7 +337,7 @@ const SpeakersForm = ({ params }) => {
             maxLength={150}
             required
             value={formData.email}
-            onChange={handleInputChange}
+            onChange={handleChange}
             className={styles.formControl}
           />
         </div>
@@ -320,7 +351,7 @@ const SpeakersForm = ({ params }) => {
             // pattern="\(\d{2}\)\d{5}-\d{4}"
             required
             value={formData.phone}
-            onChange={handleInputChange}
+            onChange={handleChange}
             className={styles.formControl}
           />
         </div>
@@ -335,7 +366,7 @@ const SpeakersForm = ({ params }) => {
             maxLength={11}
             required
             value={formData.cpf}
-            onChange={handleInputChange}
+            onChange={handleChange}
             className={styles.formControl}
           />
           {errors.cpf && <span className={styles.errorMessage}>{errors.cpf}</span>}
@@ -348,7 +379,7 @@ const SpeakersForm = ({ params }) => {
             id="city"
             name="city"
             value={formData.city}
-            onChange={handleInputChange}
+            onChange={handleChange}
             className={styles.formControl}
           />
         </div>
@@ -357,7 +388,7 @@ const SpeakersForm = ({ params }) => {
           <label htmlFor="state" id="state-label">Estado<span className={styles.required}>*</span></label>
           <StateSelect
             value={states.find(s => s.value === formData.state)}
-            onChange={handleInputChange}
+            onChange={handleChange}
             states={states}
           />
         </div>
@@ -381,6 +412,9 @@ const SpeakersForm = ({ params }) => {
                 }));
               }}
               isCreatable={true}  // Habilita a criação de novas opções
+              onCreateOption={(newLecture) => {
+                console.log('New lecture created:', newLecture);
+              }}
             />
           )}
         </div>
@@ -401,6 +435,10 @@ const SpeakersForm = ({ params }) => {
                   lectures: selectedOptions
                 }));
               }}
+              isCreatable={true}
+              onCreateOption={(newLecture) => {
+                console.log('New lecture created:', newLecture);
+              }}
             />
           )}
         </div>
@@ -413,7 +451,7 @@ const SpeakersForm = ({ params }) => {
             maxLength={300}
             required
             value={formData.curriculum}
-            onChange={handleInputChange}
+            onChange={handleChange}
             className={styles.formControl}
           />
         </div>

@@ -44,7 +44,8 @@ const Multselector = ({
   onChange,
   placeholder = "Selecione itens, ou digite para buscar ou criar...",
   isCreatable = false,
-  instanceId
+  instanceId,
+  onCreateOption
 }) => {
   const [mounted, setMounted] = useState(false);
   const [fixedOptions, setFixedOptions] = useState([]);
@@ -52,11 +53,14 @@ const Multselector = ({
   const SelectComponent = isCreatable ? CreatableSelect : Select;
 
   const handleCreate = (inputValue) => {
+    // Create a temporary option with a temporary negative ID
+    const tempId = -Date.now(); // Use negative timestamp as temporary ID
     const newOption = {
-      value: inputValue.toLowerCase().replace(/\W/g, '-'),
+      value: tempId,
       label: inputValue,
       isFixed: false,
-      isNew: true
+      isNew: true,
+      tempValue: inputValue // Store original value for later database insertion
     };
 
     setFixedOptions((prev) => [...prev, newOption]);
@@ -65,6 +69,10 @@ const Multselector = ({
     setSelectedOptions(updatedSelection);
     // Call parent's onChange with the complete array
     onChange(updatedSelection);
+
+    if (onCreateOption) {
+      onCreateOption(newOption);
+    }
   };
 
   // Handle normal selection changes

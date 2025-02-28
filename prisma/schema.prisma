@@ -9,26 +9,6 @@ datasource db {
 }
 
 model Speaker {
-  id           Int       @id @default(autoincrement())
-  full_name    String    @map("full_name") @db.VarChar(150)
-  badge_name   String    @map("badge_name") @db.VarChar(25)
-  email        String    @db.VarChar(150)
-  phone        String
-  cpf          String    @db.VarChar(11)
-  city         String?
-  state        String?
-  category     String
-  curriculum   String    @db.Text
-  lecture_name String?   @map("lecture_name")
-  photo_path   String?   @map("photo_path")
-  year         Int       @default(dbgenerated("EXTRACT(YEAR FROM CURRENT_DATE)"))
-  created_at   DateTime  @default(now()) @map("created_at")
-  updated_at   DateTime  @updatedAt @map("updated_at")
-
-  @@map("speakers")
-}
-
-model Speaker2 {
   id           Int               @id @default(autoincrement())
   full_name    String            @map("full_name") @db.VarChar(150)
   badge_name   String            @map("badge_name") @db.VarChar(25)
@@ -42,10 +22,10 @@ model Speaker2 {
   year         Int              @default(dbgenerated("EXTRACT(YEAR FROM CURRENT_DATE)"))
   created_at   DateTime          @default(now()) @map("created_at")
   updated_at   DateTime          @updatedAt @map("updated_at")
-  lectures     Speaker2Lecture[]
-  categories   Speaker2Category[]
+  lectures     SpeakerLecture[]
+  categories   SpeakerCategory[]
 
-  @@map("speakers2")
+  @@map("speakers")
 }
 
 model Lecture {
@@ -54,7 +34,7 @@ model Lecture {
   is_fixed     Boolean          @default(false)
   is_new         Boolean          @default(true)
   created_at  DateTime         @default(now())
-  speakers    Speaker2Lecture[]
+  speakers    SpeakerLecture[]
 
   @@map("lectures")
 }
@@ -65,29 +45,29 @@ model Category {
   is_fixed     Boolean          @default(false)
   is_new         Boolean          @default(true)
   created_at  DateTime         @default(now())
-  speakers    Speaker2Category[]
+  speakers    SpeakerCategory[]
 
   @@map("categories")
 }
 
-model Speaker2Lecture {
-  speaker    Speaker2  @relation(fields: [speakerId], references: [id])
+model SpeakerLecture {
+  speaker    Speaker  @relation(fields: [speakerId], references: [id])
   speakerId  Int
   lecture    Lecture   @relation(fields: [lectureId], references: [id])
   lectureId  Int
   created_at DateTime  @default(now())
 
   @@id([speakerId, lectureId])
-  @@map("speaker2_lectures")
+  @@map("speaker_lectures")
 }
 
-model Speaker2Category {
-  speaker    Speaker2  @relation(fields: [speakerId], references: [id])
+model SpeakerCategory {
+  speaker    Speaker  @relation(fields: [speakerId], references: [id])
   speakerId  Int
   category   Category  @relation(fields: [categoryId], references: [id])
   categoryId Int
   created_at DateTime  @default(now())
 
   @@id([speakerId, categoryId])
-  @@map("speaker2_categories")
+  @@map("speaker_categories")
 }

@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server';
 import cloudinary from '@/app/lib/cloudinary';
-import { connectToDatabase } from '../../../../lib/database';
-import path from 'path';
+import { PrismaClient } from '@prisma/client';
 
-export async function POST(request) {
+const prisma = new PrismaClient()
+
+export async function POST(request, {params}) {
+  const { year } = params;
+
   try {
     const formData = await request.formData();
     const photo = formData.get('photo_path');
@@ -11,76 +14,131 @@ export async function POST(request) {
 
     let photo_path = null;
 
-    if (photo && photo.size > 0) {
-      try {
-        // Convert file to base64
-        const bytes = await photo.arrayBuffer();
-        const buffer = Buffer.from(bytes);
-        const base64Image = `data:${photo.type};base64,${buffer.toString('base64')}`;
+    // Start transaction
+    const result = await prisma.$transaction(async (tx) => {
 
-        // Upload to Cloudinary
-        const result = await cloudinary.uploader.upload(base64Image, {
-          folder: 'speakers',
-          public_id: cpf, // Use CPF as filename
-          overwrite: true // Update if exists
-        });
+      const categories = JSON.parse(formData.get('categories'))
+      const newCategories = categories.filter(cat => cat.isNew)
+      // Create new categories if any
+      const createdCategories = await Promise.all(
+        newCategories.map(async (category) => {
+          return await tx.category.create({
+            data: {
+              name: category.tempValue,
+            }
+          })
+        })
+      )
+      // Map temporary IDs to real ones
+      const finalCategories = categories.map(category => {
+        if (category.isNew) {
+          const created = createdCategories.find(c => c.name === category.tempValue)
+          return created.id
+        }
+        return category.value
+      })
 
-        photo_path = result.secure_url;
+      const lectures = JSON.parse(formData.get('lectures'))
+      const newLectures = lectures.filter(lecture => lecture.isNew)
+      // Create new lectures if any
+      const createdLectures = await Promise.all(
+        newLectures.map(async (lecture) => {
+          return await tx.lecture.create({
+            data: {
+              name: lecture.tempValue,
+            }
+          })
+        })
+      )
+      // Map temporary IDs to real ones
+      const finalLectures = lectures.map(lecture => {
+        if (lecture.isNew) {
+          const created = createdLectures.find(l => l.name === lecture.tempValue)
+          return created.id
+        }
+        return lecture.value
+      })
 
-      } catch (uploadError) {
-        console.error('Photo upload error:', uploadError);
-        return NextResponse.json({
-          success: false,
-          error: 'Erro ao fazer upload da foto',
-          details: uploadError.message
-        }, { status: 500 });
+      // Upload foto to Cloudinary and set photo_path
+      if (photo && photo.size > 0) {
+        try {
+          // Convert file to base64
+          const bytes = await photo.arrayBuffer();
+          const buffer = Buffer.from(bytes);
+          const base64Image = `data:${photo.type};base64,${buffer.toString('base64')}`;
+
+          // Upload to Cloudinary
+          const result = await cloudinary.uploader.upload(base64Image, {
+            folder: 'speakers',
+            public_id: cpf, // Use CPF as filename
+            overwrite: true // Update if exists
+          });
+
+          photo_path = result.secure_url;
+
+        } catch (uploadError) {
+          console.error('Photo upload error:', uploadError);
+          return NextResponse.json({
+            success: false,
+            error: 'Erro ao fazer upload da foto',
+            details: uploadError.message
+          }, { status: 500 });
+        }
       }
-    }
 
-    const pool = await connectToDatabase();
+      // 4. Create the speaker
+      const speaker = await tx.speaker.create({
+        data: {
+          full_name: formData.get('full_name'),
+          badge_name: formData.get('badge_name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          cpf: formData.get('cpf'),
+          city: formData.get('city'),
+          state: formData.get('state'),
+          curriculum: formData.get('curriculum'),
+          photo_path: photo_path,
+          year: parseInt(year)
+        }
+      })
 
-    const query = `
-      INSERT INTO speakers (
-        full_name, badge_name, email, phone, cpf,
-        city, state, category, curriculum, lecture_name,
-        photo_path, year, created_at, updated_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, NOW(), NOW())
-      RETURNING id
-    `;
 
-    const values = [
-      formData.get('full_name'),
-      formData.get('badge_name'),
-      formData.get('email'),
-      formData.get('phone'),
-      formData.get('cpf'),
-      formData.get('city'),
-      formData.get('state'),
-      formData.get('category') === 'other'
-        ? formData.get('other_category')
-        : formData.get('category'),
-      formData.get('curriculum'),
-      formData.get('lecture_name'),
-      photo_path,
-      new Date().getFullYear() // Add current year
-    ];
+      // Create category associations
+      await tx.speakerCategory.createMany({
+        data: finalCategories.map(categoryId => ({
+          speakerId: speaker.id,
+          categoryId: categoryId
+        }))
+      })
 
-    console.log('Inserting with values:', values); // Debug log
+      // Create lecture associations
+      await tx.speakerLecture.createMany({
+        data: finalLectures.map(lectureId => ({
+          speakerId: speaker.id,
+          lectureId: lectureId
+        }))
+      })
 
-    const { rows } = await pool.query(query, values);
+      return speaker
+    })
 
     return NextResponse.json({
       success: true,
-      id: rows[0].id,
-      photo_path: rows[0].photo_path, // Return the saved path
-      message: 'Palestrante cadastrado com sucesso'
-    });
+      id: result.id,
+      photo_path: result.photo_path,
+      message: 'Palestrante cadastrado com sucesso',
+      data: result
+    })
 
   } catch (error) {
-    console.error('API Error:', error);
+    console.error('Transaction failed:', error)
 
     return NextResponse.json(
-      { success: false, error: error.message },
+      {
+        success: false,
+        error: error.message,
+        message: 'Failed to create speaker and associations'
+      },
       { status: 500 }
     );
   }

@@ -132,10 +132,7 @@ export const lectures = [
 export const categories = [
   { name: "Palestrante", isFixed: true },
   { name: "Debatedor", isFixed: false },
-  { name: "Moderador", isFixed: false },
-  { name: "Convidado", isFixed: false },
-  { name: "Coordenador", isFixed: false },
-  { name: "Ouvinte", isFixed: false }
+  { name: "Moderador", isFixed: false }
 ]
 
 export const speakers = [
@@ -147,9 +144,9 @@ export const speakers = [
     cpf: "02017839590",
     city: "São Paulo",
     state: "SP",
-    category: "Palestrante",
     curriculum: "Coordenador do Grupo de Geniturinário do Instituto de Radiologia da FMUSP; Radiologista Abdominal do Hospital Albert Einstein; Segundo Secretário e membro da comissão científica do CBR; Doutor em Ciências da Saúde pelo Albert Einstein.",
-    lecture_name: "Aula 1: “Podemos evitar a biópsia no manejo de pacientes com câncer de próstata em vigilância ativa?” Aula 2: “Achados radiológicos nos casos de hematoespermia e obstrução do trato seminal”; Aula 3: “Ressonância Magnética do Pênis: Anatomia, Patologias e Achados Essenciais”",
+    categories: [{ id: 1 }],
+    lectures: [{ id: 52 },{ id: 55 },{ id: 58 }],
     photo_path: "https://res.cloudinary.com/dixe3b2i5/image/upload/v1740492798/speakers/02017839590.jpg",
     year: 2025,
     created_at: "2025-02-26 03:57:31.841",
