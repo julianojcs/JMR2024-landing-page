@@ -40,6 +40,7 @@ const formatOptionLabel = ({ label }) => (
 
 const Multselector = ({
   options = [],
+  value = [],
   defaultValue = [],
   onChange,
   placeholder = "Selecione itens, ou digite para buscar ou criar...",
@@ -49,7 +50,7 @@ const Multselector = ({
 }) => {
   const [mounted, setMounted] = useState(false);
   const [fixedOptions, setFixedOptions] = useState([]);
-  const [selectedOptions, setSelectedOptions] = useState(defaultValue);
+  const [selectedOptions, setSelectedOptions] = useState(value || defaultValue);
   const SelectComponent = isCreatable ? CreatableSelect : Select;
 
   const handleCreate = (inputValue) => {
@@ -86,6 +87,10 @@ const Multselector = ({
   }, [options]);
 
   useEffect(() => {
+    setSelectedOptions(value);
+  }, [value]);
+
+  useEffect(() => {
     setMounted(true);
   }, []);
 
@@ -97,14 +102,13 @@ const Multselector = ({
     <SelectComponent
       key={instanceId}
       instanceId={instanceId}
-      closeMenuOnSelect={false}
+      closeMenuOnSelect={true}
       components={{
         ...animatedComponents,
         IndicatorSeparator: () => null // Remove separator to avoid hydration issues
       }}
       value={selectedOptions}
       defaultValue={defaultValue}
-      isMulti
       options={fixedOptions}
       onChange={handleChange}
       onCreateOption={handleCreate}
@@ -112,6 +116,8 @@ const Multselector = ({
       styles={customStyles}
       formatOptionLabel={formatOptionLabel}
       isClearable
+      isCreatable={isCreatable}
+      isMulti
       formatCreateLabel={(inputValue) => `Criar nova categoria "${inputValue}"`}
       aria={{
         label: placeholder,

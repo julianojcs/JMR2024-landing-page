@@ -210,6 +210,7 @@ const SpeakersForm = ({ params }) => {
   };
 
   const clearForm = () => {
+    // Reset form data
     setFormData({
       full_name: '',
       badge_name: '',
@@ -223,9 +224,9 @@ const SpeakersForm = ({ params }) => {
       lectures: [],
       photo_path: null
     });
+
+    // Clear UI elements
     setPhotoPreview(null);
-    setLectures([]);
-    setCategories([]);
     setErrors({});
     const photoInput = document.getElementById('photo_path');
     if (photoInput) {
@@ -403,6 +404,7 @@ const SpeakersForm = ({ params }) => {
             <Multselector
               instanceId="categories-select"
               options={categories}
+              value={formData.categories}
               defaultValue={formData.categories}
               placeholder='Selecione ou crie uma nova categoria...'
               onChange={(selectedOptions) => {
@@ -427,6 +429,7 @@ const SpeakersForm = ({ params }) => {
             <Multselector
               instanceId="lectures-select"
               options={lectures}
+              value={formData.lectures}
               defaultValue={formData.lectures}
               placeholder='Selecione palestras ou digite para buscar ou criar...'
               onChange={(selectedOptions) => {
