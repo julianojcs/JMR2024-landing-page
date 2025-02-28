@@ -9,6 +9,8 @@ import StateSelect from '../../../components/StateSelect'
 import Multselector from '@/app/components/Multselector';
 import LoadingSpinner from '@/app/components/LoadingSpinner';
 import LoadingSpinnerInput from '@/app/components/LoadingSpinnerInput';
+import LoadingOverlay from '@/app/components/LoadingOverlay';
+import Modal from '@/app/components/Modal';
 import '@/app/styles/react-select.css';
 
 const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
@@ -21,6 +23,12 @@ const SpeakersForm = ({ params }) => {
   const logoSrc = `/logo_jornada/jmr${2025}_roxo.png`;
   const [lectures, setLectures] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    type: 'success',
+    message: ''
+  });
 
   const [formData, setFormData] = useState({
     full_name: '',
@@ -129,6 +137,7 @@ const SpeakersForm = ({ params }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     let hasErrors = false;
     const newErrors = {};
 
@@ -156,6 +165,7 @@ const SpeakersForm = ({ params }) => {
     if (!validateForm()) {
       return;
     }
+
     // Add all text fields
     const textFields = [
       'full_name', 'badge_name', 'email', 'phone',
@@ -186,14 +196,25 @@ const SpeakersForm = ({ params }) => {
       });
 
       if (response.ok) {
-        alert('Dados enviados com sucesso!');
+        setModalState({
+          isOpen: true,
+          type: 'success',
+          // message: 'Cadastro realizado com sucesso! Você receberá um e-mail de confirmação.'
+          message: 'Cadastro realizado com sucesso!'
+        });
         clearForm(); // Clear form on successful submission
       } else {
         const error = await response.json()
         throw new Error(error.message || 'Erro ao enviar formulário')
       }
     } catch (error) {
-      alert('Erro ao enviar dados: ' + error.message);
+      setModalState({
+        isOpen: true,
+        type: 'error',
+        message: `${error.message}`
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -283,6 +304,13 @@ const SpeakersForm = ({ params }) => {
 
   return (
     <div className={styles.formContainer}>
+      {isSubmitting && <LoadingOverlay />}
+      <Modal
+        isOpen={modalState.isOpen}
+        type={modalState.type}
+        message={modalState.message}
+        onClose={() => setModalState(prev => ({ ...prev, isOpen: false }))}
+      />
       <div className={styles.logoContainer}>
         <DynamicImage
           src={logoSrc}
@@ -311,6 +339,7 @@ const SpeakersForm = ({ params }) => {
             value={formData.full_name}
             onChange={handleChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
         </div>
 
@@ -326,6 +355,7 @@ const SpeakersForm = ({ params }) => {
             value={formData.badge_name}
             onChange={handleChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
         </div>
 
@@ -340,6 +370,7 @@ const SpeakersForm = ({ params }) => {
             value={formData.email}
             onChange={handleChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
         </div>
 
@@ -354,6 +385,7 @@ const SpeakersForm = ({ params }) => {
             value={formData.phone}
             onChange={handleChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
         </div>
 
@@ -369,6 +401,7 @@ const SpeakersForm = ({ params }) => {
             value={formData.cpf}
             onChange={handleChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
           {errors.cpf && <span className={styles.errorMessage}>{errors.cpf}</span>}
         </div>
@@ -382,6 +415,7 @@ const SpeakersForm = ({ params }) => {
             value={formData.city}
             onChange={handleChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
         </div>
 
@@ -456,6 +490,7 @@ const SpeakersForm = ({ params }) => {
             value={formData.curriculum}
             onChange={handleChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
         </div>
 
@@ -469,6 +504,7 @@ const SpeakersForm = ({ params }) => {
             required
             onChange={handlePhotoChange}
             className={styles.formControl}
+            disabled={isSubmitting}
           />
           {errors.photo_path && <span className={styles.errorMessage}>{errors.photo_path}</span>}
 
@@ -484,13 +520,18 @@ const SpeakersForm = ({ params }) => {
         </div>
 
         <div className={styles.buttonGroup}>
-          <button type="submit" className={styles.submitButton}>
+          <button
+            type="submit"
+            className={styles.submitButton}
+            disabled={isSubmitting}
+          >
             Enviar
           </button>
           <button
             type="button"
             onClick={clearForm}
             className={styles.clearButton}
+            disabled={isSubmitting}
           >
             Limpar Formulário
           </button>
