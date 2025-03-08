@@ -70,8 +70,9 @@ const Home = () => {
       />
       <Events
         button={callToAct.button02}
+        year={2024}
       />
-      <Comission />
+      <Comission year={2024} />
       <Tables
         buttons={
           [callToAct.button03, callToAct.button04, callToAct.button05]

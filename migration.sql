@@ -20,7 +20,7 @@ CREATE TABLE "speakers" (
 );
 
 -- CreateTable
-CREATE TABLE "speakers2" (
+CREATE TABLE "speakers" (
     "id" SERIAL NOT NULL,
     "full_name" VARCHAR(150) NOT NULL,
     "badge_name" VARCHAR(25) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE "speakers2" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "speakers2_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "speakers_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -61,32 +61,32 @@ CREATE TABLE "categories" (
 );
 
 -- CreateTable
-CREATE TABLE "speaker2_lectures" (
+CREATE TABLE "Speaker_lectures" (
     "speakerId" INTEGER NOT NULL,
     "lectureId" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "speaker2_lectures_pkey" PRIMARY KEY ("speakerId","lectureId")
+    CONSTRAINT "Speaker_lectures_pkey" PRIMARY KEY ("speakerId","lectureId")
 );
 
 -- CreateTable
-CREATE TABLE "speaker2_categories" (
+CREATE TABLE "Speaker_categories" (
     "speakerId" INTEGER NOT NULL,
     "categoryId" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "speaker2_categories_pkey" PRIMARY KEY ("speakerId","categoryId")
+    CONSTRAINT "Speaker_categories_pkey" PRIMARY KEY ("speakerId","categoryId")
 );
 
 -- AddForeignKey
-ALTER TABLE "speaker2_lectures" ADD CONSTRAINT "speaker2_lectures_speakerId_fkey" FOREIGN KEY ("speakerId") REFERENCES "speakers2"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Speaker_lectures" ADD CONSTRAINT "Speaker_lectures_speakerId_fkey" FOREIGN KEY ("speakerId") REFERENCES "speakers"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "speaker2_lectures" ADD CONSTRAINT "speaker2_lectures_lectureId_fkey" FOREIGN KEY ("lectureId") REFERENCES "lectures"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Speaker_lectures" ADD CONSTRAINT "Speaker_lectures_lectureId_fkey" FOREIGN KEY ("lectureId") REFERENCES "lectures"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "speaker2_categories" ADD CONSTRAINT "speaker2_categories_speakerId_fkey" FOREIGN KEY ("speakerId") REFERENCES "speakers2"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Speaker_categories" ADD CONSTRAINT "Speaker_categories_speakerId_fkey" FOREIGN KEY ("speakerId") REFERENCES "speakers"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "speaker2_categories" ADD CONSTRAINT "speaker2_categories_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "categories"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Speaker_categories" ADD CONSTRAINT "Speaker_categories_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "categories"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 

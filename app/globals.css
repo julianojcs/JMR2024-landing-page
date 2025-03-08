@@ -3,6 +3,7 @@
 
 :root{
   interpolate-size: allow-keywords; /* Opt-in the whole page to interpolate sizes to/from keywords */
+  --footer-height: 70px;
 
   --base-clr: #11121a;
   --line-clr: #42434a;
@@ -13,7 +14,7 @@
   --background: #F5F5F5; /* branco fumaça*/
   --foreground: #1F1F1F;
   --primary-clr: #0E1D59;
-  --secondary-clr: #68517f;
+  --secondary-clr:rgb(152, 128, 176);
   --danger-clr: #dc3545;
   --success-clr: #198754;
   --warning-clr: #ffc107;

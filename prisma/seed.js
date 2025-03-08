@@ -107,9 +107,35 @@ async function main() {
     })
   }
 
+  // Create speakers from data.js
+  const createdDataSpeakers = await Promise.all(
+    speakers.map(async (speaker) => {
+      return prisma.speaker.create({
+        data: {
+          full_name: speaker.full_name,
+          badge_name: speaker.badge_name || speaker.full_name.split(' ')[0],
+          email: speaker.email,
+          phone: speaker.phone,
+          cpf: speaker.cpf,
+          city: speaker.city,
+          state: speaker.state,
+          curriculum: speaker.curriculum,
+          photo_path: speaker.photo_path,
+          year: 2025,
+          categories: {
+            create: speaker.categories
+          },
+          lectures: {
+            create: speaker.lectures
+          }
+        }
+      });
+    })
+  );
+
   console.log('Seed completed successfully!')
   console.log(`Added:`)
-  console.log(`- ${createdSpeakers.length} users`)
+  console.log(`- ${createdSpeakers.length + createdDataSpeakers} users`)
   console.log(`- ${createdCategories.length} categories`)
   console.log(`- ${createdLectures.length} lectures`)
   console.log(`- ${speakers.length} speakers`)

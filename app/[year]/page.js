@@ -5,27 +5,36 @@ import Description from '../components/Description'
 import Promoters from '../components/Promoters'
 import { MapIcon, CalendarIcon } from '../components/icons'
 import { eventData } from '../data/constants'
+import Events from '../components/Events'
+import { notFound } from 'next/navigation'
+import Comission from '../components/Comission'
 
-export async function getServerSideProps(context) {
-  if (!isValidRoute(context)) {
-    context.res.statusCode = 404;
-    context.res.end();
-    console.log('Invalid URL');
-    return { props: { error: "Invalid URL" } };
-  }
-
-  const { year } = context.params;
-
-  return {
-    props: {
-      year,
-    },
-  };
-}
+// export async function getServerSideProps(context) {
+//   if (!isValidRoute(context)) {
+//     context.res.statusCode = 404
+//     context.res.end()
+//     console.log('Invalid URL')
+//     return { props: { error: 'Invalid URL' } }
+//   }
+// 
+//   const { year } = context.params
+// 
+//   return {
+//     props: {
+//       year
+//     }
+//   }
+// }
 
 export async function generateMetadata({ params }) {
-  const { year } = params;
-  const event = eventData[year];
+  const { year } = params
+
+  // Check if year exists in eventData
+  if (!eventData[year]) {
+    notFound()
+  }
+
+  const event = eventData[year]
 
   return {
     title: event.title,
@@ -50,12 +59,18 @@ export async function generateMetadata({ params }) {
       description: event.description,
       image: `https://jornada.srmg.org.br/logo_jornada/jmr${year}.jpg`
     }
-  };
+  }
 }
 
 const Home = ({ params }) => {
-  const { year } = params;
-  const data = eventData[year];
+  const { year } = params
+
+  // Check if year exists in eventData
+  if (!eventData[year]) {
+    notFound()
+  }
+
+  const data = eventData[year]
 
   const props = {
     year,
@@ -63,19 +78,16 @@ const Home = ({ params }) => {
     CalendarIcon
   }
   return (
-    <>
+    <main>
       <Header props={props}>
-        <SocialMedias url={data.social.instagram}/>
+        <SocialMedias url={data.social.instagram} />
       </Header>
-      <Banner
-        lstBannerText={data.bannerText}
-      />
-      <Description description={data.description}/>
-      <Promoters
-        button={data.callToAct.button01}
-        year={year}
-      />
-    </>
+      <Banner lstBannerText={data.bannerText} />
+      <Description description={data.description} />
+      <Promoters button={data.callToAct.button01} year={year} />
+      <Events button={data.callToAct.button02} year={year} />
+      <Comission year={year} />
+    </main>
   )
 }
 
