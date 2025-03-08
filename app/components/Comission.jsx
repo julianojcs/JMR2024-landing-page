@@ -17,7 +17,7 @@ const Comission = ({year}) => {
   // Sort members alphabetically for each commission
   const sortedComissions = comissions.map(comission => ({
     ...comission,
-    members: [...comission.members].sort((a, b) => a.name.localeCompare(b.name))
+    members: [...comission.members].sort((a, b) => a.imagePath.localeCompare(b.imagePath))
   }))
 
   return (
