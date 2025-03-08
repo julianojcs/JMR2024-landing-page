@@ -209,7 +209,177 @@ export const eventData = {
           ]
         }
       ]
-    }
+    },
+    comissions: [ {
+        name: 'SRMG',
+        get title() {
+          return `Comissão Científica ${this.name}`
+        },
+        title: 'Comissão Científica SRMG',
+        link: 'https://www.srmg.org.br',
+        src: '/logo/srmg.png',
+        width: 210,
+        height: 60,
+        members: [
+          {
+            imagePath: '/avatars/Benito_Pio_Ceccato_Junior.png',
+            name: 'Dr. Benito Pio Ceccato Júnior'
+          },
+          {
+            imagePath: '/avatars/Dierre_Roberto_Alvim.png',
+            name: 'Dr. Dierre Roberto Alvim'
+          },
+          {
+            imagePath: '/avatars/Elisio_Jose_Salgado_Ribeiro.png',
+            name: 'Dr. Elísio José Salgado Ribeiro'
+          },
+          {
+            imagePath: '/avatars/Flavio_Coelho_Barros.png',
+            name: 'Dr. Flávio Coelho Barros'
+          },
+          {
+            imagePath: '/avatars/Francisco_Ribeiro_Teixeira_Junior.png',
+            name: 'Dr. Francisco Ribeiro Teixeira Junior'
+          },
+          {
+            imagePath: '/avatars/Leonardo _Campos_de_Queiroz.png',
+            name: 'Dr. Leonardo  Campos de Queiroz'
+          },
+          {
+            imagePath: '/avatars/Luis_Ronan_MF_de_Souza.png',
+            name: 'Dr. Luis Ronan MF de Souza'
+          },
+          {
+            imagePath: '/avatars/Luiz_Ernani_Meira_Junior.png',
+            name: 'Dr. Luiz Ernani Meira Júnior'
+          },
+          {
+            imagePath: '/avatars/Paulo_Ramos_Botelho_Antunes.png',
+            name: 'Dr. Paulo Ramos Botelho Antunes'
+          },
+          {
+            imagePath: '/avatars/Pedro_Paulo_Nunes_Pereira.png',
+            name: 'Dr. Pedro Paulo Nunes Pereira'
+          },
+          {
+            imagePath: '/avatars/Raphael_Guedes.png',
+            name: 'Dr. Raphael Guedes'
+          },
+          {
+            imagePath: '/avatars/Robertson_Correa_Bernardo.png',
+            name: 'Dr. Robertson Corrêa Bernardo'
+          },
+          {
+            imagePath: '/avatars/Rogerio_Augusto_Pinto_Silva.png',
+            name: 'Dr. Rogerio Augusto Pinto Silva'
+          },
+          {
+            imagePath: '/avatars/Ana_Paula_Campos_Rocha.png',
+            name: 'Dra.Ana Paula Campos Rocha'
+          },
+          {
+            imagePath: '/avatars/Bruna_Cesario_Senna.png',
+            name: 'Dra.Bruna Cesário Senna.jpg'
+          },
+          {
+            imagePath: '/avatars/Adriene_Moraes_Campos.png',
+            name: 'Dra. Adriene Moraes Campos'
+          },
+          {
+            imagePath: '/avatars/Anna_Christina_Gruber.png',
+            name: 'Dra. Anna Christina Gruber'
+          },
+          {
+            imagePath: '/avatars/Ivie_Braga_de_Paula.png',
+            name: 'Dra. Ivie Braga de Paula'
+          },
+          {
+            imagePath: '/avatars/Luciana_Costa_Silva.png',
+            name: 'Dra. Luciana Costa Silva'
+          },
+          {
+            imagePath: '/avatars/Luisa_Leitao.png',
+            name: 'Dra. Luisa Leitão'
+          },
+          {
+            imagePath: '/avatars/Maria_de_Fatima_Vilaca_Lobato.png',
+            name: 'Dra. Maria de Fátima Vilaça Lobato'
+          },
+          {
+            imagePath: '/avatars/Maria_Fernanda_Borges_Abreu.png',
+            name: 'Dra. Maria Fernanda Borges Abreu'
+          },
+          {
+            imagePath: '/avatars/Patricia_El_Bacha.png',
+            name: 'Dra. Patrícia El Bacha'
+          },
+          {
+            imagePath: '/avatars/Paula_Figueiredo_Rocha.png',
+            name: 'Dra. Paula Figueiredo Rocha'
+          },
+          {
+            imagePath: '/avatars/Raquel_Del-Fraro_Rabelo.png',
+            name: 'Dra. Raquel Del-Fraro Rabelo'
+          },
+          {
+            imagePath: '/avatars/Raquel_Sadala_Mendes.png',
+            name: 'Dra. Raquel Sadala Mendes'
+          },
+          {
+            imagePath: '/avatars/Rogeria_Nobre_Rodrigues.png',
+            name: 'Dra. Rogéria Nobre Rodrigues'
+          },
+          {
+            imagePath: '/avatars/Tatiana_Martins.png',
+            name: 'Dra. Tatiana Martins'
+          }
+        ]
+      },
+      {
+        name: 'SOGIMIG',
+        get title() {
+          return `Comissão Científica ${this.name}`
+        },
+        link: 'https://www.sogimig.org.br',
+        src: '/logo/sogimig.png',
+        width: 150,
+        height: 60,
+        members: [
+          {
+            imagePath: '/avatars/Cassio_Furtini_Haddad.png',
+            name: 'Dr. Cássio Furtini Haddad'
+          },
+          {
+            imagePath: '/avatars/Angelica_Lemos_Debs_Diniz.png',
+            name: 'Dra. Angélica Lemos Debs Diniz'
+          },
+          {
+            imagePath: '/avatars/Ines_Katerina_Damasceno.png',
+            name: 'Dra. Ines Katerina Damasceno'
+          },
+          {
+            imagePath: '/avatars/Inessa_Beraldo_Bonomi.png',
+            name: 'Dra. Inessa Beraldo Bonomi'
+          },
+          {
+            imagePath: '/avatars/Joana_Sara_Fonseca_Dumont.png',
+            name: 'Dra. Joana Sara Fonseca Dumont'
+          },
+          {
+            imagePath: '/avatars/Lara_Rodrigues_Felix.png',
+            name: 'Dra. Lara Rodrigues Félix'
+          },
+          {
+            imagePath: '/avatars/Liv_Braga_de_Paula.png',
+            name: 'Dra. Liv Braga de Paula'
+          },
+          {
+            imagePath: '/avatars/Mariana_Seabra.png',
+            name: 'Dra. Mariana Seabra'
+          }
+        ]
+      }
+    ]
   },
   2024: {
     title:
@@ -533,7 +703,7 @@ export const eventData = {
     title:
       'JMR 2025 & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
     description:
-      'Nos dias 01 e 02 de junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imagem da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
+      'Nos dias 27 e 28 de junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imagem da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
     ogTitle: 'JMR 2025 - Jornada Mineira de Radiologia',
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
@@ -610,7 +780,7 @@ export const eventData = {
       title:
         'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
       description:
-        'JMR 2025 acontecerá nos dias 01 e 02 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+        'JMR 2025 acontecerá nos dias 27 e 28 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       rota: '/form/speakers',
       list: {
         title: 'Lista de palestrantes 2025',
@@ -909,7 +1079,7 @@ export const eventData = {
     title:
       'JMR 2025 & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
     description:
-      'Nos dias 01 e 02 de junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imagem da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
+      'Nos dias 27 e 28 de junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imagem da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
     ogTitle: 'JMR 2025 - Jornada Mineira de Radiologia',
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
@@ -986,7 +1156,7 @@ export const eventData = {
       title:
         'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
       description:
-        'JMR 2025 acontecerá nos dias 01 e 02 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+        'JMR 2025 acontecerá nos dias 27 e 28 de junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       rota: '/form/speakers',
       list: {
         title: 'Lista de palestrantes 2025',
