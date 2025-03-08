@@ -14,7 +14,7 @@ import { isMobile } from 'react-device-detect'
 
 const Card = ({ date, title, subtitle, img, height, width, color, link }) => {
   return (
-    <div className={classnames(card, color)}>
+    <div className={classnames(card)} style={{backgroundColor: color}}>
       <div className={ribbonContent}>
         <span className={ribbon}>{date}</span>
       </div>

@@ -2,91 +2,54 @@ import Link from 'next/link'
 import Image from 'next/image'
 import classnames from 'classnames'
 import AvatarCard from './AvatarCard'
-import abramedeLogo from '/public/logo/abramed-mg.png'
-import srmgLogo from '/public/logo/srmg.png'
-import { loadImagesFromFolders } from '../util/functions'
+import { eventData } from '../data/constants'
 import {
   container,
-  comissionContainer,
-  comissionColumn1,
-  comissionColumn2,
-  comissionTitle,
+  comissionContainer,  comissionTitle,
   medicosContainer,
-  promoters,
-  srmg,
-  abramede
+  promoters
 } from './Comission.module.css'
 
-const Comission = () => {
-  const { srmg: SrmgMedicos, abramede: AbramedeMedicos } =
-    loadImagesFromFolders('public/avatars')
+const Comission = ({year}) => {
+  const { comissions } = eventData[year]
+  console.log(year)
 
-  const sortedSrmgMedicos = SrmgMedicos.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  )
-  const sortedAbramedeMedicos = AbramedeMedicos.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  )
+  // Sort members alphabetically for each commission
+  const sortedComissions = comissions.map(comission => ({
+    ...comission,
+    members: [...comission.members].sort((a, b) => a.name.localeCompare(b.name))
+  }))
 
   return (
     <section className={container}>
       <div className={comissionContainer}>
-        <div className={comissionColumn1}>
-          <div className={comissionTitle}>
-            <Link href='https://srmg.org.br/' target='_blank'>
-              <Image
-                className={classnames(srmg, promoters)}
-                src={srmgLogo}
-                alt='srmg Logo'
-                width={210}
-                height={60}
-                // width={'30.75svh'}
-                // height={'8.78svh'}
-              />
-            </Link>
-            <h2>Comissão Científica SRMG</h2>
-          </div>
-          <div className={medicosContainer}>
-            {sortedSrmgMedicos.map((avatar) => {
-              return (
+        {sortedComissions.map((comission, index) => (
+          <div key={`${comission.name}-${index}`}>
+            <div className={comissionTitle}>
+              <Link href={comission.link} target='_blank'>
+                <Image
+                  className={classnames(promoters)}
+                  src={comission.src}
+                  alt={`${comission.name} Logo`}
+                  width={comission.width}
+                  height={comission.height}
+                />
+              </Link>
+              <h2>{comission.title}</h2>
+            </div>
+            <div className={medicosContainer}>
+              {comission.members.map((member, memberIndex) => (
                 <AvatarCard
-                  key={avatar.fileName}
-                  full_name={avatar.name}
-                  photo={avatar.imagePath}
+                  key={`${member.name}-${memberIndex}`}
+                  full_name={member.name}
+                  photo={member.imagePath}
                   width={150}
                   height={150}
                 />
-              )
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-        <div className={comissionColumn2}>
-          <div className={comissionTitle}>
-            <Link href='https://www.abramedemg.org.br/' target='_blank'>
-              <Image
-                className={classnames(abramede, promoters)}
-                src={abramedeLogo}
-                alt='Abramede/MG Logo'
-                width={150}
-                height={60}
-              />
-            </Link>
-            <h2>Comissão Científica ABRAMEDE/MG</h2>
-          </div>
-          <div className={medicosContainer}>
-            {sortedAbramedeMedicos.map((avatar) => {
-              return (
-                <AvatarCard
-                  key={avatar.fileName}
-                  full_name={avatar.name}
-                  photo={avatar.imagePath}
-                  width={150}
-                  height={150}
-                />
-              )
-            })}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   )

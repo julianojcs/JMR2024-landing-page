@@ -9,17 +9,16 @@
   flex-wrap: wrap;
   width: 100%;
   background-color: var(--primary-clr);
-}
 
-.comissionColumn1, .comissionColumn2 {
-  flex: 1;
-}
-
-.comissionColumn1 {
-  flex: 1 1 60vw;
-}
-.comissionColumn2 {
-  flex: 1 1 40vw;
+  & > div {
+    flex: 1;
+  }
+  & > div:nth-child(odd) {
+    flex: 1 1 60vw;
+  }
+  & > div:nth-child(even) {
+    flex: 1 1 40vw;
+  }
 }
 
 .comissionTitle {

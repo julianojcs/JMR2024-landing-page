@@ -1,9 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-const CountdownTimer = () => {
+const CountdownTimer = ({endDate}) => {
   const calculateTimeLeft = () => {
-    const targetDate = new Date('November 1, 2024 18:00:00');
+    const targetDate = new Date(endDate);
     const now = new Date();
     const difference = targetDate - now;
 
