@@ -426,75 +426,75 @@ export const eventData = {
         height: 60,
         members: [
           {
-            imagePath: '/avatars/Dr._Augusto_Antunes.png',
+            imagePath: '/avatars/Augusto_Antunes.png',
             name: 'Dr. Augusto Antunes'
           },
           {
-            imagePath: '/avatars/Dr._Benito_Pio_Ceccato_Júnior.png',
+            imagePath: '/avatars/Benito_Pio_Ceccato_Junior.png',
             name: 'Dr. Benito Pio Ceccato Júnior'
           },
           {
-            imagePath: '/avatars/Dr._Elísio_José_Salgado_Ribeiro.png',
+            imagePath: '/avatars/Elisio_Jose_Salgado_Ribeiro.png',
             name: 'Dr. Elísio José Salgado Ribeiro'
           },
           {
-            imagePath: '/avatars/Dr._Flávio_Coelho_Barros.jpg',
+            imagePath: '/avatars/Flavio_Coelho_Barros.png',
             name: 'Dr. Flávio Coelho Barros'
           },
           {
-            imagePath: '/avatars/Dr._Francisco_Ribeiro_Teixeira_Junior.png',
+            imagePath: '/avatars/Francisco_Ribeiro_Teixeira_Junior.png',
             name: 'Dr. Francisco Ribeiro Teixeira Junior'
           },
           {
-            imagePath: '/avatars/Dr._Júlio_Guerra_Domingues.jpg',
+            imagePath: '/avatars/Julio_Guerra_Domingues.png',
             name: 'Dr. Júlio Guerra Domingues'
           },
           {
-            imagePath: '/avatars/Dr._Luis_Ronan_MF_de_Souza.png',
+            imagePath: '/avatars/Luis_Ronan_MF_de_Souza.png',
             name: 'Dr. Luis Ronan MF de Souza'
           },
           {
-            imagePath: '/avatars/Dr._Marcus_Vinicius_Amorim.png',
+            imagePath: '/avatars/Marcus_Vinicius_Amorim.png',
             name: 'Dr. Marcus Vinicius Amorim'
           },
           {
-            imagePath: '/avatars/Dr._Rogerio_Augusto_Pinto_Silva.png',
+            imagePath: '/avatars/Rogerio_Augusto_Pinto_Silva.png',
             name: 'Dr. Rogerio Augusto Pinto Silva'
           },
           {
-            imagePath: '/avatars/Dr._Thales_Matheus_M_Santos.jpeg',
+            imagePath: '/avatars/Thales_Matheus_M_Santos.jpng',
             name: 'Dr. Thales Matheus M Santos'
           },
           {
-            imagePath: '/avatars/Dra._Adriene_Moraes_Campos.jpg',
+            imagePath: '/avatars/Adriene_Moraes_Campos.png',
             name: 'Dra. Adriene Moraes Campos'
           },
           {
-            imagePath: '/avatars/Dra._Anna_Christina_Gruber.jpg',
+            imagePath: '/avatars/Anna_Christina_Gruber.png',
             name: 'Dra. Anna Christina Gruber'
           },
           {
-            imagePath: '/avatars/Dra._Ivie_Braga_de_Paula.jpg',
+            imagePath: '/avatars/Ivie_Braga_de_Paula.png',
             name: 'Dra. Ivie Braga de Paula'
           },
           {
-            imagePath: '/avatars/Dra._Luciana_Costa_Silva.png',
+            imagePath: '/avatars/Luciana_Costa_Silva.png',
             name: 'Dra. Luciana Costa Silva'
           },
           {
-            imagePath: '/avatars/Dra._Maria_Fernanda_Borges_Abreu.png',
+            imagePath: '/avatars/Maria_Fernanda_Borges_Abreu.png',
             name: 'Dra. Maria Fernanda Borges Abreu'
           },
           {
-            imagePath: '/avatars/Dra._Paula_Figueiredo_Rocha.jpg',
+            imagePath: '/avatars/Paula_Figueiredo_Rocha.png',
             name: 'Dra. Paula Figueiredo Rocha'
           },
           {
-            imagePath: '/avatars/Dra._Raquel_Del-Fraro_Rabelo.png',
+            imagePath: '/avatars/Raquel_Del-Fraro_Rabelo.png',
             name: 'Dra. Raquel Del-Fraro Rabelo'
           },
           {
-            imagePath: '/avatars/Dra._Raquel_Sadala_Mendes.png',
+            imagePath: '/avatars/Raquel_Sadala_Mendes.png',
             name: 'Dra. Raquel Sadala Mendes'
           }
         ]
@@ -510,19 +510,19 @@ export const eventData = {
         height: 60,
         members: [
           {
-            imagePath: '/avatars/Dr._Arthur_Elias_de_Aguiar_Machado.jpg',
+            imagePath: '/avatars/Arthur_Elias_de_Aguiar_Machado.png',
             name: 'Dr. Arthur Elias de Aguiar Machado'
           },
           {
-            imagePath: '/avatars/Dr._Luiz_Ernani_Meira_Júnior.png',
+            imagePath: '/avatars/Luiz_Ernani_Meira_Junior.png',
             name: 'Dr. Luiz Ernani Meira Júnior'
           },
           {
-            imagePath: '/avatars/Dr._Marcus_Vinicius_Melo_Andrade.jpg',
+            imagePath: '/avatars/Marcus_Vinicius_Melo_Andrade.png',
             name: 'Dr. Marcus Vinicius Melo Andrade'
           },
           {
-            imagePath: '/avatars/Dra._Maria_Aparecida_Braga.png',
+            imagePath: '/avatars/Maria_Aparecida_Braga.png',
             name: 'Dra. Maria Aparecida Braga'
           }
         ]
@@ -746,115 +746,115 @@ export const eventData = {
         height: 60,
         members: [
           {
-            imagePath: '/avatars/Dr._Benito_Pio_Ceccato_Júnior.png',
+            imagePath: '/avatars/Benito_Pio_Ceccato_Junior.png',
             name: 'Dr. Benito Pio Ceccato Júnior'
           },
           {
-            imagePath: '/avatars/Dr._Dierre_Roberto_Alvim.png',
+            imagePath: '/avatars/Dierre_Roberto_Alvim.png',
             name: 'Dr. Dierre Roberto Alvim'
           },
           {
-            imagePath: '/avatars/Dr._Elísio_José_Salgado_Ribeiro.png',
+            imagePath: '/avatars/Elisio_Jose_Salgado_Ribeiro.png',
             name: 'Dr. Elísio José Salgado Ribeiro'
           },
           {
-            imagePath: '/avatars/Dr._Flávio_Coelho_Barros.jpg',
+            imagePath: '/avatars/Flavio_Coelho_Barros.png',
             name: 'Dr. Flávio Coelho Barros'
           },
           {
-            imagePath: '/avatars/Dr._Francisco_Ribeiro_Teixeira_Junior.png',
+            imagePath: '/avatars/Francisco_Ribeiro_Teixeira_Junior.png',
             name: 'Dr. Francisco Ribeiro Teixeira Junior'
           },
           {
-            imagePath: '/avatars/Dr._Leonardo _Campos_de_Queiroz.png',
+            imagePath: '/avatars/Leonardo _Campos_de_Queiroz.png',
             name: 'Dr. Leonardo  Campos de Queiroz'
           },
           {
-            imagePath: '/avatars/Dr._Luis_Ronan_MF_de_Souza.png',
+            imagePath: '/avatars/Luis_Ronan_MF_de_Souza.png',
             name: 'Dr. Luis Ronan MF de Souza'
           },
           {
-            imagePath: '/avatars/Dr._Luiz_Ernani_Meira_Júnior.png',
+            imagePath: '/avatars/Luiz_Ernani_Meira_Júnior.png',
             name: 'Dr. Luiz Ernani Meira Júnior'
           },
           {
-            imagePath: '/avatars/Dr._Paulo_Ramos_Botelho_Antunes.png',
+            imagePath: '/avatars/Paulo_Ramos_Botelho_Antunes.png',
             name: 'Dr. Paulo Ramos Botelho Antunes'
           },
           {
-            imagePath: '/avatars/Dr._Pedro_Paulo_Nunes_Pereira.png',
+            imagePath: '/avatars/Pedro_Paulo_Nunes_Pereira.png',
             name: 'Dr. Pedro Paulo Nunes Pereira'
           },
           {
-            imagePath: '/avatars/Dr._Raphael_Guedes.png',
+            imagePath: '/avatars/Raphael_Guedes.png',
             name: 'Dr. Raphael Guedes'
           },
           {
-            imagePath: '/avatars/Dr._Robertson_Corrêa_Bernardo.png',
+            imagePath: '/avatars/Robertson_Correa_Bernardo.png',
             name: 'Dr. Robertson Corrêa Bernardo'
           },
           {
-            imagePath: '/avatars/Dr._Rogerio_Augusto_Pinto_Silva.png',
+            imagePath: '/avatars/Rogerio_Augusto_Pinto_Silva.png',
             name: 'Dr. Rogerio Augusto Pinto Silva'
           },
           {
-            imagePath: '/avatars/Dra_Ana_Paula_Campos_Rocha.png',
-            name: 'Dra Ana Paula Campos Rocha'
+            imagePath: '/avatars/Ana_Paula_Campos_Rocha.png',
+            name: 'Dra.Ana Paula Campos Rocha'
           },
           {
-            imagePath: '/avatars/Dra_Bruna_Cesário_Senna.jpg.png',
-            name: 'Dra Bruna Cesário Senna.jpg'
+            imagePath: '/avatars/Bruna_Cesario_Senna.jpg.png',
+            name: 'Dra.Bruna Cesário Senna.jpg'
           },
           {
-            imagePath: '/avatars/Dra._Adriene_Moraes_Campos.png',
+            imagePath: '/avatars/Adriene_Moraes_Campos.png',
             name: 'Dra. Adriene Moraes Campos'
           },
           {
-            imagePath: '/avatars/Dra._Anna_Christina_Gruber.png',
+            imagePath: '/avatars/Anna_Christina_Gruber.png',
             name: 'Dra. Anna Christina Gruber'
           },
           {
-            imagePath: '/avatars/Dra._Ivie_Braga_de_Paula.jpg',
+            imagePath: '/avatars/Ivie_Braga_de_Paula.png',
             name: 'Dra. Ivie Braga de Paula'
           },
           {
-            imagePath: '/avatars/Dra._Luciana_Costa_Silva.png',
+            imagePath: '/avatars/Luciana_Costa_Silva.png',
             name: 'Dra. Luciana Costa Silva'
           },
           {
-            imagePath: '/avatars/Dra._Luisa_Leitão.png',
+            imagePath: '/avatars/Luisa_Leitao.png',
             name: 'Dra. Luisa Leitão'
           },
           {
-            imagePath: '/avatars/Dra._Maria_de_Fátima_Vilaça_Lobato.png',
+            imagePath: '/avatars/Maria_de_Fatima_Vilaca_Lobato.png',
             name: 'Dra. Maria de Fátima Vilaça Lobato'
           },
           {
-            imagePath: '/avatars/Dra._Maria_Fernanda_Borges_Abreu.png',
+            imagePath: '/avatars/Maria_Fernanda_Borges_Abreu.png',
             name: 'Dra. Maria Fernanda Borges Abreu'
           },
           {
-            imagePath: '/avatars/Dra._Patrícia_El_Bacha.png',
+            imagePath: '/avatars/Patricia_El_Bacha.png',
             name: 'Dra. Patrícia El Bacha'
           },
           {
-            imagePath: '/avatars/Dra._Paula_Figueiredo_Rocha.png',
+            imagePath: '/avatars/Paula_Figueiredo_Rocha.png',
             name: 'Dra. Paula Figueiredo Rocha'
           },
           {
-            imagePath: '/avatars/Dra._Raquel_Del-Fraro_Rabelo.png',
+            imagePath: '/avatars/Raquel_Del-Fraro_Rabelo.png',
             name: 'Dra. Raquel Del-Fraro Rabelo'
           },
           {
-            imagePath: '/avatars/Dra._Raquel_Sadala_Mendes.png',
+            imagePath: '/avatars/Raquel_Sadala_Mendes.png',
             name: 'Dra. Raquel Sadala Mendes'
           },
           {
-            imagePath: '/avatars/Dra._Rogéria_Nobre_Rodrigues.png',
+            imagePath: '/avatars/Rogeria_Nobre_Rodrigues.png',
             name: 'Dra. Rogéria Nobre Rodrigues'
           },
           {
-            imagePath: '/avatars/Dra._Tatiana_Martins.png',
+            imagePath: '/avatars/Tatiana_Martins.png',
             name: 'Dra. Tatiana Martins'
           }
         ]
@@ -870,35 +870,35 @@ export const eventData = {
         height: 60,
         members: [
           {
-            imagePath: '/avatars/Dr._Cássio_Furtini_Haddad.png',
+            imagePath: '/avatars/Cassio_Furtini_Haddad.png',
             name: 'Dr. Cássio Furtini Haddad'
           },
           {
-            imagePath: '/avatars/Dra_Angélica_Lemos_Debs_Diniz.png',
-            name: 'Dra Angélica Lemos Debs Diniz'
+            imagePath: '/avatars/Angelica_Lemos_Debs_Diniz.png',
+            name: 'Dra. Angélica Lemos Debs Diniz'
           },
           {
-            imagePath: '/avatars/Dra._Ines_Katerina_Damasceno.png',
+            imagePath: '/avatars/Ines_Katerina_Damasceno.png',
             name: 'Dra. Ines Katerina Damasceno'
           },
           {
-            imagePath: '/avatars/Dra._Inessa_Beraldo_Bonomi.png',
+            imagePath: '/avatars/Inessa_Beraldo_Bonomi.png',
             name: 'Dra. Inessa Beraldo Bonomi'
           },
           {
-            imagePath: '/avatars/Dra._Joana_Sara_Fonseca_Dumont.png',
+            imagePath: '/avatars/Joana_Sara_Fonseca_Dumont.png',
             name: 'Dra. Joana Sara Fonseca Dumont'
           },
           {
-            imagePath: '/avatars/Dra._Lara_Rodrigues_Félix.png',
+            imagePath: '/avatars/Lara_Rodrigues_Felix.png',
             name: 'Dra. Lara Rodrigues Félix'
           },
           {
-            imagePath: '/avatars/Dra._Liv_Braga_de_Paula.png',
+            imagePath: '/avatars/Liv_Braga_de_Paula.png',
             name: 'Dra. Liv Braga de Paula'
           },
           {
-            imagePath: '/avatars/Dra._Mariana_Seabra.png',
+            imagePath: '/avatars/Mariana_Seabra.png',
             name: 'Dra. Mariana Seabra'
           }
         ]
