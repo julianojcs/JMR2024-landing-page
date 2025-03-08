@@ -46,7 +46,8 @@ const Multselector = ({
   placeholder = "Selecione itens, ou digite para buscar ou criar...",
   isCreatable = false,
   instanceId,
-  onCreateOption
+  onCreateOption,
+  CreateLabelText = 'novo item'
 }) => {
   const [mounted, setMounted] = useState(false);
   const [fixedOptions, setFixedOptions] = useState([]);
@@ -118,7 +119,7 @@ const Multselector = ({
       isClearable
       isCreatable={isCreatable}
       isMulti
-      formatCreateLabel={(inputValue) => `Criar nova categoria "${inputValue}"`}
+      formatCreateLabel={(inputValue) => `Criar ${CreateLabelText} "${inputValue}"`}
       aria={{
         label: placeholder,
         live: 'polite',

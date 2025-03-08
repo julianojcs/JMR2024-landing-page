@@ -441,6 +441,7 @@ const SpeakersForm = ({ params }) => {
               value={formData.categories}
               defaultValue={formData.categories}
               placeholder='Selecione ou crie uma nova categoria...'
+              CreateLabelText='nova categoria'
               onChange={(selectedOptions) => {
                 setFormData(prev => ({
                   ...prev,
@@ -466,6 +467,7 @@ const SpeakersForm = ({ params }) => {
               value={formData.lectures}
               defaultValue={formData.lectures}
               placeholder='Selecione palestras ou digite para buscar ou criar...'
+              CreateLabelText='nova palestra'
               onChange={(selectedOptions) => {
                 setFormData(prev => ({
                   ...prev,
