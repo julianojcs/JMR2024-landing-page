@@ -295,7 +295,7 @@ export const eventData = {
           },
           {
             imagePath: '/avatars/Luciana_Costa_Silva.png',
-            name: 'Dra. Luciana Costa Silva'
+            name: 'Dra. Luciana Costa'
           },
           {
             imagePath: '/avatars/Luisa_Leitao.png',
@@ -649,7 +649,7 @@ export const eventData = {
           },
           {
             imagePath: '/avatars/Luciana_Costa_Silva.png',
-            name: 'Dra. Luciana Costa Silva'
+            name: 'Dra. Luciana Costa'
           },
           {
             imagePath: '/avatars/Maria_Fernanda_Borges_Abreu.png',
@@ -989,7 +989,7 @@ export const eventData = {
           },
           {
             imagePath: '/avatars/Luciana_Costa_Silva.png',
-            name: 'Dra. Luciana Costa Silva'
+            name: 'Dra. Luciana Costa'
           },
           {
             imagePath: '/avatars/Luisa_Leitao.png',
@@ -1365,7 +1365,7 @@ export const eventData = {
           },
           {
             imagePath: '/avatars/Luciana_Costa_Silva.png',
-            name: 'Dra. Luciana Costa Silva'
+            name: 'Dra. Luciana Costa'
           },
           {
             imagePath: '/avatars/Luisa_Leitao.png',
