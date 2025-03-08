@@ -1,0 +1,100 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  background: var(--background);
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  background: linear-gradient(
+    45deg,
+    var(--card1-clr) 0%,      /* #052c65 - Deep blue */
+    var(--card2-clr) 20%,     /* #084298 - Royal blue */
+    var(--card3-clr) 40%,     /* #0a58ca - Medium blue */
+    var(--card4-clr) 60%,     /* #3d8bfd - Light blue */
+    var(--card5-clr) 80%,     /* #6ea8fe - Sky blue */
+    var(--primary-clr) 100%   /* #0E1D59 - Navy blue */
+  );
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(74, 58, 90, 0.15);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-size: 200% 200%;
+  animation: gradientFlow 10s ease infinite;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.banner:hover {
+  transform: translateY(-5px);
+}
+
+.banner h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #fff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.banner p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  max-width: 600px;
+  opacity: 0.9;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Optional: Add a subtle animation to make the gradient move */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 2rem 1rem;
+    margin: 1.5rem;
+  }
+
+  .banner h2 {
+    font-size: 2rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+}
