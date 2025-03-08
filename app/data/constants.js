@@ -462,7 +462,7 @@ export const eventData = {
             name: 'Dr. Rogerio Augusto Pinto Silva'
           },
           {
-            imagePath: '/avatars/Thales_Matheus_M_Santos.jpng',
+            imagePath: '/avatars/Thales_Matheus_M_Santos.png',
             name: 'Dr. Thales Matheus M Santos'
           },
           {
@@ -774,7 +774,7 @@ export const eventData = {
             name: 'Dr. Luis Ronan MF de Souza'
           },
           {
-            imagePath: '/avatars/Luiz_Ernani_Meira_Júnior.png',
+            imagePath: '/avatars/Luiz_Ernani_Meira_Junior.png',
             name: 'Dr. Luiz Ernani Meira Júnior'
           },
           {
@@ -802,7 +802,7 @@ export const eventData = {
             name: 'Dra.Ana Paula Campos Rocha'
           },
           {
-            imagePath: '/avatars/Bruna_Cesario_Senna.jpg.png',
+            imagePath: '/avatars/Bruna_Cesario_Senna.png',
             name: 'Dra.Bruna Cesário Senna.jpg'
           },
           {
