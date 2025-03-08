@@ -730,8 +730,8 @@ export const eventData = {
     date: {
       start: '20250627T083000-0300',
       end: '20250628T180000-0300',
-      extendedDatePeriod: '01 e 02 de Junho de 2025',
-      shortDatePeriod: '01 e 02/06/2025'
+      extendedDatePeriod: '27 e 28 de Junho de 2025',
+      shortDatePeriod: '27 e 28/06/2025'
     },
     recurrenceRule: 'RRULE:FREQ=DAILY;COUNT=2',
     location: {
@@ -1106,8 +1106,8 @@ export const eventData = {
     date: {
       start: '20250627T083000-0300',
       end: '20250628T180000-0300',
-      extendedDatePeriod: '01 e 02 de Junho de 2025',
-      shortDatePeriod: '01 e 02/06/2025'
+      extendedDatePeriod: '27 e 28 de Junho de 2025',
+      shortDatePeriod: '27 e 28/06/2025'
     },
     recurrenceRule: 'RRULE:FREQ=DAILY;COUNT=2',
     location: {
