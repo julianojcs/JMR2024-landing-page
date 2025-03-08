@@ -6,12 +6,16 @@ import styles from './ComingSoonBanner.module.css'
 const ComingSoonBanner = ({ sessionItem, scale=1 }) => {
   const [isVisible, setIsVisible] = useState(false)
 
+  const scaleStyle = {
+    transform: typeof scale === 'number' ? `scale(${scale})` : 'scale(1)'
+  }
+
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
   return (
-    <div className={styles.wrapper} style={{ transform: `scale(${scale})` }}>
+    <div className={styles.wrapper} style={scaleStyle}>
       <div
         className={`${styles.banner} ${isVisible ? styles.visible : ''}`}
         style={{
