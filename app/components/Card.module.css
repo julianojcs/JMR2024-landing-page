@@ -44,6 +44,11 @@
   }
 }
 
+.titleOppening {
+  display: grid;
+  margin-top: -10px;
+}
+
 .ribbonContent {
   position: absolute;
   top: -6px;

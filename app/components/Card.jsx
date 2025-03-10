@@ -7,22 +7,37 @@ import {
   subtitleText,
   ribbonContent,
   ribbon,
-  imageDownloadPDF
+  imageDownloadPDF,
+  titleOppening
 } from './Card.module.css'
 import pdf from '../../assets/images/download-pdf.png'
 import { isMobile } from 'react-device-detect'
 
 const Card = ({ date, title, subtitle, img, height, width, color, link }) => {
+
+  const renderTitle = (title) => {
+    if (Array.isArray(title)) {
+      return (
+        <span className={titleOppening}>
+          {title.map((text, index) => (
+            <span key={`${text}-${index}`}>{text}</span>
+          ))}
+        </span>
+      )
+    }
+    return title
+  }
+
   return (
     <div className={classnames(card)} style={{backgroundColor: color}}>
       <div className={ribbonContent}>
         <span className={ribbon}>{date}</span>
       </div>
-      <div className={titleText}>{title}</div>
+      <div className={titleText}>{renderTitle(title)}</div>
       <Image
         className={imageCard}
         src={img}
-        alt={title}
+        alt={Array.isArray(title) ? title.join(' ') : title}
         width={width}
         height={height}
       />

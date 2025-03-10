@@ -56,11 +56,6 @@
   padding: 1.5rem;
 }
 
-.titleOppening {
-  display: grid;
-  margin-top: -10px;
-}
-
 /* Cores dos cards */
 .card0 { background-color: var(--secondary-clr); }
 .card1 { background-color: var(--card1-clr); }

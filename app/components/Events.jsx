@@ -6,8 +6,7 @@ import { eventData } from '../data/constants'
 import {
   container,
   columnTitle,
-  firstRow,
-  titleOppening
+  firstRow
 } from './Events.module.css'
 
 const Events = ({button, year}) => {
@@ -22,18 +21,55 @@ const Events = ({button, year}) => {
 
   const cardSections = events.cardSections
 
-  const renderTitle = (title) => {
-    if (Array.isArray(title)) {
-      return (
-        <span className={titleOppening}>
-          {title.map((text, index) => (
-            <span key={`${text}-${index}`}>{text}</span>
-          ))}
-        </span>
-      )
-    }
-    return title
-  }
+  const sortCards = (cards, orderBy) => {
+    if (!orderBy) return cards;
+
+    return [...cards].sort((a, b) => {
+      // First sort by date
+      if (orderBy.date) {
+        // Check for multi-day events
+        const isMultiDayA = a.date.includes(' e ');
+        const isMultiDayB = b.date.includes(' e ');
+
+        // Multi-day events should come first
+        if (isMultiDayA && !isMultiDayB) return -1;
+        if (!isMultiDayA && isMultiDayB) return 1;
+
+        // Extract day and month from date strings
+        const [dayA, monthA] = a.date.split('/');
+        const [dayB, monthB] = b.date.split('/');
+
+        // Compare months first
+        const monthComparison = parseInt(monthA) - parseInt(monthB);
+        if (monthComparison !== 0) return monthComparison;
+
+        // For same month, compare days
+        const firstDayA = parseInt(dayA.split(' e ')[0]);
+        const firstDayB = parseInt(dayB.split(' e ')[0]);
+
+        const dayComparison = firstDayA - firstDayB;
+        if (dayComparison !== 0) return dayComparison;
+      }
+
+      // Then sort by title if dates are equal and title sorting is enabled
+      if (orderBy.title) {
+        // Convert array titles to strings for comparison
+        const getTitleString = (title) => {
+          if (Array.isArray(title)) {
+            return title.join(' ').toLowerCase();
+          }
+          return title.toLowerCase();
+        };
+
+        const titleA = getTitleString(a.title);
+        const titleB = getTitleString(b.title);
+
+        return titleA.localeCompare(titleB, 'pt-BR');
+      }
+
+      return 0;
+    });
+  };
 
   const renderSubtitle = (cardData) => {
     if (cardData.countdownTimer) {
@@ -42,22 +78,41 @@ const Events = ({button, year}) => {
     return cardData.subtitle || null
   }
 
-  const renderCard = (cardData) => (
-    <Card
-      key={cardData.title}
-      {...cardData}
-      title={renderTitle(cardData.title)}
-      subtitle={renderSubtitle(cardData)}
-    />
-  )
+  const renderCard = (cardData, sectionColor, sectionRatio) => {
+    const getCardDimensions = () => {
+      if (cardData.width && cardData.height) {
+        return [cardData.width, cardData.height];
+      }
+      if (sectionRatio) {
+        return sectionRatio;
+      }
+      return [125, 125]; // default dimensions
+    };
+
+    const [width, height] = getCardDimensions();
+
+    return (
+      <Card
+        key={cardData.title}
+        {...cardData}
+        color={sectionColor || cardData.color}
+        width={width}
+        height={height}
+        title={cardData.title}
+        subtitle={renderSubtitle(cardData)}
+      />
+    );
+}
 
   return (
     <section className={container}>
-      {cardSections.map((cardSection, index) => (
+      {cardSections.map((section, index) => (
         <div key={index}>
-          <h2 className={columnTitle}>{cardSection.title}</h2>
+          <h2 className={columnTitle}>{section.title}</h2>
           <div className={firstRow}>
-            {cardSection.cardlist.map(renderCard)}
+            {sortCards(section.cardlist, section.orderBy).map(card =>
+              renderCard(card, section.color, section.ratio)
+            )}
           </div>
         </div>
       ))}
