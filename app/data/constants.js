@@ -470,6 +470,7 @@ export const eventData = {
       }
     },
     events: {
+      soon: false,
       cardSections: [
         {
           title: ' ',
@@ -482,12 +483,16 @@ export const eventData = {
               img: '/images/cards/oppening.png',
               width: '125',
               height: '125',
-              countdownTimer: 'November 27, 2025 18:00:00'
+              countdownTimer: 'November 01, 2024 18:00:00'
             }
           ]
         },
         {
           title: 'Programação Científica',
+          orderBy: {
+            date: true,
+            title: true
+          },
           cardlist: [
             {
               date: '01 e 02/11',
@@ -539,6 +544,10 @@ export const eventData = {
         },
         {
           title: 'Hands On',
+          orderBy: {
+            date: true,
+            title: true
+          },
           cardlist: [
             {
               date: '02/11',
@@ -562,6 +571,10 @@ export const eventData = {
         },
         {
           title: 'Cursos Intensivos',
+          orderBy: {
+            date: true,
+            title: true
+          },
           cardlist: [
             {
               date: '01/11',
@@ -807,20 +820,24 @@ export const eventData = {
         },
         {
           title: 'Programação Científica',
+          color: '#00695C', // Dark Teal Green
+          ratio: [125, 125],
+          orderBy: {
+            date: true,
+            title: true
+          },
           cardlist: [
             {
-              date: '01 e 02/11',
-              color: '#052c65',
+              date: '27 e 28/06',
+              color: '#004D40', // Deep Teal Green
               title: 'POCUS',
-              subtitle: 'SRMG ABRAMEDE/MG',
-              link: '/pdf/01-e-02-11-pocus.pdf',
               img: '/images/cards/pocus.png',
               width: '63',
               height: '125'
             },
             {
-              date: '01/11',
-              color: '#084298',
+              date: '27/06',
+              color: '#00695C', // Dark Teal Green
               title: 'Mama',
               link: '/pdf/01-11-mama.pdf',
               img: '/images/cards/mama.png',
@@ -828,8 +845,8 @@ export const eventData = {
               height: '125'
             },
             {
-              date: '01/11',
-              color: '#0a58ca',
+              date: '27/06',
+              color: '#00796B', // Medium Teal Green
               title: 'Geniturinário',
               link: '/pdf/01-11-geniturinário-01-out-lc.pdf',
               img: '/images/cards/geniturinario.png',
@@ -837,8 +854,8 @@ export const eventData = {
               height: '125'
             },
             {
-              date: '02/11',
-              color: '#3d8bfd',
+              date: '28/06',
+              color: '#00897B', // Regular Teal Green
               title: 'Gastrointestinal',
               link: '/pdf/02-11-gastrointestinal_01-out-final.pdf',
               img: '/images/cards/gastrointestinal.png',
@@ -846,56 +863,85 @@ export const eventData = {
               height: '125'
             },
             {
-              date: '02/11',
-              color: '#6ea8fe',
+              date: '28/06',
+              color: '#009688', // Primary Teal
               title: 'MSK',
               link: '/pdf/02-11-musculoesquelético-01-out-final.pdf',
               img: '/images/cards/msk.png',
               width: '75',
               height: '125'
-            }
+            },
+            {
+              date: '27/06',
+              color: '#26A69A', // Light Teal
+              title: 'US Obstetrícia',
+              img: '/images/cards/us-obstetricia.png'
+            },
+            {
+              date: '27/06',
+              color: '#4DB6AC', // Lighter Teal
+              title: ['Pelve', 'Feminina'],
+              img: '/images/cards/pelve-feminina.png'
+            },
+            {
+              date: '27/06',
+              color: '#80CBC4', // Very Light Teal
+              title: 'Neurorradiol',
+              img: '/images/cards/neurorradiol.png'
+            },
+            {
+              date: '27/06',
+              color: '#2E7D32', // Forest Green
+              title: ['Cabeça', 'Pescoço'],
+              img: '/images/cards/cabeca-pescoco.png'
+            },
+            {
+              date: '27/06',
+              color: '#388E3C', // Dark Green
+              title: 'US Ginecologia',
+              img: '/images/cards/us-ginecologia.png'
+            },
+            {
+              date: '27/06',
+              color: '#43A047', // Medium Green
+              title: ['Técnicas', 'Radiológicas'],
+              img: '/images/cards/tecnicas-radiologicas.png'
+            },
+            {
+              date: '27/06',
+              color: '#4CAF50', // Regular Green
+              title: 'Acadêmicos',
+              img: '/images/cards/academicos.png',
+              height: '125'
+            },
+            {
+              date: '27/06',
+              color: '#66BB6A', // Light Green
+              title: 'Tórax',
+              img: '/images/cards/torax.png'
+            },
           ]
         },
         {
           title: 'Hands On',
+          color: '#084298', // Black
+          ratio: [125, 125],
           cardlist: [
             {
-              date: '02/11',
+              date: '28/06',
               color: '#010101',
-              title: 'BI-RADS',
-              link: '/pdf/02-11-hands-on-bi-rads.pdf',
-              img: '/images/cards/bi-rads.png',
-              width: '180',
-              height: '120'
-            },
-            {
-              date: '02/11',
-              color: '#616161',
-              title: 'Intervenção Mamária',
-              link: '/pdf/02-11-hands-on-intervenção-mamaria.pdf',
-              img: '/images/cards/intervencao-mamaria.png',
-              width: '118',
-              height: '125'
+              title: ['RM Pelve para', 'Ginecologistas'],
+              img: '/images/cards/rm-pelve-para-ginecologista.png'
             }
           ]
         },
         {
           title: 'Cursos Intensivos',
+          color: '#010101',
           cardlist: [
             {
-              date: '01/11',
-              color: '#00695c',
-              title: 'Intervenção não vascular',
-              link: '/pdf/01-11_radiologia-intervencionista-não-vascular.pdf',
-              img: '/images/cards/intervencao-nao-vascular.png',
-              width: '106',
-              height: '142'
-            },
-            {
               date: '02/11',
-              color: '#26a69a',
               title: 'Inovação/IA',
-              link: '/pdf/02-11-inovacao-inteligencia-artificial-em-radiologia.pdf',
               img: '/images/cards/ia.png',
               width: '166',
               height: '164'
@@ -1127,18 +1173,17 @@ export const eventData = {
     },
     callToAct: {
       button01: {
-        // caption: 'Faça sua inscrição',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
+        caption: 'Em breve, faça sua inscrição',
+        link: '#'
       },
       button02: {
         //caption: 'Se inscreva agora na Jornada',
-        caption: 'Emita o seu certificado',
+        caption: 'Se inscreva, em breve, na Jornada',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button03: {
         // caption: 'Se inscreva Hands On',
-        caption: 'Emita o seu certificado',
+        caption: 'Emita o seu certificado em breve',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button04: {
@@ -1164,7 +1209,7 @@ export const eventData = {
       }
     },
     events: {
-      soon: true,
+      soon: false,
       cardSections: [
         {
           title: ' ',
@@ -1177,26 +1222,30 @@ export const eventData = {
               img: '/images/cards/oppening.png',
               width: '125',
               height: '125',
-              countdownTimer: 'June 01, 2025 18:00:00'
+              countdownTimer: 'June 27, 2025 18:00:00'
             }
           ]
         },
         {
           title: 'Programação Científica',
+          color: '#00695C', // Dark Teal Green
+          ratio: [125, 125],
+          orderBy: {
+            date: true,
+            title: true
+          },
           cardlist: [
             {
-              date: '01 e 02/11',
-              color: '#052c65',
+              date: '27 e 28/06',
+              color: '#004D40', // Deep Teal Green
               title: 'POCUS',
-              subtitle: 'SRMG ABRAMEDE/MG',
-              link: '/pdf/01-e-02-11-pocus.pdf',
               img: '/images/cards/pocus.png',
               width: '63',
               height: '125'
             },
             {
-              date: '01/11',
-              color: '#084298',
+              date: '27/06',
+              color: '#00695C', // Dark Teal Green
               title: 'Mama',
               link: '/pdf/01-11-mama.pdf',
               img: '/images/cards/mama.png',
@@ -1204,8 +1253,8 @@ export const eventData = {
               height: '125'
             },
             {
-              date: '01/11',
-              color: '#0a58ca',
+              date: '27/06',
+              color: '#00796B', // Medium Teal Green
               title: 'Geniturinário',
               link: '/pdf/01-11-geniturinário-01-out-lc.pdf',
               img: '/images/cards/geniturinario.png',
@@ -1213,8 +1262,8 @@ export const eventData = {
               height: '125'
             },
             {
-              date: '02/11',
-              color: '#3d8bfd',
+              date: '28/06',
+              color: '#00897B', // Regular Teal Green
               title: 'Gastrointestinal',
               link: '/pdf/02-11-gastrointestinal_01-out-final.pdf',
               img: '/images/cards/gastrointestinal.png',
@@ -1222,56 +1271,85 @@ export const eventData = {
               height: '125'
             },
             {
-              date: '02/11',
-              color: '#6ea8fe',
+              date: '28/06',
+              color: '#009688', // Primary Teal
               title: 'MSK',
               link: '/pdf/02-11-musculoesquelético-01-out-final.pdf',
               img: '/images/cards/msk.png',
               width: '75',
               height: '125'
-            }
+            },
+            {
+              date: '27/06',
+              color: '#26A69A', // Light Teal
+              title: 'US Obstetrícia',
+              img: '/images/cards/us-obstetricia.png'
+            },
+            {
+              date: '27/06',
+              color: '#4DB6AC', // Lighter Teal
+              title: ['Pelve', 'Feminina'],
+              img: '/images/cards/pelve-feminina.png'
+            },
+            {
+              date: '27/06',
+              color: '#80CBC4', // Very Light Teal
+              title: 'Neurorradiol',
+              img: '/images/cards/neurorradiol.png'
+            },
+            {
+              date: '27/06',
+              color: '#2E7D32', // Forest Green
+              title: ['Cabeça', 'Pescoço'],
+              img: '/images/cards/cabeca-pescoco.png'
+            },
+            {
+              date: '27/06',
+              color: '#388E3C', // Dark Green
+              title: 'US Ginecologia',
+              img: '/images/cards/us-ginecologia.png'
+            },
+            {
+              date: '27/06',
+              color: '#43A047', // Medium Green
+              title: ['Técnicas', 'Radiológicas'],
+              img: '/images/cards/tecnicas-radiologicas.png'
+            },
+            {
+              date: '27/06',
+              color: '#4CAF50', // Regular Green
+              title: 'Acadêmicos',
+              img: '/images/cards/academicos.png',
+              height: '125'
+            },
+            {
+              date: '27/06',
+              color: '#66BB6A', // Light Green
+              title: 'Tórax',
+              img: '/images/cards/torax.png'
+            },
           ]
         },
         {
           title: 'Hands On',
+          color: '#084298', // Black
+          ratio: [125, 125],
           cardlist: [
             {
-              date: '02/11',
+              date: '28/06',
               color: '#010101',
-              title: 'BI-RADS',
-              link: '/pdf/02-11-hands-on-bi-rads.pdf',
-              img: '/images/cards/bi-rads.png',
-              width: '180',
-              height: '120'
-            },
-            {
-              date: '02/11',
-              color: '#616161',
-              title: 'Intervenção Mamária',
-              link: '/pdf/02-11-hands-on-intervenção-mamaria.pdf',
-              img: '/images/cards/intervencao-mamaria.png',
-              width: '118',
-              height: '125'
+              title: ['RM Pelve para', 'Ginecologistas'],
+              img: '/images/cards/rm-pelve-para-ginecologista.png'
             }
           ]
         },
         {
           title: 'Cursos Intensivos',
+          color: '#010101',
           cardlist: [
             {
-              date: '01/11',
-              color: '#00695c',
-              title: 'Intervenção não vascular',
-              link: '/pdf/01-11_radiologia-intervencionista-não-vascular.pdf',
-              img: '/images/cards/intervencao-nao-vascular.png',
-              width: '106',
-              height: '142'
-            },
-            {
               date: '02/11',
-              color: '#26a69a',
               title: 'Inovação/IA',
-              link: '/pdf/02-11-inovacao-inteligencia-artificial-em-radiologia.pdf',
               img: '/images/cards/ia.png',
               width: '166',
               height: '164'
