@@ -721,7 +721,7 @@ export const eventData = {
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
     bannerText: [
-      'Vem aí a XI Jornada Mineira de Radiologia e 0',
+      'Vem aí a XI Jornada Mineira de Radiologia e o',
       'XIV Congresso de Imunologia da Mulher'
     ],
     promoters: [
@@ -765,12 +765,12 @@ export const eventData = {
     callToAct: {
       button01: {
         // caption: 'Faça sua inscrição',
-        caption: 'Emita o seu certificado',
+        caption: 'Em breve, faça a sua inscrição',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button02: {
         //caption: 'Se inscreva agora na Jornada',
-        caption: 'Emita o seu certificado',
+        caption: 'Se inscreva, em breve, na Jornada',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button03: {
@@ -892,7 +892,7 @@ export const eventData = {
             {
               date: '27/06',
               color: '#2E7D32', // Forest Green
-              title: ['Cabeça', 'Pescoço'],
+              title: ['Cabeça e', 'Pescoço'],
               img: '/images/cards/cabeca-pescoco.png'
             },
             {
@@ -1130,7 +1130,7 @@ export const eventData = {
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
     bannerText: [
-      'Vem aí a XI Jornada Mineira de Radiologia e 0',
+      'Vem aí a XI Jornada Mineira de Radiologia e o',
       'XIV Congresso de Imunologia da Mulher'
     ],
     promoters: [
@@ -1173,17 +1173,17 @@ export const eventData = {
     },
     callToAct: {
       button01: {
-        caption: 'Em breve, faça sua inscrição',
+        caption: 'Inscrições em breve...',
         link: '#'
       },
       button02: {
         //caption: 'Se inscreva agora na Jornada',
-        caption: 'Se inscreva, em breve, na Jornada',
+        caption: 'Inscrições em breve...',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button03: {
         // caption: 'Se inscreva Hands On',
-        caption: 'Emita o seu certificado em breve',
+        caption: 'Inscrições em breve...',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button04: {
@@ -1215,10 +1215,9 @@ export const eventData = {
           title: ' ',
           cardlist: [
             {
-              date: '01/11',
+              date: '27/06',
               color: '#68517f',
               title: ['Abertura', 'Oficial'],
-              link: '/pdf/01-11-abertura-oficial-30-out.pdf',
               img: '/images/cards/oppening.png',
               width: '125',
               height: '125',
@@ -1236,97 +1235,87 @@ export const eventData = {
           },
           cardlist: [
             {
-              date: '27 e 28/06',
-              color: '#004D40', // Deep Teal Green
-              title: 'POCUS',
+              date: '27/06',
+              title: 'POCUS Geral',
               img: '/images/cards/pocus.png',
               width: '63',
               height: '125'
             },
             {
               date: '27/06',
-              color: '#00695C', // Dark Teal Green
               title: 'Mama',
-              link: '/pdf/01-11-mama.pdf',
               img: '/images/cards/mama.png',
               width: '126',
               height: '125'
             },
             {
               date: '27/06',
-              color: '#00796B', // Medium Teal Green
               title: 'Geniturinário',
-              link: '/pdf/01-11-geniturinário-01-out-lc.pdf',
               img: '/images/cards/geniturinario.png',
               width: '126',
               height: '125'
             },
             {
               date: '28/06',
-              color: '#00897B', // Regular Teal Green
               title: 'Gastrointestinal',
-              link: '/pdf/02-11-gastrointestinal_01-out-final.pdf',
               img: '/images/cards/gastrointestinal.png',
               width: '125',
               height: '125'
             },
             {
-              date: '28/06',
-              color: '#009688', // Primary Teal
+              date: '27/06',
               title: 'MSK',
-              link: '/pdf/02-11-musculoesquelético-01-out-final.pdf',
               img: '/images/cards/msk.png',
               width: '75',
               height: '125'
             },
             {
               date: '27/06',
-              color: '#26A69A', // Light Teal
               title: 'US Obstetrícia',
               img: '/images/cards/us-obstetricia.png'
             },
             {
               date: '27/06',
-              color: '#4DB6AC', // Lighter Teal
               title: ['Pelve', 'Feminina'],
               img: '/images/cards/pelve-feminina.png'
             },
             {
               date: '27/06',
               color: '#80CBC4', // Very Light Teal
-              title: 'Neurorradiol',
+              title: ['Neuror-', 'radiologia'],
               img: '/images/cards/neurorradiol.png'
             },
             {
               date: '27/06',
-              color: '#2E7D32', // Forest Green
-              title: ['Cabeça', 'Pescoço'],
+              title: ['Cabeça e', 'Pescoço'],
               img: '/images/cards/cabeca-pescoco.png'
             },
             {
-              date: '27/06',
-              color: '#388E3C', // Dark Green
+              date: '28/06',
               title: 'US Ginecologia',
               img: '/images/cards/us-ginecologia.png'
             },
             {
-              date: '27/06',
+              date: '28/06',
               color: '#43A047', // Medium Green
               title: ['Técnicas', 'Radiológicas'],
               img: '/images/cards/tecnicas-radiologicas.png'
             },
             {
-              date: '27/06',
-              color: '#4CAF50', // Regular Green
+              date: '28/06',
               title: 'Acadêmicos',
               img: '/images/cards/academicos.png',
               height: '125'
             },
             {
-              date: '27/06',
-              color: '#66BB6A', // Light Green
+              date: '28/06',
               title: 'Tórax',
               img: '/images/cards/torax.png'
+            },
+            {
+              date: '28/06',
+              title: 'Intervenção não vascular',
+              img: '/images/cards/intervencao-nao-vascular.png'
             },
           ]
         },
@@ -1336,7 +1325,7 @@ export const eventData = {
           ratio: [125, 125],
           cardlist: [
             {
-              date: '28/06',
+              date: '27/06',
               color: '#010101',
               title: ['RM Pelve para', 'Ginecologistas'],
               img: '/images/cards/rm-pelve-para-ginecologista.png'
@@ -1348,8 +1337,8 @@ export const eventData = {
           color: '#010101',
           cardlist: [
             {
-              date: '02/11',
-              title: 'Inovação/IA',
+              date: '28/06',
+              title: ['Inteligência', 'Artificial'],
               img: '/images/cards/ia.png',
               width: '166',
               height: '164'
