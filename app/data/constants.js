@@ -1860,7 +1860,8 @@ export const eventData = {
             date: ['20042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
-            caption: 'Faça sua inscrição na Jornada',
+            // caption: 'Faça sua inscrição na Jornada',
+           caption: 'Inscrições em breve...',
             link: '#'
           },
           table: {
@@ -1901,7 +1902,8 @@ export const eventData = {
             date: ['20042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
-            caption: 'Faça sua inscrição no Hands On',
+            // caption: 'Faça sua inscrição no Hands On',
+            caption: 'Inscrições em breve...',
             link: '#'
           },
           table: {
@@ -1930,7 +1932,8 @@ export const eventData = {
             date: ['20042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
-            caption: 'Faça sua inscrição no Curso de IA',
+            // caption: 'Faça sua inscrição no Curso de IA',
+            caption: 'Inscrições em breve...',
             link: '#'
           },
           table: {
