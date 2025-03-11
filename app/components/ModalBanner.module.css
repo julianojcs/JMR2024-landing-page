@@ -1,0 +1,161 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+  user-select: none;
+}
+
+.modal {
+  background-color: #0E1D59;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 90%;
+  width: 780px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.closeButton {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s ease;
+  padding: 0;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+  background-color: #f8f9fa;
+}
+
+.closeButton:active {
+  transform: scale(0.95);
+}
+
+.content {
+  color: white;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.description {
+  margin-bottom: 2rem;
+}
+
+.description p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  &>a {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+  }
+}
+
+.logo {
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logoLink {
+  display: inline-block;
+  padding-inline: 1rem;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.logoLink[data-has-bg="true"] {
+  background-color: var(--logo-bg-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 1.5rem;
+    width: 85%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .logos {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .closeButton {
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+  }
+}

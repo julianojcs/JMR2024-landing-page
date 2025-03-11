@@ -9,6 +9,7 @@ import Events from '../components/Events'
 import { notFound } from 'next/navigation'
 import Comission from '../components/Comission'
 import Tables from '../components/Tables'
+import ModalBanner from '../components/ModalBanner'
 
 // export async function getServerSideProps(context) {
 //   if (!isValidRoute(context)) {
@@ -17,9 +18,9 @@ import Tables from '../components/Tables'
 //     console.log('Invalid URL')
 //     return { props: { error: 'Invalid URL' } }
 //   }
-// 
+//
 //   const { year } = context.params
-// 
+//
 //   return {
 //     props: {
 //       year
@@ -80,6 +81,7 @@ const Home = ({ params }) => {
   }
   return (
     <main>
+      {data.modal && <ModalBanner modalData={data.modal} />}
       <Header props={props}>
         <SocialMedias url={data.social.instagram} />
       </Header>

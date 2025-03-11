@@ -925,7 +925,7 @@ export const eventData = {
     title:
       'JMR 2025 & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
     description:
-      'Nos dias 27 e 28 de Junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imagem da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
+      'Nos dias 27 e 28 de Junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imunologia da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
     ogTitle: 'JMR 2025 - Jornada Mineira de Radiologia',
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
@@ -1441,7 +1441,7 @@ export const eventData = {
     title:
       'JMR 2025 & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
     description:
-      'Nos dias 27 e 28 de Junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imagem da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
+      'Nos dias 27 e 28 de Junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imunologia da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG. A JMR 2025 reunirá especialistas de diversas áreas da radiologia para discutir os avanços mais recentes em imagem abdominal, musculoesquelética, neurorradiologia, radiologia torácica, intervenção guiada por imagem e muito mais. Já o CIM 2025 trará um olhar aprofundado sobre a imagem da mulher, abordando inovações tecnológicas e diagnósticas. Com uma programação dinâmica de palestras, workshops e mesas-redondas, o evento será uma oportunidade única de aprendizado, atualização e networking. Garanta sua participação e esteja na vanguarda da radiologia! Nos vemos em junho de 2025! ',
     ogTitle: 'JMR 2025 - Jornada Mineira de Radiologia',
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
@@ -1449,6 +1449,43 @@ export const eventData = {
       'Vem aí a XI Jornada Mineira de Radiologia e o',
       'XIV Congresso de Imunologia da Mulher'
     ],
+    modal: {
+      title: 'Sorteio de Inscrição',
+      description: [
+        'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
+        'A JMR/CIM2025 fechou uma parceria incrível com a MedHubX, a plataforma de ensino médico referência em radiologia.',
+        'Garanta sua inscrição até 20/04 e tenha a chance de levar um ano de acesso completo a conteúdos exclusivos que transformarão sua prática na radiologia!',
+        'O sorteio será realizado no dia 27/06 e o resultado será divulgado nas redes sociais da SRMG.',
+        'Não perca essa oportunidade. Inscreva-se agora!'
+      ],
+      logos: [
+        {
+          name: 'Jornada Mineira de Radiologia',
+          get alt() {
+            return `Logo da ${this.name}`
+          },
+          link: 'https://www.srmg.org.br',
+          src: '/logo_jornada/jmr2025.png',
+          width: 286,
+          height: 110
+        },
+        {
+          name: 'MedHubX',
+          get alt() {
+            return `Logo da ${this.name}`
+          },
+          link: 'https://www.medhubx.com',
+          src: '/logo/apoio/medhubx.png',
+          width: 237,
+          height: 60,
+          bgcolor: '#f8f9fa'
+        }
+      ],
+      button: {
+        caption: 'Fechar',
+        link: '#'
+      }
+    },
     promoters: [
       {
         name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
