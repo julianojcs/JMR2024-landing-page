@@ -8,6 +8,7 @@ import { eventData } from '../data/constants'
 import Events from '../components/Events'
 import { notFound } from 'next/navigation'
 import Comission from '../components/Comission'
+import Tables from '../components/Tables'
 
 // export async function getServerSideProps(context) {
 //   if (!isValidRoute(context)) {
@@ -87,6 +88,9 @@ const Home = ({ params }) => {
       <Promoters button={data.callToAct.button01} year={year} />
       <Events button={data.callToAct.button02} year={year} />
       <Comission year={year} />
+      <Tables
+        priceTables={data.priceTables}
+      />
     </main>
   )
 }

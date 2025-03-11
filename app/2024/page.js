@@ -74,9 +74,7 @@ const Home = () => {
       />
       <Comission year={2024} />
       <Tables
-        buttons={
-          [callToAct.button03, callToAct.button04, callToAct.button05]
-        }
+        priceTables={data.priceTables}
       />
       <Sponsor />
     </>

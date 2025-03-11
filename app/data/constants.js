@@ -379,7 +379,114 @@ export const eventData = {
           }
         ]
       }
-    ]
+    ],
+    priceTables: {
+      title: 'Valores das Inscrições',
+      tableSections: [
+        {
+          title: {
+            tag: 'h2',
+            text: ['XI Jornada Miniera de Radiologia e', 'XIV Congresso de Imunologia da Mulher'],
+            color: '#BB2426'
+          },
+          subtitle: {
+            tag: 'h4',
+            text: ['* necessário enviar comprovante'],
+            color: '#f8f9fa'
+          },
+          bestBefore: {
+            rowStart: 2,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição na Jornada',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: 'Vagas', mobile: 'Vagas' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Médico Sócio SRMG/SOGIMIG', '', 'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', '', 'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', '', 'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+              { cells: ['Acadêmico de Medicina Sócio SAMMG', {value: '80', rowspan: 2}, 'R$ 67', 'R$ 87', 'R$ 107', 'R$ 147'] },
+              { cells: ['Acadêmico de Medicina não Sócio SAMMG*', '', 'R$ 177', 'R$ 197', 'R$ 217', 'R$ 297'] },
+              { cells: ['Tecnólogos e Técnicos*', '100', 'R$ 68', 'R$ 88', 'R$ 108', 'R$ 148'] },
+              { cells: ['Sala POCUS 28/06 (não Radiologia ou GO)*', '40', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
+              { cells: ['Day use: Médico Sócio Quite SRMG/SOGIMIG', '', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
+              { cells: ['Day use: Médico Não Sócio ou Inadimplente', '', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] }
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: ['Hands On', 'RM Pelve para Ginecologistas'],
+            color: '#052c65'
+          },
+          subtitle: {
+            tag: 'h4',
+            text: ['* necessário enviar comprovante'],
+            color: '#f8f9fa'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição no Hands On',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Médico Sócio SRMG/SOGIMIG', 'R$ 297', 'R$ 322', 'R$ 347', 'R$ 372'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', 'R$ 597', 'R$ 622', 'R$ 647', 'R$ 672'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', 'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: 'Curso de Inteliggência Artificial',
+            color: '#052c65'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição no Curso de IA',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Aberto ao Público', 'R$ 88', 'R$ 98', 'R$ 118', 'R$ 148'] }
+            ]
+          }
+        }
+      ]
+    }
   },
   2024: {
     title:
@@ -710,7 +817,109 @@ export const eventData = {
           }
         ]
       }
-    ]
+    ],
+    priceTables: {
+      title: 'Valores das Inscrições',
+      tableSections: [
+        {
+          title: {
+            tag: 'h2',
+            text: ['X Jornada Miniera de Radiologia e', 'I Jornada Mineira POCUS ABRAMEDE/MG e SRMG'],
+            color: '#BB2426'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20102025', '30102025', '03112025']
+          },
+          callToAct: {
+            caption: 'Emita o Seu Certificado',
+            link: 'https://eventosis.com.br/credenciamento/jmr2024/'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/10'], mobile: 'Até 20/10' },
+              { desktop: ['Desconto', 'até 30/10'], mobile: 'Até 30/10' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Associados Quites', 'R$ 290', 'R$ 330', 'R$ 420'] },
+              { cells: ['Não Associados ou Inadimplentes', 'R$ 325', 'R$ 355', 'R$ 385'] },
+              { cells: ['Residente', 'R$ 500', 'R$ 550', 'R$ 650'] },
+              { cells: ['Acadêmicos', 'R$ 80', 'R$ 90', 'R$ 100'] },
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: [
+              'Além de Participar da Jornada,',
+              'Você pode Adquirir Separadamente Módulos Hands On',
+              '(BI-RADS ou Intervenção Mamária)'
+            ],
+            color: '#052c65'
+          },
+          subtitle: {
+            tag: 'h4',
+            text: [
+              '*Valor Individual de Cada Módulo Hands On',
+              '*Vagas Limitadas'],
+            color: '#f8f9fa'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20102025', '30102025', '03112025']
+          },
+          callToAct: {
+            caption: 'Emita o Seu Certificado',
+            link: 'https://eventosis.com.br/credenciamento/jmr2024/'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/10'], mobile: 'Até 20/10' },
+              { desktop: ['Desconto', 'até 30/10'], mobile: 'Até 30/10' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Associados Quites', 'R$ 320', 'R$ 360', 'R$ 400'] },
+              { cells: ['Não Associados ou Inadimplentes', 'R$ 460', 'R$ 500', 'R$ 550'] },
+              { cells: ['Residente', 'R$ 260', 'R$ 300', 'R$ 340'] }
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: ['Curso Intensivo de Inteligência Artificial'],
+            color: '#052c65'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20102025', '30102025', '03112025']
+          },
+          callToAct: {
+            caption: 'Emita o Seu Certificado',
+            link: 'https://eventosis.com.br/credenciamento/jmr2024/'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/10'], mobile: 'Até 20/10' },
+              { desktop: ['Desconto', 'até 30/10'], mobile: 'Até 30/10' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Associados Quites', 'R$ 0', 'R$ 0', 'R$ 0'] },
+              { cells: ['Não Associados ou Inadimplentes', 'R$ 0', 'R$ 0', 'R$ 0'] },
+              { cells: ['Residente', 'R$ 0', 'R$ 0', 'R$ 0'] },
+              { cells: ['Acadêmicos', 'R$ 0', 'R$ 0', 'R$ 0'] },
+            ]
+          }
+        },
+      ]
+    }
   },
   2025: {
     title:
@@ -1119,7 +1328,114 @@ export const eventData = {
           }
         ]
       }
-    ]
+    ],
+    priceTables: {
+      title: 'Valores das Inscrições',
+      tableSections: [
+        {
+          title: {
+            tag: 'h2',
+            text: ['XI Jornada Miniera de Radiologia e', 'XIV Congresso de Imunologia da Mulher'],
+            color: '#BB2426'
+          },
+          subtitle: {
+            tag: 'h4',
+            text: ['* necessário enviar comprovante'],
+            color: '#f8f9fa'
+          },
+          bestBefore: {
+            rowStart: 2,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição na Jornada',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: 'Vagas', mobile: 'Vagas' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Médico Sócio SRMG/SOGIMIG', '', 'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', '', 'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', '', 'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+              { cells: ['Acadêmico de Medicina Sócio SAMMG', {value: '80', rowspan: 2}, 'R$ 67', 'R$ 87', 'R$ 107', 'R$ 147'] },
+              { cells: ['Acadêmico de Medicina não Sócio SAMMG*', '', 'R$ 177', 'R$ 197', 'R$ 217', 'R$ 297'] },
+              { cells: ['Tecnólogos e Técnicos*', '100', 'R$ 68', 'R$ 88', 'R$ 108', 'R$ 148'] },
+              { cells: ['Sala POCUS 28/06 (não Radiologia ou GO)*', '40', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
+              { cells: ['Day use: Médico Sócio Quite SRMG/SOGIMIG', '', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
+              { cells: ['Day use: Médico Não Sócio ou Inadimplente', '', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] }
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: ['Hands On', 'RM Pelve para Ginecologistas'],
+            color: '#052c65'
+          },
+          subtitle: {
+            tag: 'h4',
+            text: ['* necessário enviar comprovante'],
+            color: '#f8f9fa'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição no Hands On',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Médico Sócio SRMG/SOGIMIG', 'R$ 297', 'R$ 322', 'R$ 347', 'R$ 372'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', 'R$ 597', 'R$ 622', 'R$ 647', 'R$ 672'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', 'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: 'Curso de Inteliggência Artificial',
+            color: '#052c65'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição no Curso de IA',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Aberto ao Público', 'R$ 88', 'R$ 98', 'R$ 118', 'R$ 148'] }
+            ]
+          }
+        }
+      ]
+    }
   },
   2026: {
     title:
@@ -1469,6 +1785,14 @@ export const eventData = {
           {
             imagePath: '/avatars/Tatiana_Martins.png',
             name: 'Dra. Tatiana Martins'
+          },
+          {
+            imagePath: '/avatars/Luciana_Batista_Nogueira.png',
+            name: 'Profª. Luciana Batista Nogueira'
+          },
+          {
+            imagePath: '/avatars/Rodrigo_Gadelha.png',
+            name: 'Prof. Rodrigo Gadelha'
           }
         ]
       },
@@ -1516,6 +1840,113 @@ export const eventData = {
           }
         ]
       }
-    ]
+    ],
+    priceTables: {
+      title: 'Valores das Inscrições',
+      tableSections: [
+        {
+          title: {
+            tag: 'h2',
+            text: ['XI Jornada Miniera de Radiologia e', 'XIV Congresso de Imunologia da Mulher'],
+            color: '#BB2426'
+          },
+          subtitle: {
+            tag: 'h4',
+            text: ['* necessário enviar comprovante'],
+            color: '#f8f9fa'
+          },
+          bestBefore: {
+            rowStart: 2,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição na Jornada',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: 'Vagas', mobile: 'Vagas' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Médico Sócio SRMG/SOGIMIG', '', 'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', '', 'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', '', 'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+              { cells: ['Acadêmico de Medicina Sócio SAMMG', {value: '80', rowspan: 2}, 'R$ 67', 'R$ 87', 'R$ 107', 'R$ 147'] },
+              { cells: ['Acadêmico de Medicina não Sócio SAMMG*', '', 'R$ 177', 'R$ 197', 'R$ 217', 'R$ 297'] },
+              { cells: ['Tecnólogos e Técnicos*', '100', 'R$ 68', 'R$ 88', 'R$ 108', 'R$ 148'] },
+              { cells: ['Sala POCUS 28/06 (não Radiologia ou GO)*', '40', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
+              { cells: ['Day use: Médico Sócio Quite SRMG/SOGIMIG', '', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
+              { cells: ['Day use: Médico Não Sócio ou Inadimplente', '', 'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] }
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: ['Hands On', 'RM Pelve para Ginecologistas'],
+            color: '#052c65'
+          },
+          subtitle: {
+            tag: 'h4',
+            text: ['* necessário enviar comprovante'],
+            color: '#f8f9fa'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição no Hands On',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Médico Sócio SRMG/SOGIMIG', 'R$ 297', 'R$ 322', 'R$ 347', 'R$ 372'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', 'R$ 597', 'R$ 622', 'R$ 647', 'R$ 672'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', 'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+            ]
+          }
+        },
+        {
+          title: {
+            tag: 'h2',
+            text: 'Curso de Inteliggência Artificial',
+            color: '#052c65'
+          },
+          bestBefore: {
+            rowStart: 1,
+            date: ['20042025', '20052025', '25062025', '28062025']
+          },
+          callToAct: {
+            caption: 'Faça sua inscrição no Curso de IA',
+            link: '#'
+          },
+          table: {
+            headers: [
+              { desktop: 'Categorias', mobile: 'Categ.' },
+              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
+              { desktop: 'No Local', mobile: 'No Local' }
+            ],
+            rows: [
+              { cells: ['Aberto ao Público', 'R$ 88', 'R$ 98', 'R$ 118', 'R$ 148'] }
+            ]
+          }
+        }
+      ]
+    }
   }
 }

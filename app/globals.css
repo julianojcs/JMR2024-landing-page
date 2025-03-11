@@ -4,6 +4,7 @@
 :root{
   interpolate-size: allow-keywords; /* Opt-in the whole page to interpolate sizes to/from keywords */
   --footer-height: 70px;
+  --border: 1px solid var(--secondary-text-clr);
 
   --base-clr: #11121a;
   --line-clr: #42434a;
