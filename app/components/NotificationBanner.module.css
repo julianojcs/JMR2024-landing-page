@@ -1,0 +1,75 @@
+.banner {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.top {
+  top: 0;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.bannerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  padding: 0 1rem;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.message {
+  flex: 1;
+}
+
+.closeButton {
+  margin-left: auto;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(var(--slide-direction, -100%));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.top {
+  --slide-direction: -100%;
+}
+
+.bottom {
+  --slide-direction: 100%;
+}
+
+@media (max-width: 768px) {
+  .bannerContent {
+    font-size: 0.875rem;
+  }
+}

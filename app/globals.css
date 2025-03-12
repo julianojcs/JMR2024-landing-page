@@ -6,6 +6,15 @@
   --footer-height: 70px;
   --border: 1px solid var(--secondary-text-clr);
 
+  --error-bg: #FEE2E2;
+  --error-text: #DC2626;
+  --success-bg: #DCFCE7;
+  --success-text: #16A34A;
+  --info-bg: #DBEAFE;
+  --info-text: #2563EB;
+  --warning-bg: #FEF3C7;
+  --warning-text: #D97706;
+
   --base-clr: #11121a;
   --line-clr: #42434a;
   --hover-clr: #222533;
