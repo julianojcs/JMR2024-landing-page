@@ -127,7 +127,17 @@
 @media (max-width: 768px) {
   .modal {
     padding: 1.5rem;
+    margin-bottom: 1.25rem;
     width: 85%;
+  }
+
+  .description {
+    margin-bottom: 0;
+    &>p {
+      margin-block-end: .5rem;
+      line-height: 1.4;
+      font-size: .9em;
+    }
   }
 
   .title {
@@ -135,17 +145,38 @@
   }
 
   .logos {
+    margin-block-start: 0;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    transform: scale(0.85);
   }
 }
 
 @media (max-width: 480px) {
   .modal {
     padding: 1rem;
+    margin-bottom: 1rem;
     width: 95%;
   }
+
+  .description {
+    margin-bottom: 0;
+    &>p {
+      margin-block-end: .5rem;
+      line-height: 1.3;
+      font-size: .85em;
+    }
+
+    .logos {
+      margin-block-start: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transform: scale(0.75);
+    }
+  }
+
 
   .title {
     font-size: 1.2rem;
