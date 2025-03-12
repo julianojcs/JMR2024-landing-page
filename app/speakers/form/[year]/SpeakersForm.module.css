@@ -296,3 +296,148 @@
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
+.previewModalContent {
+  padding: 2rem;
+  text-align: center;
+}
+
+.previewText {
+  margin-bottom: 2rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.avatarPreview {
+  margin: 2rem auto;
+  max-width: 300px;
+}
+
+.previewButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.confirmButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #48bb78;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirmButton:hover {
+  background-color: #38a169;
+}
+
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #c53030;
+}
+
+.consentWrapper {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-block-start: 1rem;
+}
+
+.consentCheckbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 25px; /* Reduced from 50px */
+  height: 13px; /* Reduced from 26px */
+  flex-shrink: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggleSlider:before {
+  position: absolute;
+  content: "";
+  height: 9px; /* Reduced from 18px */
+  width: 9px; /* Reduced from 18px */
+  left: 2px; /* Reduced from 4px */
+  bottom: 2px; /* Reduced from 4px */
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.consentCheckbox:checked + .toggleSlider {
+  background-color: var(--primary-color, #0E1D59);
+}
+
+.consentCheckbox:checked + .toggleSlider:before {
+  transform: translateX(12px); /* Reduced from 24px */
+}
+
+.consentCheckbox:disabled + .toggleSlider {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.consentLabel {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #4a5568;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .consentWrapper {
+    gap: 0.75rem;
+  }
+
+  .toggleSwitch {
+    width: 22px; /* Reduced from 44px */
+    height: 12px; /* Reduced from 24px */
+  }
+
+  .toggleSlider:before {
+    height: 8px; /* Reduced from 16px */
+    width: 8px; /* Reduced from 16px */
+  }
+
+  .consentCheckbox:checked + .toggleSlider:before {
+    transform: translateX(10px); /* Reduced from 20px */
+  }
+
+  .consentLabel {
+    font-size: 0.875rem;
+  }
+}

@@ -1,16 +1,17 @@
 "use client";
 import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { eventData } from '../../../data/constants';
 import styles from './SpeakersForm.module.css';
 import { validateCPF, formatPhone } from '@/utils';
 import { states } from '../../../data/states';
 import StateSelect from '../../../components/StateSelect'
 import Multselector from '@/app/components/Multselector';
-import LoadingSpinner from '@/app/components/LoadingSpinner';
 import LoadingSpinnerInput from '@/app/components/LoadingSpinnerInput';
 import LoadingOverlay from '@/app/components/LoadingOverlay';
 import Modal from '@/app/components/Modal';
+import ModalPhotoPreview from '@/app/components/ModalPhotoPreview';
+import NotificationBanner from '@/app/components/NotificationBanner';
 import '@/app/styles/react-select.css';
 
 const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
@@ -44,20 +45,20 @@ const SpeakersForm = ({ params }) => {
     photo_path: null
   });
 
-  const [localValues, setLocalValues] = useState({
-    full_name: '',
-    badge_name: '',
-    email: '',
-    phone: '',
-    cpf: '',
-    city: '',
-    state: '',
-    categories: [],
-    curriculum: '',
-    lectures: [],
-    photo_path: null
-  });
   const [isLoading, setIsLoading] = useState(true);
+  const [previewModal, setPreviewModal] = useState({
+    isOpen: false,
+    confirmed: false
+  });
+  const [tempPhoto, setTempPhoto] = useState(null);
+  const photoInputRef = useRef(null);
+  const [consentGiven, setConsentGiven] = useState(false);
+  const [notification, setNotification] = useState({
+    show: false,
+    message: '',
+    type: 'error',
+    position: 'top'
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -97,12 +98,88 @@ const SpeakersForm = ({ params }) => {
   const validateForm = () => {
     const newErrors = {};
 
+// Validação do nome completo
+if (!formData.full_name?.trim()) {
+  newErrors.name = 'O nome completo é obrigatório';
+} else {
+  const nameParts = formData.full_name
+    .trim()
+    .split(' ')
+    .filter(part => part.length > 0);
+
+  // Conta quantas partes do nome têm mais de 2 caracteres
+  const validNameParts = nameParts.filter(part => part.length > 2);
+
+  if (nameParts.length < 2) {
+    newErrors.name = 'Informe nome e sobrenome';
+  } else if (validNameParts.length < 2) {
+    newErrors.name = 'O nome deve conter pelo menos duas partes com mais de 2 caracteres';
+  }
+}
+
+    // Validação do nome para crachá
+    if (!formData.badge_name?.trim()) {
+      newErrors.badge_name = 'O nome para crachá é obrigatório';
+    }
+
+    // Validação do email
+    if (!formData.email?.trim()) {
+      newErrors.email = 'O e-mail é obrigatório';
+    } else {
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(formData.email)) {
+        newErrors.email = 'Email inválido. Use um endereço de email válido';
+      }
+    }
+
+    // Validação do telefone
+    if (!formData.phone?.trim()) {
+      newErrors.phone = 'O telefone é obrigatório';
+    } else {
+      const phonePattern = /^\(\d{2}\)\d{5}-\d{4}$/;
+      if (!phonePattern.test(formData.phone)) {
+        newErrors.phone = 'Telefone inválido. Use o formato (99)99999-9999';
+      }
+    }
+
+    // Validação do CPF
     if (!validateCPF(formData.cpf)) {
       newErrors.cpf = 'CPF inválido';
     }
 
+    // Validação da foto
     if (!formData.photo_path) {
       newErrors.photo_path = 'A foto é obrigatória';
+    }
+
+    // Validação da cidade
+    if (!formData.city?.trim()) {
+      newErrors.city = 'A cidade é obrigatória';
+    }
+
+    // Validação do estado
+    if (!formData.state?.trim()) {
+      newErrors.state = 'O estado é obrigatório';
+    }
+
+    // Validação das categorias
+    if (!formData.categories?.length) {
+      newErrors.categories = 'Selecione pelo menos uma categoria';
+    }
+
+    // Validação das palestras
+    if (!formData.lectures?.length) {
+      newErrors.lectures = 'Selecione pelo menos uma palestra';
+    }
+
+    // Validação da curriculum
+    if (!formData.curriculum?.trim()) {
+      newErrors.curriculum = 'O currículo é obrigatório';
+    }
+
+    // Validação do consentimento
+    if (!consentGiven) {
+      newErrors.consent = 'É necessário aceitar os termos de uso de imagem';
     }
 
     setErrors(newErrors);
@@ -111,68 +188,94 @@ const SpeakersForm = ({ params }) => {
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const extension = file.name.split('.').pop();
-      const newFileName = `${formData.cpf || 'temp'}.${extension}`;
-      const newFile = new File([file], newFileName, { type: file.type });
-
-      // Criar URL para preview da imagem
-      const previewURL = URL.createObjectURL(file);
-      setPhotoPreview(previewURL);
-
+    // Clear preview if no file was selected (user cancelled)
+    if (!file) {
+      setPhotoPreview(null);
+      setTempPhoto(null);
       setFormData(prev => ({
         ...prev,
-        photo_path: newFile
+        photo_path: null
       }));
+      return;
+    }
 
-      // Limpar erro da foto se existir
-      if (errors.photo) {
-        setErrors(prev => ({
-          ...prev,
-          photo_path: null
-        }));
-      }
+    const extension = file.name.split('.').pop();
+    const newFileName = `${formData.cpf || 'temp'}.${extension}`;
+    const newFile = new File([file], newFileName, { type: file.type });
+
+    // Criar URL para preview da imagem
+    const previewURL = URL.createObjectURL(file);
+    setPhotoPreview(previewURL);
+
+    // Não atualizar formData.photo_path ainda - aguardar confirmação
+    setPreviewModal({
+      isOpen: true,
+      confirmed: false
+    });
+
+    // Armazenar temporariamente o arquivo
+    setTempPhoto({
+      file: newFile,
+      url: previewURL
+    });
+
+    // Limpar erro da foto se existir
+    if (errors.photo_path) {
+      setErrors(prev => ({
+        ...prev,
+        photo_path: null
+      }));
+    }
+  };
+
+  const handleConfirmPhoto = () => {
+    setFormData(prev => ({
+      ...prev,
+      photo_path: tempPhoto.file
+    }));
+    setPreviewModal(prev => ({
+      ...prev,
+      confirmed: true,
+      isOpen: false
+    }));
+  };
+
+  const handleCancelPhoto = () => {
+    setPhotoPreview(null);
+    setTempPhoto(null);
+    setPreviewModal({
+      isOpen: false,
+      confirmed: false
+    });
+    if (photoInputRef.current) {
+      photoInputRef.current.value = '';
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    let hasErrors = false;
-    const newErrors = {};
-
-    if (!validateForm()) return
-
-    if (!formData.categories.length === 0) {
-      newErrors.categories = 'Selecione uma Categoria';
-      hasErrors = true;
-    } else {
-      newErrors.categories = null;
-    }
-
-    if (!formData.lectures.length === 0) {
-      newErrors.lectures = 'Selecione uma Palestra';
-      hasErrors = true;
-    } else {
-      newErrors.lectures = null;
-    }
-
-    if (hasErrors) {
-      setErrors(newErrors);
-      return;
-    }
 
     if (!validateForm()) {
+      setIsSubmitting(false);
+      setNotification({
+        show: true,
+        message: 'Existem campos obrigatórios que precisam ser preenchidos',
+        type: 'error',
+        position: 'top'
+      });
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
+    const formDataToSend = new FormData();
     // Add all text fields
     const textFields = [
       'full_name', 'badge_name', 'email', 'phone',
       'cpf', 'city', 'state', 'curriculum'
     ]
 
-    const formDataToSend = new FormData()
     textFields.forEach(field => {
       formDataToSend.append(field, formData[field])
     })
@@ -218,18 +321,6 @@ const SpeakersForm = ({ params }) => {
     }
   };
 
-  const clearPhoto = () => {
-    setPhotoPreview(null);
-    setFormData(prev => ({
-      ...prev,
-      photo_path: null
-    }));
-    const photoInput = document.getElementById('photo_path');
-    if (photoInput) {
-      photoInput.value = '';
-    }
-  };
-
   const clearForm = () => {
     // Reset form data
     setFormData({
@@ -249,9 +340,8 @@ const SpeakersForm = ({ params }) => {
     // Clear UI elements
     setPhotoPreview(null);
     setErrors({});
-    const photoInput = document.getElementById('photo_path');
-    if (photoInput) {
-      photoInput.value = '';
+    if (photoInputRef.current) {
+      photoInputRef.current.value = '';
     }
   };
 
@@ -302,8 +392,24 @@ const SpeakersForm = ({ params }) => {
     console.log('formData: ', formData);
   }, [formData]);
 
+  // Add effect to auto-close notification when errors are resolved
+  useEffect(() => {
+    if (Object.keys(errors).length === 0) {
+      setNotification(prev => ({ ...prev, show: false }));
+    }
+  }, [errors]);
+
   return (
     <div className={styles.formContainer}>
+      {notification.show && (
+        <NotificationBanner
+          message={notification.message}
+          type={notification.type}
+          position={notification.position}
+          onClose={() => setNotification(prev => ({ ...prev, show: false }))}
+          // autoClose={5000}
+        />
+      )}
       {isSubmitting && <LoadingOverlay />}
       <Modal
         isOpen={modalState.isOpen}
@@ -335,12 +441,13 @@ const SpeakersForm = ({ params }) => {
             id="full_name"
             name="full_name"
             maxLength={150}
-            required
             value={formData.full_name}
             onChange={handleChange}
             className={styles.formControl}
             disabled={isSubmitting}
+            // pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}(\s[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,})+$"
           />
+          {errors.name && <span className={styles.errorMessage}>{errors.name}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -351,27 +458,27 @@ const SpeakersForm = ({ params }) => {
             id="badge_name"
             name="badge_name"
             maxLength={25}
-            required
             value={formData.badge_name}
             onChange={handleChange}
             className={styles.formControl}
             disabled={isSubmitting}
           />
+          {errors.badge_name && <span className={styles.errorMessage}>{errors.badge_name}</span>}
         </div>
 
         <div className={styles.formGroup}>
           <label htmlFor="email">E-mail<span className={styles.required}>*</span></label>
           <input
-            type="email"
+            // type="email"
             id="email"
             name="email"
             maxLength={150}
-            required
             value={formData.email}
             onChange={handleChange}
             className={styles.formControl}
             disabled={isSubmitting}
           />
+          {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -380,13 +487,12 @@ const SpeakersForm = ({ params }) => {
             type="tel"
             id="phone"
             name="phone"
-            // pattern="\(\d{2}\)\d{5}-\d{4}"
-            required
             value={formData.phone}
             onChange={handleChange}
             className={styles.formControl}
             disabled={isSubmitting}
           />
+          {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -395,9 +501,8 @@ const SpeakersForm = ({ params }) => {
             type="text"
             id="cpf"
             name="cpf"
-            pattern="\d{11}"
+            // pattern="\d{11}"
             maxLength={11}
-            required
             value={formData.cpf}
             onChange={handleChange}
             className={styles.formControl}
@@ -414,9 +519,10 @@ const SpeakersForm = ({ params }) => {
             name="city"
             value={formData.city}
             onChange={handleChange}
-            className={styles.formControl}
+            className={`${styles.formControl} ${errors.city ? styles.errorInput : ''}`}
             disabled={isSubmitting}
           />
+          {errors.city && <span className={styles.errorMessage}>{errors.city}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -426,59 +532,73 @@ const SpeakersForm = ({ params }) => {
             onChange={handleChange}
             states={states}
           />
+          {errors.state && <span className={styles.errorMessage}>{errors.state}</span>}
         </div>
 
         <div className={styles.formGroup}>
-        <label htmlFor="categories">Categoria<span className={styles.required}>*</span></label>
+        <label htmlFor="categories">Categoria(s)<span className={styles.required}>*</span></label>
         {isLoading ? (
           <div>
             <LoadingSpinnerInput />
           </div>
           ) : (
-            <Multselector
-              instanceId="categories-select"
-              options={categories}
-              value={formData.categories}
-              defaultValue={formData.categories}
-              placeholder='Selecione ou crie uma nova categoria...'
-              CreateLabelText='nova categoria'
-              onChange={(selectedOptions) => {
-                setFormData(prev => ({
-                  ...prev,
-                  categories: selectedOptions
-                }));
-              }}
-              isCreatable={true}  // Habilita a criação de novas opções
-              onCreateOption={(newLecture) => {
-                console.log('New lecture created:', newLecture);
-              }}
-            />
+            <>
+              <Multselector
+                instanceId="categories-select"
+                options={categories}
+                value={formData.categories}
+                defaultValue={formData.categories}
+                placeholder='Selecione ou crie uma nova categoria...'
+                CreateLabelText='nova categoria'
+                onChange={(selectedOptions) => {
+                  setFormData(prev => ({
+                    ...prev,
+                    categories: selectedOptions
+                  }));
+                  // Limpar erro quando selecionar
+                  if (errors.categories) {
+                    setErrors(prev => ({ ...prev, categories: null }));
+                  }
+                }}
+                isCreatable={true}
+                className={errors.categories ? styles.errorInput : ''}
+              />
+              {errors.categories && <span className={styles.errorMessage}>{errors.categories}</span>}
+            </>
           )}
         </div>
 
         <div className={styles.formGroup}>
-        <label htmlFor="lectures">Nome da palestra (para emissão do certificado)<span className={styles.required}>*</span></label>
+        <label htmlFor="lectures">Palestra(s) - (para emissão do certificado)<span className={styles.required}>*</span></label>
           {isLoading ? (
             <LoadingSpinnerInput />
           ) : (
-            <Multselector
-              instanceId="lectures-select"
-              options={lectures}
-              value={formData.lectures}
-              defaultValue={formData.lectures}
-              placeholder='Selecione palestras ou digite para buscar ou criar...'
-              CreateLabelText='nova palestra'
-              onChange={(selectedOptions) => {
-                setFormData(prev => ({
-                  ...prev,
-                  lectures: selectedOptions
-                }));
-              }}
-              isCreatable={true}
-              onCreateOption={(newLecture) => {
-                console.log('New lecture created:', newLecture);
-              }}
-            />
+            <>
+              <Multselector
+                instanceId="lectures-select"
+                options={lectures}
+                value={formData.lectures}
+                defaultValue={formData.lectures}
+                placeholder='Selecione ou crie uma nova palestra...'
+                CreateLabelText='nova palestra'
+                onChange={(selectedOptions) => {
+                  setFormData(prev => ({
+                    ...prev,
+                    lectures: selectedOptions
+                  }));
+                  // Limpar erro quando selecionar
+                  if (errors.lectures) {
+                    setErrors(prev => ({ ...prev, lectures: null }));
+                  }
+                }}
+                isCreatable={true}
+                className={errors.lectures ? styles.errorInput : ''}
+                onCreateOption={(newLecture) => {
+                  console.log('New lecture created:', newLecture);
+                }}
+              />
+              {errors.lectures && <span className={styles.errorMessage}>{errors.lectures}</span>}
+            </>
           )}
         </div>
 
@@ -488,12 +608,12 @@ const SpeakersForm = ({ params }) => {
             id="curriculum"
             name="curriculum"
             maxLength={300}
-            required
             value={formData.curriculum}
             onChange={handleChange}
             className={styles.formControl}
             disabled={isSubmitting}
           />
+          {errors.curriculum && <span className={styles.errorMessage}>{errors.curriculum}</span>}
         </div>
 
         <div className={styles.formGroup}>
@@ -503,10 +623,10 @@ const SpeakersForm = ({ params }) => {
             id="photo_path"
             name="photo_path"
             accept="image/*"
-            required
             onChange={handlePhotoChange}
             className={styles.formControl}
             disabled={isSubmitting}
+            ref={photoInputRef}
           />
           {errors.photo_path && <span className={styles.errorMessage}>{errors.photo_path}</span>}
 
@@ -519,6 +639,28 @@ const SpeakersForm = ({ params }) => {
               />
             </div>
           )}
+        </div>
+
+        <div className={styles.formGroup}>
+          <div className={styles.consentWrapper}>
+            <label className={styles.toggleSwitch}>
+              <input
+                type="checkbox"
+                id="consent"
+                name="consent"
+                checked={consentGiven}
+                onChange={(e) => setConsentGiven(e.target.checked)}
+                className={styles.consentCheckbox}
+                disabled={isSubmitting}
+              />
+              <span className={styles.toggleSlider}></span>
+            </label>
+            <label htmlFor="consent" className={styles.consentLabel}>
+              Autorizo o uso da minha imagem e dados em todos os meios de divulgação do evento
+              <span className={styles.required}>*</span>
+            </label>
+          </div>
+          {errors.consent && <span className={styles.errorMessage}>{errors.consent}</span>}
         </div>
 
         <div className={styles.buttonGroup}>
@@ -539,6 +681,15 @@ const SpeakersForm = ({ params }) => {
           </button>
         </div>
       </form>
+
+      {/* Preview Modal */}
+      <ModalPhotoPreview
+        isOpen={previewModal.isOpen}
+        onClose={handleCancelPhoto}
+        onConfirm={handleConfirmPhoto}
+        photoPreview={photoPreview}
+        speakerName={formData.full_name}
+      />
     </div>
   );
 };
