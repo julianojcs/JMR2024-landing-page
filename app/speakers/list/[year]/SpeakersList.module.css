@@ -40,6 +40,11 @@
   border-bottom: 2px solid #e2e8f0;
 }
 
+.table td:last-child {
+  white-space: nowrap;
+  min-width: 120px;
+}
+
 .photoContainer {
   width: 50px;
   height: 50px;
@@ -80,7 +85,7 @@
   transition: transform 0.2s ease;
 }
 
-.curriculum, .lecture_name {
+.curriculum, .lectures {
   width: 95%;
 }
 
@@ -114,6 +119,50 @@
 .toggleButton:focus {
   outline: 2px solid #0070f3;
   outline-offset: 2px;
+}
+
+.expandedContent {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+}
+
+.curriculum {
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.lectures {
+  margin-bottom: 1rem;
+}
+
+.fieldTitle {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.tag {
+  background-color: #e2e8f0;
+  color: #2d3748;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+.expandedRow td {
+  padding: 0 !important;
+  background-color: #f8f9fa;
 }
 
 @media (max-width: 768px) {

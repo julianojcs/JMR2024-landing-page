@@ -4,11 +4,24 @@ import { useState, useEffect } from 'react'
 import { eventData } from '@/app/data/constants'
 import styles from './SpeakersList.module.css'
 import Image from 'next/image'
-
+import LoadingSpinner from '@/app/components/LoadingSpinner';
+import Loading from './loading'
 
 export const formatCPF = (cpf) => {
   if (!cpf) return '';
   return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+};
+
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(date);
 };
 
 export default function SpeakersList({ params }) {
@@ -71,7 +84,7 @@ export default function SpeakersList({ params }) {
     fetchSpeakers()
   }, [year])
 
-  if (loading) return <div className={styles.loading}>Carregando...</div>
+  if (loading) return <Loading />
   if (error) return <div className={styles.error}>{error}</div>
 
   return (
@@ -108,8 +121,8 @@ export default function SpeakersList({ params }) {
               <th>CPF</th>
               <th>Email</th>
               <th>Telefone</th>
-              <th>Categoria</th>
               <th>Cidade/UF</th>
+              <th>Cadastro</th>
             </tr>
           </thead>
           <tbody>
@@ -150,20 +163,50 @@ export default function SpeakersList({ params }) {
                   <td>{formatCPF(speaker.cpf)}</td>
                   <td>{speaker.email}</td>
                   <td>{speaker.phone}</td>
-                  <td>{speaker.category}</td>
                   <td>{`${speaker.city}/${speaker.state}`}</td>
+                  <td>{formatDate(speaker.created_at)}</td>
                 </tr>
                 {expandedRows.has(speaker.id) && (
                   <tr className={styles.expandedRow}>
-                    <td colSpan={8}>
+                    <td colSpan={10}>
                       <div className={styles.expandedContent}>
-                        <div className={styles.lecture_name}>
-                          <strong>Nome da Palestra:</strong>
-                          <p>{speaker.lecture_name || 'Não informado'}</p>
+                        <div className={styles.lectures}>
+                          <div className={styles.fieldTitle}>Palestras:</div>
+                          <div className={styles.tagList}>
+                            {Array.isArray(speaker.lectures) ? (
+                              speaker.lectures.map((lecture, index) => (
+                                <span key={index} className={styles.tag}>
+                                  {lecture}
+                                </span>
+                              ))
+                            ) : (
+                              <span className={styles.tag}>
+                                {speaker.lectures || 'Não informado'}
+                              </span>
+                            )}
+                          </div>
                         </div>
+
+                        <div className={styles.categories}>
+                          <div className={styles.fieldTitle}>Categorias:</div>
+                          <div className={styles.tagList}>
+                            {Array.isArray(speaker.categories) ? (
+                              speaker.categories.map((cat, index) => (
+                                <span key={index} className={styles.tag}>
+                                  {cat}
+                                </span>
+                              ))
+                            ) : (
+                              <span className={styles.tag}>
+                                {speaker.categories || 'Não informado'}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
                         <div className={styles.curriculum}>
-                          <strong>Mini Currículo:</strong>
-                          <p>{speaker.curriculum}</p>
+                          <div className={styles.fieldTitle}>Mini Currículo:</div>
+                          <p>{speaker.curriculum || 'Não informado'}</p>
                         </div>
                       </div>
                     </td>
