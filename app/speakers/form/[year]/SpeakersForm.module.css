@@ -424,17 +424,19 @@
   }
 
   .toggleSwitch {
-    width: 22px; /* Reduced from 44px */
-    height: 12px; /* Reduced from 24px */
+    width: 29px; /* Increased by 33% from 22px */
+    height: 16px; /* Increased by 33% from 12px */
   }
 
   .toggleSlider:before {
-    height: 8px; /* Reduced from 16px */
-    width: 8px; /* Reduced from 16px */
+    height: 11px; /* Increased by 33% from 8px */
+    width: 11px; /* Increased by 33% from 8px */
+    left: 2.5px; /* Adjusted for new size */
+    bottom: 2.5px; /* Adjusted for new size */
   }
 
   .consentCheckbox:checked + .toggleSlider:before {
-    transform: translateX(10px); /* Reduced from 20px */
+    transform: translateX(13px); /* Adjusted for new width */
   }
 
   .consentLabel {
