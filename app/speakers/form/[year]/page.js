@@ -147,11 +147,6 @@ if (!formData.full_name?.trim()) {
       newErrors.cpf = 'CPF inválido';
     }
 
-    // Validação da foto
-    if (!formData.photo_path) {
-      newErrors.photo_path = 'A foto é obrigatória';
-    }
-
     // Validação da cidade
     if (!formData.city?.trim()) {
       newErrors.city = 'A cidade é obrigatória';
@@ -619,7 +614,7 @@ if (!formData.full_name?.trim()) {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="photo_path">Foto  (JPEG ou PNG) - meio corpo, com fundo neutro para ser usada no site e divulgações do evento<span className={styles.required}>*</span></label>
+          <label htmlFor="photo_path">Foto  (JPEG ou PNG) - meio corpo, com fundo neutro para ser usada no site e divulgações do evento</label>
           <input
             type="file"
             id="photo_path"
