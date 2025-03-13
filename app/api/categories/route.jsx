@@ -9,11 +9,12 @@ export async function GET() {
       select: {
         id: true,
         name: true,
-        is_fixed: true
+        is_new: false
       },
-      orderBy: {
-        name: 'asc'
-      }
+      orderBy: [
+        { is_fixed: 'desc' },
+        { name: 'asc' }
+      ]
     })
     return NextResponse.json(categories)
   } catch (error) {

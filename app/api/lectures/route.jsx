@@ -8,12 +8,12 @@ export async function GET() {
     const lectures = await prisma.lecture.findMany({
       select: {
         id: true,
-        name: true,
-        is_fixed: true
+        name: true
       },
-      orderBy: {
-        name: 'asc'
-      }
+      orderBy: [
+        { is_fixed: 'desc' },
+        { name: 'asc' }
+      ]
     })
     return NextResponse.json(lectures)
   } catch (error) {
