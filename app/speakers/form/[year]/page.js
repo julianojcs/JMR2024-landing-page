@@ -388,9 +388,9 @@ if (!formData.full_name?.trim()) {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log('formData: ', formData);
-  }, [formData]);
+  // useEffect(() => {
+  //   console.log('formData: ', formData);
+  // }, [formData]);
 
   // Add effect to auto-close notification when errors are resolved
   useEffect(() => {
