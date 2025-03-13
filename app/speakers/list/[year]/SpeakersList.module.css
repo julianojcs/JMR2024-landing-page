@@ -26,16 +26,19 @@
 
 .table th,
 .table td {
-  padding: .5rem .25rem;;
   text-align: left;
   border-bottom: 1px solid #dee2e6;
+}
+
+.table td {
+  padding: .5rem .25rem;
 }
 
 .table th {
   background-color: #f0f4f8;
   color: #2d3748;
   font-weight: 600;
-  padding: .5rem .25rem;
+  padding: .2rem .2rem;
   text-align: left;
   border-bottom: 2px solid #e2e8f0;
 }
@@ -165,6 +168,68 @@
   background-color: #f8f9fa;
 }
 
+.sortableHeader {
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  transition: background-color 0.2s;
+  min-height: 48px; /* Ensure consistent height */
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.sortableHeader:hover {
+  background-color: rgba(219, 234, 254, 0.8);
+}
+
+.sortIconActive {
+  opacity: 1;
+  color: var(--danger-clr,rgb(255, 0, 4));
+}
+
+.sortIconInactive {
+  opacity: 0.3;
+}
+
+.exportButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #217346;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.exportButton:hover {
+  background-color: #1e6b41;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.exportButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.exportButtonText {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -179,5 +244,25 @@
   .title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+  }
+
+  .exportButton {
+    bottom: 20px;
+    top: auto;
+    right: 20px;
+    padding: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .exportButtonText {
+    display: none;
+  }
+
+  .exportButton svg {
+    width: 28px;
+    height: 28px;
   }
 }

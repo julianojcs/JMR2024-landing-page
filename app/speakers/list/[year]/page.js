@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 import { eventData } from '@/app/data/constants'
 import styles from './SpeakersList.module.css'
 import Image from 'next/image'
-import LoadingSpinner from '@/app/components/LoadingSpinner';
 import Loading from './loading'
+import * as XLSX from 'xlsx';
 
 export const formatCPF = (cpf) => {
   if (!cpf) return '';
@@ -24,11 +24,36 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
+const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'a', 'o', 'as', 'os'];
+
+const formatName = (name) => {
+  if (!name) return '';
+  
+  return name.split(' ').map((word, index) => {
+    // Check if word is a single letter (abbreviation)
+    if (word.length === 1) {
+      return `${word.toUpperCase()}.`;
+    }
+    
+    // Convert prepositions to lowercase unless it's the first word
+    if (index > 0 && prepositions.includes(word.toLowerCase())) {
+      return word.toLowerCase();
+    }
+    
+    // Capitalize first letter, rest lowercase
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  }).join(' ');
+};
+
 export default function SpeakersList({ params }) {
   const [speakers, setSpeakers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [expandedRows, setExpandedRows] = useState(new Set())
+  const [sortConfig, setSortConfig] = useState({
+    key: 'full_name',
+    direction: 'asc'
+  });
   const defaultAvatar = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/v1/speakers/default-avatar.png`;
 
   const getCloudinaryUrl = (photoPath) => {
@@ -66,6 +91,60 @@ export default function SpeakersList({ params }) {
     }
   }
 
+  const sortData = (key) => {
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+
+    const sortedData = [...speakers].sort((a, b) => {
+      if (a[key] == null) return 1;
+      if (b[key] == null) return -1;
+
+      let compareA = a[key];
+      let compareB = b[key];
+
+      // Special handling for date
+      if (key === 'created_at') {
+        compareA = new Date(a[key]).getTime();
+        compareB = new Date(b[key]).getTime();
+      }
+
+      // Case insensitive string comparison
+      if (typeof compareA === 'string') {
+        compareA = compareA.toLowerCase();
+        compareB = compareB.toLowerCase();
+      }
+
+      if (compareA < compareB) return direction === 'asc' ? -1 : 1;
+      if (compareA > compareB) return direction === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    setSpeakers(sortedData);
+  };
+
+  const SortIcon = ({ columnKey }) => {
+    if (sortConfig.key !== columnKey) {
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={styles.sortIconInactive}>
+          <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+        </svg>
+      );
+    }
+
+    return sortConfig.direction === 'asc' ? (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={styles.sortIconActive}>
+        <path fill="currentColor" d="M7 14l5-5 5 5z"/>
+      </svg>
+    ) : (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={styles.sortIconActive}>
+        <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+      </svg>
+    );
+  };
+
   useEffect(() => {
     const fetchSpeakers = async () => {
       try {
@@ -84,11 +163,48 @@ export default function SpeakersList({ params }) {
     fetchSpeakers()
   }, [year])
 
+  const exportToExcel = () => {
+    // Prepare data for export
+    const exportData = speakers.map(speaker => ({
+      'Nome Completo': formatName(speaker.full_name),
+      'Nome do Crachá': formatName(speaker.badge_name),
+      'CPF': speaker.cpf,
+      'Email': speaker.email?.toLowerCase(),
+      'Telefone': speaker.phone,
+      'Cidade': speaker.city,
+      'Estado': speaker.state,
+      'Palestras': Array.isArray(speaker.lectures)
+        ? speaker.lectures.join(', ')
+        : speaker.lectures,
+      'Categorias': Array.isArray(speaker.categories)
+        ? speaker.categories.join(', ')
+        : speaker.categories,
+      'Mini Currículo': speaker.curriculum,
+      'Data de Cadastro': new Date(speaker.created_at).toLocaleDateString('pt-BR')
+    }));
+
+    // Create workbook and worksheet
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(exportData);
+
+    // Add worksheet to workbook
+    XLSX.utils.book_append_sheet(wb, ws, 'Palestrantes');
+
+    // Save file
+    XLSX.writeFile(wb, `palestrantes_${params.year}.xlsx`);
+  };
+
   if (loading) return <Loading />
   if (error) return <div className={styles.error}>{error}</div>
 
   return (
     <div className={styles.container}>
+      <button onClick={exportToExcel} className={styles.exportButton} title="Exportar para Excel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M2.859 2.877l12.57-1.795a.5.5 0 0 1 .571.495v20.846a.5.5 0 0 1-.57.495L2.858 21.123a1 1 0 0 1-.859-.99V3.867a1 1 0 0 1 .859-.99zM17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4V3zm-6.8 9L13 8h-2.4L9 10.286 7.4 8H5l2.8 4L5 16h2.4L9 13.714 10.6 16H13l-2.8-4z"/>
+        </svg>
+        <span className={styles.exportButtonText}>Exportar</span>
+      </button>
       <h1 className={styles.title}>{pageTitle}</h1>
       <div className={styles.totalSpeakers}>
         Total de palestrantes: {speakers.length}
@@ -116,13 +232,48 @@ export default function SpeakersList({ params }) {
                 </button>
               </th>
               <th>Foto</th>
-              <th>Nome</th>
-              <th>Crachá</th>
-              <th>CPF</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Cidade/UF</th>
-              <th>Cadastro</th>
+              <th onClick={() => sortData('full_name')} className={styles.sortableHeader}>
+                <div className={styles.headerContent}>
+                  Nome
+                  <SortIcon columnKey="full_name" />
+                </div>
+              </th>
+              <th onClick={() => sortData('badge_name')} className={styles.sortableHeader}>
+                <div className={styles.headerContent}>
+                  Crachá
+                  <SortIcon columnKey="badge_name" />
+                </div>
+              </th>
+              <th onClick={() => sortData('cpf')} className={styles.sortableHeader}>
+                <div className={styles.headerContent}>
+                  CPF
+                  <SortIcon columnKey="cpf" />
+                </div>
+              </th>
+              <th onClick={() => sortData('email')} className={styles.sortableHeader}>
+                <div className={styles.headerContent}>
+                  Email
+                  <SortIcon columnKey="email" />
+                </div>
+              </th>
+              <th onClick={() => sortData('phone')} className={styles.sortableHeader}>
+                <div className={styles.headerContent}>
+                  Telefone
+                  <SortIcon columnKey="phone" />
+                </div>
+              </th>
+              <th onClick={() => sortData('city')} className={styles.sortableHeader}>
+                <div className={styles.headerContent}>
+                  Cidade/UF
+                  <SortIcon columnKey="city" />
+                </div>
+              </th>
+              <th onClick={() => sortData('created_at')} className={styles.sortableHeader}>
+                <div className={styles.headerContent}>
+                  Data
+                  <SortIcon columnKey="created_at" />
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -158,10 +309,10 @@ export default function SpeakersList({ params }) {
                       />
                     </div>
                   </td>
-                  <td>{speaker.full_name}</td>
-                  <td>{speaker.badge_name}</td>
+                  <td>{formatName(speaker.full_name)}</td>
+                  <td>{formatName(speaker.badge_name)}</td>
                   <td>{formatCPF(speaker.cpf)}</td>
-                  <td>{speaker.email}</td>
+                  <td>{speaker.email?.toLowerCase()}</td>
                   <td>{speaker.phone}</td>
                   <td>{`${speaker.city}/${speaker.state}`}</td>
                   <td>{formatDate(speaker.created_at)}</td>
