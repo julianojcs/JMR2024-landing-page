@@ -47,7 +47,8 @@ const Multselector = ({
   isCreatable = false,
   instanceId,
   onCreateOption,
-  CreateLabelText = 'novo item'
+  CreateLabelText = 'novo item',
+  closeMenuOnSelect = true
 }) => {
   const [mounted, setMounted] = useState(false);
   const [fixedOptions, setFixedOptions] = useState([]);
@@ -103,7 +104,7 @@ const Multselector = ({
     <SelectComponent
       key={instanceId}
       instanceId={instanceId}
-      closeMenuOnSelect={true}
+      closeMenuOnSelect={closeMenuOnSelect}
       components={{
         ...animatedComponents,
         IndicatorSeparator: () => null // Remove separator to avoid hydration issues

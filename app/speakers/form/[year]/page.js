@@ -562,6 +562,7 @@ if (!formData.full_name?.trim()) {
                 }}
                 isCreatable={true}
                 className={errors.categories ? styles.errorInput : ''}
+                closeMenuOnSelect={false}
               />
               {errors.categories && <span className={styles.errorMessage}>{errors.categories}</span>}
             </>
@@ -593,6 +594,7 @@ if (!formData.full_name?.trim()) {
                 }}
                 isCreatable={true}
                 className={errors.lectures ? styles.errorInput : ''}
+                closeMenuOnSelect={false}
                 onCreateOption={(newLecture) => {
                   console.log('New lecture created:', newLecture);
                 }}
