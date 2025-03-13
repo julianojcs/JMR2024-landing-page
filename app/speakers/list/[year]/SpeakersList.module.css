@@ -199,7 +199,7 @@
 .exportButton {
   position: fixed;
   top: 20px;
-  right: 20px;
+  right: max(20px, calc((100vw - 1300px) / 2 + 20px));
   background-color: #217346;
   color: white;
   border: none;

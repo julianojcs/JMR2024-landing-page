@@ -1,10 +1,13 @@
 .banner {
   position: fixed;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: min(1300px, 100%);
   padding: 1rem;
   z-index: 1000;
   animation: slideIn 0.3s ease-out;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .top {
@@ -16,7 +19,7 @@
 }
 
 .bannerContent {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -53,23 +56,21 @@
 
 @keyframes slideIn {
   from {
-    transform: translateY(var(--slide-direction, -100%));
+    transform: translate(-50%, -100%);
   }
   to {
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
-}
-
-.top {
-  --slide-direction: -100%;
-}
-
-.bottom {
-  --slide-direction: 100%;
 }
 
 @media (max-width: 768px) {
   .bannerContent {
     font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 1332px) { /* 1300px + 32px padding */
+  .banner {
+    width: calc(100% - 32px);
   }
 }
