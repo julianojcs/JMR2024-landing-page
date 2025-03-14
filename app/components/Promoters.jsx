@@ -17,9 +17,8 @@ const Promoters = ({ button, year }) => {
   return (
     <section className={container}>
       {button &&
-        <div style={{padding: '1.5rem'}}>
-          <CallToAct {...button} />
-        </div>}
+        <CallToAct {...button} />
+      }
       <div className={containerPromoters}>
         {
           data.promoters.map((promoter, index) => (
