@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation'
 import Comission from '../components/Comission'
 import Tables from '../components/Tables'
 import ModalBanner from '../components/ModalBanner'
+import Introduction from '@/app/components/Introduction';
 
 // export async function getServerSideProps(context) {
 //   if (!isValidRoute(context)) {
@@ -86,6 +87,7 @@ const Home = ({ params }) => {
         <SocialMedias url={data.social.instagram} />
       </Header>
       <Banner lstBannerText={data.bannerText} />
+      <Introduction introduction={data.introduction} year={year} />
       <Description description={data.description} />
       <Promoters button={data.callToAct.button01} year={year} />
       <Events button={data.callToAct.button02} year={year} />
