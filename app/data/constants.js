@@ -294,7 +294,7 @@ export const eventData = {
             name: 'Dra. Ivie Braga de Paula'
           },
           {
-            imagePath: '/avatars/Luciana_Costa_Silva.png',
+            imagePath: '/avatars/Luciana_Costa.png',
             name: 'Dra. Luciana Costa'
           },
           {
@@ -768,7 +768,7 @@ export const eventData = {
             name: 'Dra. Ivie Braga de Paula'
           },
           {
-            imagePath: '/avatars/Luciana_Costa_Silva.png',
+            imagePath: '/avatars/Luciana_Costa.png',
             name: 'Dra. Luciana Costa'
           },
           {
@@ -1243,7 +1243,7 @@ export const eventData = {
             name: 'Dra. Ivie Braga de Paula'
           },
           {
-            imagePath: '/avatars/Luciana_Costa_Silva.png',
+            imagePath: '/avatars/Luciana_Costa.png',
             name: 'Dra. Luciana Costa'
           },
           {
@@ -1482,6 +1482,18 @@ export const eventData = {
         }
       ],
     },
+    introduction: {
+      text: ['Caros colegas,', 'Junte-sem a nós nos dias 27 e 28 de junho de 2025 para um evento imperdível! Excelências no diagnóstico por imagem estarão presentes em uma programação dinâmica com os maiores especialistas da área.', 'speramos por vocês!'],
+      host: [{
+        name: 'Dra. Luciana Costa',
+        imagePath: '/introduction/Luciana_Costa.png',
+        title: 'Presidente da SRMG'
+      }, {
+        name: 'Dra. Inessa Beraldo Bonomi',
+        imagePath: '/introduction/Inessa_Beraldo_Bonomi.png',
+        title: 'Presidente da SOGIMIG'
+      }]
+    },
     promoters: [
       {
         name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
@@ -1635,7 +1647,7 @@ export const eventData = {
               img: '/images/cards/neurorradiol.png'
             },
             {
-              date: '27/06',
+              date: '28/06',
               title: ['Cabeça e', 'Pescoço'],
               img: '/images/cards/cabeca-pescoco.png'
             },
@@ -1740,6 +1752,10 @@ export const eventData = {
             name: 'Dr. Luiz Ernani Meira Júnior'
           },
           {
+            imagePath: '/avatars/Marcelo_Silva2.png',
+            name: 'Dr. Marcelo Silva'
+          },
+          {
             imagePath: '/avatars/Paulo_Ramos_Botelho_Antunes.png',
             name: 'Dr. Paulo Ramos Botelho Antunes'
           },
@@ -1773,6 +1789,10 @@ export const eventData = {
           },
           {
             imagePath: '/avatars/Anna_Christina_Gruber.png',
+            name: 'Dra. Aline Lauda'
+          },
+          {
+            imagePath: '/avatars/Anna_Christina_Gruber.png',
             name: 'Dra. Anna Christina Gruber'
           },
           {
@@ -1780,7 +1800,7 @@ export const eventData = {
             name: 'Dra. Ivie Braga de Paula'
           },
           {
-            imagePath: '/avatars/Luciana_Costa_Silva.png',
+            imagePath: '/avatars/Luciana_Costa.png',
             name: 'Dra. Luciana Costa'
           },
           {
@@ -1810,6 +1830,10 @@ export const eventData = {
           {
             imagePath: '/avatars/Raquel_Sadala_Mendes.png',
             name: 'Dra. Raquel Sadala Mendes'
+          },
+          {
+            imagePath: '/avatars/Renata_Furletti.png',
+            name: 'Dra. Renata Furletti'
           },
           {
             imagePath: '/avatars/Rogeria_Nobre_Rodrigues.png',
