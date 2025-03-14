@@ -10,22 +10,26 @@
   font-size: 1rem;
   text-align: center;
   border: 0px;
-  overflow: hidden;
-}
+  transition: transform 0.5s ease-in-out;
 
-.card >div:nth-child(1) {
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  position: relative;
-}
+  &>div:nth-child(1) {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-origin: 50% 50% 0px;
+  }
 
-.card >div:nth-child(2) {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  &>div:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .avatar {
@@ -37,14 +41,6 @@
   object-fit: cover;
   border-radius: 50%;
   overflow: hidden;
-}
-.avatar:hover {
-  transform: scale(1.5);
-  transition: transform 0.5s ease-in-out;
-}
-
-.card >div:nth-child(1) {
-  transform-origin: 50% 50% 0px;
 }
 
 .card >div:nth-child(2) {
