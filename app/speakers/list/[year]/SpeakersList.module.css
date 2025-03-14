@@ -34,6 +34,51 @@
   padding: .5rem .25rem;
 }
 
+/* Add specific styling for foto column */
+.table td:nth-child(2) { /* 2th column is foto */
+  padding-inline-end: 1rem;
+}
+
+.table td:nth-child(3), /* Nome column */
+.table th:nth-child(3),
+.table td:nth-child(4), /* Crachá column */
+.table th:nth-child(4) {
+  min-width: 200px;
+  hyphens: auto; /* Add hyphens where possible */
+}
+
+.table td:nth-child(7), /* Telefone column */
+.table th:nth-child(7),
+.table td:nth-child(5), /* CPF column */
+.table th:nth-child(5) {
+  min-width: 140px;
+}
+
+.table td:nth-child(8), /* Cidade/UF column */
+.table th:nth-child(8) {
+  min-width: 160px;
+  hyphens: auto; /* Add hyphens where possible */
+}
+
+.table td:nth-child(3), /* Nome column */
+.table th:nth-child(3),
+.table td:nth-child(4), /* Crachá column */
+.table th:nth-child(4),
+.table td:nth-child(5), /* CPF column */
+.table th:nth-child(5) {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Add specific styling for email column */
+.table td:nth-child(6) { /* 6th column is email */
+  max-width: 200px; /* Limit width */
+  white-space: normal; /* Allow text wrapping */
+  word-wrap: break-word; /* Break long words */
+  overflow-wrap: break-word; /* Modern browsers */
+}
+
 .table th {
   background-color: #f0f4f8;
   color: #2d3748;
@@ -49,10 +94,11 @@
 }
 
 .photoContainer {
+  position: relative;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  overflow: hidden;
+  overflow: visible;
   margin: 0 auto;
 }
 
@@ -60,6 +106,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .loading {
@@ -228,6 +275,35 @@
 .exportButtonText {
   font-size: 14px;
   font-weight: 500;
+}
+
+/* badge styles */
+
+.lectureBadge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--info-text);
+  color: white;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  padding: 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.lectureBadge:hover {
+  transform: scale(1.15);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {

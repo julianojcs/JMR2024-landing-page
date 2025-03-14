@@ -6,6 +6,7 @@ import styles from './SpeakersList.module.css'
 import Image from 'next/image'
 import Loading from './loading'
 import * as XLSX from 'xlsx';
+import Badge from '@/app/components/Badge';
 
 export const formatCPF = (cpf) => {
   if (!cpf) return '';
@@ -28,18 +29,18 @@ const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'a', 'o', 'as', 'os']
 
 const formatName = (name) => {
   if (!name) return '';
-  
+
   return name.split(' ').map((word, index) => {
     // Check if word is a single letter (abbreviation)
     if (word.length === 1) {
       return `${word.toUpperCase()}.`;
     }
-    
+
     // Convert prepositions to lowercase unless it's the first word
     if (index > 0 && prepositions.includes(word.toLowerCase())) {
       return word.toLowerCase();
     }
-    
+
     // Capitalize first letter, rest lowercase
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   }).join(' ');
@@ -171,7 +172,7 @@ export default function SpeakersList({ params }) {
       'CPF': speaker.cpf,
       'Email': speaker.email?.toLowerCase(),
       'Telefone': speaker.phone,
-      'Cidade': speaker.city,
+      'Cidade': formatName(speaker.city),
       'Estado': speaker.state,
       'Palestras': Array.isArray(speaker.lectures)
         ? speaker.lectures.join(', ')
@@ -214,7 +215,7 @@ export default function SpeakersList({ params }) {
         <table className={styles.table}>
           <thead>
             <tr>
-            <th>
+              <th>
                 <button
                   onClick={toggleAllRows}
                   className={styles.toggleButton}
@@ -307,6 +308,13 @@ export default function SpeakersList({ params }) {
                         className={styles.photo}
                         unoptimized={true}
                       />
+                      <Badge
+                        count={Array.isArray(speaker.lectures) ? speaker.lectures.length : 0}
+                        backgroundColor="var(--info-text)"
+                        size="1.2rem"
+                        textSingular="palestra"
+                        textPlural="palestras"
+                      />
                     </div>
                   </td>
                   <td>{formatName(speaker.full_name)}</td>
@@ -314,7 +322,7 @@ export default function SpeakersList({ params }) {
                   <td>{formatCPF(speaker.cpf)}</td>
                   <td>{speaker.email?.toLowerCase()}</td>
                   <td>{speaker.phone}</td>
-                  <td>{`${speaker.city}/${speaker.state}`}</td>
+                  <td>{`${formatName(speaker.city)}/${speaker.state}`}</td>
                   <td>{formatDate(speaker.created_at)}</td>
                 </tr>
                 {expandedRows.has(speaker.id) && (
