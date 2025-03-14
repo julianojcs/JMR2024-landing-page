@@ -1483,7 +1483,7 @@ export const eventData = {
       ],
     },
     introduction: {
-      text: ['Caros colegas,', 'Juntem-sem a nós nos dias 27 e 28 de junho de 2025 para um evento imperdível! Excelências no diagnóstico por imagem estarão presentes em uma programação dinâmica com os maiores especialistas da área.', 'Esperamos por vocês!'],
+      text: ['Caros colegas,', 'Juntem-se a nós nos dias 27 e 28 de junho de 2025 para um evento imperdível! Excelências no diagnóstico por imagem estarão presentes em uma programação dinâmica com os maiores especialistas da área.', 'Esperamos por vocês!'],
       host: [{
         name: 'Dra. Luciana Costa',
         imagePath: '/introduction/Luciana_Costa.png',
