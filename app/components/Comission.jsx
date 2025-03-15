@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import classnames from 'classnames'
 import AvatarCard from './AvatarCard'
+import DotPattern from './DotPattern'
 import { eventData } from '../data/constants'
 import {
   container,
@@ -25,6 +26,17 @@ const Comission = ({year}) => {
       <div className={comissionContainer}>
         {sortedComissions.map((comission, index) => (
           <div key={`${comission.name}-${index}`}>
+            {index === 0 && (
+              <DotPattern
+                dotColor="#BB2426"
+                size={30}
+                opacity={1}
+                baseSize={10}
+                reduction={0.03}
+                margin={25}
+                position={{ x: 'right', y: 'bottom' }}
+              />
+            )}
             <div className={comissionTitle}>
               <Link href={comission.link} target='_blank'>
                 <Image
@@ -38,6 +50,17 @@ const Comission = ({year}) => {
               <h2>{comission.title}</h2>
             </div>
             <div className={medicosContainer}>
+              {index === 0 && (
+                <DotPattern
+                  dotColor="#BB2426"
+                  size={30}
+                  opacity={1}
+                  baseSize={10}
+                  reduction={0.03}
+                  margin={10}
+                  position={{ x: 'left', y: 'top' }}
+                />
+              )}
               {comission.members.map((member, memberIndex) => (
                 <AvatarCard
                   key={`${member.name}-${memberIndex}`}

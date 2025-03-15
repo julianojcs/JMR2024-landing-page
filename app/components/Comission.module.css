@@ -1,10 +1,12 @@
 .container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .comissionContainer {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -38,11 +40,12 @@
 }
 
 .medicosContainer {
+  position: relative;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  margin: 10px;
   flex-wrap: wrap;
-  margin: 5svh 5svw;
+  padding: 5svh 5svw;
 }
 
 .promoters {
