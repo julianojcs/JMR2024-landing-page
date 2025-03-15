@@ -1623,6 +1623,7 @@ export const eventData = {
       'XIV Congresso de Imaginologia da Mulher'
     ],
     modal: {
+      active: false,
       title: 'Sorteio de Inscrição',
       description: [
         'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
