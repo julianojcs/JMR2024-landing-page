@@ -24,6 +24,9 @@ const CloseIcon = () => (
 const ModalBanner = ({ modalData }) => {
   const [isVisible, setIsVisible] = useState(false)
 
+  // Return early if modalData doesn't exist or is not active
+  if (!modalData || !modalData.active) return null
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true)
