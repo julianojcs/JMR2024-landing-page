@@ -461,7 +461,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: 'Curso de Inteliggência Artificial',
+            text: 'Curso de Inteligência Artificial',
             color: '#052c65'
           },
           bestBefore: {
@@ -1583,7 +1583,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: 'Curso de Inteliggência Artificial',
+            text: 'Curso de Inteligência Artificial',
             color: '#052c65'
           },
           bestBefore: {
@@ -2154,7 +2154,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: 'Curso de Inteliggência Artificial',
+            text: 'Curso de Inteligência Artificial',
             color: '#052c65'
           },
           bestBefore: {
