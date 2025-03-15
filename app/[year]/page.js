@@ -11,6 +11,7 @@ import Comission from '../components/Comission'
 import Tables from '../components/Tables'
 import ModalBanner from '../components/ModalBanner'
 import Introduction from '@/app/components/Introduction';
+import Sponsor from '@/app/components/Sponsor'
 
 // export async function getServerSideProps(context) {
 //   if (!isValidRoute(context)) {
@@ -87,14 +88,13 @@ const Home = ({ params }) => {
         <SocialMedias url={data.social.instagram} />
       </Header>
       <Banner lstBannerText={data.bannerText} />
-      <Introduction introduction={data.introduction} year={year} />
+      <Introduction introduction={data.introduction} />
       <Description description={data.description} />
       <Promoters button={data.callToAct.button01} year={year} />
       <Events button={data.callToAct.button02} year={year} />
       <Comission year={year} />
-      <Tables
-        priceTables={data.priceTables}
-      />
+      <Tables priceTables={data.priceTables} />
+      <Sponsor sponsorShip={data.sponsorShip} />
     </main>
   )
 }

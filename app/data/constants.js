@@ -919,6 +919,179 @@ export const eventData = {
           }
         },
       ]
+    },
+    sponsorShip: {
+      promoters: {
+        title: 'Realização:',
+        className: 'promoters',
+        brands: [ {
+            name: 'SOGIMIG',
+            src: '/logo/sogimig.png',
+            href: 'https://www.sogimig.org.br/',
+            width: 90,
+            height: 60
+          }, {
+            name: 'SRMG',
+            src: '/logo/srmg.png',
+            href: 'http://www.srmg.org.br/',
+            width: 150,
+            height: 43
+          },
+        ]
+      },
+      sponsors: {
+        title: 'Patrocinadores:',
+        className: 'sponsors',
+        level: {
+          gold: {
+            title: 'Ouro',
+            className: 'gold',
+            brands: [{
+              name: 'Bayer',
+              src: '/logo/bayer.png',
+              href: 'https://www.bayer.com.br/pt/',
+              width: 40,
+              height: 40
+            }, {
+              name: 'Grupo Fleury',
+              src: '/logo/fleury.png',
+              href: 'https://www.fleury.com.br/',
+              width: 100,
+              height: 28.34
+            }, {
+              name: 'Hermes Pardini',
+              src: '/logo/hermes-pardini.png',
+              href: 'https://www.hermespardini.com.br/',
+              width: 80,
+              height: 36.55
+            }],
+          },
+          silver: {
+            title: 'Prata',
+            className: 'silver',
+            brands: [{
+              name: 'Guerbet',
+              src: '/logo/guerbet.png',
+              href: 'https://www.guerbet.com/pt-br',
+              width: 80,
+              height: 25.39
+            }, {
+              name: 'Dasa',
+              src: '/logo/dasa.png',
+              href: 'https://www.dasa.com.br/',
+              width: 50,
+              height: 13.67
+            }, {
+              name: 'São Marcos',
+              src: '/logo/sao-marcos.png',
+              href: 'https://saomarcoslaboratorio.com.br/',
+              width: 70,
+              height: 42.52,
+              className: 'saoMarcosClass',
+            }, {
+              name: 'Prontofar',
+              src: '/logo/prontofar.png',
+              href: 'https://www.prontofar.com.br/',
+              width: 80,
+              height: 36.42
+            }, {
+              name: 'Unimed BH',
+              src: '/logo/unimed-bh.png',
+              href: 'https://www.unimedbh.com.br/',
+              width: 80,
+              height: 33.47
+            }],
+          },
+          bronze: {
+            title: 'Bronze',
+            className: 'bronze',
+            brands: [{
+              name: 'Agis',
+              src: '/logo/agis.png',
+              href: 'https://agismedical.com.br/',
+              width: 60,
+              height: 15.19
+            }, {
+              name: 'Bracco',
+              src: '/logo/bracco.png',
+              href: 'https://www.bracco.com.br/pt-br/',
+              width: 40,
+              height: 35.11
+            }, {
+              name: 'Canon Medical Systems',
+              src: '/logo/canon-medical-systems.png',
+              href: 'https://br.medical.canon/',
+              width: 50,
+              height: 18.84
+            }, {
+              name: 'Ceu Diagnósticos',
+              src: '/logo/ceu-diagnosticos.png',
+              href: 'https://www.clinicaceu.com.br/',
+              width: 60,
+              height: 32.36
+            }, {
+              name: 'Mhédica',
+              src: '/logo/mhedica.png',
+              href: 'https://www.mhedica.com.br/',
+              width: 80,
+              height: 20.94
+            }, {
+              name: 'Supri Medical',
+              src: '/logo/supri-medical.png',
+              href: 'https://www.supri-medical.com/',
+              width: 100,
+              height: 20.81
+            }, {
+              name: 'Gphantom',
+              src: '/logo/gphantom.png',
+              href: 'https://www.gphantom.com.br/',
+              width: 60,
+              height: 30.78
+            }, {
+              name: 'CRM MG',
+              src: '/logo/crm-mg.png',
+              href: 'https://crmmg.org.br/',
+              width: 60,
+              height: 18.84
+            }, {
+              name: 'Join',
+              src: '/logo/join.png',
+              href: 'https://www.joindigitalsolution.com.br/',
+              width: 45,
+              height: 42.75,
+              rounded: true
+            }],
+          },
+        },
+      },
+      supports: {
+        title: 'Apoio:',
+        className: 'promoters',
+        brands: [{
+          name: 'AMMG',
+          src: '/logo/ammg.png',
+          href: 'https://ammg.org.br/',
+          width: 80,
+          height: 28.58
+        }, {
+          name: 'CBR',
+          src: '/logo/cbr.png',
+          href: 'https://cbr.org.br/',
+          width: 80,
+          height: 40
+        }],
+      },
+      organizer: {
+        title: 'Organização:',
+        className: 'promoters',
+        brands: [{
+          name: 'Core',
+          src: '/logo/core.png',
+          href: '#',
+          width: 80,
+          height: 32.63
+        }],
+      },
     }
   },
   2025: {
@@ -1475,7 +1648,7 @@ export const eventData = {
             return `Logo da ${this.name}`
           },
           link: 'https://www.medhubx.com',
-          src: '/logo/apoio/medhubx.png',
+          src: '/logo/medhubx.png',
           width: 237,
           height: 60,
           bgcolor: '#f8f9fa'
@@ -1752,7 +1925,7 @@ export const eventData = {
             name: 'Dr. Luiz Ernani Meira Júnior'
           },
           {
-            imagePath: '/avatars/Marcelo_Silva2.png',
+            imagePath: '/avatars/Marcelo_Silva.png',
             name: 'Dr. Marcelo Silva'
           },
           {
@@ -2007,6 +2180,122 @@ export const eventData = {
           }
         }
       ]
+    },
+    sponsorShip: {
+      promoters: {
+        title: 'Realização:',
+        className: 'promoters',
+        brands: [ {
+            name: 'SOGIMIG',
+            src: '/logo/sogimig.png',
+            href: 'https://www.sogimig.org.br/',
+            width: 90,
+            height: 60
+          }, {
+            name: 'SRMG',
+            src: '/logo/srmg.png',
+            href: 'http://www.srmg.org.br/',
+            width: 150,
+            height: 43
+          },
+        ]
+      },
+      sponsors: {
+        title: 'Patrocinadores:',
+        className: 'sponsors',
+        level: {
+          gold: {
+            title: 'Ouro',
+            className: 'gold',
+            brands: [{
+              name: 'Unimed BH',
+              src: '/logo/unimed-bh.png',
+              href: 'https://www.unimedbh.com.br/',
+              width: 80,
+              height: 33.47
+            }],
+          },
+          silver: {
+            title: 'Prata',
+            className: 'silver',
+            brands: [{
+              name: 'Bayer',
+              src: '/logo/bayer.png',
+              href: 'https://www.bayer.com.br/pt/',
+              width: 40,
+              height: 40
+            }, {
+              name: 'Dasa',
+              src: '/logo/dasa.png',
+              href: 'https://www.dasa.com.br/',
+              width: 50,
+              height: 13.67
+            }],
+          },
+          bronze: {
+            title: 'Bronze',
+            className: 'bronze',
+            brands: [{
+              name: 'Ceu Diagnósticos',
+              src: '/logo/ceu-diagnosticos.png',
+              href: 'https://www.clinicaceu.com.br/',
+              width: 60,
+              height: 32.36
+            }],
+          },
+        },
+      },
+      supports: {
+        title: 'Apoio:',
+        className: 'promoters',
+        brands: [{
+          name: 'MedHubX',
+          src: '/logo/medhubx.png',
+          href: 'https://www.medhubx.com',
+          width: 110,
+          height: 27.86
+        }],
+      },
+      institutionalSupports: {
+        title: 'Apoio Institucional:',
+        className: 'promoters',
+        brands: [{
+          name: 'AMMG',
+          src: '/logo/ammg.png',
+          href: 'https://ammg.org.br/',
+          width: 80,
+          height: 28.58
+        }, {
+          name: 'CBR',
+          src: '/logo/cbr.png',
+          href: 'https://cbr.org.br/',
+          width: 80,
+          height: 40
+        }, {
+          name: 'CRTR3',
+          src: '/logo/crtr3.png',
+          href: 'https://www.crtrmg.org.br/',
+          width: 80,
+          height: 36.47
+        }, {
+          name: 'SAMMG',
+          src: '/logo/sammg.png',
+          href: 'https://www.sammg.com.br/',
+          width: 80,
+          height: 15.39
+        }],
+      },
+      organizer: {
+        title: 'Organização:',
+        className: 'promoters',
+        brands: [{
+          name: 'Core',
+          src: '/logo/core.png',
+          href: '#',
+          width: 80,
+          height: 32.63
+        }],
+      },
     }
   }
 }

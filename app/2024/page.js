@@ -73,10 +73,8 @@ const Home = () => {
         year={2024}
       />
       <Comission year={2024} />
-      <Tables
-        priceTables={data.priceTables}
-      />
-      <Sponsor />
+      <Tables priceTables={data.priceTables} />
+      <Sponsor sponsorShip={data.sponsorShip} />
     </>
   )
 }
