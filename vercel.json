@@ -1,1 +1,11 @@
-{  "buildCommand": "npm run custom-build",  "ignoreCommand": "npm run prisma:generate",  "installCommand": "npm install"}
+{
+  "buildCommand": "npm run custom-build",
+  "ignoreCommand": "npm run prisma:generate",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/live-srmg/:path*",
+      "destination": "https://srmg.rds.land/live-srmg"
+    }
+  ]
+}
