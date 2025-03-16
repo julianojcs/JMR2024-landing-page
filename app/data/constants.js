@@ -1771,7 +1771,9 @@ export const eventData = {
           cardlist: [
             {
               date: '27/06',
-              title: 'POCUS Geral',
+              title: 'POCUS',
+              subtitle: 'Geral',
+              link: 'https://www.canva.com/design/DAGh0-qhaPE/mUjzHR3EZT8MI47KFWEvTg/view',
               img: '/images/cards/pocus.png',
               width: '63',
               height: '125'
@@ -1779,6 +1781,7 @@ export const eventData = {
             {
               date: '27/06',
               title: 'Mama',
+              link: 'https://www.canva.com/design/DAGh1LZzE0w/Lc6mWTi3Uk0xUDs1JuXURg/view',
               img: '/images/cards/mama.png',
               width: '126',
               height: '125'
@@ -1786,6 +1789,7 @@ export const eventData = {
             {
               date: '27/06',
               title: 'Geniturinário',
+              link: 'https://www.canva.com/design/DAGh1t4A8-Q/BV5bJXlF9KbA-NVtmErnkQ/view',
               img: '/images/cards/geniturinario.png',
               width: '126',
               height: '125'
@@ -1793,6 +1797,7 @@ export const eventData = {
             {
               date: '28/06',
               title: 'Gastrointestinal',
+              // link: '',
               img: '/images/cards/gastrointestinal.png',
               width: '125',
               height: '125'
@@ -1800,6 +1805,7 @@ export const eventData = {
             {
               date: '27/06',
               title: 'MSK',
+              link: 'https://www.canva.com/design/DAGh1T6O3po/_tdNT2-QrZT96uETpLkp3g/view',
               img: '/images/cards/msk.png',
               width: '75',
               height: '125'
@@ -1807,49 +1813,58 @@ export const eventData = {
             {
               date: '27/06',
               title: 'US Obstetrícia',
+              // link: '',
               img: '/images/cards/us-obstetricia.png'
             },
             {
               date: '27/06',
               title: ['Pelve', 'Feminina'],
+              link: 'https://www.canva.com/design/DAGh0uOB_8w/0MxWc7WhtPpR9LPSDuATMA/view',
               img: '/images/cards/pelve-feminina.png'
             },
             {
               date: '27/06',
               color: '#80CBC4', // Very Light Teal
               title: ['Neuror-', 'radiologia'],
+              // link: '',
               img: '/images/cards/neurorradiol.png'
             },
             {
               date: '28/06',
               title: ['Cabeça e', 'Pescoço'],
+              // link: '',
               img: '/images/cards/cabeca-pescoco.png'
             },
             {
               date: '28/06',
               title: 'US Ginecologia',
+              // link: '',
               img: '/images/cards/us-ginecologia.png'
             },
             {
               date: '28/06',
               color: '#43A047', // Medium Green
               title: ['Técnicas', 'Radiológicas'],
+              link: 'https://www.canva.com/design/DAGh653sZtU/j7SPQ5rH6CCN4cDMqxci_g/view',
               img: '/images/cards/tecnicas-radiologicas.png'
             },
             {
               date: '28/06',
               title: 'Acadêmicos',
+              // link: '',
               img: '/images/cards/academicos.png',
               height: '125'
             },
             {
               date: '28/06',
               title: 'Tórax',
+              // link: '',
               img: '/images/cards/torax.png'
             },
             {
               date: '28/06',
               title: 'Intervenção não vascular',
+              // link: '',
               img: '/images/cards/intervencao-nao-vascular.png'
             },
           ]
@@ -1863,6 +1878,7 @@ export const eventData = {
               date: '27/06',
               color: '#010101',
               title: ['RM Pelve para', 'Ginecologistas'],
+              // link: '',
               img: '/images/cards/rm-pelve-para-ginecologista.png'
             }
           ]
@@ -1874,6 +1890,7 @@ export const eventData = {
             {
               date: '28/06',
               title: ['Inteligência', 'Artificial'],
+              // link: '',
               img: '/images/cards/ia.png',
               width: '166',
               height: '164'
