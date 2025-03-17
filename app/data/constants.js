@@ -1717,7 +1717,7 @@ export const eventData = {
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button03: {
-        // caption: 'Se inscreva Hands On',
+        // caption: 'Se inscreva Workshop',
         caption: 'Inscrições em breve...',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
@@ -1751,7 +1751,7 @@ export const eventData = {
           cardlist: [
             {
               date: '27/06',
-              color: '#68517f',
+              color: 'var(--primary-clr)',
               title: ['Abertura', 'Oficial'],
               img: '/images/cards/oppening.png',
               width: '125',
@@ -1781,6 +1781,8 @@ export const eventData = {
             {
               date: '27/06',
               title: 'Mama',
+              priority: 1,
+              color: '#6f0273',
               link: 'https://www.canva.com/design/DAGh1LZzE0w/Lc6mWTi3Uk0xUDs1JuXURg/view',
               img: '/images/cards/mama.png',
               width: '126',
@@ -1820,7 +1822,7 @@ export const eventData = {
             },
             {
               date: '27/06',
-              priority: 1,
+              priority: 2,
               title: 'US Obstetrícia',
               color: '#6f0273',
               link: 'https://www.canva.com/design/DAGh8L_SDCs/cLgRjDSBHL-tqmulvwWxzQ/view',
@@ -1872,8 +1874,8 @@ export const eventData = {
           ]
         },
         {
-          title: 'Hands On',
-          color: '#084298', // Black
+          title: 'Workshop',
+          color: '#0a58ca', // Dark Blue
           ratio: [125, 125],
           cardlist: [
             {
@@ -2042,6 +2044,26 @@ export const eventData = {
           {
             imagePath: '/avatars/Rodrigo_Gadelha.png',
             name: 'Prof. Rodrigo Gadelha'
+          },
+          {
+            imagePath: '/avatars/Rudolf_Moreira_Pfeilsticker.png',
+            name: 'Dr. Rudolf Moreira Pfeilsticker'
+          },
+          {
+            imagePath: '/avatars/Bernardo_Lopes_Cancado_Fonseca.png',
+            name: 'Dr. Bernardo Lopes Cançado Fonseca'
+          },
+          {
+            imagePath: '/avatars/Fabiano_F_M_Prado.png',
+            name: 'Dr. Fabiano F M Prado'
+          },
+          {
+            imagePath: '/avatars/Tereza_Sebastiao_Nogueira.png',
+            name: 'Dra. Tereza Sebastião Nogueira'
+          },
+          {
+            imagePath: '/avatars/Lauro_Santos_Silva.png.png',
+            name: 'Dr. Lauro Santos Silva'
           }
         ]
       },
@@ -2138,7 +2160,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: ['Hands On', 'RM Pelve para Ginecologistas'],
+            text: ['Workshop', 'RM Pelve para Ginecologistas'],
             color: '#052c65'
           },
           subtitle: {
