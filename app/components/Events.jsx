@@ -28,8 +28,8 @@ const Events = ({button, year}) => {
       // First sort by priority if present
       const priorityA = a.priority || 0;
       const priorityB = b.priority || 0;
-      
-      if (priorityA || priorityB) {
+
+      if (priorityA !== priorityB) {
         return priorityB - priorityA; // Higher priority comes first
       }
 
