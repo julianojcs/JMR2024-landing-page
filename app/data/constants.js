@@ -925,11 +925,11 @@ export const eventData = {
         title: 'Realização:',
         className: 'promoters',
         brands: [ {
-            name: 'SOGIMIG',
-            src: '/logo/sogimig.png',
-            href: 'https://www.sogimig.org.br/',
-            width: 90,
-            height: 60
+            name: 'ABRAMEDE/MG',
+            src: '/logo/abramed-mg.png',
+            href: 'https://www.abramedemg.org.br/',
+            width: 118.91,
+            height: 43
           }, {
             name: 'SRMG',
             src: '/logo/srmg.png',
@@ -1797,7 +1797,7 @@ export const eventData = {
             {
               date: '28/06',
               title: 'Gastrointestinal',
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh7MBnSts/5Ir0QqWnAq_fEp1SZhPGtA/view',
               img: '/images/cards/gastrointestinal.png',
               width: '125',
               height: '125'
@@ -1811,9 +1811,19 @@ export const eventData = {
               height: '125'
             },
             {
+              date: '28/06',
+              priority: 1,
+              title: 'US Ginecologia',
+              color: '#6f0273',
+              link: 'https://www.canva.com/design/DAGh8OP2SFM/Wf7m7bl948S7z-LD5jn42A/view',
+              img: '/images/cards/us-ginecologia.png'
+            },
+            {
               date: '27/06',
+              priority: 1,
               title: 'US Obstetrícia',
-              // link: '',
+              color: '#6f0273',
+              link: 'https://www.canva.com/design/DAGh8L_SDCs/cLgRjDSBHL-tqmulvwWxzQ/view',
               img: '/images/cards/us-obstetricia.png'
             },
             {
@@ -1824,26 +1834,18 @@ export const eventData = {
             },
             {
               date: '27/06',
-              color: '#80CBC4', // Very Light Teal
               title: ['Neuror-', 'radiologia'],
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh1Pihvg0/S_7A4P5jxGtfauVqzbyp0A/view',
               img: '/images/cards/neurorradiol.png'
             },
             {
               date: '28/06',
               title: ['Cabeça e', 'Pescoço'],
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh7oGAB4E/g4BqkZ7C57SmtO89cO2qtg/view',
               img: '/images/cards/cabeca-pescoco.png'
             },
             {
               date: '28/06',
-              title: 'US Ginecologia',
-              // link: '',
-              img: '/images/cards/us-ginecologia.png'
-            },
-            {
-              date: '28/06',
-              color: '#43A047', // Medium Green
               title: ['Técnicas', 'Radiológicas'],
               link: 'https://www.canva.com/design/DAGh653sZtU/j7SPQ5rH6CCN4cDMqxci_g/view',
               img: '/images/cards/tecnicas-radiologicas.png'
@@ -1851,20 +1853,20 @@ export const eventData = {
             {
               date: '28/06',
               title: 'Acadêmicos',
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh8cQYC6E/knKPerC6IYlF-TnpaHXwUQ/view',
               img: '/images/cards/academicos.png',
               height: '125'
             },
             {
               date: '28/06',
               title: 'Tórax',
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh6cSC_gM/9bhgBoXjky3UHoiu7Sw35A/view',
               img: '/images/cards/torax.png'
             },
             {
               date: '28/06',
               title: 'Intervenção não vascular',
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh7JhpDJs/h9JriVzK2_nKzV8qmnvFCA/view',
               img: '/images/cards/intervencao-nao-vascular.png'
             },
           ]
@@ -1876,9 +1878,8 @@ export const eventData = {
           cardlist: [
             {
               date: '27/06',
-              color: '#010101',
               title: ['RM Pelve para', 'Ginecologistas'],
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh71OirrI/rvExUrFJmzN6An4RtDXSqQ/view',
               img: '/images/cards/rm-pelve-para-ginecologista.png'
             }
           ]
@@ -1890,7 +1891,7 @@ export const eventData = {
             {
               date: '28/06',
               title: ['Inteligência', 'Artificial'],
-              // link: '',
+              link: 'https://www.canva.com/design/DAGh67UbIoI/wNMT_3Dit7XvK5hXhjqNKQ/view',
               img: '/images/cards/ia.png',
               width: '166',
               height: '164'
@@ -1979,7 +1980,7 @@ export const eventData = {
             name: 'Dra. Adriene Moraes Campos'
           },
           {
-            imagePath: '/avatars/Anna_Christina_Gruber.png',
+            imagePath: '/avatars/Aline_Lauda_Freitas_Chaves.png',
             name: 'Dra. Aline Lauda'
           },
           {
@@ -2243,11 +2244,11 @@ export const eventData = {
               width: 40,
               height: 40
             }, {
-              name: 'Dasa',
-              src: '/logo/dasa.png',
-              href: 'https://www.dasa.com.br/',
-              width: 50,
-              height: 13.67
+              name: 'Telelaudo',
+              src: '/logo/telelaudo.png',
+              href: 'https://www.telelaudo.com.br/',
+              width: 84.73,
+              height: 30
             }],
           },
           bronze: {

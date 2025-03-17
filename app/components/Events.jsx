@@ -25,7 +25,15 @@ const Events = ({button, year}) => {
     if (!orderBy) return cards;
 
     return [...cards].sort((a, b) => {
-      // First sort by date
+      // First sort by priority if present
+      const priorityA = a.priority || 0;
+      const priorityB = b.priority || 0;
+      
+      if (priorityA || priorityB) {
+        return priorityB - priorityA; // Higher priority comes first
+      }
+
+      // Then sort by date if enabled
       if (orderBy.date) {
         // Check for multi-day events
         const isMultiDayA = a.date.includes(' e ');
@@ -47,13 +55,11 @@ const Events = ({button, year}) => {
         const firstDayA = parseInt(dayA.split(' e ')[0]);
         const firstDayB = parseInt(dayB.split(' e ')[0]);
 
-        const dayComparison = firstDayA - firstDayB;
-        if (dayComparison !== 0) return dayComparison;
+        return firstDayA - firstDayB;
       }
 
-      // Then sort by title if dates are equal and title sorting is enabled
+      // Finally sort by title if enabled
       if (orderBy.title) {
-        // Convert array titles to strings for comparison
         const getTitleString = (title) => {
           if (Array.isArray(title)) {
             return title.join(' ').toLowerCase();
@@ -95,7 +101,7 @@ const Events = ({button, year}) => {
       <Card
         key={cardData.title}
         {...cardData}
-        color={sectionColor || cardData.color}
+        color={cardData?.color || sectionColor}
         width={width}
         height={height}
         title={cardData.title}
