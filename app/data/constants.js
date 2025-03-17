@@ -1717,7 +1717,7 @@ export const eventData = {
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
       button03: {
-        // caption: 'Se inscreva Hands On',
+        // caption: 'Se inscreva Workshop',
         caption: 'Inscrições em breve...',
         link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
@@ -1751,7 +1751,7 @@ export const eventData = {
           cardlist: [
             {
               date: '27/06',
-              color: '#68517f',
+              color: 'var(--primary-clr)',
               title: ['Abertura', 'Oficial'],
               img: '/images/cards/oppening.png',
               width: '125',
@@ -1771,7 +1771,9 @@ export const eventData = {
           cardlist: [
             {
               date: '27/06',
-              title: 'POCUS Geral',
+              title: 'POCUS',
+              subtitle: 'Geral',
+              link: 'https://www.canva.com/design/DAGh0-qhaPE/mUjzHR3EZT8MI47KFWEvTg/view',
               img: '/images/cards/pocus.png',
               width: '63',
               height: '125'
@@ -1779,6 +1781,9 @@ export const eventData = {
             {
               date: '27/06',
               title: 'Mama',
+              priority: 1,
+              color: '#6f0273',
+              link: 'https://www.canva.com/design/DAGh1LZzE0w/Lc6mWTi3Uk0xUDs1JuXURg/view',
               img: '/images/cards/mama.png',
               width: '126',
               height: '125'
@@ -1786,6 +1791,7 @@ export const eventData = {
             {
               date: '27/06',
               title: 'Geniturinário',
+              link: 'https://www.canva.com/design/DAGh1t4A8-Q/BV5bJXlF9KbA-NVtmErnkQ/view',
               img: '/images/cards/geniturinario.png',
               width: '126',
               height: '125'
@@ -1793,6 +1799,7 @@ export const eventData = {
             {
               date: '28/06',
               title: 'Gastrointestinal',
+              link: 'https://www.canva.com/design/DAGh7MBnSts/5Ir0QqWnAq_fEp1SZhPGtA/view',
               img: '/images/cards/gastrointestinal.png',
               width: '125',
               height: '125'
@@ -1800,69 +1807,81 @@ export const eventData = {
             {
               date: '27/06',
               title: 'MSK',
+              link: 'https://www.canva.com/design/DAGh1T6O3po/_tdNT2-QrZT96uETpLkp3g/view',
               img: '/images/cards/msk.png',
               width: '75',
               height: '125'
             },
             {
+              date: '28/06',
+              priority: 1,
+              title: 'US Ginecologia',
+              color: '#6f0273',
+              link: 'https://www.canva.com/design/DAGh8OP2SFM/Wf7m7bl948S7z-LD5jn42A/view',
+              img: '/images/cards/us-ginecologia.png'
+            },
+            {
               date: '27/06',
+              priority: 2,
               title: 'US Obstetrícia',
+              color: '#6f0273',
+              link: 'https://www.canva.com/design/DAGh8L_SDCs/cLgRjDSBHL-tqmulvwWxzQ/view',
               img: '/images/cards/us-obstetricia.png'
             },
             {
               date: '27/06',
               title: ['Pelve', 'Feminina'],
+              link: 'https://www.canva.com/design/DAGh0uOB_8w/0MxWc7WhtPpR9LPSDuATMA/view',
               img: '/images/cards/pelve-feminina.png'
             },
             {
               date: '27/06',
-              color: '#80CBC4', // Very Light Teal
               title: ['Neuror-', 'radiologia'],
+              link: 'https://www.canva.com/design/DAGh1Pihvg0/S_7A4P5jxGtfauVqzbyp0A/view',
               img: '/images/cards/neurorradiol.png'
             },
             {
               date: '28/06',
               title: ['Cabeça e', 'Pescoço'],
+              link: 'https://www.canva.com/design/DAGh7oGAB4E/g4BqkZ7C57SmtO89cO2qtg/view',
               img: '/images/cards/cabeca-pescoco.png'
             },
             {
               date: '28/06',
-              title: 'US Ginecologia',
-              img: '/images/cards/us-ginecologia.png'
-            },
-            {
-              date: '28/06',
-              color: '#43A047', // Medium Green
               title: ['Técnicas', 'Radiológicas'],
+              link: 'https://www.canva.com/design/DAGh653sZtU/j7SPQ5rH6CCN4cDMqxci_g/view',
               img: '/images/cards/tecnicas-radiologicas.png'
             },
             {
               date: '28/06',
               title: 'Acadêmicos',
+              link: 'https://www.canva.com/design/DAGh8cQYC6E/knKPerC6IYlF-TnpaHXwUQ/view',
               img: '/images/cards/academicos.png',
               height: '125'
             },
             {
               date: '28/06',
               title: 'Tórax',
+              link: 'https://www.canva.com/design/DAGh6cSC_gM/9bhgBoXjky3UHoiu7Sw35A/view',
               img: '/images/cards/torax.png'
             },
             {
               date: '28/06',
               title: 'Intervenção não vascular',
+              link: 'https://www.canva.com/design/DAGh7JhpDJs/h9JriVzK2_nKzV8qmnvFCA/view',
               img: '/images/cards/intervencao-nao-vascular.png'
             },
           ]
         },
         {
-          title: 'Hands On',
-          color: '#084298', // Black
+          title: 'Workshop',
+          color: '#0a58ca', // Dark Blue
           ratio: [125, 125],
           cardlist: [
             {
               date: '27/06',
-              color: '#010101',
               title: ['RM Pelve para', 'Ginecologistas'],
+              link: 'https://www.canva.com/design/DAGh71OirrI/rvExUrFJmzN6An4RtDXSqQ/view',
               img: '/images/cards/rm-pelve-para-ginecologista.png'
             }
           ]
@@ -1874,6 +1893,7 @@ export const eventData = {
             {
               date: '28/06',
               title: ['Inteligência', 'Artificial'],
+              link: 'https://www.canva.com/design/DAGh67UbIoI/wNMT_3Dit7XvK5hXhjqNKQ/view',
               img: '/images/cards/ia.png',
               width: '166',
               height: '164'
@@ -2024,6 +2044,26 @@ export const eventData = {
           {
             imagePath: '/avatars/Rodrigo_Gadelha.png',
             name: 'Prof. Rodrigo Gadelha'
+          },
+          {
+            imagePath: '/avatars/Rudolf_Moreira_Pfeilsticker.png',
+            name: 'Dr. Rudolf Moreira Pfeilsticker'
+          },
+          {
+            imagePath: '/avatars/Bernardo_Lopes_Cancado_Fonseca.png',
+            name: 'Dr. Bernardo Lopes Cançado Fonseca'
+          },
+          {
+            imagePath: '/avatars/Fabiano_F_M_Prado.png',
+            name: 'Dr. Fabiano F M Prado'
+          },
+          {
+            imagePath: '/avatars/Tereza_Sebastiao_Nogueira.png',
+            name: 'Dra. Tereza Sebastião Nogueira'
+          },
+          {
+            imagePath: '/avatars/Lauro_Santos_Silva.png',
+            name: 'Dr. Lauro Santos Silva'
           }
         ]
       },
@@ -2120,7 +2160,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: ['Hands On', 'RM Pelve para Ginecologistas'],
+            text: ['Workshop', 'RM Pelve para Ginecologistas'],
             color: '#052c65'
           },
           subtitle: {
@@ -2133,7 +2173,7 @@ export const eventData = {
             date: ['20042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
-            // caption: 'Faça sua inscrição no Hands On',
+            // caption: 'Faça sua inscrição no Workshop',
             caption: 'Inscrições em breve...',
             link: '#'
           },
@@ -2297,6 +2337,53 @@ export const eventData = {
           height: 32.63
         }],
       },
-    }
+    },
+    societies: [{
+        name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
+        shortName: 'SRMG',
+        link: 'https://www.srmg.org.br',
+        alt: 'Logo da SRMG',
+        src: '/logo/srmg.png',
+        affiliated: {
+          member: [{
+              name: 'Juliano Costa Silva',
+              cpf: '03102546633'
+            }, {
+              name: 'Juliano Costa Silva',
+              cpf: '03102546633'
+          }]
+        }
+      }, {
+        name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
+        shortName: 'SOGIMIG',
+        link: 'https://sogimig.org.br/',
+        alt: 'Logo da SOGIMIG',
+        src: '/logo/sogimig.png',
+        affiliated: {
+          member: [{
+              name: 'Juliano Costa Silva',
+              cpf: '03102546633'
+            }, {
+              name: 'Juliano Costa Silva',
+              cpf: '03102546633'
+          }]
+        }
+      }, {
+        name: 'Sociedade de Acadêmicos de Medicina de Minas Gerais',
+        shortName: 'SAMMG',
+        link: 'https://www.sammg.com.br/',
+        alt: 'Logo da SAMMG',
+        src: '/logo/sammg.png',
+        affiliated: {
+          member: [{
+              name: 'Juliano Costa Silva',
+              cpf: '03102546633'
+            }, {
+              name: 'Juliano Costa Silva',
+              cpf: '03102546633'
+          }]
+        }
+      }
+    ]
   }
 }
