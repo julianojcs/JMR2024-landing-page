@@ -2062,7 +2062,7 @@ export const eventData = {
             name: 'Dra. Tereza Sebastião Nogueira'
           },
           {
-            imagePath: '/avatars/Lauro_Santos_Silva.png.png',
+            imagePath: '/avatars/Lauro_Santos_Silva.png',
             name: 'Dr. Lauro Santos Silva'
           }
         ]
