@@ -925,11 +925,11 @@ export const eventData = {
         title: 'Realização:',
         className: 'promoters',
         brands: [ {
-            name: 'SOGIMIG',
-            src: '/logo/sogimig.png',
-            href: 'https://www.sogimig.org.br/',
-            width: 90,
-            height: 60
+            name: 'ABRAMEDE/MG',
+            src: '/logo/abramed-mg.png',
+            href: 'https://www.abramedemg.org.br/',
+            width: 118.91,
+            height: 43
           }, {
             name: 'SRMG',
             src: '/logo/srmg.png',
@@ -1982,7 +1982,7 @@ export const eventData = {
             name: 'Dra. Adriene Moraes Campos'
           },
           {
-            imagePath: '/avatars/Anna_Christina_Gruber.png',
+            imagePath: '/avatars/Aline_Lauda_Freitas_Chaves.png',
             name: 'Dra. Aline Lauda'
           },
           {
@@ -2266,11 +2266,11 @@ export const eventData = {
               width: 40,
               height: 40
             }, {
-              name: 'Dasa',
-              src: '/logo/dasa.png',
-              href: 'https://www.dasa.com.br/',
-              width: 50,
-              height: 13.67
+              name: 'Telelaudo',
+              src: '/logo/telelaudo.png',
+              href: 'https://www.telelaudo.com.br/',
+              width: 84.73,
+              height: 30
             }],
           },
           bronze: {
