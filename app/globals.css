@@ -81,6 +81,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   color: var(--base-clr);
   background: var(--background);

@@ -11,32 +11,36 @@
   padding-block: 2rem;
 }
 
-.promoters {
+.brands {
   height: 80px;
   width: auto;
   transition: filter 0.5s ease-in-out; /* Transição de opacidade */
   object-fit: fill;
 }
 
-.promoters:hover {
+.brands:hover {
   cursor: pointer;
   filter: sepia(100%); /* Opacidade ao passar o mouse */
 }
 
+.buttonWrapper {
+  margin-block: 1.5rem;
+}
+
 @media (768px <= width <= 992px) {
-  .promoters {
+  .brands {
     height: 60px;
   }
 }
 
 @media (480px <= width <= 768px) {
-  .promoters {
+  .brands {
     height: 40px;
   }
 }
 
 @media (max-width: 480px) {
-  .promoters {
+  .brands {
     height: 30px;
   }
 }

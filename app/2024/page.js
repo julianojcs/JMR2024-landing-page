@@ -65,11 +65,11 @@ const Home = () => {
       />
       <Description description={data.description}/>
       <Promoters
-        button={callToAct.button01}
+        button={callToAct?.button01}
         year={2024}
       />
       <Events
-        button={callToAct.button02}
+        button={callToAct?.button02}
         year={2024}
       />
       <Comission year={2024} />

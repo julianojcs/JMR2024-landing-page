@@ -6,7 +6,7 @@ import { container } from './Tables.module.css'
 
 export default function Tables({priceTables, year}) {
   return (
-    <section className={container}>
+    <section className={container} id='tables'>
       {priceTables.tableSections.map((table, index) => (
         <Table
           key={index}

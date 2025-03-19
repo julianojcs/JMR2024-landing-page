@@ -2,7 +2,8 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import CallToAct from './CallToAct'
 import {
-  promoters,
+  buttonWrapper,
+  brands,
   container,
   containerPromoters
 } from './Promoters.module.css'
@@ -11,20 +12,20 @@ import { eventData } from '../data/constants'
 // Importando o componente DynamicImage dinamicamente
 const DynamicImage = dynamic(() => import('./DynamicImage'))
 
-const Promoters = ({ button, year }) => {
-  const data = eventData[year];
+const Promoters = ({ year }) => {
+  const promoters = eventData[year].promoters;
 
   return (
     <section className={container}>
-      {button &&
-        <CallToAct {...button} />
-      }
+      <div className={buttonWrapper}>
+        <CallToAct {...promoters?.callToAct} />
+      </div>
       <div className={containerPromoters}>
         {
-          data.promoters.map((promoter, index) => (
+          promoters.brands.map((promoter, index) => (
             <Link key={index} href={promoter.link} target='_blank'>
               <DynamicImage
-                className={promoters}
+                className={brands}
                 src={promoter.src}
                 alt={promoter.alt}
                 width={200}
