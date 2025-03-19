@@ -1,35 +1,26 @@
+'use client'
+
+import { useState } from 'react'
 import classnames from 'classnames'
 import CallToAct from './CallToAct'
 import DynamicTag from './DynamicTag'
+import Modal from './Modal'
+import RegistrationForm from './RegistrationForm'
 import { verifyDate } from '../util/functions'
-import {
-  wrapper,
-  titleWrapper,
-  subtitleWrapper,
-  table,
-  thead,
-  tbody,
-  tr,
-  th,
-  td,
-  tdValue,
-  toHide,
-  toShow,
-  smallCaps,
-  textoTachado,
-  buttonCTA
-} from './Table.module.css'
+import styles from './Table.module.css'
 
-// style={{marginRight: spacing + 'em'}}
-// style={{background-color: + 'var(' + clr + ')'}}
+export default function Table({ theTable, year }) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-export default function Table({theTable}) {
+  const handleCallToAction = () => {
+    setIsModalOpen(true)
+  }
 
   const generateBestBeforeClasses = () => {
     if (!theTable?.bestBefore?.date) return []
 
     return theTable.bestBefore.date.map(date => {
-      return verifyDate(date) ? '' : textoTachado
+      return verifyDate(date) ? '' : styles.textoTachado
     })
   }
   const bestBefore = generateBestBeforeClasses()
@@ -53,7 +44,7 @@ export default function Table({theTable}) {
         <DynamicTag
           key={index}
           tag={tag}
-          className={smallCaps}
+          className={styles.smallCaps}
           style={{ color: color }}>
           {line}
         </DynamicTag>
@@ -63,7 +54,7 @@ export default function Table({theTable}) {
     return (
       <DynamicTag
         tag={tag}
-        className={smallCaps}
+        className={styles.smallCaps}
         style={{ color: color }}>
         {text}
       </DynamicTag>
@@ -79,7 +70,7 @@ export default function Table({theTable}) {
         <DynamicTag
           key={index}
           tag={tag}
-          className={smallCaps}
+          className={styles.smallCaps}
           style={{ color: color }}>
           {line}
         </DynamicTag>
@@ -89,7 +80,7 @@ export default function Table({theTable}) {
     return (
       <DynamicTag
         tag={tag}
-        className={smallCaps}
+        className={styles.smallCaps}
         style={{ color: color }}>
         {text}
       </DynamicTag>
@@ -108,13 +99,24 @@ export default function Table({theTable}) {
   }
 
   const renderCell = (cell, cellIndex, rowIndex) => {
+    // Always show first column
+    if (cellIndex === 0) {
+      return (
+        <td key={`${rowIndex}-${cellIndex}`} className={styles.td}>
+          {cell}
+        </td>
+      )
+    }
+
+    // Handle rowspan object in the second column (vagas)
     // Check if cell is an object with rowspan configuration
     if (cellIndex === 1 && typeof cell === 'object' && cell.rowspan) {
       return (
         <td
           key={`${rowIndex}-${cellIndex}`}
           rowSpan={cell.rowspan}
-          className={classnames(td, cellIndex > 0 ? tdValue : null)}>
+          className={classnames(styles.td, styles.tdValue)}
+        >
           {cell.value}
         </td>
       )
@@ -134,65 +136,91 @@ export default function Table({theTable}) {
       if (shouldSkip) return null
     }
 
-    // Apply bestBefore styling only if bestBefore exists and after rowStart
-    const rowStart = theTable?.bestBefore?.rowStart ?? 0
-    const shouldApplyBestBefore = cellIndex >= rowStart
-    const bestBeforeClass = shouldApplyBestBefore ? bestBefore[cellIndex - rowStart] : null
+    // Handle validation/comprovante object
+    if (typeof cell === 'object' && 'validar' in cell) {
+      return null
+    }
 
-    return (
-      <td
-        key={`${rowIndex}-${cellIndex}`}
-        className={classnames(
-          td,
-          cellIndex > 0 ? tdValue : null,
-          bestBeforeClass
-        )}>
-        {formatPrice(cell, cellIndex)}
-      </td>
-    )
+    // Handle monetary values starting from rowStart
+    const rowStart = theTable?.bestBefore?.rowStart ?? 0
+    if (cellIndex >= rowStart && typeof cell === 'string' && cell.includes('R$')) {
+      const bestBeforeClass = bestBefore[cellIndex - rowStart]
+
+      return (
+        <td
+          key={`${rowIndex}-${cellIndex}`}
+          className={classnames(styles.td, styles.tdValue, bestBeforeClass)}
+        >
+          {formatPrice(cell, cellIndex)}
+        </td>
+      )
+    }
+
+    // For non-monetary values before rowStart
+    if (cellIndex < rowStart) {
+      return (
+        <td
+          key={`${rowIndex}-${cellIndex}`}
+          className={classnames(styles.td, styles.tdValue)}
+        >
+          {cell}
+        </td>
+      )
+    }
+
+    return null
   }
 
   return (
-    <div className={wrapper}>
-      {theTable.title && (
-        <div className={titleWrapper}>
-          {renderTitleContent(theTable.title)}
-        </div>
-      )}
+    <>
+      <div className={styles.wrapper}>
+        {theTable.title && (
+          <div className={styles.titleWrapper}>
+            {renderTitleContent(theTable.title)}
+          </div>
+        )}
 
-      <table className={table}>
-        <thead className={thead}>
-          <tr>
-            {theTable.table.headers.map((header, index) => (
-              <th key={index} className={th}>
-                <span className={toHide}>{renderHeaderContent(header)}</span>
-                <span className={toShow}>{header.mobile}</span>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className={tbody}>
-          {theTable.table.rows.map((row, rowIndex) => (
-            <tr key={rowIndex} className={tr}>
-              {row.cells.map((cell, cellIndex) =>
-                renderCell(cell, cellIndex, rowIndex)
-              )}
+        <table className={styles.table}>
+          <thead className={styles.thead}>
+            <tr>
+              {theTable.table.headers.map((header, index) => (
+                <th key={index} className={styles.th}>
+                  <span className={styles.toHide}>{renderHeaderContent(header)}</span>
+                  <span className={styles.toShow}>{header.mobile}</span>
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className={styles.tbody}>
+            {theTable.table.rows.map((row, rowIndex) => (
+              <tr key={rowIndex} className={styles.tr}>
+                {row.cells.map((cell, cellIndex) =>
+                  renderCell(cell, cellIndex, rowIndex)
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-      {theTable.subtitle && (
-        <div className={subtitleWrapper}>
-          {renderSubtitleContent(theTable.subtitle)}
-        </div>
-      )}
+        {theTable.subtitle && (
+          <div className={styles.subtitleWrapper}>
+            {renderSubtitleContent(theTable.subtitle)}
+          </div>
+        )}
+      </div>
 
-      {theTable.callToAct && (
-        <div className={buttonCTA}>
-          <CallToAct {...theTable.callToAct} />
-        </div>
-      )}
-    </div>
+      <div className={styles.buttonCTA}>
+        <CallToAct
+          onClick={handleCallToAction}
+          {...theTable.callToAct}
+        />
+      </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      >
+        <RegistrationForm table={theTable} year={year} />
+      </Modal>
+    </>
   )
 }

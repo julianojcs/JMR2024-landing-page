@@ -1,35 +1,42 @@
+export const formatCPF = (cpf) => {
+  // Remove any non-digit characters
+  const cleaned = cpf.replace(/\D/g, '')
+
+  // Format as CPF: XXX.XXX.XXX-XX
+  return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
+}
+
 export const validateCPF = (cpf) => {
-  cpf = cpf.replace(/[^\d]/g, '');
+  // Remove any non-digit characters
+  cpf = cpf.replace(/\D/g, '')
 
-  if (cpf.length !== 11) return false;
+  // Check if it has 11 digits
+  if (cpf.length !== 11) return false
 
-  // Verifica CPFs com todos os dígitos iguais
-  if (/^(\d)\1{10}$/.test(cpf)) return false;
+  // Check if all digits are the same
+  if (/^(\d)\1{10}$/.test(cpf)) return false
 
-  let sum = 0;
-  let remainder;
-
-  // Primeiro dígito verificador
-  for (let i = 1; i <= 9; i++) {
-    sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+  // Validate first digit
+  let sum = 0
+  for (let i = 0; i < 9; i++) {
+    sum += parseInt(cpf.charAt(i)) * (10 - i)
   }
+  let digit = 11 - (sum % 11)
+  if (digit > 9) digit = 0
+  if (digit !== parseInt(cpf.charAt(9))) return false
 
-  remainder = (sum * 10) % 11;
-  if (remainder === 10 || remainder === 11) remainder = 0;
-  if (remainder !== parseInt(cpf.substring(9, 10))) return false;
-
-  // Segundo dígito verificador
-  sum = 0;
-  for (let i = 1; i <= 10; i++) {
-    sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+  // Validate second digit
+  sum = 0
+  for (let i = 0; i < 10; i++) {
+    sum += parseInt(cpf.charAt(i)) * (11 - i)
   }
+  digit = 11 - (sum % 11)
+  if (digit > 9) digit = 0
+  if (digit !== parseInt(cpf.charAt(10))) return false
 
-  remainder = (sum * 10) % 11;
-  if (remainder === 10 || remainder === 11) remainder = 0;
-  if (remainder !== parseInt(cpf.substring(10, 11))) return false;
+  return true
+}
 
-  return true;
-};
 export function formatPhone(value) {
   if (!value) return value;
 

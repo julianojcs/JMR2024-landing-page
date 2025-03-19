@@ -93,7 +93,7 @@ const Home = ({ params }) => {
       <Promoters button={data.callToAct.button01} year={year} />
       <Events button={data.callToAct.button02} year={year} />
       <Comission year={year} />
-      <Tables priceTables={data.priceTables} />
+      <Tables priceTables={data.priceTables} year={year} />
       <Sponsor sponsorShip={data.sponsorShip} />
     </main>
   )

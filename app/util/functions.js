@@ -1,4 +1,4 @@
-import { existsSync, lstatSync, readdirSync } from 'fs'
+// import { existsSync, lstatSync, readdirSync } from 'fs'
 import { join, extname } from 'path'
 
 export async function GET(request) {
@@ -27,7 +27,7 @@ export function verifyDate(ddmmaaaa) {
   // Comparar a data informada com a data de hoje
   return dataInformada >= hoje
 }
-
+/*
 export function loadImagesFromFolders(folderPath) {
   const result = {}
 
@@ -74,3 +74,5 @@ export function loadImagesFromFolders(folderPath) {
   // console.log("result", result)
   return result
 }
+
+*/

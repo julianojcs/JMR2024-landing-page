@@ -68,6 +68,12 @@
   border: var(--border);
   padding: 10px 16px;
 }
+
+.td span[title] {
+  cursor: help;
+  color: var(--primary-color);
+}
+
 .tdValue {
   text-align: center;
 }
@@ -90,6 +96,17 @@
   gap: 2rem;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.validationIcons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary-color);
+}
+
+.validationIcons[title] {
+  cursor: help;
 }
 
 @media (max-width: 790px) {

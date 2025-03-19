@@ -9,7 +9,7 @@ import StateSelect from '../../../components/StateSelect'
 import Multselector from '@/app/components/Multselector';
 import LoadingSpinnerInput from '@/app/components/LoadingSpinnerInput';
 import LoadingOverlay from '@/app/components/LoadingOverlay';
-import Modal from '@/app/components/Modal';
+import Notification from '@/app/components/Notification';
 import ModalPhotoPreview from '@/app/components/ModalPhotoPreview';
 import NotificationBanner from '@/app/components/NotificationBanner';
 import '@/app/styles/react-select.css';
@@ -63,18 +63,10 @@ const SpeakersForm = ({ params }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'phone') {
-      const formattedPhone = formatPhone(value);
-      setFormData(prev => ({
-        ...prev,
-        [name]: formattedPhone
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
 
     // Limpar erro quando o usuário começar a digitar
     if (errors[name]) {
@@ -98,24 +90,24 @@ const SpeakersForm = ({ params }) => {
   const validateForm = () => {
     const newErrors = {};
 
-// Validação do nome completo
-if (!formData.full_name?.trim()) {
-  newErrors.name = 'O nome completo é obrigatório';
-} else {
-  const nameParts = formData.full_name
-    .trim()
-    .split(' ')
-    .filter(part => part.length > 0);
+  // Validação do nome completo
+  if (!formData.full_name?.trim()) {
+    newErrors.name = 'O nome completo é obrigatório';
+  } else {
+    const nameParts = formData.full_name
+      .trim()
+      .split(' ')
+      .filter(part => part.length > 0);
 
-  // Conta quantas partes do nome têm mais de 2 caracteres
-  const validNameParts = nameParts.filter(part => part.length > 2);
+    // Conta quantas partes do nome têm mais de 2 caracteres
+    const validNameParts = nameParts.filter(part => part.length > 2);
 
-  if (nameParts.length < 2) {
-    newErrors.name = 'Informe nome e sobrenome';
-  } else if (validNameParts.length < 2) {
-    newErrors.name = 'O nome deve conter pelo menos duas partes com mais de 2 caracteres';
+    if (nameParts.length < 2) {
+      newErrors.name = 'Informe nome e sobrenome';
+    } else if (validNameParts.length < 2) {
+      newErrors.name = 'O nome deve conter pelo menos duas partes com mais de 2 caracteres';
+    }
   }
-}
 
     // Validação do nome para crachá
     if (!formData.badge_name?.trim()) {
@@ -406,7 +398,7 @@ if (!formData.full_name?.trim()) {
         />
       )}
       {isSubmitting && <LoadingOverlay />}
-      <Modal
+      <Notification
         isOpen={modalState.isOpen}
         type={modalState.type}
         message={modalState.message}
@@ -484,6 +476,7 @@ if (!formData.full_name?.trim()) {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
+            onBlur={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})}
             className={styles.formControl}
             disabled={isSubmitting}
           />
