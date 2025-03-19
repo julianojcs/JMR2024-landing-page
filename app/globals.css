@@ -38,6 +38,18 @@
   --x-clr: #212529;
   font-family: 'Inter', 'Open Sans', sans-serif;
 
+  --primary-color: #0066cc;
+  --primary-color-dark: #031d42;
+  --primary-color-light: rgba(5, 44, 101, 0.1);
+  --secondary-color: #e9ecef;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --error-color-light: rgba(220, 53, 69, 0.1);
+  --disabled-color: #6c757d;
+  --border-color: #ced4da;
+  --text-color: #212529;
+  --disabled-bg: #f7fafc;
+
   /* Cores dos cards */
   --card1-clr: #052c65;
   --card2-clr: #084298;

@@ -1,0 +1,450 @@
+.step {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.step h2 {
+  color: #052c65;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  &:has(.input:user-valid) {
+  --default-border-color: #27ae60;
+  --focus-color: #0f0
+
+  &::after {
+    content: ‘✓’;
+  }
+}
+
+&:has(.input:user-invalid) {
+  --default-border-color: #eb5757;
+  --focus-color: #f00
+
+  &::after {
+    content: '✕';
+  }
+}
+}
+
+.formGroup label {
+  display: flex;
+  font-weight: 500;
+  font-size: smaller;
+}
+
+.monetaryLabel {
+  display: flex;
+  font-weight: 500;
+  display: block;
+  margin-block-start: 1rem;
+  font-size: medium;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input,
+.select,
+.formGroup>input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* .input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+} */
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #052c65;
+  box-shadow: 0 0 0 2px rgba(5, 44, 101, 0.1);
+}
+
+.input:not(:placeholder-shown):invalid {
+  border-color: var(--error-color);
+}
+
+.input:valid {
+  border-color: var(--border-color);
+}
+
+.input.valid,
+.formGroup input.valid {
+  border-color: var(--success-color);
+}
+
+.input.invalid,
+.formGroup input.invalid {
+  border-color: var(--error-color);
+}
+
+.input.touched:valid {
+  border-color: var(--success-color);
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.input.touched:invalid {
+  border-color: var(--error-color);
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.select {
+  background-color: white;
+  cursor: pointer;
+}
+
+.button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #052c65;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #031d42;
+}
+
+.button:disabled {
+  background-color: var(--gray-clr);
+  cursor: not-allowed;
+}
+
+.error {
+  display: flex;
+  color: #dc3545;
+  font-size: 0.75rem;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.radio input[type="radio"] {
+  cursor: pointer;
+}
+
+.fileUpload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileLabel {
+  display: block;
+  font-size: small;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fileLabel:hover {
+  background-color: #e9ecef;
+  border-color: #052c65;
+}
+
+.fileName {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Success message */
+.success {
+  color: #198754;
+  text-align: center;
+  padding: 1rem;
+  background-color: #d1e7dd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .step {
+    padding: 15px;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color, #052c65);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--primary-color-dark, #031d42);
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary-color, #052c65);
+}
+
+.warning {
+  color: #dc3545;
+  margin-block: 1rem;
+}
+
+.required {
+  color: #dc3545;
+  margin-left: 2px;
+}
+
+.fileInput {
+  font-size: small;
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.priceValue {
+  display: inline-flex;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.cents {
+  font-size: 0.65em;
+  margin-left: 1px;
+  position: relative;
+  top: 0px;
+}
+
+.validationIcon {
+  position: absolute;
+  right: 12px;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+.validationIcon.valid {
+  color: var(--success-color);
+}
+
+.validationIcon.invalid {
+  color: var(--error-color);
+}
+
+.validationMessage {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  min-height: 1.25rem; /* Prevent layout shift */
+  color: var(--text-color);
+}
+
+.validationMessage:empty {
+  display: none;
+}
+
+.validationMessage.valid {
+  color: var(--success-color);
+}
+
+.validationMessage.invalid {
+  color: var(--error-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.inputWithValidation {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input.error,
+.formGroup input.error {
+  border-color: var(--error-color);
+}
+
+.errorMessage {
+  color: var(--error-color);
+  font-size: 0.75rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primaryButton {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.primaryButton:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  min-width: 120px;
+}
+
+.primaryButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-color);
+}
+
+.primaryButton:hover:not(:disabled) {
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+}
+
+.primaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.secondaryButton:hover {
+  background-color: var(--primary-color-light);
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: white;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+.select.error {
+  border-color: var(--error-color);
+}
+
+.select.error:focus {
+  box-shadow: 0 0 0 2px var(--error-color-light);
+}
+
+.select option {
+  padding: 0.5rem;
+}
+
+.select:disabled {
+  background-color: var(--disabled-bg);
+  cursor: not-allowed;
+}
+
