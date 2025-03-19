@@ -1425,8 +1425,8 @@ export const eventData = {
     },
     promoters: {
       callToAct: {
-        // caption: 'Faça sua inscrição na Jornada!',
-        // link: '#tables',
+        caption: 'Faça sua inscrição na Jornada!',
+        link: '#tables',
       },
       brands: [{
           name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
@@ -1480,8 +1480,8 @@ export const eventData = {
     events: {
       soon: false,
       callToAct: {
-        // caption: 'Faça sua inscrição na Jornada!',
-        // link: '#tables',
+        caption: 'Faça sua inscrição na Jornada!',
+        link: '#tables',
       },
       cardSections: [
         {
@@ -1868,9 +1868,9 @@ export const eventData = {
             rowStart: 3,
             date: ['20042025', '20052025', '25062025', '28062025']
           },
-          // callToAct: {
-          //   caption: 'Faça sua inscrição na Jornada',
-          // },
+          callToAct: {
+            caption: 'Faça sua inscrição na Jornada',
+          },
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
@@ -1908,9 +1908,9 @@ export const eventData = {
             rowStart: 2,
             date: ['20042025', '20052025', '25062025', '28062025']
           },
-          // callToAct: {
-          //   caption: 'Faça sua inscrição no Workshop',
-          // },
+          callToAct: {
+            caption: 'Faça sua inscrição no Workshop',
+          },
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
@@ -1936,9 +1936,9 @@ export const eventData = {
             rowStart: 2,
             date: ['20042025', '20052025', '25062025', '28062025']
           },
-          // callToAct: {
-          //   caption: 'Faça sua inscrição no Curso de IA',
-          // },
+          callToAct: {
+            caption: 'Faça sua inscrição no Curso de IA',
+          },
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
