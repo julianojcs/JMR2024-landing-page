@@ -4,6 +4,7 @@
 // const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${startDate}/${endDate}&details=${eventDetails}&location=${eventLocation}`;
 
 // Codigo para incluir no calendário início do evento no dia 01 das 08:30 as 18:00, se repetindo no dia 02 das 08:30 as 18:00
+
 export const eventData = {
   2024: {
     title:
@@ -17,22 +18,26 @@ export const eventData = {
       'Vem aí a XI Jornada Mineira de Radiologia e a',
       'II Jornada de POCUS ABRAMEDE/MG e SRMG'
     ],
-    promoters: [
-      {
-        name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
-        shortName: 'SRMG',
-        link: 'https://www.srmg.org.br',
-        alt: 'Logo da SRMG',
-        src: '/logo/srmg.png'
+    promoters: {
+      callToAct: {
+        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
       },
-      {
-        name: 'Associação Brasileira de Medicina de Emergência (ABRAMED/MG)',
-        shortName: 'ABRAMEDE/MG',
-        link: 'https://www.abramedemg.org.br/',
-        alt: 'Logo da ABRAMEDE/MG',
-        src: '/logo/abramed-mg.png'
-      }
-    ],
+      brands:[{
+          name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
+          shortName: 'SRMG',
+          link: 'https://www.srmg.org.br',
+          alt: 'Logo da SRMG',
+          src: '/logo/srmg.png'
+        },
+        {
+          name: 'Associação Brasileira de Medicina de Emergência (ABRAMED/MG)',
+          shortName: 'ABRAMEDE/MG',
+          link: 'https://www.abramedemg.org.br/',
+          alt: 'Logo da ABRAMEDE/MG',
+          src: '/logo/abramed-mg.png'
+        }
+      ]
+    },
     date: {
       start: '20241101T083000-0300',
       end: '20241102T180000-0300',
@@ -55,33 +60,6 @@ export const eventData = {
     social: {
       instagram: 'https://www.instagram.com/sociedaderadiologiamg'
     },
-    callToAct: {
-      button01: {
-        // caption: 'Faça sua inscrição',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      },
-      button02: {
-        //caption: 'Se inscreva agora na Jornada',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      },
-      button03: {
-        // caption: 'Se inscreva Hands On',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      },
-      button04: {
-        // caption: 'Se inscreva na Jornada',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      },
-      button05: {
-        // caption: 'Se inscreva no Curso de IA',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      }
-    },
     speakersForm: {
       title:
         'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2024',
@@ -95,6 +73,9 @@ export const eventData = {
     },
     events: {
       soon: false,
+      callToAct: {
+        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
+      },
       cardSections: [
         {
           title: ' ',
@@ -666,22 +647,27 @@ export const eventData = {
         title: 'Presidente da SOGIMIG'
       }]
     },
-    promoters: [
-      {
-        name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
-        shortName: 'SRMG',
-        link: 'https://www.srmg.org.br',
-        alt: 'Logo da SRMG',
-        src: '/logo/srmg.png'
+    promoters: {
+      callToAct: {
+        // caption: 'Faça sua inscrição na Jornada!',
+        // link: '#tables',
       },
-      {
-        name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
-        shortName: 'SOGIMIG',
-        link: 'https://sogimig.org.br/',
-        alt: 'Logo da SOGIMIG',
-        src: '/logo/sogimig.png'
-      }
-    ],
+      brands: [{
+          name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
+          shortName: 'SRMG',
+          link: 'https://www.srmg.org.br',
+          alt: 'Logo da SRMG',
+          src: '/logo/srmg.png'
+        },
+        {
+          name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
+          shortName: 'SOGIMIG',
+          link: 'https://sogimig.org.br/',
+          alt: 'Logo da SOGIMIG',
+          src: '/logo/sogimig.png'
+        }
+      ]
+    },
     date: {
       start: '20250627T083000-0300',
       end: '20250628T180000-0300',
@@ -743,6 +729,10 @@ export const eventData = {
     },
     events: {
       soon: false,
+      callToAct: {
+        // caption: 'Faça sua inscrição na Jornada!',
+        // link: '#tables',
+      },
       cardSections: [
         {
           title: ' ',
@@ -1433,22 +1423,27 @@ export const eventData = {
         title: 'Presidente da SOGIMIG'
       }]
     },
-    promoters: [
-      {
-        name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
-        shortName: 'SRMG',
-        link: 'https://www.srmg.org.br',
-        alt: 'Logo da SRMG',
-        src: '/logo/srmg.png'
+    promoters: {
+      callToAct: {
+        // caption: 'Faça sua inscrição na Jornada!',
+        // link: '#tables',
       },
-      {
-        name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
-        shortName: 'SOGIMIG',
-        link: 'https://sogimig.org.br/',
-        alt: 'Logo da SOGIMIG',
-        src: '/logo/sogimig.png'
-      }
-    ],
+      brands: [{
+          name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
+          shortName: 'SRMG',
+          link: 'https://www.srmg.org.br',
+          alt: 'Logo da SRMG',
+          src: '/logo/srmg.png'
+        },
+        {
+          name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
+          shortName: 'SOGIMIG',
+          link: 'https://sogimig.org.br/',
+          alt: 'Logo da SOGIMIG',
+          src: '/logo/sogimig.png'
+        }
+      ]
+    },
     date: {
       start: '20250627T083000-0300',
       end: '20250628T180000-0300',
@@ -1471,32 +1466,6 @@ export const eventData = {
     social: {
       instagram: 'https://www.instagram.com/sociedaderadiologiamg'
     },
-    callToAct: {
-      button01: {
-        caption: 'Inscrições em breve...',
-        link: '#'
-      },
-      button02: {
-        //caption: 'Se inscreva agora na Jornada',
-        caption: 'Inscrições em breve...',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      },
-      button03: {
-        // caption: 'Se inscreva Workshop',
-        caption: 'Inscrições em breve...',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      },
-      button04: {
-        // caption: 'Se inscreva na Jornada',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      },
-      button05: {
-        // caption: 'Se inscreva no Curso de IA',
-        caption: 'Emita o seu certificado',
-        link: 'https://eventosis.com.br/credenciamento/jmr2024/'
-      }
-    },
     speakersForm: {
       title:
         'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
@@ -1510,6 +1479,10 @@ export const eventData = {
     },
     events: {
       soon: false,
+      callToAct: {
+        // caption: 'Faça sua inscrição na Jornada!',
+        // link: '#tables',
+      },
       cardSections: [
         {
           title: ' ',
