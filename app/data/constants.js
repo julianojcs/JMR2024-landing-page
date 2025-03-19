@@ -1882,14 +1882,14 @@ export const eventData = {
             ],
             rows: [
               { cells: ['Médico Sócio SRMG/SOGIMIG', '', {validar: ['SRMG','SOGIMIG'], comprovante: false} ,'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
-              { cells: ['Médico Não Sócio ou Inadimplente', '', {validar: [], comprovante: false} ,'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', '', {validar: [], comprovante: false} ,'R$ 705', 'R$ 735', 'R$ 755', 'R$ 795'] },
               { cells: ['Residente Radiologia ou Ginecologia*', '', {validar: [], comprovante: true} ,'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
               { cells: ['Acadêmico de Medicina Sócio SAMMG', {value: '80', rowspan: 2}, {validar: ['SAMMG'], comprovante: false} ,'R$ 67', 'R$ 87', 'R$ 107', 'R$ 147'] },
               { cells: ['Acadêmico de Medicina não Sócio SAMMG*', '', {validar: [], comprovante: true} ,'R$ 177', 'R$ 197', 'R$ 217', 'R$ 297'] },
               { cells: ['Tecnólogos e Técnicos*', '100', {validar: [], comprovante: true}, 'R$ 68' ,'R$ 88', 'R$ 108', 'R$ 148'] },
               { cells: ['Sala POCUS 28/06 (não Radiologia ou GO)*', '40', {validar: false, comprovante: true} ,'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
               { cells: ['Day use: Médico Sócio Quite SRMG/SOGIMIG', '', {validar: ['SRMG','SOGIMIG'], comprovante: false} ,'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
-              { cells: ['Day use: Médico Não Sócio ou Inadimplente', '', {validar: false, comprovante: false} ,'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] }
+              { cells: ['Day use: Médico Não Sócio ou Inadimplente', '', {validar: false, comprovante: false} ,'R$ 528,75', 'R$ 551,25', 'R$ 566,25', 'R$ 596.25'] }
             ]
           }
         },
