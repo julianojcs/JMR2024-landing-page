@@ -1365,7 +1365,7 @@ export const eventData = {
       }
     ]
   },
-  2026: {
+  2027: {
     title:
       'JMR 2025 & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
     description:
