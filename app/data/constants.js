@@ -322,7 +322,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: ['X Jornada Miniera de Radiologia e', 'I Jornada Mineira POCUS ABRAMEDE/MG e SRMG'],
+            text: ['X Jornada Mineira de Radiologia e', 'I Jornada Mineira POCUS ABRAMEDE/MG e SRMG'],
             color: '#BB2426'
           },
           bestBefore: {
@@ -1106,7 +1106,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: ['XI Jornada Miniera de Radiologia e', 'XIV Congresso de Imaginologia da Mulher'],
+            text: ['XI Jornada Mineira de Radiologia e', 'XIV Congresso de Imaginologia da Mulher'],
             color: '#BB2426'
           },
           subtitle: {
@@ -1856,7 +1856,7 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: ['XI Jornada Miniera de Radiologia e', 'XIV Congresso de Imaginologia da Mulher'],
+            text: ['XI Jornada Mineira de Radiologia e', 'XIV Congresso de Imaginologia da Mulher'],
             color: '#BB2426'
           },
           subtitle: {
