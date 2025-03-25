@@ -40,10 +40,14 @@
 }
 
 .table td:nth-child(3), /* Nome column */
-.table th:nth-child(3),
+.table th:nth-child(3) {
+  min-width: 200px;
+  hyphens: auto; /* Add hyphens where possible */
+}
+
 .table td:nth-child(4), /* Crachá column */
 .table th:nth-child(4) {
-  min-width: 200px;
+  min-width: 150px;
   hyphens: auto; /* Add hyphens where possible */
 }
 
@@ -77,6 +81,31 @@
   white-space: normal; /* Allow text wrapping */
   word-wrap: break-word; /* Break long words */
   overflow-wrap: break-word; /* Modern browsers */
+}
+
+/* Add specific styling for date column */
+.table td:nth-child(9), /* Date column */
+.table th:nth-child(9) {
+  min-width: 120px;
+  white-space: pre-line; /* Allow line breaks */
+  text-align: center; /* Center the content */
+  vertical-align: middle;
+}
+
+.dateColumn {
+  display: block;
+  line-height: 1.4;
+}
+
+.dateValue {
+  display: block;
+  font-weight: normal;
+}
+
+.timeValue {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
 }
 
 .table th {

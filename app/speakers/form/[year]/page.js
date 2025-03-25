@@ -1,5 +1,5 @@
 "use client";
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import { useState, useEffect, useRef } from 'react';
 import { eventData } from '../../../data/constants';
 import styles from './SpeakersForm.module.css';
@@ -12,16 +12,19 @@ import LoadingOverlay from '@/app/components/LoadingOverlay';
 import Notification from '@/app/components/Notification';
 import ModalPhotoPreview from '@/app/components/ModalPhotoPreview';
 import NotificationBanner from '@/app/components/NotificationBanner';
-import '@/app/styles/react-select.css';
+import Header from '@/app/components/Header';
+import SocialMedias from '@/app/components/SocialMedias';
+import { MapIcon, CalendarIcon } from '@/app/components/icons'
+import '@/app/styles/react-select.css'
 
-const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
+// const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
 
 const SpeakersForm = ({ params }) => {
   const { year } = params;
   const [errors, setErrors] = useState({});
   const [photoPreview, setPhotoPreview] = useState(null);
   const data = eventData[year];
-  const logoSrc = `/logo_jornada/jmr${2025}_roxo.png`;
+  // const logoSrc = `/logo_jornada/jmr${2025}_roxo.png`;
   const [lectures, setLectures] = useState([]);
   const [categories, setCategories] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,6 +62,12 @@ const SpeakersForm = ({ params }) => {
     type: 'error',
     position: 'top'
   })
+
+  const props = {
+    year,
+    MapIcon,
+    CalendarIcon
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -387,300 +396,292 @@ const SpeakersForm = ({ params }) => {
   }, [errors]);
 
   return (
-    <div className={styles.formContainer}>
-      {notification.show && (
-        <NotificationBanner
-          message={notification.message}
-          type={notification.type}
-          position={notification.position}
-          onClose={() => setNotification(prev => ({ ...prev, show: false }))}
-          // autoClose={5000}
+    <>
+      <Header props={props}>
+        <SocialMedias url={data.social.instagram} />
+      </Header>
+      <div className={styles.formContainer}>
+        {notification.show && (
+          <NotificationBanner
+            message={notification.message}
+            type={notification.type}
+            position={notification.position}
+            onClose={() => setNotification(prev => ({ ...prev, show: false }))}
+            // autoClose={5000}
+          />
+        )}
+        {isSubmitting && <LoadingOverlay />}
+        <Notification
+          isOpen={modalState.isOpen}
+          type={modalState.type}
+          message={modalState.message}
+          onClose={() => setModalState(prev => ({ ...prev, isOpen: false }))}
         />
-      )}
-      {isSubmitting && <LoadingOverlay />}
-      <Notification
-        isOpen={modalState.isOpen}
-        type={modalState.type}
-        message={modalState.message}
-        onClose={() => setModalState(prev => ({ ...prev, isOpen: false }))}
-      />
-      <div className={styles.logoContainer}>
-        <DynamicImage
-          src={logoSrc}
-          alt={data.title}
-          className={styles.logo}
-          width={600}
-          height={400}
-          priority
-          onError={(e) => {
-            e.target.src = `/logo_jornada/jmr${year}.png`;
-          }}
+        <h2 className={styles.title}>{data.speakersForm.title}</h2>
+        <p className={styles.description}>{data.speakersForm.description}</p>
+
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="full_name">Nome completo<span className={styles.required}>*</span></label>
+            <input
+              type="text"
+              id="full_name"
+              name="full_name"
+              maxLength={150}
+              value={formData.full_name}
+              onChange={handleChange}
+              className={styles.formControl}
+              disabled={isSubmitting}
+              // pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}(\s[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,})+$"
+            />
+            {errors.name && <span className={styles.errorMessage}>{errors.name}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="badge_name">Nome para crachá (até 25 caracteres)
+            <span className={styles.required}>*</span></label>
+            <input
+              type="text"
+              id="badge_name"
+              name="badge_name"
+              maxLength={25}
+              value={formData.badge_name}
+              onChange={handleChange}
+              className={styles.formControl}
+              disabled={isSubmitting}
+            />
+            {errors.badge_name && <span className={styles.errorMessage}>{errors.badge_name}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="email">E-mail<span className={styles.required}>*</span></label>
+            <input
+              // type="email"
+              id="email"
+              name="email"
+              maxLength={150}
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.formControl}
+              disabled={isSubmitting}
+            />
+            {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="phone">Telefone - (99)99999-9999<span className={styles.required}>*</span></label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              onBlur={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})}
+              className={styles.formControl}
+              disabled={isSubmitting}
+            />
+            {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="cpf">CPF (somente números)<span className={styles.required}>*</span></label>
+            <input
+              type="text"
+              id="cpf"
+              name="cpf"
+              // pattern="\d{11}"
+              maxLength={11}
+              value={formData.cpf}
+              onChange={handleChange}
+              className={styles.formControl}
+              disabled={isSubmitting}
+            />
+            {errors.cpf && <span className={styles.errorMessage}>{errors.cpf}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="city">Cidade<span className={styles.required}>*</span></label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              className={`${styles.formControl} ${errors.city ? styles.errorInput : ''}`}
+              disabled={isSubmitting}
+            />
+            {errors.city && <span className={styles.errorMessage}>{errors.city}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="state" id="state-label">Estado<span className={styles.required}>*</span></label>
+            <StateSelect
+              value={states.find(s => s.value === formData.state)}
+              onChange={handleChange}
+              states={states}
+            />
+            {errors.state && <span className={styles.errorMessage}>{errors.state}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+          <label htmlFor="categories">Categoria(s)<span className={styles.required}>*</span></label>
+          {isLoading ? (
+            <div>
+              <LoadingSpinnerInput />
+            </div>
+            ) : (
+              <>
+                <Multselector
+                  instanceId="categories-select"
+                  options={categories}
+                  value={formData.categories}
+                  defaultValue={formData.categories}
+                  placeholder='Selecione ou crie uma nova categoria...'
+                  CreateLabelText='nova categoria'
+                  onChange={(selectedOptions) => {
+                    setFormData(prev => ({
+                      ...prev,
+                      categories: selectedOptions
+                    }));
+                    // Limpar erro quando selecionar
+                    if (errors.categories) {
+                      setErrors(prev => ({ ...prev, categories: null }));
+                    }
+                  }}
+                  isCreatable={true}
+                  className={errors.categories ? styles.errorInput : ''}
+                  closeMenuOnSelect={false}
+                />
+                {errors.categories && <span className={styles.errorMessage}>{errors.categories}</span>}
+              </>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+          <label htmlFor="lectures">Palestra(s) - (para emissão do certificado)<span className={styles.required}>*</span></label>
+            {isLoading ? (
+              <LoadingSpinnerInput />
+            ) : (
+              <>
+                <Multselector
+                  instanceId="lectures-select"
+                  options={lectures}
+                  value={formData.lectures}
+                  defaultValue={formData.lectures}
+                  placeholder='Selecione ou crie uma nova palestra...'
+                  CreateLabelText='nova palestra'
+                  onChange={(selectedOptions) => {
+                    setFormData(prev => ({
+                      ...prev,
+                      lectures: selectedOptions
+                    }));
+                    // Limpar erro quando selecionar
+                    if (errors.lectures) {
+                      setErrors(prev => ({ ...prev, lectures: null }));
+                    }
+                  }}
+                  isCreatable={true}
+                  className={errors.lectures ? styles.errorInput : ''}
+                  closeMenuOnSelect={false}
+                  onCreateOption={(newLecture) => {
+                    console.log('New lecture created:', newLecture);
+                  }}
+                />
+                {errors.lectures && <span className={styles.errorMessage}>{errors.lectures}</span>}
+              </>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="curriculum">Mini currículo (até 300 caracteres) - resumo para ser apresentado antes da sua palestra<span className={styles.required}>*</span></label>
+            <textarea
+              id="curriculum"
+              name="curriculum"
+              maxLength={300}
+              value={formData.curriculum}
+              onChange={handleChange}
+              className={styles.formControl}
+              disabled={isSubmitting}
+            />
+            {errors.curriculum && <span className={styles.errorMessage}>{errors.curriculum}</span>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="photo_path">Foto  (JPEG ou PNG) - meio corpo, com fundo neutro para ser usada no site e divulgações do evento</label>
+            <input
+              type="file"
+              id="photo_path"
+              name="photo_path"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              className={styles.formControl}
+              disabled={isSubmitting}
+              ref={photoInputRef}
+            />
+            {errors.photo_path && <span className={styles.errorMessage}>{errors.photo_path}</span>}
+
+            {photoPreview && (
+              <div className={styles.photoPreviewContainer}>
+                <img
+                  src={photoPreview}
+                  alt="Preview"
+                  className={styles.photoPreview}
+                />
+              </div>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <div className={styles.consentWrapper}>
+              <label className={styles.toggleSwitch}>
+                <input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  checked={consentGiven}
+                  onChange={(e) => setConsentGiven(e.target.checked)}
+                  className={styles.consentCheckbox}
+                  disabled={isSubmitting}
+                />
+                <span className={styles.toggleSlider}></span>
+              </label>
+              <label htmlFor="consent" className={styles.consentLabel}>
+                Autorizo o uso da minha imagem e dados em todos os meios de divulgação do evento
+                <span className={styles.required}>*</span>
+              </label>
+            </div>
+            {errors.consent && <span className={styles.errorMessage}>{errors.consent}</span>}
+          </div>
+
+          <div className={styles.buttonGroup}>
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isSubmitting}
+            >
+              Enviar
+            </button>
+            <button
+              type="button"
+              onClick={clearForm}
+              className={styles.clearButton}
+              disabled={isSubmitting}
+            >
+              Limpar Formulário
+            </button>
+          </div>
+        </form>
+
+        {/* Preview Modal */}
+        <ModalPhotoPreview
+          isOpen={previewModal.isOpen}
+          onClose={handleCancelPhoto}
+          onConfirm={handleConfirmPhoto}
+          photoPreview={photoPreview}
+          speakerName={formData.full_name}
         />
       </div>
-      <h1 className={styles.title}>{data.speakersForm.title}</h1>
-      <p className={styles.description}>{data.speakersForm.description}</p>
-
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="full_name">Nome completo<span className={styles.required}>*</span></label>
-          <input
-            type="text"
-            id="full_name"
-            name="full_name"
-            maxLength={150}
-            value={formData.full_name}
-            onChange={handleChange}
-            className={styles.formControl}
-            disabled={isSubmitting}
-            // pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}(\s[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,})+$"
-          />
-          {errors.name && <span className={styles.errorMessage}>{errors.name}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="badge_name">Nome para crachá (até 25 caracteres)
-          <span className={styles.required}>*</span></label>
-          <input
-            type="text"
-            id="badge_name"
-            name="badge_name"
-            maxLength={25}
-            value={formData.badge_name}
-            onChange={handleChange}
-            className={styles.formControl}
-            disabled={isSubmitting}
-          />
-          {errors.badge_name && <span className={styles.errorMessage}>{errors.badge_name}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="email">E-mail<span className={styles.required}>*</span></label>
-          <input
-            // type="email"
-            id="email"
-            name="email"
-            maxLength={150}
-            value={formData.email}
-            onChange={handleChange}
-            className={styles.formControl}
-            disabled={isSubmitting}
-          />
-          {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="phone">Telefone - (99)99999-9999<span className={styles.required}>*</span></label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            onBlur={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})}
-            className={styles.formControl}
-            disabled={isSubmitting}
-          />
-          {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="cpf">CPF (somente números)<span className={styles.required}>*</span></label>
-          <input
-            type="text"
-            id="cpf"
-            name="cpf"
-            // pattern="\d{11}"
-            maxLength={11}
-            value={formData.cpf}
-            onChange={handleChange}
-            className={styles.formControl}
-            disabled={isSubmitting}
-          />
-          {errors.cpf && <span className={styles.errorMessage}>{errors.cpf}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="city">Cidade<span className={styles.required}>*</span></label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            className={`${styles.formControl} ${errors.city ? styles.errorInput : ''}`}
-            disabled={isSubmitting}
-          />
-          {errors.city && <span className={styles.errorMessage}>{errors.city}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="state" id="state-label">Estado<span className={styles.required}>*</span></label>
-          <StateSelect
-            value={states.find(s => s.value === formData.state)}
-            onChange={handleChange}
-            states={states}
-          />
-          {errors.state && <span className={styles.errorMessage}>{errors.state}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-        <label htmlFor="categories">Categoria(s)<span className={styles.required}>*</span></label>
-        {isLoading ? (
-          <div>
-            <LoadingSpinnerInput />
-          </div>
-          ) : (
-            <>
-              <Multselector
-                instanceId="categories-select"
-                options={categories}
-                value={formData.categories}
-                defaultValue={formData.categories}
-                placeholder='Selecione ou crie uma nova categoria...'
-                CreateLabelText='nova categoria'
-                onChange={(selectedOptions) => {
-                  setFormData(prev => ({
-                    ...prev,
-                    categories: selectedOptions
-                  }));
-                  // Limpar erro quando selecionar
-                  if (errors.categories) {
-                    setErrors(prev => ({ ...prev, categories: null }));
-                  }
-                }}
-                isCreatable={true}
-                className={errors.categories ? styles.errorInput : ''}
-                closeMenuOnSelect={false}
-              />
-              {errors.categories && <span className={styles.errorMessage}>{errors.categories}</span>}
-            </>
-          )}
-        </div>
-
-        <div className={styles.formGroup}>
-        <label htmlFor="lectures">Palestra(s) - (para emissão do certificado)<span className={styles.required}>*</span></label>
-          {isLoading ? (
-            <LoadingSpinnerInput />
-          ) : (
-            <>
-              <Multselector
-                instanceId="lectures-select"
-                options={lectures}
-                value={formData.lectures}
-                defaultValue={formData.lectures}
-                placeholder='Selecione ou crie uma nova palestra...'
-                CreateLabelText='nova palestra'
-                onChange={(selectedOptions) => {
-                  setFormData(prev => ({
-                    ...prev,
-                    lectures: selectedOptions
-                  }));
-                  // Limpar erro quando selecionar
-                  if (errors.lectures) {
-                    setErrors(prev => ({ ...prev, lectures: null }));
-                  }
-                }}
-                isCreatable={true}
-                className={errors.lectures ? styles.errorInput : ''}
-                closeMenuOnSelect={false}
-                onCreateOption={(newLecture) => {
-                  console.log('New lecture created:', newLecture);
-                }}
-              />
-              {errors.lectures && <span className={styles.errorMessage}>{errors.lectures}</span>}
-            </>
-          )}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="curriculum">Mini currículo (até 300 caracteres) - resumo para ser apresentado antes da sua palestra<span className={styles.required}>*</span></label>
-          <textarea
-            id="curriculum"
-            name="curriculum"
-            maxLength={300}
-            value={formData.curriculum}
-            onChange={handleChange}
-            className={styles.formControl}
-            disabled={isSubmitting}
-          />
-          {errors.curriculum && <span className={styles.errorMessage}>{errors.curriculum}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="photo_path">Foto  (JPEG ou PNG) - meio corpo, com fundo neutro para ser usada no site e divulgações do evento</label>
-          <input
-            type="file"
-            id="photo_path"
-            name="photo_path"
-            accept="image/*"
-            onChange={handlePhotoChange}
-            className={styles.formControl}
-            disabled={isSubmitting}
-            ref={photoInputRef}
-          />
-          {errors.photo_path && <span className={styles.errorMessage}>{errors.photo_path}</span>}
-
-          {photoPreview && (
-            <div className={styles.photoPreviewContainer}>
-              <img
-                src={photoPreview}
-                alt="Preview"
-                className={styles.photoPreview}
-              />
-            </div>
-          )}
-        </div>
-
-        <div className={styles.formGroup}>
-          <div className={styles.consentWrapper}>
-            <label className={styles.toggleSwitch}>
-              <input
-                type="checkbox"
-                id="consent"
-                name="consent"
-                checked={consentGiven}
-                onChange={(e) => setConsentGiven(e.target.checked)}
-                className={styles.consentCheckbox}
-                disabled={isSubmitting}
-              />
-              <span className={styles.toggleSlider}></span>
-            </label>
-            <label htmlFor="consent" className={styles.consentLabel}>
-              Autorizo o uso da minha imagem e dados em todos os meios de divulgação do evento
-              <span className={styles.required}>*</span>
-            </label>
-          </div>
-          {errors.consent && <span className={styles.errorMessage}>{errors.consent}</span>}
-        </div>
-
-        <div className={styles.buttonGroup}>
-          <button
-            type="submit"
-            className={styles.submitButton}
-            disabled={isSubmitting}
-          >
-            Enviar
-          </button>
-          <button
-            type="button"
-            onClick={clearForm}
-            className={styles.clearButton}
-            disabled={isSubmitting}
-          >
-            Limpar Formulário
-          </button>
-        </div>
-      </form>
-
-      {/* Preview Modal */}
-      <ModalPhotoPreview
-        isOpen={previewModal.isOpen}
-        onClose={handleCancelPhoto}
-        onConfirm={handleConfirmPhoto}
-        photoPreview={photoPreview}
-        speakerName={formData.full_name}
-      />
-    </div>
+    </>
   );
 };
 

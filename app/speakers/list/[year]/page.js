@@ -25,12 +25,33 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
+const formatDateTime = (dateTimeStr) => {
+  if (!dateTimeStr) return '';
+  
+  const date = new Date(dateTimeStr);
+  const dateStr = date.toLocaleDateString('pt-BR');
+  const timeStr = date.toLocaleTimeString('pt-BR', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+
+  return (
+    <span className={styles.dateColumn}>
+      <span className={styles.dateValue}>{dateStr}</span>
+      <span className={styles.timeValue}>{timeStr}</span>
+    </span>
+  );
+};
+
 const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'a', 'o', 'as', 'os'];
 
 const formatName = (name) => {
   if (!name) return '';
 
-  return name.split(' ').map((word, index) => {
+  // Trim whitespace from beginning and end
+  const trimmedName = name.trim();
+
+  return trimmedName.split(' ').map((word, index) => {
     // Check if word is a single letter (abbreviation)
     if (word.length === 1) {
       return `${word.toUpperCase()}.`;
@@ -323,7 +344,7 @@ export default function SpeakersList({ params }) {
                   <td>{speaker.email?.toLowerCase()}</td>
                   <td>{speaker.phone}</td>
                   <td>{`${formatName(speaker.city)}/${speaker.state}`}</td>
-                  <td>{formatDate(speaker.created_at)}</td>
+                  <td>{formatDateTime(speaker.created_at)}</td>
                 </tr>
                 {expandedRows.has(speaker.id) && (
                   <tr className={styles.expandedRow}>

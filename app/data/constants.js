@@ -717,10 +717,9 @@ export const eventData = {
       }
     },
     speakersForm: {
-      title:
-        'Formulário de inscrição de palestrantes / convidados da  XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025',
+      title: 'Formulário de inscrição de palestrantes / convidados da XI JORNADA MINEIRA DE RADIOLOGIA | JMR 2025 / CONGRESSO DE IMAGINOLOGIA DA MULHER CIM 2025',
       description:
-        'JMR 2025 acontecerá nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+        'A JMR 2025 / CIM 2025 acontecerão  nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       rota: '/form/speakers',
       list: {
         title: 'Lista de palestrantes 2025',

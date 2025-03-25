@@ -2,7 +2,11 @@ import { eventData } from '../../../data/constants'
 
 export async function generateMetadata({ params }) {
   const { year } = params
-  const data = eventData[year] || eventData[2025]
+  // Check if year exists in eventData
+  if (!eventData[year]) {
+    notFound();
+  }
+  const data = eventData[year]
 
   return {
     title: data.speakersForm.title,
