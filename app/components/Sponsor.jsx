@@ -94,7 +94,7 @@ const Sponsor = ({sponsorShip}) => {
         <>
           <p>{organizer.title}</p>
           <div className={styles[organizer.className]}>
-            {organizer.brands.map(({ name, src, href, width, height, className }) => (
+            {organizer.brands.map(({ name, src, href, width, height, className, rounded }) => (
               <Link key={name} href={href} target='_blank'>
                 <Image
                   className={classnames(styles.imgSponsors, {[styles[className]]: className})}
@@ -102,6 +102,7 @@ const Sponsor = ({sponsorShip}) => {
                   alt={name}
                   width={width}
                   height={height}
+                  style={{ borderRadius: rounded ? '50%' : '0' }}
                 />
               </Link>
             ))}

@@ -1311,6 +1311,12 @@ export const eventData = {
           href: 'https://www.sammg.com.br/',
           width: 80,
           height: 15.39
+        },{
+          name: 'GBCP',
+          src: '/logo/gbcp.png',
+          href: 'https://www.gbcp.org.br/',
+          width: 80,
+          height: 36.47
         }],
       },
       organizer: {
@@ -1322,6 +1328,13 @@ export const eventData = {
           href: '#',
           width: 80,
           height: 32.63
+        }, {
+          name: 'Join',
+          src: '/logo/join.png',
+          href: 'https://www.joindigitalsolution.com.br/',
+          width: 45,
+          height: 42.75,
+          rounded: true
         }],
       },
     },
@@ -2070,6 +2083,13 @@ export const eventData = {
           href: '#',
           width: 80,
           height: 32.63
+        }, {
+          name: 'Join',
+          src: '/logo/join.png',
+          href: 'https://www.joindigitalsolution.com.br/',
+          width: 45,
+          height: 42.75,
+          rounded: true
         }],
       },
     },

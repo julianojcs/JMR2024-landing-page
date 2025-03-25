@@ -66,14 +66,17 @@
   width: 100%;
   gap: 1.5rem;
 }
+
 .imgSponsors {
-  transition: filter 0.5s ease-in-out; /* Transição de opacidade */
   object-fit: fill;
 }
 
 .imgSponsors:hover {
   cursor: pointer;
   filter: sepia(100%); /* Opacidade ao passar o mouse */
+  transition: filter 0.5s ease-in-out; /* Transição de opacidade */
+  transform: scale(1.2);
+  transition: transform 0.5s ease-in-out;
 }
 
 @media (min-width: 1024px) {
