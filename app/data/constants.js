@@ -818,6 +818,8 @@ export const eventData = {
             },
             {
               date: '27/06',
+              priority: 1,
+              color: '#6f0273',
               title: ['Pelve', 'Feminina'],
               link: 'https://www.canva.com/design/DAGh0uOB_8w/0MxWc7WhtPpR9LPSDuATMA/view',
               img: '/images/cards/pelve-feminina.png'
@@ -827,12 +829,6 @@ export const eventData = {
               title: ['Neuror-', 'radiologia'],
               link: 'https://www.canva.com/design/DAGh1Pihvg0/S_7A4P5jxGtfauVqzbyp0A/view',
               img: '/images/cards/neurorradiol.png'
-            },
-            {
-              date: '28/06',
-              title: ['Cabeça e', 'Pescoço'],
-              link: 'https://www.canva.com/design/DAGh7oGAB4E/g4BqkZ7C57SmtO89cO2qtg/view',
-              img: '/images/cards/cabeca-pescoco.png'
             },
             {
               date: '28/06',
@@ -871,6 +867,12 @@ export const eventData = {
               title: ['RM Pelve para', 'Ginecologistas'],
               link: 'https://www.canva.com/design/DAGh71OirrI/rvExUrFJmzN6An4RtDXSqQ/view',
               img: '/images/cards/rm-pelve-para-ginecologista.png'
+            },
+            {
+              date: '28/06',
+              title: ['Cabeça e', 'Pescoço'],
+              link: 'https://www.canva.com/design/DAGh7oGAB4E/g4BqkZ7C57SmtO89cO2qtg/view',
+              img: '/images/cards/cabeca-pescoco.png'
             }
           ]
         },
@@ -1568,7 +1570,9 @@ export const eventData = {
             },
             {
               date: '27/06',
+              priority: 1,
               title: ['Pelve', 'Feminina'],
+              color: '#6f0273',
               link: 'https://www.canva.com/design/DAGh0uOB_8w/0MxWc7WhtPpR9LPSDuATMA/view',
               img: '/images/cards/pelve-feminina.png'
             },
@@ -1577,12 +1581,6 @@ export const eventData = {
               title: ['Neuror-', 'radiologia'],
               link: 'https://www.canva.com/design/DAGh1Pihvg0/S_7A4P5jxGtfauVqzbyp0A/view',
               img: '/images/cards/neurorradiol.png'
-            },
-            {
-              date: '28/06',
-              title: ['Cabeça e', 'Pescoço'],
-              link: 'https://www.canva.com/design/DAGh7oGAB4E/g4BqkZ7C57SmtO89cO2qtg/view',
-              img: '/images/cards/cabeca-pescoco.png'
             },
             {
               date: '28/06',
@@ -1621,6 +1619,12 @@ export const eventData = {
               title: ['RM Pelve para', 'Ginecologistas'],
               link: 'https://www.canva.com/design/DAGh71OirrI/rvExUrFJmzN6An4RtDXSqQ/view',
               img: '/images/cards/rm-pelve-para-ginecologista.png'
+            },
+            {
+              date: '28/06',
+              title: ['Cabeça e', 'Pescoço'],
+              link: 'https://www.canva.com/design/DAGh7oGAB4E/g4BqkZ7C57SmtO89cO2qtg/view',
+              img: '/images/cards/cabeca-pescoco.png'
             }
           ]
         },
@@ -1887,7 +1891,6 @@ export const eventData = {
               { cells: ['Acadêmico de Medicina Sócio SAMMG', {value: '80', rowspan: 2}, {validar: ['SAMMG'], comprovante: false} ,'R$ 67', 'R$ 87', 'R$ 107', 'R$ 147'] },
               { cells: ['Acadêmico de Medicina não Sócio SAMMG*', '', {validar: [], comprovante: true} ,'R$ 177', 'R$ 197', 'R$ 217', 'R$ 297'] },
               { cells: ['Tecnólogos e Técnicos*', '100', {validar: [], comprovante: true}, 'R$ 68' ,'R$ 88', 'R$ 108', 'R$ 148'] },
-              { cells: ['Sala POCUS 28/06 (não Radiologia ou GO)*', '40', {validar: false, comprovante: true} ,'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
               { cells: ['Day use: Médico Sócio Quite SRMG/SOGIMIG', '', {validar: ['SRMG','SOGIMIG'], comprovante: false} ,'R$ 243,75', 'R$ 266,25', 'R$ 288,75', 'R$ 311.25'] },
               { cells: ['Day use: Médico Não Sócio ou Inadimplente', '', {validar: false, comprovante: false} ,'R$ 528,75', 'R$ 551,25', 'R$ 566,25', 'R$ 596.25'] }
             ]
