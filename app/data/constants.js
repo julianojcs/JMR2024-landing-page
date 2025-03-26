@@ -3,6 +3,8 @@
 // const endDate = '20241102T180000-0300'; // Data de término no formato GMT -3
 // const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${startDate}/${endDate}&details=${eventDetails}&location=${eventLocation}`;
 
+import { title } from "process"
+
 // Codigo para incluir no calendário início do evento no dia 01 das 08:30 as 18:00, se repetindo no dia 02 das 08:30 as 18:00
 
 export const eventData = {
@@ -726,6 +728,123 @@ export const eventData = {
         rota: '/speakers'
       }
     },
+    registrationForm: {
+      title: 'Formulário de inscrição',
+      description: 'A JMR 2025 / CIM 2025 acontecerão  nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+      categories: [
+        {
+          title: 'Médico Sócio SRMG/SOGIMIG',
+          description: ['Médicos associados da SRMG ou SOGIMIG que estejam adimplentes com suas anuidades.', 'Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.'],
+          member: ['SRMG', 'SOGIMIG'],
+          receipt: false,
+          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 325' },
+            { bestBefore: '20/05/2025', value: 'R$ 355' },
+            { bestBefore: '25/06/2025', value: 'R$ 385' },
+            { bestBefore: '27/06/2025', value: 'R$ 415' },
+          ],
+        }, {
+          title: 'Médico Não Sócio ou Inadimplente',
+          description: ['Médicos não associados ou inadimplentes com suas anuidades.'],
+          member: [],
+          receipt: false,
+          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 705' },
+            { bestBefore: '20/05/2025', value: 'R$ 735' },
+            { bestBefore: '25/06/2025', value: 'R$ 755' },
+            { bestBefore: '27/06/2025', value: 'R$ 795' },
+          ],
+        }, {
+          title: 'Residente Radiologia ou Ginecologia',
+          description: ['Médicos residentes de Radiologia ou Ginecologia.', 'É obrigatório o envio do comprovante de residência.'],
+          member: [],
+          receipt: true,
+          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 179' },
+            { bestBefore: '20/05/2025', value: 'R$ 199' },
+            { bestBefore: '25/06/2025', value: 'R$ 219' },
+            { bestBefore: '27/06/2025', value: 'R$ 269' },
+          ],
+        }, {
+          title: 'Acadêmico de Medicina Sócio SAMMG',
+          description: ['Estudantes do curso de Medicina associados à SAMMG.', 'Caso o sistema não valide a sua associação, será necessário o envio do comprovante de associação.'],
+          member: ['SAMMG'],
+          receipt: false,
+          places: 80,
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 67' },
+            { bestBefore: '20/05/2025', value: 'R$ 87' },
+            { bestBefore: '25/06/2025', value: 'R$ 107' },
+            { bestBefore: '27/06/2025', value: 'R$ 147' },
+          ],
+        }, {
+          title: 'Acadêmico de Medicina não Sócio SAMMG',
+          description: ['Estudantes do curso de Medicina não associados à SAMMG.', 'É obrigatório o envio do comprovante de matrícula.'],
+          member: [],
+          receipt: true,
+          places: 80,
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 177' },
+            { bestBefore: '20/05/2025', value: 'R$ 197' },
+            { bestBefore: '25/06/2025', value: 'R$ 217' },
+            { bestBefore: '27/06/2025', value: 'R$ 297' },
+          ],
+        }, {
+          title: 'Tecnólogos e Técnicos',
+          description: ['Tecnólogos e técnicos em Radiologia.', 'É obrigatório o envio do comprovante de formação técnica.'],
+          member: [],
+          receipt: true,
+          places: 100,
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 68' },
+            { bestBefore: '20/05/2025', value: 'R$ 88' },
+            { bestBefore: '25/06/2025', value: 'R$ 108' },
+            { bestBefore: '27/06/2025', value: 'R$ 148' },
+          ],
+        }, {
+          title: 'Day Use: Médico Sócio SRMG/SOGIMIG',
+          description: [
+            'Médicos associados da SRMG ou SOGIMIG que estejam adimplentes com suas anuidades.',
+            'Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.',
+            'O Day Use dá acesso a um dia de evento, à escolha do participante.',
+            'Atente-se que o Day Use no dia 27 + Workshop de "RM Pelve para Ginecologistas impede a',
+            'participação na Jornada na parte da tarde, pois o Workshop de Pelve acontece neste horário.',
+            'Já o Day Use do dia 28 e o Curso de Inteligência Artificial são incompatíveis por questões de horário.'],
+          member: ['SRMG', 'SOGIMIG'],
+          receipt: false,
+          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          dayUse: [27, 28],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 243,75' },
+            { bestBefore: '20/05/2025', value: 'R$ 266,25' },
+            { bestBefore: '25/06/2025', value: 'R$ 288,75' },
+            { bestBefore: '27/06/2025', value: 'R$ 311,25' },
+          ],
+        }, {
+          title: 'Day Use: Médico Não Sócio ou Inadimplente',
+          description: [
+            'Médicos associados da SRMG ou SOGIMIG que estejam adimplentes com suas anuidades.',
+            'Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.',
+            'O Day Use dá acesso a um dia de evento, à escolha do participante.',
+            'Atente-se que o Day Use no dia 27 + Workshop de "RM Pelve para Ginecologistas impede a',
+            'participação na Jornada na parte da tarde, pois o Workshop de Pelve acontece neste horário.',
+            'Já o Day Use do dia 28 e o Curso de Inteligência Artificial são incompatíveis por questões de horário.'],
+          member: [],
+          receipt: false,
+          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          dayUse: [27, 28],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 528,75' },
+            { bestBefore: '20/05/2025', value: 'R$ 551,25' },
+            { bestBefore: '25/06/2025', value: 'R$ 566,25' },
+            { bestBefore: '27/06/2025', value: 'R$ 596,25' },
+          ],
+        }
+      ],
+    },
     events: {
       soon: false,
       callToAct: {
@@ -1338,46 +1457,39 @@ export const eventData = {
       },
     },
     societies: [{
-        name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
-        shortName: 'SRMG',
-        link: 'https://www.srmg.org.br',
-        alt: 'Logo da SRMG',
-        src: '/logo/srmg.png',
-        affiliated: {
-          member: [{
-              name: 'Juliano Costa Silva',
-              cpf: '03102546631'
-            }, {
-              name: 'Ryani Antonio',
-              cpf: '02284440711'
-          }]
-        }
+      name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
+      shortName: 'SRMG',
+      link: 'https://www.srmg.org.br',
+      alt: 'Logo da SRMG',
+      src: '/logo/srmg.png',
+      affiliated: [{
+        name: 'Juliano Costa Silva',
+        cpf: '03102546631'
       }, {
+        name: 'Ryani Antonio',
+        cpf: '02284440711'
+      }]
+    }, {
         name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
         shortName: 'SOGIMIG',
         link: 'https://sogimig.org.br/',
         alt: 'Logo da SOGIMIG',
         src: '/logo/sogimig.png',
-        affiliated: {
-          member: [{
-              name: 'Juliano Costa Silva',
-              cpf: '01234567890'
-          }]
-        }
+      affiliated: [{
+        name: 'Juliano Costa Silva',
+        cpf: '01234567890'
+      }]
       }, {
         name: 'Sociedade de Acadêmicos de Medicina de Minas Gerais',
         shortName: 'SAMMG',
         link: 'https://www.sammg.com.br/',
         alt: 'Logo da SAMMG',
         src: '/logo/sammg.png',
-        affiliated: {
-          member: [{
-            name: 'Juliano Costa Silva',
-            cpf: '03102546633'
-          }]
-        }
-      }
-    ]
+      affiliated: [{
+        name: 'Juliano Costa Silva',
+        cpf: '03102546633'
+      }]
+      }]
   },
   2027: {
     title:
@@ -1490,6 +1602,123 @@ export const eventData = {
         title: 'Lista de palestrantes 2025',
         rota: '/speakers'
       }
+    },
+    registrationForm: {
+      title: 'Formulário de inscrição',
+      description: 'A JMR 2025 / CIM 2025 acontecerão  nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+      categories: [
+        {
+          title: 'Médico Sócio SRMG/SOGIMIG',
+          description: ['Médicos associados da SRMG ou SOGIMIG que estejam adimplentes com suas anuidades.', 'Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.'],
+          member: ['SRMG', 'SOGIMIG'],
+          receipt: false,
+          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 325' },
+            { bestBefore: '20/05/2025', value: 'R$ 355' },
+            { bestBefore: '25/06/2025', value: 'R$ 385' },
+            { bestBefore: '27/06/2025', value: 'R$ 415' },
+          ],
+        }, {
+          title: 'Médico Não Sócio ou Inadimplente',
+          description: ['Médicos não associados ou inadimplentes com suas anuidades.'],
+          member: [],
+          receipt: false,
+          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 705' },
+            { bestBefore: '20/05/2025', value: 'R$ 735' },
+            { bestBefore: '25/06/2025', value: 'R$ 755' },
+            { bestBefore: '27/06/2025', value: 'R$ 795' },
+          ],
+        }, {
+          title: 'Residente Radiologia ou Ginecologia',
+          description: ['Médicos residentes de Radiologia ou Ginecologia.', 'É obrigatório o envio do comprovante de residência.'],
+          member: [],
+          receipt: true,
+          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 179' },
+            { bestBefore: '20/05/2025', value: 'R$ 199' },
+            { bestBefore: '25/06/2025', value: 'R$ 219' },
+            { bestBefore: '27/06/2025', value: 'R$ 269' },
+          ],
+        }, {
+          title: 'Acadêmico de Medicina Sócio SAMMG',
+          description: ['Estudantes do curso de Medicina associados à SAMMG.', 'Caso o sistema não valide a sua associação, será necessário o envio do comprovante de associação.'],
+          member: ['SAMMG'],
+          receipt: false,
+          places: 80,
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 67' },
+            { bestBefore: '20/05/2025', value: 'R$ 87' },
+            { bestBefore: '25/06/2025', value: 'R$ 107' },
+            { bestBefore: '27/06/2025', value: 'R$ 147' },
+          ],
+        }, {
+          title: 'Acadêmico de Medicina não Sócio SAMMG',
+          description: ['Estudantes do curso de Medicina não associados à SAMMG.', 'É obrigatório o envio do comprovante de matrícula.'],
+          member: [],
+          receipt: true,
+          places: 80,
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 177' },
+            { bestBefore: '20/05/2025', value: 'R$ 197' },
+            { bestBefore: '25/06/2025', value: 'R$ 217' },
+            { bestBefore: '27/06/2025', value: 'R$ 297' },
+          ],
+        }, {
+          title: 'Tecnólogos e Técnicos',
+          description: ['Tecnólogos e técnicos em Radiologia.', 'É obrigatório o envio do comprovante de formação técnica.'],
+          member: [],
+          receipt: true,
+          places: 100,
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 68' },
+            { bestBefore: '20/05/2025', value: 'R$ 88' },
+            { bestBefore: '25/06/2025', value: 'R$ 108' },
+            { bestBefore: '27/06/2025', value: 'R$ 148' },
+          ],
+        }, {
+          title: 'Day Use: Médico Sócio SRMG/SOGIMIG',
+          description: [
+            'Médicos associados da SRMG ou SOGIMIG que estejam adimplentes com suas anuidades.',
+            'Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.',
+            'O Day Use dá acesso a um dia de evento, à escolha do participante.',
+            'Atente-se que o Day Use no dia 27 + Workshop de "RM Pelve para Ginecologistas impede a',
+            'participação na Jornada na parte da tarde, pois o Workshop de Pelve acontece neste horário.',
+            'Já o Day Use do dia 28 e o Curso de Inteligência Artificial são incompatíveis por questões de horário.'],
+          member: ['SRMG', 'SOGIMIG'],
+          receipt: false,
+          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          dayUse: [27, 28],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 243,75' },
+            { bestBefore: '20/05/2025', value: 'R$ 266,25' },
+            { bestBefore: '25/06/2025', value: 'R$ 288,75' },
+            { bestBefore: '27/06/2025', value: 'R$ 311,25' },
+          ],
+        }, {
+          title: 'Day Use: Médico Não Sócio ou Inadimplente',
+          description: [
+            'Médicos associados da SRMG ou SOGIMIG que estejam adimplentes com suas anuidades.',
+            'Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.',
+            'O Day Use dá acesso a um dia de evento, à escolha do participante.',
+            'Atente-se que o Day Use no dia 27 + Workshop de "RM Pelve para Ginecologistas impede a',
+            'participação na Jornada na parte da tarde, pois o Workshop de Pelve acontece neste horário.',
+            'Já o Day Use do dia 28 e o Curso de Inteligência Artificial são incompatíveis por questões de horário.'],
+          member: [],
+          receipt: false,
+          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          dayUse: [27, 28],
+          prices: [
+            { bestBefore: '20/04/2025', value: 'R$ 528,75' },
+            { bestBefore: '20/05/2025', value: 'R$ 551,25' },
+            { bestBefore: '25/06/2025', value: 'R$ 566,25' },
+            { bestBefore: '27/06/2025', value: 'R$ 596,25' },
+          ],
+        }
+      ],
     },
     events: {
       soon: false,
@@ -2029,6 +2258,12 @@ export const eventData = {
               href: 'https://www.clinicaceu.com.br/',
               width: 60,
               height: 32.36
+            }, {
+                name: 'Mater Dei',
+                src: '/logo/mater-dei.png',
+                href: 'https://www.materdei.com.br/',
+                width: 104.45,
+                height: 25
             }],
           },
         },
@@ -2092,45 +2327,46 @@ export const eventData = {
         }],
       },
     },
-    societies: [{
+    societies: [
+      {
         name: 'Sociedade de Radiologia e Diagnóstico por Imagem de Minas Gerais (SRMG)',
         shortName: 'SRMG',
         link: 'https://www.srmg.org.br',
         alt: 'Logo da SRMG',
         src: '/logo/srmg.png',
-        affiliated: {
-          member: [{
-              name: 'Juliano Costa Silva',
-              cpf: '03102546631'
-            }, {
-              name: 'Ryani Antonio',
-              cpf: '02284440711'
+        affiliated: [{
+          name: 'Juliano Costa Silva',
+          cpf: '03102546633'
+        }, {
+            name: 'Ryani Antonio',
+            cpf: '02284440711'
+          }, {
+            name: 'Alexandre Ribas de Carvalho',
+            cpf: '05526244628'
           }]
-        }
       }, {
         name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
         shortName: 'SOGIMIG',
         link: 'https://sogimig.org.br/',
         alt: 'Logo da SOGIMIG',
         src: '/logo/sogimig.png',
-        affiliated: {
-          member: [{
-              name: 'Juliano Costa Silva',
-              cpf: '01234567890'
-          }]
-        }
+        affiliated: [{
+          name: 'Juliano Costa Silva',
+          cpf: '01234567890'
+        }]
       }, {
         name: 'Sociedade de Acadêmicos de Medicina de Minas Gerais',
         shortName: 'SAMMG',
         link: 'https://www.sammg.com.br/',
         alt: 'Logo da SAMMG',
         src: '/logo/sammg.png',
-        affiliated: {
-          member: [{
-            name: 'Juliano Costa Silva',
-            cpf: '03102546633'
+        affiliated: [{
+          name: 'Juliano Costa Silva',
+          cpf: '03102546633'
+        }, {
+            name: 'Alexandre Ribas de Carvalho',
+            cpf: '05526244628'
           }]
-        }
       }
     ]
   }
