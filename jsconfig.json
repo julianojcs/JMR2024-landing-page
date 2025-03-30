@@ -2,12 +2,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./app/*"],
+      "@/utils/*": ["./app/utils/*"],
       "@/api/*": ["./app/api/*"],
       "@/lib/*": ["./app/lib/*"],
+      "@/hooks/*": ["./app/hooks/*"],
       "@/components/*": ["./app/components/*"],
-      "@/data/*": ["./app/data/*"],
-      "@/models/*": ["./models/*"]
-    }
-  }
+      "@/data/*": ["./app/data/*"]
+    },
+    "jsx": "preserve",
+    "moduleResolution": "node"
+  },
+  "include": ["app/**/*"],
+  "exclude": ["node_modules", ".next"]
 }

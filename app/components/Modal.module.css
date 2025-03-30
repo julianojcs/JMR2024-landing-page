@@ -12,14 +12,21 @@
 }
 
 .modal {
-  background: white;
-  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
   border-radius: 8px;
-  max-width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  width: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 800px; /* Set minimum width */
+  max-width: 90vw; /* Prevent modal from overflowing viewport */
+  max-height: 90vh; /* Prevent modal from overflowing viewport */
+  overflow-y: hidden;
 }
 
 .closeButton {
@@ -36,4 +43,13 @@
 
 .closeButton:hover {
   color: #666;
+}
+
+/* Add responsive behavior */
+@media (max-width: 850px) {
+  .modal {
+    min-width: 95vw;
+    width: 95vw;
+    padding: 1rem;
+  }
 }

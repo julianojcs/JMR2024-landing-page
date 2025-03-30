@@ -1,3 +1,9 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -23,7 +29,20 @@ const nextConfig = {
         pathname: '**',
       }
     ]
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.join(__dirname, './app'),
+      '@/components': path.join(__dirname, './app/components'),
+      '@/utils': path.join(__dirname, './app/utils'),
+      '@/api': path.join(__dirname, './app/api'),
+      '@/lib': path.join(__dirname, './app/lib'),
+      '@/hooks': path.join(__dirname, './app/hooks'),
+      '@/data': path.join(__dirname, './app/data')
+    }
+    return config
   }
-};
+}
 
-export default nextConfig;
+export default nextConfig

@@ -28,11 +28,13 @@
   "dependencies": {
     "@bull-board/api": "^6.7.10",
     "@bull-board/express": "^6.7.10",
+    "@preact/signals-react": "^3.0.1",
     "@prisma/client": "^6.5.0",
     "bull": "^4.16.5",
     "classnames": "^2.5.1",
     "cloudinary": "^2.5.0",
     "clsx": "^2.1.1",
+    "firebase": "^11.5.0",
     "next": "^14.2.24",
     "next-auth": "^4.24.7",
     "next-cloudinary": "^6.13.0",

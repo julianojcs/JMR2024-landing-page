@@ -6,7 +6,7 @@ import CallToAct from './CallToAct'
 import DynamicTag from './DynamicTag'
 import Modal from './Modal'
 import RegistrationForm from './RegistrationForm'
-import { verifyDate } from '../util/functions'
+import { verifyDate } from '../utils'
 import styles from './Table.module.css'
 
 export default function Table({ theTable, year }) {
@@ -219,7 +219,7 @@ export default function Table({ theTable, year }) {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       >
-        <RegistrationForm table={theTable} year={year} />
+        <RegistrationForm year={year} />
       </Modal>
     </>
   )

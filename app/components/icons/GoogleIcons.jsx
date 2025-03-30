@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './icons.module.css'
-import { eventData } from '@/app/data/constants'
+import { eventData } from '/app/data/constants'
 
 // SVG icon
 const CalendarIcon = ({ year, fill, width, height }) => {

@@ -10,8 +10,8 @@ import { notFound } from 'next/navigation'
 import Comission from '../components/Comission'
 import Tables from '../components/Tables'
 import ModalBanner from '../components/ModalBanner'
-import Introduction from '@/app/components/Introduction';
-import Sponsor from '@/app/components/Sponsor'
+import Introduction from '/app/components/Introduction';
+import Sponsor from '/app/components/Sponsor'
 
 // export async function getServerSideProps(context) {
 //   if (!isValidRoute(context)) {

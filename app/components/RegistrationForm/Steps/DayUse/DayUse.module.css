@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.label {
+  display: block;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-inline-end: auto;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.dayButton {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.dayButton:hover {
+  background: #f9fafb;
+  border-color: #0066cc;
+}
+
+.dayButton.selected {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.75rem;
+}
+
+.required {
+  color: #dc3545;
+  margin-inline-start: 2px;
+}
+
+@media (max-width: 768px) {
+  .daysGrid {
+    grid-template-columns: 1fr;
+  }
+}

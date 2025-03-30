@@ -1,0 +1,216 @@
+.step {
+  width: 100%;
+  /* max-width: 500px; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 300px); /* Adjust height to account for modal header */
+  min-height: 400px;
+  overflow: hidden; /* Prevent double scrollbars */
+}
+
+.summaryContainer {
+  max-width: 800px;
+  margin: 0 auto;
+
+  & h3 {
+    color: #052c65;
+    margin-block: 0.75rem;
+    text-align: center;
+  }
+}
+
+.summarySection {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.7rem 1rem 1rem 1rem;
+  margin-block-end: 0.5rem;
+
+  & h4 {
+    text-decoration: underline;
+    margin-block: 0.25rem 1.25rem;
+  }
+
+  & .subtitle {
+    color: var(--facebook-clr);
+    margin-block: 0 1rem;
+    padding-block-end: 0.5rem;
+    border-block-end: 2px solid #e5e7eb;
+  }
+}
+
+.summaryItem {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  justify-items: start;
+  gap: 1rem;
+  font-size: 0.875rem;
+  margin-block-end: 0.5rem;
+}
+
+.summaryItem label {
+  color: var(--primary-color-dark);
+  font-weight: 500;
+}
+
+.summaryItem span {
+  color: #1f2937;
+}
+
+.summaryItem .price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--instagram-clr);
+  margin-inline: auto;
+  position: relative;
+  grid-column: span 2;
+  margin-block: 1rem 0.5rem;
+}
+
+.price::after {
+  content: attr(data-cents);
+  font-size: 65%;
+  vertical-align: super;
+  margin-left: 2px;
+  position: relative;
+  top: 2px;
+}
+
+.paymentLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1.5rem;
+  justify-content: space-evenly;
+}
+
+.paymentButton,
+.downloadButton {
+  flex: 1;
+  min-width: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+  min-width: 200px;
+  text-align: center;
+}
+
+.paymentButton {
+  background: var(--secondary-clr);
+  color: white;
+}
+
+.downloadButton {
+  background: #4b5563;
+  color: white;
+}
+
+.paymentButton:hover,
+.downloadButton:hover,
+.returnButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.navigationSection {
+  display: flex;
+  align-items: center;
+  background: var(--primary-color);
+  color: #f3f4f6;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  flex-direction: column;
+  margin-block-start: auto;
+}
+
+.returnButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: #f3f4f6;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.errorSection {
+  background: #fee2e2;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.errorMsg {
+  color: #dc2626;
+  margin: 0;
+}
+
+.errorMsg a {
+  color: #dc2626;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .step {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .step {
+    height: calc(100vh - 200px); /* Adjust for smaller header on mobile */
+    padding: 0; /* Remove padding to maximize space */
+  }
+
+  .summarySection {
+    padding: 1rem;
+  }
+
+  .summaryItem {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    margin-block-end: 1rem;
+  }
+
+  .summaryItem label {
+    font-size: 0.875rem;
+  }
+
+  .price {
+    width: 100%;
+    text-align: center;
+    margin-block: 1rem 0.5rem;
+  }
+
+  .errorMsg {
+    font-size: 0.75rem;
+  }
+
+  .returnButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .paymentLinks {
+    flex-direction: column;
+    margin-block: 1rem;
+  }
+
+  .returnButton,
+  .paymentButton,
+  .downloadButton {
+    width: 100%;
+  }
+}

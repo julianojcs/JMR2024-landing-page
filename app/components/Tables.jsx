@@ -1,10 +1,14 @@
+'use client'
+
 import Table from '../components/Table'
 import { container } from './Tables.module.css'
+import Modal from './Modal'
+import RegistrationForm from './RegistrationForm'
+import { useState } from 'react'
 
-// style={{marginRight: spacing + 'em'}}
-// style={{background-color: + 'var(' + clr + ')'}}
+export default function Tables({ priceTables, year }) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-export default function Tables({priceTables, year}) {
   return (
     <section className={container} id='tables'>
       {priceTables.tableSections.map((table, index) => (
@@ -14,6 +18,9 @@ export default function Tables({priceTables, year}) {
           year={year}
         />
       ))}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <RegistrationForm year={year} onClose={() => setIsModalOpen(false)} />
+      </Modal>
     </section>
   )
 }

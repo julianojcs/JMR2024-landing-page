@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-block-start: 1rem;
+  & label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-inline-end: auto;
+  }
+}
+
+.dropZone {
+  border: 2px dashed #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #f9fafb;
+}
+
+.dropZone:hover {
+  border-color: #0066cc;
+  background: #f0f7ff;
+}
+
+.fileInput {
+  display: none;
+}
+
+.content {
+  text-align: center;
+  color: #6b7280;
+}
+
+.content p {
+  margin: 0;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.content small {
+  font-size: 0.75rem;
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: var(--error-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.removeButton:hover {
+  background: #fee2e2;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.75rem;
+}
+
+.required {
+  color: #dc3545;
+  margin-inline-start: 2px;
+}
+
+@media (max-width: 768px) {
+  .dropZone {
+    padding: 1rem;
+  }
+}
