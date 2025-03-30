@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { sql } from '@vercel/postgres' // Adjust the import based on your SQL library
 
 export async function POST(req: NextRequest) {
   try {

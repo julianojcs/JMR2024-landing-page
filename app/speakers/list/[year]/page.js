@@ -1,14 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { eventData } from '@/app/data/constants'
+import { eventData } from '@/data/constants'
 import styles from './SpeakersList.module.css'
 import Image from 'next/image'
 import Loading from './loading'
 import * as XLSX from 'xlsx';
-import Badge from '@/app/components/Badge';
+import Badge from '@/components/Badge';
 
-export const formatCPF = (cpf) => {
+const formatCPF = (cpf) => {
   if (!cpf) return '';
   return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 };

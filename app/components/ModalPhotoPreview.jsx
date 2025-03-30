@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import styles from './ModalPhotoPreview.module.css'
-import AvatarCard from '@/app/components/AvatarCard'
+import AvatarCard from '@/components/AvatarCard'
 
 const ModalPhotoPreview = ({
   isOpen,

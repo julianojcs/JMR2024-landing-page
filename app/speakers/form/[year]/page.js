@@ -3,19 +3,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { eventData } from '../../../data/constants';
 import styles from './SpeakersForm.module.css';
-import { validateCPF, formatPhone } from '../../utils';
+import { validateCPF, formatPhone } from '@/utils';
 import { states } from '../../../data/states';
 import StateSelect from '../../../components/StateSelect'
-import Multselector from '@/app/components/Multselector';
-import LoadingSpinnerInput from '@/app/components/LoadingSpinnerInput';
-import LoadingOverlay from '@/app/components/LoadingOverlay';
-import Notification from '@/app/components/Notification';
-import ModalPhotoPreview from '@/app/components/ModalPhotoPreview';
-import NotificationBanner from '@/app/components/NotificationBanner';
-import Header from '@/app/components/Header';
-import SocialMedias from '@/app/components/SocialMedias';
-import { MapIcon, CalendarIcon } from '@/app/components/icons'
-import '@/app/styles/react-select.css'
+import Multselector from '@/components/Multselector';
+import LoadingSpinnerInput from '@/components/LoadingSpinnerInput';
+import LoadingOverlay from '@/components/LoadingOverlay';
+import Notification from '@/components/Notification';
+import ModalPhotoPreview from '@/components/ModalPhotoPreview';
+import NotificationBanner from '@/components/NotificationBanner';
+import Header from '@/components/Header';
+import SocialMedias from '@/components/SocialMedias';
+import { MapIcon, CalendarIcon } from '@/components/icons'
+import '@/styles/react-select.css'
 
 // const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
 
