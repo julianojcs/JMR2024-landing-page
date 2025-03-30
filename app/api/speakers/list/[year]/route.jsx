@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { connectToDatabase } from '../../../../lib/database';
-import cloudinary from '../../../app/lib/cloudinary';
+import cloudinary from '../../../lib/cloudinary';
 
 export async function GET(request, { params }) {
   try {

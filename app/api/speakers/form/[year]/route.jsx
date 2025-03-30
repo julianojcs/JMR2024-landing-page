@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import cloudinary from '../../../../app/lib/cloudinary';
+import cloudinary from '../../../../lib/cloudinary';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient()

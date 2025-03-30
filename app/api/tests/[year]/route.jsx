@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { connectToDatabase } from '../../../app/lib/database'
+import { connectToDatabase } from '../../../lib/database'
 
 export const GET = async (request, { params }) => {
   try {

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { eventData } from '../../../data/constants';
 import styles from './SpeakersForm.module.css';
-import { validateCPF, formatPhone } from '../../app/utils';
+import { validateCPF, formatPhone } from '../../utils';
 import { states } from '../../../data/states';
 import StateSelect from '../../../components/StateSelect'
 import Multselector from '@/app/components/Multselector';
