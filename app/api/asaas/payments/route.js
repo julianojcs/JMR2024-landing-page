@@ -11,7 +11,7 @@ export async function GET(request) {
     if (cpfCnpj) {
       // get the customers by CPF/CNPJ
       const customersResponse = await fetch(
-        `${process.env.ASAAS_API_URL}/customers?${searchParams.toString()}`,
+        `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers?${searchParams.toString()}`,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -29,8 +29,8 @@ export async function GET(request) {
     }
 
     const url = cpfCnpj
-      ? `${process.env.ASAAS_API_URL}/payments?customer=${customerId}&${searchParams.toString()}`
-      : `${process.env.ASAAS_API_URL}/payments?${searchParams.toString()}`;
+      ? `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/payments?customer=${customerId}&${searchParams.toString()}`
+      : `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/payments?${searchParams.toString()}`;
 
     const response = await fetch(
       url,
@@ -54,7 +54,7 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const response = await fetch(
-      `${process.env.ASAAS_API_URL}/payments`,
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/payments`,
       {
         method: 'POST',
         headers: {

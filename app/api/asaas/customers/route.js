@@ -6,7 +6,7 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const response = await fetch(
-      `${process.env.ASAAS_API_URL}/customers?${searchParams.toString()}`,
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers?${searchParams.toString()}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -26,8 +26,17 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
+
+    // Validate required fields
+    if (!customerData.name || !customerData.cpfCnpj) {
+      return NextResponse.json(
+        { error: 'Name and CPF/CNPJ are required' },
+        { status: 400 }
+      )
+    }
+
     const response = await fetch(
-      `${process.env.ASAAS_API_URL}/customers`,
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers`,
       {
         method: 'POST',
         headers: {
@@ -37,6 +46,15 @@ export async function POST(request) {
         body: JSON.stringify(body)
       }
     );
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      console.error('ASAAS API error:', errorData)
+      return NextResponse.json(
+        { error: 'Failed to create customer in ASAAS' },
+        { status: response.status }
+      )
+    }
 
     const data = await response.json();
     return NextResponse.json(data);

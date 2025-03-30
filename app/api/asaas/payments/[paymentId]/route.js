@@ -5,7 +5,7 @@ export async function GET(request, { params }) {
   try {
     const { paymentId } = params;
     const response = await fetch(
-      `${process.env.ASAAS_API_URL}/payments/${paymentId}`,
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/payments/${paymentId}`,
       {
         headers: {
           'Content-Type': 'application/json',

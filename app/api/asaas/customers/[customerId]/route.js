@@ -5,7 +5,7 @@ export async function GET(request, { params }) {
   try {
     const { customerId } = params;
     const response = await fetch(
-      `${process.env.ASAAS_API_URL}/customers/${customerId}`,
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers/${customerId}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export async function PUT(request, { params }) {
     const body = await request.json();
 
     const response = await fetch(
-      `${process.env.ASAAS_API_URL}/customers/${customerId}`,
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers/${customerId}`,
       {
         method: 'PUT',
         headers: {
