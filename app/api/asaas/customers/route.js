@@ -25,7 +25,7 @@ export async function GET(request) {
 // Create customer
 export async function POST(request) {
   try {
-    const body = await request.json();
+    const customerData = await request.json();
 
     // Validate required fields
     if (!customerData.name || !customerData.cpfCnpj) {
@@ -43,7 +43,7 @@ export async function POST(request) {
           'Content-Type': 'application/json',
           'access_token': apiKey
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify(customerData)
       }
     );
 
