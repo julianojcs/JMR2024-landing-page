@@ -19,6 +19,7 @@ import '@/styles/react-select.css'
 
 // const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
 
+const MAX_FILE_SIZE = 3 * 1024 * 1024; // 3MB em bytes
 const ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png'];
 
 const SpeakersForm = ({ params }) => {
@@ -204,9 +205,17 @@ const SpeakersForm = ({ params }) => {
         ...prev,
         photo_path: 'Formato de arquivo inválido. Use apenas PNG, JPEG ou JPG.'
       }));
-      if (photoInputRef.current) {
-        photoInputRef.current.value = '';
-      }
+      e.target.value = ''; // Limpa o input
+      return;
+    }
+
+    // Validar tamanho
+    if (file.size > MAX_FILE_SIZE) {
+      setErrors(prev => ({
+        ...prev,
+        photo_path: 'A imagem deve ter no máximo 3MB.'
+      }));
+      e.target.value = ''; // Limpa o input
       return;
     }
 
