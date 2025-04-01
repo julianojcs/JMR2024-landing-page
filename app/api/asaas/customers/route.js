@@ -15,7 +15,6 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers?${searchParams.toString()}`,
-      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers?${searchParams.toString()}`,
       {
         headers: {
           'Content-Type': 'application/json',
