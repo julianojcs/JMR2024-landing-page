@@ -86,6 +86,7 @@ class AsaasClient {
   async listCustomers(filters = {}) {
     try {
       const queryParams = new URLSearchParams(filters);
+      console.log('fetch url: ', `${this.baseApiUrl}/customers?${queryParams.toString()}`)
       const response = await fetch(`${this.baseApiUrl}/customers?${queryParams.toString()}`);
 
       if (!response.ok) {

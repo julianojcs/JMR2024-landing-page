@@ -1,11 +1,20 @@
 import { NextResponse } from 'next/server';
 import { apiKey } from '@/api/asaas/config';
 
+const checkEnvironmentVariables = () => {
+  if (!process.env.NEXT_PUBLIC_ASAAS_API_URL) {
+    console.log('NEXT_PUBLIC_ASAAS_API_URL: ', process.env.NEXT_PUBLIC_ASAAS_API_URL);
+    throw new Error('NEXT_PUBLIC_ASAAS_API_URL environment variable is not defined');
+  }
+};
+
 // List customers
 export async function GET(request) {
   try {
+    checkEnvironmentVariables();
     const { searchParams } = new URL(request.url);
     const response = await fetch(
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers?${searchParams.toString()}`,
       `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers?${searchParams.toString()}`,
       {
         headers: {
@@ -36,6 +45,7 @@ export async function POST(request) {
     }
 
     const response = await fetch(
+      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers`,
       `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers`,
       {
         method: 'POST',
