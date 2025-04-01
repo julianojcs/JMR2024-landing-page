@@ -19,6 +19,8 @@ import '@/styles/react-select.css'
 
 // const DynamicImage = dynamic(() => import('../../../components/DynamicImage'));
 
+const ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png'];
+
 const SpeakersForm = ({ params }) => {
   const { year } = params;
   const [errors, setErrors] = useState({});
@@ -184,6 +186,7 @@ const SpeakersForm = ({ params }) => {
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
+
     // Clear preview if no file was selected (user cancelled)
     if (!file) {
       setPhotoPreview(null);
@@ -192,6 +195,18 @@ const SpeakersForm = ({ params }) => {
         ...prev,
         photo_path: null
       }));
+      return;
+    }
+
+    // Validar tipo de arquivo
+    if (!ALLOWED_TYPES.includes(file.type)) {
+      setErrors(prev => ({
+        ...prev,
+        photo_path: 'Formato de arquivo inválido. Use apenas PNG, JPEG ou JPG.'
+      }));
+      if (photoInputRef.current) {
+        photoInputRef.current.value = '';
+      }
       return;
     }
 
@@ -248,6 +263,50 @@ const SpeakersForm = ({ params }) => {
     }
   };
 
+  // Adicione esta função para comprimir a imagem
+  const compressImage = async (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const MAX_WIDTH = 800;
+          const MAX_HEIGHT = 800;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > MAX_WIDTH) {
+              height *= MAX_WIDTH / width;
+              width = MAX_WIDTH;
+            }
+          } else {
+            if (height > MAX_HEIGHT) {
+              width *= MAX_HEIGHT / height;
+              height = MAX_HEIGHT;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          canvas.toBlob((blob) => {
+            const newFile = new File([blob], file.name, {
+              type: 'image/jpeg',
+              lastModified: Date.now(),
+            });
+            resolve(newFile);
+          }, 'image/jpeg', 0.7); // Qualidade 0.7 (70%)
+        };
+      };
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -283,9 +342,10 @@ const SpeakersForm = ({ params }) => {
     console.log('Form data:', formData);
     console.log('Form data to send:', formDataToSend);
 
-    // Add photo if exists
+    // Comprima a foto se existir
     if (formData.photo_path) {
-      formDataToSend.append('photo_path', formData.photo_path)
+      const compressedPhoto = await compressImage(formData.photo_path);
+      formDataToSend.append('photo_path', compressedPhoto);
     }
 
     try {
@@ -304,7 +364,9 @@ const SpeakersForm = ({ params }) => {
         clearForm(); // Clear form on successful submission
       } else {
         const error = await response.json()
-        throw new Error(error.message || 'Erro ao enviar formulário')
+        throw new Error(
+          `HTTP error! status: ${response.status},
+          message: ${JSON.stringify(error.message)}`);
       }
     } catch (error) {
       setModalState({
@@ -612,7 +674,7 @@ const SpeakersForm = ({ params }) => {
               type="file"
               id="photo_path"
               name="photo_path"
-              accept="image/*"
+              accept=".jpg,.jpeg,.png"
               onChange={handlePhotoChange}
               className={styles.formControl}
               disabled={isSubmitting}
