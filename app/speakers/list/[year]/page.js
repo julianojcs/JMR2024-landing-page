@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Loading from './loading'
 import * as XLSX from 'xlsx';
 import Badge from '@/components/Badge';
+import { formatName } from '../../../utils';
 
 const formatCPF = (cpf) => {
   if (!cpf) return '';
@@ -41,30 +42,6 @@ const formatDateTime = (dateTimeStr) => {
       <span className={styles.timeValue}>{timeStr}</span>
     </span>
   );
-};
-
-const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'a', 'o', 'as', 'os'];
-
-const formatName = (name) => {
-  if (!name) return '';
-
-  // Trim whitespace from beginning and end
-  const trimmedName = name.trim();
-
-  return trimmedName.split(' ').map((word, index) => {
-    // Check if word is a single letter (abbreviation)
-    if (word.length === 1) {
-      return `${word.toUpperCase()}.`;
-    }
-
-    // Convert prepositions to lowercase unless it's the first word
-    if (index > 0 && prepositions.includes(word.toLowerCase())) {
-      return word.toLowerCase();
-    }
-
-    // Capitalize first letter, rest lowercase
-    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-  }).join(' ');
 };
 
 export default function SpeakersList({ params }) {

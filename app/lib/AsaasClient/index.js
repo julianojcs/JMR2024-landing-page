@@ -1,5 +1,3 @@
-import { create } from "domain";
-
 /**
  * AsaasClient - A client for interacting with the Asaas payment API
  * @class
@@ -123,8 +121,7 @@ class AsaasClient {
       const response = await fetch(`${this.baseApiUrl}/customers`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'access_token': this.apiKey
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
       });
@@ -166,8 +163,7 @@ class AsaasClient {
       const response = await fetch(`${this.baseApiUrl}/customers/${customerId}`, {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
-          'access_token': this.apiKey
+          'Content-Type': 'application/json'
         }
       });
 
@@ -224,8 +220,7 @@ class AsaasClient {
       const response = await fetch(`${this.baseApiUrl}/customers/${customerId}`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json',
-          'access_token': this.apiKey
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
       });

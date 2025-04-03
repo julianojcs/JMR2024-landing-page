@@ -2,24 +2,31 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  padding: .5rem;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 0.5rem;
+  max-height: calc(100vh - 2rem); /* Account for margin/padding */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .title {
+  font-size: 1.5rem;
   color: #333;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .stepIndicator {
-  font-size: 0.8rem;
+  text-align: center;
   color: #666;
+  font-size: 0.9rem;
 }
 
 .formSection {
-  background: whitesmoke;
-  padding: .5rem;
+  background: #fff;
+  padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -39,6 +46,7 @@
     grid-template-columns: 1fr;
     gap: 0.5rem;
     padding: 0.5rem;
+    max-height: calc(100vh - 120px); /* Adjust based on your header height */
   }
 
   .formSection,

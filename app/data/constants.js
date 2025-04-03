@@ -3,9 +3,12 @@
 //     ...publicCurses('curses', 2028),
 //     ...[]
 //   ]
+
+import { title } from "process";
+
 // },
 const publicCurses = (branch, year) => {
-  return [...eventData[year].registrationForm.openToPublic?.[branch]] || [];
+  return [...eventData[year].registrationForm.categories[0]?.[branch]] || [];
 }
 
 export const eventData = {
@@ -735,7 +738,7 @@ export const eventData = {
       categories: [
         {
           title: 'Médico Sócio SRMG/SOGIMIG adimplente',
-          description: ['Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.'],
+          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação.'],
           member: ['SRMG', 'SOGIMIG'],
           receipt: false,
           curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
@@ -771,7 +774,7 @@ export const eventData = {
           ],
         }, {
           title: 'Acadêmico de Medicina Sócio SAMMG adimplente',
-          description: ['Caso o sistema não valide a sua associação, será necessário o envio do comprovante'],
+          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante'],
           member: ['SAMMG'],
           receipt: false,
           places: 80,
@@ -808,11 +811,7 @@ export const eventData = {
         }, {
           title: 'Day use: Médico Sócio SRMG/SOGIMIG',
           description: [
-            'Caso o sistema não valide a sua adimplência 2025, será necessário o envio de comprovante de quitação.',
-            'O Day Use dá acesso a um dia de evento, à escolha do participante.',
-            'Obs.: Day Use do dia 27/06 + Workshop de "RM Pelve para Ginecologistas" impede a',
-            'participação na Jornada na parte da tarde (o Workshop acontece neste horário).',
-            'Day Use do dia 28/06 e Curso de IA são incompatíveis (mesmo horário).'
+            'Caso o sistema não tenha validado a sua associação 2025, será necessário o envio de comprovante de quitação.'
           ],
           member: ['SRMG', 'SOGIMIG'],
           receipt: false,
@@ -827,11 +826,7 @@ export const eventData = {
         }, {
           title: 'Day Use: Médico Não Sócio SRMG/SOGIMIG ou Inadimplente',
           description: [
-            'Médicos associados da SRMG ou SOGIMIG que estejam inadimplentes com suas anuidades.',
-            'O Day Use dá acesso a um dia de evento, à escolha do participante.',
-            'Obs.: Day Use do dia 27/06 + Workshop de "RM Pelve para Ginecologistas" impede a',
-            'participação na Jornada na parte da tarde (o Workshop acontece neste horário).',
-            'Day Use do dia 28/06 e Curso de IA são incompatíveis (mesmo horário).'
+            'Médicos associados da SRMG ou SOGIMIG que estejam inadimplentes com suas anuidades.'
           ],
           member: [],
           receipt: false,
@@ -1293,9 +1288,9 @@ export const eventData = {
               { desktop: 'No Local', mobile: 'No Local' }
             ],
             rows: [
-              { cells: ['Médico Sócio SRMG/SOGIMIG', {validar: ['SRMG','SOGIMIG'], comprovante: false} ,'R$ 297', 'R$ 322', 'R$ 347', 'R$ 372'] },
-              { cells: ['Médico Não Sócio ou Inadimplente', {validar: false, comprovante: true} ,'R$ 597', 'R$ 622', 'R$ 647', 'R$ 672'] },
-              { cells: ['Residente Radiologia ou Ginecologia*', {validar: false, comprovante: true} ,'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+              { cells: ['Médico Sócio SRMG/SOGIMIG', { validar: ['SRMG', 'SOGIMIG'], comprovante: false }, 'R$ 70', 'R$ 80', 'R$ 87', 'R$ 94'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', { validar: false, comprovante: true }, 'R$ 158', 'R$ 165', 'R$ 170', 'R$ 180'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', { validar: false, comprovante: true }, 'R$ 60', 'R$ 70', 'R$ 80', 'R$ 90'] },
             ]
           }
         },
@@ -1610,7 +1605,7 @@ export const eventData = {
       categories: [
         {
           title: 'Médico Sócio SRMG/SOGIMIG adimplente',
-          description: ['Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.'],
+          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação.'],
           member: ['SRMG', 'SOGIMIG'], // CPF encontrado no checkSocietyMembership
           receipt: false,
           curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
@@ -1646,7 +1641,7 @@ export const eventData = {
           ],
         }, {
           title: 'Acadêmico de Medicina Sócio SAMMG adimplente',
-          description: ['Caso o sistema não valide a sua associação, será necessário o envio do comprovante'],
+          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante'],
           member: ['SAMMG'],
           receipt: false,
           places: 80,
@@ -1683,11 +1678,7 @@ export const eventData = {
         }, {
           title: 'Day use: Médico Sócio SRMG/SOGIMIG',
           description: [
-            'Caso o sistema não valide a sua adimplência 2025, será necessário o envio de comprovante de quitação.',
-            'O Day Use dá acesso a um dia de evento, à escolha do participante.',
-            'Obs.: Day Use do dia 27/06 + Workshop de "RM Pelve para Ginecologistas" impede a',
-            'participação na Jornada na parte da tarde (o Workshop acontece neste horário).',
-            'Day Use do dia 28/06 e Curso de IA são incompatíveis (mesmo horário).'
+            'Caso o sistema não tenha validado a sua associação 2025, será necessário o envio de comprovante de quitação.'
           ],
           member: ['SRMG', 'SOGIMIG'],
           receipt: false,
@@ -2165,9 +2156,9 @@ export const eventData = {
               { desktop: 'No Local', mobile: 'No Local' }
             ],
             rows: [
-              { cells: ['Médico Sócio SRMG/SOGIMIG', {validar: ['SRMG','SOGIMIG'], comprovante: false} ,'R$ 297', 'R$ 322', 'R$ 347', 'R$ 372'] },
-              { cells: ['Médico Não Sócio ou Inadimplente', {validar: false, comprovante: true} ,'R$ 597', 'R$ 622', 'R$ 647', 'R$ 672'] },
-              { cells: ['Residente Radiologia ou Ginecologia*', {validar: false, comprovante: true} ,'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+              { cells: ['Médico Sócio SRMG/SOGIMIG', { validar: ['SRMG', 'SOGIMIG'], comprovante: false }, 'R$ 70', 'R$ 80', 'R$ 87', 'R$ 94'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', { validar: false, comprovante: true }, 'R$ 158', 'R$ 165', 'R$ 170', 'R$ 180'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', { validar: false, comprovante: true }, 'R$ 60', 'R$ 70', 'R$ 80', 'R$ 90'] },
             ]
           }
         },
@@ -2585,11 +2576,6 @@ export const eventData = {
             "name": "TATIANA MARTINS",
             "cpf": "01344407650",
             "email": "tatimartins@hotmail.com"
-          },
-          {
-            "name": "LUCIANA COSTA TESTE",
-            "cpf": "42192935668",
-            "email": "lucianafmufmg@gmail.com"
           },
           {
             "name": "BERNARDO ALVARENGA DE MELO",
@@ -10607,7 +10593,13 @@ export const eventData = {
       title: 'Formulário de inscrição',
       description: 'A JMR 2025 / CIM 2025 acontecerão  nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       openToPublic: {
-        image: null,
+        title: 'Público em Geral',
+        description: 'Curso de Inteligência Artificial, aberto ao público em geral.',
+        image: '/images/svg/publico.svg',
+        member: [],
+        receipt: {
+          enabled: false
+        },
         curses: [{
           title: 'Curso de Inteligência Artificial',
           prices: [
@@ -10622,13 +10614,16 @@ export const eventData = {
       },
       categories: [
         {
-          title: 'Médico Sócio SRMG/SOGIMIG adimplente',
-          description: ['Caso o sistema não valide a sua adimplência, será necessário o envio do comprovante de quitação.'],
-          image: null,
+          id: 1,
+          title: 'Médico Sócio',
+          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação.'],
+          image: '/images/svg/medico.svg',
           member: ['SRMG', 'SOGIMIG'],
-          receipt: false,
+          receipt: {
+            enabled: false
+          },
           journey: {
-            title: 'JMR 2025',
+            title: 'JMR/CIM 2025',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 325' },
@@ -10642,10 +10637,10 @@ export const eventData = {
               title: 'Workshop RM Pelve para Ginecologistas',
               image: null,
               prices: [
-                { bestBefore: '20/04/2025', value: 'R$ 297' },
-                { bestBefore: '20/05/2025', value: 'R$ 322' },
-                { bestBefore: '25/06/2025', value: 'R$ 347' },
-                { bestBefore: '27/06/2025', value: 'R$ 372' },
+                { bestBefore: '20/04/2025', value: 'R$ 70' },
+                { bestBefore: '20/05/2025', value: 'R$ 80' },
+                { bestBefore: '25/06/2025', value: 'R$ 87' },
+                { bestBefore: '27/06/2025', value: 'R$ 94' },
               ]
             }
           ],
@@ -10667,13 +10662,16 @@ export const eventData = {
             ],
           }
         }, {
-          title: 'Médico Não Sócio SRMG/SOGIMIG ou Inadimplente',
-          description: ['Médicos não associados ou inadimplentes com a anuidade 2025.'],
-          image: null,
+          id: 2,
+          title: 'Médico Não Sócio',
+          description: ['Médicos não associados SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.'],
+          image: '/images/svg/medico.svg',
           member: [],
-          receipt: false,
+          receipt: {
+            enabled: false
+          },
           journey: {
-            title: 'JMR 2025',
+            title: 'JMR/CIM 2025',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 705' },
@@ -10686,10 +10684,10 @@ export const eventData = {
             title: 'Workshop RM Pelve para Ginecologistas',
             image: null,
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 597' },
-              { bestBefore: '20/05/2025', value: 'R$ 622' },
-              { bestBefore: '25/06/2025', value: 'R$ 647' },
-              { bestBefore: '27/06/2025', value: 'R$ 672' },
+              { bestBefore: '20/04/2025', value: 'R$ 158' },
+              { bestBefore: '20/05/2025', value: 'R$ 165' },
+              { bestBefore: '25/06/2025', value: 'R$ 170' },
+              { bestBefore: '27/06/2025', value: 'R$ 180' },
             ]
           },
           ],
@@ -10711,13 +10709,17 @@ export const eventData = {
             ],
           }
         }, {
-          title: 'Residente Radiologia ou Ginecologia',
-          description: ['Obrigatório envio do comprovante de Residência/Especialização/Fellowship.'],
-          image: null,
+          id: 3,
+          title: 'Residente ou Especializando',
+          description: ['Obrigatório envio do comprovante de Residência / Especialização / Fellowship.'],
+          image: '/images/svg/residente.svg',
           member: ['SRMG', 'SOGIMIG'], // CPF encontrado no checkSocietyMembership
-          receipt: true,
+          receipt: {
+            enabled: true,
+            title: 'Comprovante de Residência, Especialização ou Fellowship'
+          },
           journey: {
-            title: 'JMR 2025',
+            title: 'JMR/CIM 2025',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 179' },
@@ -10730,10 +10732,10 @@ export const eventData = {
             title: 'Workshop RM Pelve para Ginecologistas',
             image: null,
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 179' },
-              { bestBefore: '20/05/2025', value: 'R$ 199' },
-              { bestBefore: '25/06/2025', value: 'R$ 219' },
-              { bestBefore: '27/06/2025', value: 'R$ 269' },
+              { bestBefore: '20/04/2025', value: 'R$ 60' },
+              { bestBefore: '20/05/2025', value: 'R$ 70' },
+              { bestBefore: '25/06/2025', value: 'R$ 80' },
+              { bestBefore: '27/06/2025', value: 'R$ 90' },
             ]
           },
           ],
@@ -10745,14 +10747,17 @@ export const eventData = {
           },
           dayUse: null,
         }, {
-          title: 'Acadêmico de Medicina Sócio SAMMG adimplente',
-          description: ['Caso o sistema não valide a sua associação, será necessário o envio do comprovante'],
-          image: null,
+          id: 4,
+          title: 'Acadêmico de Medicina',
+          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante'],
+          image: '/images/svg/academico.svg',
           member: ['SAMMG'],
-          receipt: false,
+          receipt: {
+            enabled: false
+          },
           places: 80,
           journey: {
-            title: 'JMR 2025',
+            title: 'JMR/CIM 2025',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 67' },
@@ -10770,14 +10775,18 @@ export const eventData = {
           },
           dayUse: null,
         }, {
-          title: 'Acadêmico de Medicina não Sócio SAMMG',
+          id: 5,
+          title: 'Acadêmico de Medicina',
           description: ['Obrigatório o envio de comprovante de matrícula da Faculdade.'],
-          image: null,
+          image: '/images/svg/academico.svg',
           member: [],
-          receipt: true,
+          receipt: {
+            enabled: true,
+            title: 'Comprovante de matrícula da Faculdade'
+          },
           places: 80,
           journey: {
-            title: 'JMR 2025',
+            title: 'JMR/CIM 2025',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 177' },
@@ -10795,14 +10804,18 @@ export const eventData = {
           },
           dayUse: null,
         }, {
-          title: 'Tecnólogos e Técnicos',
+          id: 6,
+          title: 'Tecnólogo e Técnico',
           description: ['Obrigatório envio de comprovante de atividade em técnicas radiológicas.'],
-          image: null,
+          image: '/images/svg/tecnico.svg',
           member: [],
-          receipt: true,
+          receipt: {
+            enabled: true,
+            title: 'Comprovante de atividade em técnicas radiológicas'
+          },
           places: 100,
           journey: {
-            title: 'JMR 2025',
+            title: 'JMR/CIM 2025',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 68' },
@@ -10818,6 +10831,27 @@ export const eventData = {
               ...[]
             ]
           },
+          dayUse: null
+        }, {
+          id: 7,
+          title: 'Público em Geral',
+          description: 'Curso de Inteligência Artificial, aberto ao público em geral.',
+          image: '/images/svg/publico.svg',
+          member: [],
+          receipt: {
+            enabled: false
+          },
+          journey: {},
+          curses: [{
+            title: 'Curso de Inteligência Artificial',
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 118' },
+              { bestBefore: '27/06/2025', value: 'R$ 148' },
+            ]
+          }],
+          workshops: [],
           dayUse: null
         }
       ]
@@ -11266,9 +11300,9 @@ export const eventData = {
               { desktop: 'No Local', mobile: 'No Local' }
             ],
             rows: [
-              { cells: ['Médico Sócio SRMG/SOGIMIG', { validar: ['SRMG', 'SOGIMIG'], comprovante: false }, 'R$ 297', 'R$ 322', 'R$ 347', 'R$ 372'] },
-              { cells: ['Médico Não Sócio ou Inadimplente', { validar: false, comprovante: true }, 'R$ 597', 'R$ 622', 'R$ 647', 'R$ 672'] },
-              { cells: ['Residente Radiologia ou Ginecologia*', { validar: false, comprovante: true }, 'R$ 179', 'R$ 199', 'R$ 219', 'R$ 269'] },
+              { cells: ['Médico Sócio SRMG/SOGIMIG', { validar: ['SRMG', 'SOGIMIG'], comprovante: false }, 'R$ 70', 'R$ 80', 'R$ 87', 'R$ 94'] },
+              { cells: ['Médico Não Sócio ou Inadimplente', { validar: false, comprovante: true }, 'R$ 158', 'R$ 165', 'R$ 170', 'R$ 180'] },
+              { cells: ['Residente Radiologia ou Ginecologia*', { validar: false, comprovante: true }, 'R$ 60', 'R$ 70', 'R$ 80', 'R$ 90'] },
             ]
           }
         },
@@ -17291,7 +17325,7 @@ export const eventData = {
           {
             "name": "KARINE ALONSO DOS SANTOS",
             "cpf": "06049284598",
-            "email": "karinesantos@alunounifenasbr"
+            "email": "karinesantos@alunounifenas.br"
           },
           {
             "name": "ANA LUIZA DE MAGALHAES KOPPERSCHIMIDT",

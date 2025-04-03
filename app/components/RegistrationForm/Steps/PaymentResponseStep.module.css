@@ -1,0 +1,193 @@
+.stepContent {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 1.15rem;
+  color: #333;
+  margin-block-end: 0.5rem;
+  text-align: center;
+}
+
+
+.responseCard {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.details {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.infoItem:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.value {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.pending {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.confirmed {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.failed {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.summary {
+  margin-bottom: 2rem;
+}
+
+.summaryTitle {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.summaryContent {
+  color: #333;
+  line-height: 1.6;
+}
+
+.products {
+  margin-top: 1rem;
+}
+
+.products ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.products li {
+  margin-bottom: 0.25rem;
+  color: #666;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.paymentButton, .downloadButton, .closeButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.paymentButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.paymentButton:hover {
+  background-color: #218838;
+}
+
+.paymentButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.downloadButton {
+  background-color: #007bff;
+  color: white;
+}
+
+.downloadButton:hover {
+  background-color: #0056b3;
+}
+
+.closeButton {
+  background-color: #6c757d;
+  color: white;
+}
+
+.closeButton:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .paymentButton,
+  .downloadButton,
+  .closeButton {
+    width: 100%;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .responseCard {
+    padding: 1rem;
+  }
+}

@@ -1,12 +1,12 @@
 import { join } from 'path'
 
-export const formatCPF = (cpf) => {
-  // Remove any non-digit characters
-  const cleaned = cpf.replace(/\D/g, '')
-
-  // Format as CPF: XXX.XXX.XXX-XX
-  return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
-}
+// export const formatCPF = (cpf) => {
+//   // Remove any non-digit characters
+//   const cleaned = cpf.replace(/\D/g, '')
+// 
+//   // Format as CPF: XXX.XXX.XXX-XX
+//   return cleaned.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
+// }
 
 export const validateCPF = (cpf) => {
   // Remove any non-digit characters
@@ -39,20 +39,20 @@ export const validateCPF = (cpf) => {
   return true
 }
 
-export function formatPhone(value) {
-  if (!value) return value;
-
-  const phoneNumber = value.replace(/\D/g, '');
-
-  if (phoneNumber.length <= 11) {
-    return phoneNumber
-      .replace(/^(\d{2})/, '($1)')
-      .replace(/(\(\d{2}\))(\d{5})/, '$1$2-')
-      .replace(/(-\d{4})\d+?$/, '$1');
-  }
-
-  return value.slice(0, 14);
-}
+// export function formatPhone(value) {
+//   if (!value) return value;
+// 
+//   const phoneNumber = value.replace(/\D/g, '');
+// 
+//   if (phoneNumber.length <= 11) {
+//     return phoneNumber
+//       .replace(/^(\d{2})/, '($1)')
+//       .replace(/(\(\d{2}\))(\d{5})/, '$1$2-')
+//       .replace(/(-\d{4})\d+?$/, '$1');
+//   }
+// 
+//   return value.slice(0, 14);
+// }
 
 export function verifyDate(ddmmaaaa) {
   // Extrair o dia, mês e ano da string DDMMAAAA
@@ -70,3 +70,59 @@ export function verifyDate(ddmmaaaa) {
   // Comparar a data informada com a data de hoje
   return dataInformada >= hoje
 }
+
+const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'a', 'o', 'as', 'os'];
+
+export const formatName = (name) => {
+  if (!name) return '';
+
+  // Trim whitespace from beginning and end
+  const trimmedName = name.trim();
+
+  return trimmedName.split(' ').map((word, index) => {
+    // Check if word is a single letter (abbreviation)
+    if (word.length === 1) {
+      return `${word.toUpperCase()}.`;
+    }
+
+    // Convert prepositions to lowercase unless it's the first word
+    if (index > 0 && prepositions.includes(word.toLowerCase())) {
+      return word.toLowerCase();
+    }
+
+    // Capitalize first letter, rest lowercase
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  }).join(' ');
+};
+
+export const formatCPF = (value) => {
+  if (!value) return '';
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+    .replace(/(-\d{2})\d+?$/, '$1');
+};
+
+export const formatPhone = (value) => {
+  if (!value) return '';
+  const numbers = value.replace(/\D/g, '');
+  if (numbers.length === 11) {
+    return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+  }
+  return numbers.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+};
+
+export const formatCEP = (value) => {
+  if (!value) return '';
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{5})(\d)/, '$1-$2')
+    .replace(/(-\d{3})\d+?$/, '$1');
+};
+
+export const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};

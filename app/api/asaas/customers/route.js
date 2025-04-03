@@ -45,7 +45,6 @@ export async function POST(request) {
 
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers`,
-      `${process.env.NEXT_PUBLIC_ASAAS_API_URL}/customers`,
       {
         method: 'POST',
         headers: {
