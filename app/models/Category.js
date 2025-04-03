@@ -2,20 +2,20 @@ import { Journey, Course, Workshop, DayUse } from './index';
 
 class Category {
     constructor(id, title, description = null) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.image = null;
-        this.member = [];
-        this.places = null;
-        this.receipt = {
-            enabled: false,
-            title: null
-        };
-        this.journey = null;
-        this.course = null;
-        this.workshop = null;
-        this.dayUse = null;
+      this.id = id;
+      this.title = title;
+      this.description = description;
+      this.image = null;
+      this.member = [];
+      this.places = null;
+      this.receipt = {
+        enabled: false,
+        title: null
+      };
+      this.journey = null;
+      this.courses = []; // Garantir que é inicializado como array vazio
+      this.workshops = [];
+      this.dayUse = null;
     }
 
     setImage(image) {
@@ -46,13 +46,25 @@ class Category {
         return this;
     }
 
-    setCourse(course) {
-        this.course = course;
+  addCourse(course) {
+    if (!this.courses) this.courses = [];
+    this.courses.push(course);
         return this;
     }
 
-    setWorkshop(workshop) {
-        this.workshop = workshop;
+  setCourses(courses = []) {
+    this.courses = Array.isArray(courses) ? [...courses] : [];
+    return this;
+  }
+
+  addWorkshop(workshop) {
+    if (!this.workshops) this.workshops = [];
+    this.workshops.push(workshop);
+    return this;
+  }
+
+  setWorkshops(workshops = []) {
+    this.workshops = Array.isArray(workshops) ? [...workshops] : [];
         return this;
     }
 
@@ -74,12 +86,11 @@ class Category {
 
         category
             .setImage(categoryData.image)
-            .setMember(categoryData.member)
+          .setMember(categoryData.member || [])
             .setPlaces(categoryData.places)
             .setReceipt(
                 categoryData.receipt?.enabled,
-                categoryData.receipt?.title,
-                categoryData.receipt?.description
+              categoryData.receipt?.title
             );
 
         if (categoryData.journey) {
@@ -90,19 +101,41 @@ class Category {
             ));
         }
 
-        if (categoryData.course) {
-            category.setCourse(new Course(
-                categoryData.course.title,
-                categoryData.course.description,
-                categoryData.course.price
-            ));
+      if (categoryData.courses) {
+        // Se já for um array
+        if (Array.isArray(categoryData.courses)) {
+          category.setCourses(categoryData.courses.map(courseData =>
+            new Course(
+              courseData.title,
+              courseData.description,
+              courseData.prices
+            )
+          ));
+        }
+        // Se for um objeto único
+        else if (typeof categoryData.courses === 'object') {
+          category.setCourses([new Course(
+            categoryData.courses.title,
+            categoryData.courses.description,
+            categoryData.courses.prices
+          )]);
+        }
         }
 
-        if (categoryData.workshop) {
-            category.setWorkshop(new Workshop(
+      if (Array.isArray(categoryData.workshops)) {
+        const workshopObjects = categoryData.workshops.map(workshopData =>
+          new Workshop(
+            workshopData.title,
+            workshopData.description,
+            workshopData.prices
+          )
+        );
+        category.setWorkshops(workshopObjects);
+      } else if (categoryData.workshop) {
+        category.addWorkshop(new Workshop(
                 categoryData.workshop.title,
                 categoryData.workshop.description,
-                categoryData.workshop.price
+          categoryData.workshop.prices
             ));
         }
 
@@ -111,7 +144,7 @@ class Category {
                 categoryData.dayUse.title,
                 categoryData.dayUse.description,
                 categoryData.dayUse.date,
-                categoryData.dayUse.price
+              categoryData.dayUse.prices
             ));
         }
 
@@ -133,11 +166,19 @@ class Category {
     }
 
     isMemberOnly() {
-        return !!this.member;
+      return this.member?.length > 0;
     }
 
     hasReceipt() {
-        return this.receipt.enabled;
+    return this.receipt?.enabled === true;
+  }
+
+  hasCourses() {
+    return Array.isArray(this.courses) && this.courses.length > 0;
+  }
+
+  hasWorkshops() {
+    return Array.isArray(this.workshops) && this.workshops.length > 0;
     }
 }
 

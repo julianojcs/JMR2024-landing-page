@@ -1,13 +1,13 @@
-// get curses() {
+// get courses() {
 //   return [
-//     ...publicCurses('curses', 2028),
+//     ...publicCourses('courses', 2028),
 //     ...[]
 //   ]
 
 import { title } from "process";
 
 // },
-const publicCurses = (branch, year) => {
+const publicCourses = (branch, year) => {
   return [...eventData[year].registrationForm.categories[0]?.[branch]] || [];
 }
 
@@ -741,7 +741,7 @@ export const eventData = {
           description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação.'],
           member: ['SRMG', 'SOGIMIG'],
           receipt: false,
-          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 325' },
             { bestBefore: '20/05/2025', value: 'R$ 355' },
@@ -753,7 +753,7 @@ export const eventData = {
           description: ['Médicos não associados ou inadimplentes com a anuidade 2025.'],
           member: [],
           receipt: false,
-          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 705' },
             { bestBefore: '20/05/2025', value: 'R$ 735' },
@@ -765,7 +765,7 @@ export const eventData = {
           description: ['Obrigatório envio do comprovante de Residência/Especialização/Fellowship.'],
           member: [],
           receipt: true,
-          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 179' },
             { bestBefore: '20/05/2025', value: 'R$ 199' },
@@ -815,7 +815,7 @@ export const eventData = {
           ],
           member: ['SRMG', 'SOGIMIG'],
           receipt: false,
-          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Curso de Inteligência Artificial'],
           dayUse: [27, 28],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 243,75' },
@@ -830,7 +830,7 @@ export const eventData = {
           ],
           member: [],
           receipt: false,
-          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Curso de Inteligência Artificial'],
           dayUse: [27, 28],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 528,75' },
@@ -1608,7 +1608,7 @@ export const eventData = {
           description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação.'],
           member: ['SRMG', 'SOGIMIG'], // CPF encontrado no checkSocietyMembership
           receipt: false,
-          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 325' },
             { bestBefore: '20/05/2025', value: 'R$ 355' },
@@ -1620,7 +1620,7 @@ export const eventData = {
           description: ['Médicos não associados ou inadimplentes com a anuidade 2025.'],
           member: [],
           receipt: false,
-          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 705' },
             { bestBefore: '20/05/2025', value: 'R$ 735' },
@@ -1632,7 +1632,7 @@ export const eventData = {
           description: ['Obrigatório envio do comprovante de Residência/Especialização/Fellowship.'],
           member: ['SRMG', 'SOGIMIG'], // CPF encontrado no checkSocietyMembership
           receipt: true,
-          curses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Workshop', 'Curso de Inteligência Artificial'],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 179' },
             { bestBefore: '20/05/2025', value: 'R$ 199' },
@@ -1682,7 +1682,7 @@ export const eventData = {
           ],
           member: ['SRMG', 'SOGIMIG'],
           receipt: false,
-          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Curso de Inteligência Artificial'],
           dayUse: [27, 28],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 243,75' },
@@ -1701,7 +1701,7 @@ export const eventData = {
           ],
           member: [],
           receipt: false,
-          curses: ['Jornada', 'Curso de Inteligência Artificial'],
+          courses: ['Jornada', 'Curso de Inteligência Artificial'],
           dayUse: [27, 28],
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 528,75' },
@@ -10600,7 +10600,7 @@ export const eventData = {
         receipt: {
           enabled: false
         },
-        curses: [{
+        courses: [{
           title: 'Curso de Inteligência Artificial',
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 88' },
@@ -10634,7 +10634,7 @@ export const eventData = {
           },
           workshops: [
             {
-              title: 'Workshop RM Pelve para Ginecologistas',
+              title: 'RM Pelve para Ginecologistas',
               image: null,
               prices: [
                 { bestBefore: '20/04/2025', value: 'R$ 70' },
@@ -10644,12 +10644,16 @@ export const eventData = {
               ]
             }
           ],
-          get curses() {
-            return [
-              ...publicCurses('curses', 2028),
-              ...[]
+          courses: [{
+            title: 'Curso de Inteligência Artificial',
+            image: null,
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 118' },
+              { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          },
+          }],
           dayUse: {
             title: 'Day use',
             image: null,
@@ -10681,7 +10685,7 @@ export const eventData = {
             ]
           },
           workshops: [{
-            title: 'Workshop RM Pelve para Ginecologistas',
+            title: 'RM Pelve para Ginecologistas',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 158' },
@@ -10691,12 +10695,22 @@ export const eventData = {
             ]
           },
           ],
-          get curses() {
-            return [
-              ...publicCurses('curses', 2028),
-              ...[]
+          courses: [{
+            title: 'Curso de Inteligência Artificial',
+            image: null,
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 118' },
+              { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          },
+          }],
+          // get courses() {
+          //   return [
+          //     ...publicCourses('courses', 2028),
+          //     ...[]
+          //   ]
+          // },
           dayUse: {
             title: 'Day use',
             image: null,
@@ -10729,7 +10743,7 @@ export const eventData = {
             ],
           },
           workshops: [{
-            title: 'Workshop RM Pelve para Ginecologistas',
+            title: 'RM Pelve para Ginecologistas',
             image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 60' },
@@ -10739,12 +10753,16 @@ export const eventData = {
             ]
           },
           ],
-          get curses() {
-            return [
-              ...publicCurses('curses', 2028),
-              ...[]
+          courses: [{
+            title: 'Curso de Inteligência Artificial',
+            image: null,
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 118' },
+              { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          },
+          }],
           dayUse: null,
         }, {
           id: 4,
@@ -10766,13 +10784,16 @@ export const eventData = {
               { bestBefore: '27/06/2025', value: 'R$ 147' },
             ]
           },
-          workshops: [],
-          get curses() {
-            return [
-              ...publicCurses('curses', 2028),
-              ...[]
+          courses: [{
+            title: 'Curso de Inteligência Artificial',
+            image: null,
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 118' },
+              { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          },
+          }],
           dayUse: null,
         }, {
           id: 5,
@@ -10795,13 +10816,16 @@ export const eventData = {
               { bestBefore: '27/06/2025', value: 'R$ 297' },
             ]
           },
-          workshops: [],
-          get curses() {
-            return [
-              ...publicCurses('curses', 2028),
-              ...[]
+          courses: [{
+            title: 'Curso de Inteligência Artificial',
+            image: null,
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 118' },
+              { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          },
+          }],
           dayUse: null,
         }, {
           id: 6,
@@ -10824,13 +10848,16 @@ export const eventData = {
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
           },
-          workshops: [],
-          get curses() {
-            return [
-              ...publicCurses('curses', 2028),
-              ...[]
+          courses: [{
+            title: 'Curso de Inteligência Artificial',
+            image: null,
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 118' },
+              { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          },
+          }],
           dayUse: null
         }, {
           id: 7,
@@ -10842,8 +10869,9 @@ export const eventData = {
             enabled: false
           },
           journey: {},
-          curses: [{
+          courses: [{
             title: 'Curso de Inteligência Artificial',
+            image: null,
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },

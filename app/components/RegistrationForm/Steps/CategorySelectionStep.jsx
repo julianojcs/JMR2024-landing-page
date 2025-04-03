@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRegistration } from '../../../contexts/RegistrationContext';
 import { Category } from '../../../models';
 import Receipt from './Receipt';
@@ -7,6 +7,7 @@ import styles from './CategorySelectionStep.module.css';
 const CategorySelectionStep = () => {
   const { formData, updateFormData, setCurrentStep } = useRegistration();
   const [error, setError] = useState({});
+  const [categorySelected, setCategorySelected] = useState(false);
 
   const categories = formData?.eventData?.categories.filter(category => {
     if (!category.member) return true;
@@ -16,29 +17,14 @@ const CategorySelectionStep = () => {
     );
   }) || [];
 
-  // if (formData?.eventData?.openToPublic) {
-  //   const openToPublicCategory = formData.eventData.openToPublic;
-  //   // Add the "Open to Public" category if it exists in the event data
-  //   categories.push({
-  //     id: 0,
-  //     title: openToPublicCategory.title,
-  //     description: openToPublicCategory.description,
-  //     image: openToPublicCategory.image,
-  //     receipt: openToPublicCategory.receipt,
-  //     member: openToPublicCategory.member
-  //   });
-  // }
-
   const shouldShowReceipt = () => {
+    if (!categorySelected || !formData.category) return false;
+
     const category = formData.category;
     const societies = formData.personalInfo.societies || [];
 
-    if (!category) return false;
-
-    // Category has a receipt and the user needs to provide it
     if (category?.receipt?.enabled === true) return true;
 
-    // Category has members and the user is not a member of any of them
     if (category?.member?.length > 0) {
       if (societies.length === 0) return true;
       if (!category.member.some(m => societies.includes(m))) return true;
@@ -50,6 +36,7 @@ const CategorySelectionStep = () => {
   const handleCategorySelect = (category) => {
     const selectedCategory = Category.fromEventData(category);
     updateFormData('category', selectedCategory);
+    setCategorySelected(true);
     setError(prev => ({ ...prev, category: '' }));
   };
 
@@ -70,7 +57,7 @@ const CategorySelectionStep = () => {
   const handleNext = () => {
     const newErrors = {};
 
-    if (!formData.category) {
+    if (!formData?.category || !(formData?.category?.id)) {
       newErrors.category = 'Por favor, selecione uma categoria';
     }
 
@@ -85,6 +72,12 @@ const CategorySelectionStep = () => {
 
     setCurrentStep(3);
   };
+
+  useEffect(() => {
+    if (formData.category) {
+      setCategorySelected(true);
+    }
+  }, []);
 
   return (
     <div className={styles.stepContent}>

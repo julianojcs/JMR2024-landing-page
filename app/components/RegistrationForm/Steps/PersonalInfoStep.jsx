@@ -7,6 +7,7 @@ import styles from './PersonalInfoStep.module.css';
 
 const PersonalInfoStep = () => {
     const { formData, updateFormData, setCurrentStep } = useRegistration();
+  const [initialFormState, setInitialFormState] = useState(formData.personalInfo);
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [cpfVerified, setCpfVerified] = useState(false);
@@ -119,22 +120,28 @@ const PersonalInfoStep = () => {
     };
 
     const updatePersonalInfoData = (customer) => {
-        updateFormData('personalInfo', {
-            userId: customer.id,
-            fullName: formatName(customer.name),
-            email: customer.email.toLowerCase(),
-            phone: customer.phone,
-            zipCode: customer.zipCode,
-            address: formatName(customer.address),
-            number: customer.number,
-            complement: customer.complement,
-            neighborhood: formatName(customer.neighborhood),
-            city: formatName(customer.city),
-            state: customer.state,
-            crm: customer.crm,
-            stateCrm: customer.stateCrm,
-            isNewCustomer: false
-        });
+      const newPersonalInfo = {
+        userId: customer.id,
+        fullName: formatName(customer.name),
+        email: customer.email.toLowerCase(),
+        phone: customer.phone,
+        zipCode: customer.zipCode,
+        address: formatName(customer.address),
+        number: customer.number,
+        complement: customer.complement,
+        neighborhood: formatName(customer.neighborhood),
+        city: formatName(customer.city),
+        state: customer.state,
+        crm: customer.crm,
+        stateCrm: customer.stateCrm,
+        isNewCustomer: false
+      }
+      updateFormData('personalInfo', newPersonalInfo);
+      // Store initial state for comparison
+      setInitialFormState(prev => ({
+        ...prev,
+        ...newPersonalInfo
+      }))
     };
 
     const handleChange = (e, formatter = null) => {
@@ -232,6 +239,16 @@ const PersonalInfoStep = () => {
         return Object.keys(newErrors).length === 0;
     };
 
+  // Check if data has changed
+  const hasDataChanged = (originalData, currentData) => {
+    const fieldsToCompare = [
+      'fullName', 'email', 'phone', 'zipCode', 'address',
+      'number', 'complement', 'neighborhood', 'city', 'state', 'crm', 'stateCrm'
+    ]
+
+    return fieldsToCompare.some(field => originalData[field] !== currentData[field])
+  }
+
     const handleNext = async () => {
         if (validateForm()) {
             setIsLoading(true);
@@ -247,7 +264,9 @@ const PersonalInfoStep = () => {
                         isNewCustomer: false
                     });
                 } else {
-                    await updateCustomerData(customerId, personalInfo);
+                  if (personalInfo.userId && hasDataChanged(initialFormState, personalInfo)) {
+                      await updateCustomerData(customerId, personalInfo);
+                    }
                 }
             } catch (error) {
                 console.error('Error saving customer data:', error);

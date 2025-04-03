@@ -39,7 +39,7 @@ const Receipt = ({
           accept=".pdf,.jpg,.jpeg,.png"
           className={styles.fileInput}
         />
-        {receipt ? (
+        {receipt && receipt?.name ? (
           <div className={styles.fileInfo}>
             <span>{receipt.name}</span>
             <button

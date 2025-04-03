@@ -60,7 +60,7 @@ export const updateCustomerData = async (customerId, data) => {
       province: data.neighborhood,
       city: data.city,
       state: data.state,
-      observations: data.crm ? `CRM ${data.crm}/${data.stateCrm}` : ''
+      observations: data.crm ? `CRM-${data.stateCrm} ${data.crm}` : ''
     });
 
     return response;

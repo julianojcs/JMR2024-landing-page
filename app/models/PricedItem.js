@@ -1,6 +1,7 @@
 class PricedItem {
-    constructor(title, description = null) {
+  constructor(title, image = null, description = null) {
         this.title = title;
+      this.image = image;
         this.description = description;
         this.prices = [];
     }
