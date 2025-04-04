@@ -8,11 +8,21 @@ const ProductSelectionStep = () => {
   const { category } = formData;
 
   const handleJourneySelect = () => {
-    updateFormData('selectedItems', {
-      ...formData.selectedItems,
-      // Se já estiver selecionado, define como null, senão seleciona
-      journey: formData.selectedItems.journey ? null : category.journey
-    });
+    // Se journey já está selecionado, apenas desmarca
+    if (formData.selectedItems.journey) {
+      updateFormData('selectedItems', {
+        ...formData.selectedItems,
+        journey: null
+      });
+    }
+    // Se journey não está selecionado, marca-o e desmarca dayUse
+    else {
+      updateFormData('selectedItems', {
+        ...formData.selectedItems,
+        journey: category.journey,
+        dayUse: null // Desmarca dayUse quando journey é selecionado
+      });
+    }
   };
 
   const handleWorkshopSelect = (workshop) => {
@@ -38,11 +48,21 @@ const ProductSelectionStep = () => {
   };
 
   const handleDayUseSelect = () => {
-    updateFormData('selectedItems', {
-      ...formData.selectedItems,
-      // Se já estiver selecionado, define como null, senão seleciona
-      dayUse: formData.selectedItems.dayUse ? null : category.dayUse
-    });
+    // Se dayUse já está selecionado, apenas desmarca
+    if (formData.selectedItems.dayUse) {
+      updateFormData('selectedItems', {
+        ...formData.selectedItems,
+        dayUse: null
+      });
+    }
+    // Se dayUse não está selecionado, marca-o e desmarca journey
+    else {
+      updateFormData('selectedItems', {
+        ...formData.selectedItems,
+        dayUse: category.dayUse,
+        journey: null // Desmarca journey quando dayUse é selecionado
+      });
+    }
   };
 
   const handlePrevious = () => {
@@ -69,80 +89,102 @@ const ProductSelectionStep = () => {
       {error && <div className={styles.error}>{error}</div>}
 
       <div className={styles.productsWrapper}>
+
+        {/* Coluna 1 */}
         {category?.journey && (
-          <section className={styles.productSection}>
-            <h3 className={styles.sectionTitle}>Jornada</h3>
-            <div className={styles.productGrid}>
-              <div
-                className={`${styles.productCard} ${formData.selectedItems.journey ? styles.selected : ''
-                  }`}
+          <>
+            <h3 className={`${styles.CellGridLayout} ${styles.journeyDayuse} ${styles.sectionTitle}`}>Jornada</h3>
+
+            <div className={`${styles.CellGridLayout} ${styles.productCard} ${styles.journeyDayuse} ${formData.selectedItems.journey ? styles.selected : ''}`}
                 onClick={handleJourneySelect}
               >
-                <h4>{category.journey.title}</h4>
-                <p className={styles.price}>
-                  {category.journey.getCurrentPrice()?.value}
-                </p>
-              </div>
+              {category.journey?.image && (
+                <div className={styles.imageContainer}>
+                  <img src={category.journey.image} alt={category.journey?.title} />
+                </div>
+              )}
+              <h4>{category.journey?.title}</h4>
+              {category.journey?.description && (
+                <p className={styles.description}>{category.journey?.description}</p>
+              )}
+              <p className={styles.price}>
+                {category.journey.getCurrentPrice()?.value}
+              </p>
             </div>
-          </section>
+
+            {category?.dayUse && (
+              <div className={`${styles.CellGridLayout} ${styles.productCard} ${styles.journeyDayuse} ${formData.selectedItems.dayUse ? styles.selected : ''}`}
+                onClick={handleDayUseSelect}
+              >
+                {category.dayUse?.image && (
+                  <div className={styles.imageContainer}>
+                    <img src={category.dayUse?.image} alt={category.dayUse?.title} />
+                  </div>
+                )}
+                <h4>{category.dayUse?.title}</h4>
+                {category.dayUse?.description && (
+                  <p className={styles.description}>{category.dayUse?.description}</p>
+                )}
+                <p className={styles.description}>{category.dayUse?.description}</p>
+                <p className={styles.price}>{category.dayUse?.getCurrentPrice()?.value}</p>
+              </div>
+            )}
+          </>
         )}
 
+        {/* Coluna 2 */}
         {category?.workshops && (
-          <section className={styles.productSection}>
-            <h3 className={styles.sectionTitle}>Workshops</h3>
-            <div className={styles.productGrid}>
-              {category.workshops.map((workshop, index) => (
-                <div
-                  key={index}
-                  className={`${styles.productCard} ${formData.selectedItems.workshops.includes(workshop) ? styles.selected : ''
-                    }`}
-                  onClick={() => handleWorkshopSelect(workshop)}
-                >
-                  <h4>{workshop.title}</h4>
-                  <p className={styles.description}>{workshop.description}</p>
-                  <p className={styles.price}>{workshop.getCurrentPrice()?.value}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <>
+            <h3 className={`${styles.CellGridLayout} ${styles.workshops} ${styles.sectionTitle}`}>Workshops</h3>
+
+            {category.workshops.map((workshop, index) => (
+              <div
+                key={index}
+                className={`${styles.CellGridLayout} ${styles.productCard} ${styles.workshops} ${formData.selectedItems.workshops.includes(workshop) ? styles.selected : ''}`}
+                onClick={() => handleWorkshopSelect(workshop)}
+              >
+                {workshop?.image && (
+                  <div className={styles.imageContainer}>
+                    <img src={workshop.image} alt={workshop?.title} />
+                  </div>
+                )}
+                <h4>{workshop?.title}</h4>
+                {workshop?.description && (
+                  <p className={styles.description}>{workshop?.description}</p>
+                )}
+                <p className={styles.description}>{workshop.description}</p>
+                <p className={styles.price}>{workshop?.getCurrentPrice()?.value}</p>
+              </div>
+            ))}
+          </>
         )}
 
         {category?.courses?.length > 0 && (
-          <section className={styles.productSection}>
-            <h3 className={styles.sectionTitle}>Cursos</h3>
-            <div className={styles.productGrid}>
+          <>
+            <h3 className={`${styles.CellGridLayout} ${styles.courses} ${styles.sectionTitle}`}>Cursos</h3>
+
               {category.courses.map((course, index) => (
                 <div
                   key={index}
-                  className={`${styles.productCard} ${formData.selectedItems.courses.includes(course) ? styles.selected : ''
-                    }`}
+                  className={`${styles.CellGridLayout} ${styles.productCard} ${styles.courses} ${formData.selectedItems.courses.includes(course) ? styles.selected : ''}`}
                   onClick={() => handleCourseSelect(course)}
                 >
-                  <h4>{course.title}</h4>
+                  {course?.image && (
+                    <div className={styles.imageContainer}>
+                      <img src={course.image} alt={course.title} />
+                    </div>
+                  )}
+                  <h4>{course?.title}</h4>
+                  {course?.description && (
+                    <p className={styles.description}>{course.description}</p>
+                  )}
                   <p className={styles.description}>{course.description}</p>
-                  <p className={styles.price}>{course.getCurrentPrice()?.value}</p>
+                  <p className={styles.price}>{course?.getCurrentPrice()?.value}</p>
                 </div>
               ))}
-            </div>
-          </section>
+          </>
         )}
 
-        {category?.dayUse && (
-          <section className={styles.productSection}>
-            <h3 className={styles.sectionTitle}>Day Use</h3>
-            <div className={styles.productGrid}>
-              <div
-                className={`${styles.productCard} ${formData.selectedItems.dayUse ? styles.selected : ''
-                  }`}
-                onClick={handleDayUseSelect}
-              >
-                <h4>{category.dayUse.title}</h4>
-                <p className={styles.description}>{category.dayUse.description}</p>
-                <p className={styles.price}>{category.dayUse.getCurrentPrice()?.value}</p>
-              </div>
-            </div>
-          </section>
-        )}
       </div>
       <div className={styles.buttonGroup}>
         <button

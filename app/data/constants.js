@@ -10594,7 +10594,7 @@ export const eventData = {
       description: 'A JMR 2025 / CIM 2025 acontecerão  nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
       openToPublic: {
         title: 'Público em Geral',
-        description: 'Curso de Inteligência Artificial, aberto ao público em geral.',
+        description: 'Curso aberto ao público em geral.',
         image: '/images/svg/publico.svg',
         member: [],
         receipt: {
@@ -10602,6 +10602,8 @@ export const eventData = {
         },
         courses: [{
           title: 'Curso de Inteligência Artificial',
+          description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
+          image: '/images/svg/courses.svg',
           prices: [
             { bestBefore: '20/04/2025', value: 'R$ 88' },
             { bestBefore: '20/05/2025', value: 'R$ 98' },
@@ -10624,7 +10626,8 @@ export const eventData = {
           },
           journey: {
             title: 'JMR/CIM 2025',
-            image: null,
+            description: ['Adquira o acesso completo à JMR/CIM 2025'],
+            image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 325' },
               { bestBefore: '20/05/2025', value: 'R$ 355' },
@@ -10632,21 +10635,21 @@ export const eventData = {
               { bestBefore: '27/06/2025', value: 'R$ 415' },
             ],
           },
-          workshops: [
-            {
-              title: 'RM Pelve para Ginecologistas',
-              image: null,
-              prices: [
-                { bestBefore: '20/04/2025', value: 'R$ 70' },
-                { bestBefore: '20/05/2025', value: 'R$ 80' },
-                { bestBefore: '25/06/2025', value: 'R$ 87' },
-                { bestBefore: '27/06/2025', value: 'R$ 94' },
-              ]
-            }
-          ],
+          workshops: [{
+            title: 'RM Pelve para Ginecologistas',
+            description: ['Workshop exclusivo para médicos.'],
+            image: '/images/svg/workshops.svg',
+            prices: [
+              { bestBefore: '20/04/2025', value: 'R$ 70' },
+              { bestBefore: '20/05/2025', value: 'R$ 80' },
+              { bestBefore: '25/06/2025', value: 'R$ 87' },
+              { bestBefore: '27/06/2025', value: 'R$ 94' },
+            ]
+          }],
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            image: null,
+            description: ['Curso aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
@@ -10656,8 +10659,8 @@ export const eventData = {
           }],
           dayUse: {
             title: 'Day use',
-            image: null,
             description: ['O Day Use dá acesso a um dia de evento, à escolha do participante.'],
+            image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 243,75' },
               { bestBefore: '20/05/2025', value: 'R$ 266,25' },
@@ -10676,7 +10679,8 @@ export const eventData = {
           },
           journey: {
             title: 'JMR/CIM 2025',
-            image: null,
+            description: ['Adquira o acesso completo à JMR/CIM 2025'],
+            image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 705' },
               { bestBefore: '20/05/2025', value: 'R$ 735' },
@@ -10686,18 +10690,19 @@ export const eventData = {
           },
           workshops: [{
             title: 'RM Pelve para Ginecologistas',
-            image: null,
+            description: ['Workshop exclusivo para médicos.'],
+            image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 158' },
               { bestBefore: '20/05/2025', value: 'R$ 165' },
               { bestBefore: '25/06/2025', value: 'R$ 170' },
               { bestBefore: '27/06/2025', value: 'R$ 180' },
             ]
-          },
-          ],
+          },],
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            image: null,
+            description: ['Curso aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
@@ -10713,8 +10718,8 @@ export const eventData = {
           // },
           dayUse: {
             title: 'Day use',
-            image: null,
             description: ['O Day Use dá acesso a um dia de evento, à escolha do participante.'],
+            image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 528,75' },
               { bestBefore: '20/05/2025', value: 'R$ 551,25' },
@@ -10734,7 +10739,8 @@ export const eventData = {
           },
           journey: {
             title: 'JMR/CIM 2025',
-            image: null,
+            description: ['Adquira o acesso completo à JMR/CIM 2025'],
+            image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 179' },
               { bestBefore: '20/05/2025', value: 'R$ 199' },
@@ -10744,7 +10750,8 @@ export const eventData = {
           },
           workshops: [{
             title: 'RM Pelve para Ginecologistas',
-            image: null,
+            description: ['Workshop exclusivo para médicos.'],
+            image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 60' },
               { bestBefore: '20/05/2025', value: 'R$ 70' },
@@ -10755,7 +10762,8 @@ export const eventData = {
           ],
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            image: null,
+            description: ['Curso aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
@@ -10776,7 +10784,8 @@ export const eventData = {
           places: 80,
           journey: {
             title: 'JMR/CIM 2025',
-            image: null,
+            description: ['Adquira o acesso completo à JMR/CIM 2025'],
+            image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 67' },
               { bestBefore: '20/05/2025', value: 'R$ 87' },
@@ -10786,7 +10795,8 @@ export const eventData = {
           },
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            image: null,
+            image: '/images/svg/courses.svg',
+            description: ['Curso aberto ao público em geral.'],
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
@@ -10808,7 +10818,8 @@ export const eventData = {
           places: 80,
           journey: {
             title: 'JMR/CIM 2025',
-            image: null,
+            description: ['Adquira o acesso completo à JMR/CIM 2025'],
+            image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 177' },
               { bestBefore: '20/05/2025', value: 'R$ 197' },
@@ -10818,7 +10829,8 @@ export const eventData = {
           },
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            image: null,
+            image: '/images/svg/courses.svg',
+            description: ['Curso aberto ao público em geral.'],
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
@@ -10840,7 +10852,8 @@ export const eventData = {
           places: 100,
           journey: {
             title: 'JMR/CIM 2025',
-            image: null,
+            description: ['Adquira o acesso completo à JMR/CIM 2025'],
+            image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 68' },
               { bestBefore: '20/05/2025', value: 'R$ 88' },
@@ -10850,7 +10863,8 @@ export const eventData = {
           },
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            image: null,
+            description: ['Curso aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
@@ -10862,7 +10876,7 @@ export const eventData = {
         }, {
           id: 7,
           title: 'Público em Geral',
-          description: 'Curso de Inteligência Artificial, aberto ao público em geral.',
+          description: 'Curso aberto ao público em geral.',
           image: '/images/svg/publico.svg',
           member: [],
           receipt: {
@@ -10871,7 +10885,8 @@ export const eventData = {
           journey: {},
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            image: null,
+            description: ['Curso aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },

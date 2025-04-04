@@ -1,28 +1,28 @@
 import PricedItem from './PricedItem';
 
 class Journey extends PricedItem {
-    constructor(title, image = null, prices = []) {
-        super(title);
-        this.image = image;
-        this.setPrices(prices);
+  constructor(title, description = null, image = null, prices = []) {
+    super(title, description);
+    this.image = image;
+    this.setPrices(prices);
+  }
+
+  static fromCategory(categoryId, eventData) {
+    if (!categoryId || !eventData?.registrationForm?.categories) {
+      return null;
     }
 
-    static fromCategory(categoryId, eventData) {
-        if (!categoryId || !eventData?.registrationForm?.categories) {
-            return null;
-        }
+    const category = eventData.registrationForm.categories.find(
+      category => category.id === categoryId
+    );
 
-        const category = eventData.registrationForm.categories.find(
-            category => category.id === categoryId
-        );
-
-        if (!category?.journey) {
-            return null;
-        }
-
-        const { title, image, prices } = category.journey;
-        return new Journey(title, image, prices);
+    if (!category?.journey) {
+      return null;
     }
+
+    const { title, description, image, prices } = category.journey;
+    return new Journey(title, description, image, prices);
+  }
 }
 
 export default Journey;

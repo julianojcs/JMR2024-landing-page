@@ -1,8 +1,9 @@
 import PricedItem from './PricedItem';
 
 class Course extends PricedItem {
-    constructor(title, description = null, prices = []) {
+  constructor(title, description = null, image = null, prices = []) {
         super(title, description);
+      this.image = image;
         this.setPrices(prices);
     }
 
@@ -19,8 +20,8 @@ class Course extends PricedItem {
             return null;
         }
 
-        const { title, description, prices } = category.course;
-        return new Course(title, description, prices);
+      const { title, description, image, prices } = category.course;
+      return new Course(title, description, image, prices);
     }
 }
 
