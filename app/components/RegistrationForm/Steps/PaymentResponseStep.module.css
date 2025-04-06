@@ -68,26 +68,47 @@
   font-weight: 500;
 }
 
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.statusIcon {
+  font-size: 1.1rem;
+  background-color: transparent;
+}
+
 .status {
-  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
   border-radius: 4px;
-  font-size: 0.875rem;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .pending {
-  background-color: #ffc107;
-  color: #000;
+  background-color: #fff9c4;
+  color: #fbc02d;
+  border: 1px solid #ffeeba;
 }
 
 .confirmed {
-  background-color: #28a745;
-  color: #fff;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
 }
 
 .failed {
   background-color: #dc3545;
   color: #fff;
+}
+
+.overdue {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
 }
 
 .summary {

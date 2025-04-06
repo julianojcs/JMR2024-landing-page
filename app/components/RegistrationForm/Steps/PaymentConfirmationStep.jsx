@@ -44,16 +44,16 @@ const PaymentConfirmationStep = () => {
     }
   };
 
-  // Helper para determinar o status do pagamento
+  // Helper para determinar o status do pagamento com ícones
   const getPaymentStatus = () => {
-    if (!paymentResponse) return { text: 'Pendente', className: 'pending' };
+    if (!paymentResponse) return { text: 'Pendente', className: 'pending', icon: '⌛' };
 
     switch (paymentResponse.status) {
-      case 'PENDING': return { text: 'Aguardando Pagamento', className: 'pending' };
-      case 'CONFIRMED': return { text: 'Confirmado', className: 'confirmed' };
-      case 'RECEIVED': return { text: 'Recebido', className: 'confirmed' };
-      case 'OVERDUE': return { text: 'Vencido', className: 'overdue' };
-      default: return { text: 'Aguardando Pagamento', className: 'pending' };
+      case 'PENDING': return { text: 'Aguardando Pagamento', className: 'pending', icon: '⌛' };
+      case 'CONFIRMED': return { text: 'Confirmado', className: 'confirmed', icon: '✅' };
+      case 'RECEIVED': return { text: 'Recebido', className: 'confirmed', icon: '✔️' };
+      case 'OVERDUE': return { text: 'Vencido', className: 'overdue', icon: '⏰' };
+      default: return { text: 'Aguardando Pagamento', className: 'pending', icon: '⚠️' };
     }
   };
 
@@ -92,7 +92,7 @@ const PaymentConfirmationStep = () => {
           <div className={styles.infoItem}>
             <span className={styles.label}>Status:</span>
             <span className={`${styles.status} ${styles[paymentStatus.className]}`}>
-              {paymentStatus.text}
+              {paymentStatus.icon} {paymentStatus.text}
             </span>
           </div>
 
@@ -116,20 +116,22 @@ const PaymentConfirmationStep = () => {
         {/* Dados pessoais */}
         <section className={styles.section}>
           <h3 className={styles.sectionTitle}>Dados Pessoais</h3>
-          <div className={styles.infoItem}>
-            <span className={styles.label}>Nome:</span>
-            <span className={styles.value}>{personalInfo.fullName}</span>
-          </div>
-          <div className={styles.infoItem}>
-            <span className={styles.label}>Email:</span>
-            <span className={styles.value}>{personalInfo.email}</span>
-          </div>
-          {personalInfo.cpf && (
+          <div className={styles.infoGrid}>
             <div className={styles.infoItem}>
-              <span className={styles.label}>CPF:</span>
-              <span className={styles.value}>{personalInfo.cpf}</span>
+              <span className={styles.label}>Nome:</span>
+              <span className={styles.value}>{personalInfo.fullName}</span>
             </div>
-          )}
+            <div className={styles.infoItem}>
+              <span className={styles.label}>Email:</span>
+              <span className={styles.value}>{personalInfo.email}</span>
+            </div>
+            {personalInfo.cpf && (
+              <div className={styles.infoItem}>
+                <span className={styles.label}>CPF:</span>
+                <span className={styles.value}>{personalInfo.cpf}</span>
+              </div>
+            )}
+          </div>
         </section>
 
         {/* Categoria e produtos */}
@@ -179,7 +181,7 @@ const PaymentConfirmationStep = () => {
 
           {/* Comprovante clicável */}
           {formData.receipt && (
-            <div 
+            <div
               className={`${styles.attachmentInfo} ${receiptDownloadUrl ? styles.clickable : ''} ${downloadAttempted ? styles.attempted : ''}`} 
               onClick={handleDownloadReceipt}
               title={receiptDownloadUrl ? "Clique para baixar o comprovante" : "Comprovante anexado, mas download não disponível"}
@@ -235,11 +237,8 @@ const PaymentConfirmationStep = () => {
 
         {/* Botão para voltar */}
         <div className={styles.navigationSection}>
-          <button
-            onClick={handleModalClose}
-            className={styles.returnButton}
-          >
-            Voltar para Página Principal
+          <button onClick={handleModalClose} className={styles.returnButton} >
+            Fechar
           </button>
         </div>
       </div>

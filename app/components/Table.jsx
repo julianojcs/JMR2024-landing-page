@@ -219,7 +219,7 @@ export default function Table({ theTable, year }) {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       >
-        <RegistrationForm year={year} />
+        <RegistrationForm year={year} onClose={() => setIsModalOpen(false)} />
       </Modal>
     </>
   )
