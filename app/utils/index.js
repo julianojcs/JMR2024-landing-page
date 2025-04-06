@@ -126,3 +126,17 @@ export const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
+
+/**
+ * Normaliza um nome removendo caracteres especiais e substituindo espaços por hífens
+ * @param {string} name - Nome a ser normalizado
+ * @returns {string} Nome normalizado
+ */
+export const normalizeFileName = (name) => {
+  return name
+    .normalize('NFD')
+    .replace(/[^\w\s]/gi, '')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .toLowerCase();
+};

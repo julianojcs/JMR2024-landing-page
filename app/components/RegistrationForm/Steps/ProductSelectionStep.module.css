@@ -6,7 +6,7 @@
 .title {
   font-size: 1.15rem;
   color: var(--facebook-clr);
-  margin-block-end: 2.5rem;
+  margin-block-end: 0.5rem;
   text-align: center;
 }
 
@@ -121,7 +121,7 @@
 
 .imageContainer {
   width: 100%;
-  height: 80px;
+  height: 60px;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -191,6 +191,24 @@
   color: var(--text-secondary, #6c757d);
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
+}
+
+.selectedCategory {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(var(--primary-rgb, 24, 119, 242), 0.05);
+  border-left: 3px solid var(--primary-color, #1877f2);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: left;
+}
+
+.categoryLabel {
+  font-weight: 600;
+  color: var(--primary-color, #1877f2);
+  margin-right: 0.25rem;
 }
 
 @media (max-width: 768px) {

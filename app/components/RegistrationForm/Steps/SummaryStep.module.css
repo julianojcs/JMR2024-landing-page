@@ -1,12 +1,12 @@
 .stepContent {
   width: 100%;
-  padding: 1.5rem;
+  padding: 0.5rem;
 }
 
 .title {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  color: var(--facebook-clr);
+  margin-block-end: 0.5rem;
   text-align: center;
 }
 
@@ -14,14 +14,17 @@
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin-bottom: 2rem;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  padding: 0.5rem;
 }
 
 .section {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid #e9ecef;
+  &>div:last-child {
+    border-bottom: 0;
+  }
 }
 
 .section:last-child {
@@ -29,31 +32,43 @@
 }
 
 .sectionTitle {
-  font-size: 1.25rem;
-  color: #333;
-  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--success-clr);
+  padding-block-end: 0.5rem;
 }
 
 .infoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  justify-content: space-between;
   gap: 1rem;
+  row-gap: .25rem;
+  width: 100%;
 }
 
 .infoItem {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  align-items: center; /* Centraliza os itens internamente */
+  justify-content: flex-start;
+  padding: 0.25rem;
+  min-width: fit-content; /* Garante que o item tenha pelo menos o tamanho do conteúdo */
+  text-align: center;
 }
 
 .label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #666;
+  margin-bottom: 0.25rem;
+  white-space: nowrap; /* Impede quebra de linha no texto do label */
 }
 
 .value {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #333;
+  font-weight: 500;
+  white-space: nowrap; /* Impede quebra de linha no texto do valor */
 }
 
 .categoryInfo {
@@ -75,17 +90,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 0;
+  padding: 0.25rem 0;
   border-bottom: 1px dashed #e9ecef;
+  font-size: 0.875rem;
 }
 
 .productName {
-  font-size: 1rem;
   color: #333;
 }
 
 .productPrice {
-  font-size: 1rem;
   color: #28a745;
   font-weight: 500;
 }
@@ -94,9 +108,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 2px solid #e9ecef;
 }
 
 .totalLabel {
@@ -144,21 +156,110 @@
   background-color: #218838;
 }
 
+.attachmentInfo {
+  display: flex;
+  align-items: center;
+  padding: 0.1rem 0.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #666;
+  width: fit-content;
+  border-left: 2px solid #ddd;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clickable:hover {
+  background-color: #e9ecef;
+  border-left-color: var(--primary-color, #1877f2);
+}
+
+.clickable:hover .previewHint {
+  opacity: 1;
+}
+
+.attachmentIcon {
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.attachmentName {
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.previewHint {
+  position: absolute;
+  right: 0.75rem;
+  background-color: var(--primary-color, #1877f2);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  bottom: 1.7rem;
+  left: 1rem;
+}
+
+.previewError {
+  position: absolute;
+  right: 0.75rem;
+  background-color: #f44336;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  animation: fadeOut 3s;
+}
+
+.attempted {
+  border-left-color: #f44336;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 @media (max-width: 768px) {
   .infoGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .buttonGroup {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .backButton, .nextButton {
     width: 100%;
   }
 
   .summaryCard {
-    padding: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Responsividade em telas pequenas */
+@media (max-width: 576px) {
+  .infoGrid {
+    grid-template-columns: repeat(2, 1fr); /* Em telas muito pequenas, mostrar 2 colunas */
+  }
+  
+  .infoItem {
+    padding: 0.25rem 0;
   }
 }

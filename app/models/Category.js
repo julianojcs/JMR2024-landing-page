@@ -170,7 +170,6 @@ class Category {
     }
 
     if (categoryData.dayUse) {
-      console.log('DayUse data:', categoryData.dayUse); // Para debug
       category.setDayUse(new DayUse(
         categoryData.dayUse.title,
         categoryData.dayUse.description,

@@ -87,7 +87,13 @@ const Home = ({ params }) => {
       <Header props={props}>
         <SocialMedias url={data.social.instagram} />
       </Header>
-      <Banner lstBannerText={data.bannerText} />
+      <Banner
+        lstBannerText={data.bannerText.description}
+        button={{
+          caption: data.bannerText.caption,
+          link: data.bannerText.link
+        }}
+      />
       <Introduction introduction={data.introduction} />
       <Description description={data.description} />
       <Promoters button={data?.callToAct?.button01} year={year} />

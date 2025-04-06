@@ -455,10 +455,6 @@ const SpeakersForm = ({ params }) => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   console.log('formData: ', formData);
-  // }, [formData]);
-
   // Add effect to auto-close notification when errors are resolved
   useEffect(() => {
     if (Object.keys(errors).length === 0) {

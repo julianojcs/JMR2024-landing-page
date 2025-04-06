@@ -5,7 +5,7 @@
 
 .title {
   font-size: 1.15rem;
-  color: #333;
+  color: var(--facebook-clr);
   margin-block-end: 0.5rem;
   text-align: center;
 }
@@ -22,7 +22,7 @@
 
 .categoriesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
   grid-auto-rows: 1fr; /* Makes all rows same height */
   gap: 1rem;
   margin-block: 1rem;
@@ -31,6 +31,7 @@
 .categoryCard {
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* Alinhamento à esquerda para a lista */
   background: #fff;
   border: 2px solid #e9ecef;
   border-radius: 8px;
@@ -69,6 +70,7 @@
 .categoryTitle {
   font-size: 0.75rem;
   color: #333;
+  margin-inline: auto;
   margin-block-end: 0.25rem;
   word-break: break-word;
   hyphens: auto;
@@ -78,9 +80,50 @@
 .description {
   color: #666;
   font-size: 0.6rem;
-  margin-block-end: 0.5rem;
   line-height: 1.2;
+  margin-block-end: 0.5rem;
   text-wrap: balance;
+}
+
+.descriptionList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.35rem;
+}
+
+.descriptionItem {
+  color: #666;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  margin: 0;
+  padding-left: 0.8rem;
+  position: relative;
+  text-align: left;
+  margin-bottom: 0.25rem;
+}
+
+.descriptionItem::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.positive::before {
+  content: '✓';
+  color: var(--success-color, #28a745);
+}
+
+.negative::before {
+  content: '✕';
+  color: var(--danger-color, #dc3545);
+}
+
+.neutral::before {
+  content: '•';
+  color: var(--info-color, #17a2b8);
 }
 
 .memberBadge {
@@ -94,6 +137,7 @@
   font-size: 0.65rem;
   font-weight: 500;
   margin-block-start: auto;
+  margin-inline: auto;
   word-break: break-word;
   max-width: 100%;
   text-wrap: balance;

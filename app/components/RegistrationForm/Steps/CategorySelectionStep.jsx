@@ -35,9 +35,25 @@ const CategorySelectionStep = () => {
 
   const handleCategorySelect = (category) => {
     const selectedCategory = Category.fromEventData(category);
+
+    // Verificar se está mudando de categoria
+    if (formData.category?.id !== category.id) {
+      // Resetar os produtos selecionados quando a categoria mudar
+      updateFormData('selectedItems', {
+        journey: null,
+        workshops: [],
+        courses: [],
+        dayUse: null
+      });
+
+      // Resetar também o recibo quando mudar de categoria
+      updateFormData('receipt', null);
+    }
+
+    // Atualizar a categoria selecionada
     updateFormData('category', selectedCategory);
     setCategorySelected(true);
-    setError(prev => ({ ...prev, category: '' }));
+    setError(prev => ({ ...prev, category: '', receipt: '' }));
   };
 
   const handleFileChange = (file, error = '') => {
@@ -101,7 +117,37 @@ const CategorySelectionStep = () => {
             )}
             <h3 className={styles.categoryTitle}>{category.title}</h3>
             {category.description && (
-              <p className={styles.description}>{category.description}</p>
+              <div className={styles.descriptionList}>
+                {Array.isArray(category.description) ? (
+                  // Se for um array, mapear cada item
+                  category.description.map((item, index) => {
+                    let itemClass = '';
+                    let displayText = item;
+
+                    // Verificar se o item começa com um dos símbolos
+                    if (item.startsWith('✓')) {
+                      itemClass = styles.positive;
+                      displayText = item.substring(1).trim(); // Remove o símbolo
+                    } else if (item.startsWith('✕')) {
+                      itemClass = styles.negative;
+                      displayText = item.substring(1).trim(); // Remove o símbolo
+                    } else {
+                      itemClass = styles.neutral;
+                    }
+
+                    return (
+                      <p key={index} className={`${styles.descriptionItem} ${itemClass}`}>
+                        {displayText}
+                      </p>
+                    );
+                  })
+                ) : (
+                  // Se for uma string única
+                  <p className={`${styles.descriptionItem} ${styles.neutral}`}>
+                    {category.description}
+                  </p>
+                )}
+              </div>
             )}
             {category?.member?.length > 0 && (
               <span className={styles.memberBadge}>

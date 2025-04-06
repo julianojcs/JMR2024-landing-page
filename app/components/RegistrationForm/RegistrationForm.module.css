@@ -6,9 +6,6 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 0.5rem;
-  max-height: calc(100vh - 2rem); /* Account for margin/padding */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .title {
@@ -27,8 +24,54 @@
 .formSection {
   background: #fff;
   padding: 1rem;
+  padding-top: 1.2rem;      /* Aumentado o padding superior */
+  padding-bottom: 1.2rem;   /* Aumentado o padding inferior */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-height: calc(100vh - 10rem); /* Um pouco menor para acomodar outros elementos */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+  /* Garantir que o padding não atrapalhe o overflow */
+  padding-right: 0.75rem;
+
+  /* Esconder a scrollbar padrão em Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--facebook-clr, #1877f2) transparent;
+}
+
+/* Estilização para navegadores baseados em WebKit (Chrome, Safari, Edge) */
+.formSection::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+.formSection::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 12px 0; /* Aumentado de 8px para 12px para afastar mais das bordas */
+  border-radius: 0 8px 8px 0;
+}
+
+.formSection::-webkit-scrollbar-thumb {
+  background-color: var(--facebook-clr, #1877f2);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box; /* Faz o fundo "recortar" para dentro da borda */
+}
+
+/* Estilo hover para a barra de rolagem */
+.formSection::-webkit-scrollbar-thumb:hover {
+  background-color: var(--facebook-clr-dark, #1667d9);
+}
+
+/* Esconder os botões da scrollbar */
+.formSection::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Cantos da scrollbar - para garantir os cantos arredondados */
+.formSection::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .cartSection {
@@ -37,7 +80,38 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
+  top: 0; /* Manter no topo quando rolar */
   height: auto;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(var(--primary-rgb), 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Responsive design */
@@ -46,10 +120,18 @@
     grid-template-columns: 1fr;
     gap: 0.5rem;
     padding: 0.5rem;
-    max-height: calc(100vh - 120px); /* Adjust based on your header height */
   }
 
-  .formSection,
+  .formSection {
+    padding: 0.4rem;
+    max-height: calc(100vh - 8rem);
+    padding-right: 0.5rem;
+  }
+
+  .formSection::-webkit-scrollbar {
+    width: 6px; /* Mais fino em mobile */
+  }
+
   .cartSection {
     padding: 0.4rem;
   }

@@ -3,12 +3,15 @@
 //     ...publicCourses('courses', 2028),
 //     ...[]
 //   ]
-
-import { title } from "process";
-
 // },
 const publicCourses = (branch, year) => {
   return [...eventData[year].registrationForm.categories[0]?.[branch]] || [];
+}
+const publicGetGeneralProgram = (branchs = [], year) => {
+  const generalProgram = branchs.map(branch => {
+    return eventData[year].registrationForm?.generalProgram?.[branch];
+  });
+  return [...generalProgram];
 }
 
 export const eventData = {
@@ -10485,10 +10488,11 @@ export const eventData = {
     ogTitle: 'JMR 2025 - Jornada Mineira de Radiologia',
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
-    bannerText: [
-      'Vem aí a XI Jornada Mineira de Radiologia e o',
-      'XIV Congresso de Imaginologia da Mulher'
-    ],
+    bannerText: {
+      description: ['Regulamento Submissão de', 'Trabalhos JMR/CIM2025'],
+      caption: 'Clique aqui para acessar o regulamento completo!',
+      link: 'https://www.canva.com/design/DAGjujtuRg8/UE46Fq6VPopeumkfxUrFZw/view'
+    },
     modal: {
       active: false,
       title: 'Sorteio de Inscrição',
@@ -10537,7 +10541,7 @@ export const eventData = {
     },
     promoters: {
       callToAct: {
-        caption: 'Faça sua inscrição na Jornada!',
+        caption: 'Clique aqui para fazer sua inscrição!',
         link: '#tables',
       },
       brands: [{
@@ -10618,7 +10622,11 @@ export const eventData = {
         {
           id: 1,
           title: 'Médico Sócio',
-          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação.'],
+          description: [
+            '✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.',
+            '✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.',
+            '✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025.'
+          ],
           image: '/images/svg/medico.svg',
           member: ['SRMG', 'SOGIMIG'],
           receipt: {
@@ -10659,7 +10667,11 @@ export const eventData = {
           }],
           dayUse: {
             title: 'Day use',
-            description: ['O Day Use dá acesso a um dia de evento, à escolha do participante.'],
+            description: [
+              'Acesso limitado à um único dia de evento, à escolha do participante.',
+              'Verifique horários antes de adquirir cursos ou workshops.',
+              'Não inclui acesso a outras atividades, que devem ser adquiridas separadamente.'
+            ],
             image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 243,75' },
@@ -10671,7 +10683,10 @@ export const eventData = {
         }, {
           id: 2,
           title: 'Médico Não Sócio',
-          description: ['Médicos não associados SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.'],
+          description: [
+            '✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.',
+            '✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente.'
+          ],
           image: '/images/svg/medico.svg',
           member: [],
           receipt: {
@@ -10718,7 +10733,11 @@ export const eventData = {
           // },
           dayUse: {
             title: 'Day use',
-            description: ['O Day Use dá acesso a um dia de evento, à escolha do participante.'],
+            description: [
+              'Acesso limitado à um único dia de evento, à escolha do participante.',
+              'Verifique horários antes de adquirir cursos ou workshops.',
+              'Não inclui acesso a outras atividades, que devem ser adquiridas separadamente.'
+            ],
             image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '20/04/2025', value: 'R$ 528,75' },
@@ -10730,7 +10749,10 @@ export const eventData = {
         }, {
           id: 3,
           title: 'Residente ou Especializando',
-          description: ['Obrigatório envio do comprovante de Residência / Especialização / Fellowship.'],
+          description: [
+            '✓Necessário envio de comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship em 2025.',
+            '✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.'
+          ],
           image: '/images/svg/residente.svg',
           member: ['SRMG', 'SOGIMIG'], // CPF encontrado no checkSocietyMembership
           receipt: {
@@ -10770,12 +10792,15 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          }],
-          dayUse: null,
+          }]
         }, {
           id: 4,
-          title: 'Acadêmico de Medicina',
-          description: ['Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante'],
+          title: 'Acadêmico de Medicina Sócio',
+          description: [
+            '✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025.',
+            '✓Programação exclusiva no dia 28/06, com opção de frequentar quaisquer salas da programação científica no dia 27/06.',
+            '✕Não têm acesso aos workshops.'
+          ],
           image: '/images/svg/academico.svg',
           member: ['SAMMG'],
           receipt: {
@@ -10803,12 +10828,15 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          }],
-          dayUse: null,
+          }]
         }, {
           id: 5,
           title: 'Acadêmico de Medicina',
-          description: ['Obrigatório o envio de comprovante de matrícula da Faculdade.'],
+          description: [
+            '✓Obrigatório o envio de comprovante de matrícula da Faculdade ano 2025.',
+            '✓Programação exclusiva no dia 28/06, com opção de frequentar quaisquer salas da programação científica no dia 27/06.',
+            '✕Não têm acesso aos workshops.'
+          ],
           image: '/images/svg/academico.svg',
           member: [],
           receipt: {
@@ -10837,12 +10865,15 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          }],
-          dayUse: null,
+          }]
         }, {
           id: 6,
           title: 'Tecnólogo e Técnico',
-          description: ['Obrigatório envio de comprovante de atividade em técnicas radiológicas.'],
+          description: [
+            '✓Obrigatório envio de comprovante de atividade em técnicas radiológicas.',
+            '✓Programação exclusiva no dia 28/06, voltada ao público técnico, conforme Resolução CFM nº 2.217/2018.',
+            '✕Não têm acesso aos workshops.'
+          ],
           image: '/images/svg/tecnico.svg',
           member: [],
           receipt: {
@@ -10871,18 +10902,20 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          }],
-          dayUse: null
+          }]
         }, {
           id: 7,
           title: 'Público em Geral',
-          description: 'Curso aberto ao público em geral.',
+          description: [
+            '✓Curso aberto ao público em geral.',
+            '✓O curso de Inteligência Artificial em Medicina é aberto a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.',
+            '✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada.'
+          ],
           image: '/images/svg/publico.svg',
           member: [],
           receipt: {
             enabled: false
           },
-          journey: {},
           courses: [{
             title: 'Curso de Inteligência Artificial',
             description: ['Curso aberto ao público em geral.'],
@@ -10893,16 +10926,14 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
-          }],
-          workshops: [],
-          dayUse: null
+          }]
         }
       ]
     },
     events: {
       soon: false,
       callToAct: {
-        caption: 'Faça sua inscrição na Jornada!',
+        caption: 'Clique aqui para fazer sua inscrição!',
         link: '#tables',
       },
       cardSections: [
@@ -11285,7 +11316,9 @@ export const eventData = {
           },
           subtitle: {
             tag: 'h4',
-            text: ['* necessário enviar comprovante'],
+            text: [
+              '* Necessário enviar comprovante'
+            ],
             color: '#f8f9fa'
           },
           bestBefore: {
@@ -11293,7 +11326,7 @@ export const eventData = {
             date: ['20042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
-            caption: 'Faça sua inscrição na Jornada',
+            caption: 'Clique aqui para fazer sua inscrição!',
           },
           table: {
             headers: [
@@ -11324,7 +11357,10 @@ export const eventData = {
           },
           subtitle: {
             tag: 'h4',
-            text: ['* necessário enviar comprovante'],
+            text: ['* Necessário enviar comprovante',
+              '* Workshops são exclusivos para médicos.',
+              '* Médicos residentes deverão enviar comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship referente ao ano de 2025.'
+            ],
             color: '#f8f9fa'
           },
           bestBefore: {
@@ -11332,7 +11368,7 @@ export const eventData = {
             date: ['20042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
-            caption: 'Faça sua inscrição no Workshop',
+            caption: 'Clique aqui para fazer sua inscrição!',
           },
           table: {
             headers: [
@@ -11355,12 +11391,20 @@ export const eventData = {
             text: 'Curso de Inteligência Artificial',
             color: '#052c65'
           },
+          subtitle: {
+            tag: 'h4',
+            text: [
+              '* Aberto ao público geral.',
+              '* Não há necessidade de comprovantes.'
+            ],
+            color: '#f8f9fa'
+          },
           bestBefore: {
             rowStart: 2,
             date: ['20042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
-            caption: 'Faça sua inscrição no Curso de IA',
+            caption: 'Clique aqui para fazer sua inscrição!',
           },
           table: {
             headers: [

@@ -3,31 +3,31 @@ import PersonalInfoStep from './Steps/PersonalInfoStep';
 import CategorySelectionStep from './Steps/CategorySelectionStep';
 import ProductSelectionStep from './Steps/ProductSelectionStep';
 import SummaryStep from './Steps/SummaryStep';
-import PaymentResponseStep from './Steps/PaymentResponseStep';
+import PaymentConfirmationStep from './Steps/PaymentConfirmationStep';
 import styles from './RegistrationForm.module.css';
 
 const RegistrationSteps = () => {
-    const { currentStep } = useRegistration();
+  const { currentStep } = useRegistration();
 
-    const renderStep = () => {
-        switch (currentStep) {
-            case 1: return <PersonalInfoStep />;
-            case 2: return <CategorySelectionStep />;
-            case 3: return <ProductSelectionStep />;
-            case 4: return <SummaryStep />;
-            case 5: return <PaymentResponseStep />;
-            default: return null;
-        }
-    };
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1: return <PersonalInfoStep />;
+      case 2: return <CategorySelectionStep />;
+      case 3: return <ProductSelectionStep />;
+      case 4: return <SummaryStep />;
+      case 5: return <PaymentConfirmationStep />;
+      default: return null;
+    }
+  };
 
-    return (
-        <div className={styles.stepsContainer}>
-            <div className={styles.stepIndicator}>
-                Passo {currentStep} de 5
-            </div>
-            {renderStep()}
-        </div>
-    );
+  return (
+    <div className={styles.stepsContainer}>
+      <div className={styles.stepIndicator}>
+        Passo {currentStep} de 5
+      </div>
+      {renderStep()}
+    </div>
+  );
 };
 
 export default RegistrationSteps;

@@ -72,9 +72,6 @@ const PersonalInfoStep = () => {
                 societies: membershipData.societies
             });
 
-            console.log('Membership Data:', membershipData);
-            console.log('formData:', formData);
-
             return membershipData;
         } catch (error) {
             console.error('Error checking membership:', error);
