@@ -10,6 +10,7 @@ const SummaryStep = () => {
   const { personalInfo, category, selectedItems } = formData;
   // Estado para controlar feedback visual quando o usuário clica no anexo
   const [previewAttempted, setPreviewAttempted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Função para exibir/abrir o arquivo local quando clicado
   const handleFilePreview = () => {
@@ -67,6 +68,9 @@ const SummaryStep = () => {
   };
 
   const handleNext = async () => {
+    // Ativar o loading
+    setIsLoading(true);
+
     try {
       const { personalInfo, category, selectedItems, receipt } = formData;
 
@@ -161,6 +165,9 @@ const SummaryStep = () => {
     } catch (error) {
       console.error('Error processing payment:', error);
       setError('Ocorreu um erro ao processar o pagamento. Tente novamente.');
+    } finally {
+      // Desativar o loading em qualquer caso
+      setIsLoading(false);
     }
   };
 
@@ -270,17 +277,37 @@ const SummaryStep = () => {
           type="button"
           onClick={handlePrevious}
           className={styles.backButton}
+          disabled={isLoading}
         >
           Voltar
         </button>
         <button
           type="button"
           onClick={handleNext}
-          className={styles.nextButton}
+          className={`${styles.nextButton} ${isLoading ? styles.loading : ''}`}
+          disabled={isLoading}
         >
-          Confirmar e Pagar
+          {isLoading ? (
+            <div className={styles.spinnerContainer}>
+              <div className={styles.spinner}></div>
+              <span>Processando...</span>
+            </div>
+          ) : (
+            "Confirmar e Pagar"
+          )}
         </button>
       </div>
+
+      {/* Overlay de loading para toda a tela */}
+      {isLoading && (
+        <div className={styles.loadingOverlay}>
+          <div className={styles.loadingContent}>
+            <div className={styles.spinner}></div>
+            <p>Processando seu pagamento...</p>
+            <p className={styles.loadingSubtext}>Por favor, aguarde.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
