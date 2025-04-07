@@ -207,7 +207,7 @@ const PaymentConfirmationStep = () => {
               onClick={handlePayment}
               className={styles.paymentButton}
             >
-              Acessar Fatura
+              Efetuar Pagamento
             </button>
           )}
 
@@ -216,7 +216,7 @@ const PaymentConfirmationStep = () => {
               onClick={handleDownloadBoleto}
               className={styles.downloadButton}
             >
-              Baixar PDF da Fatura
+              Baixar Boleto em PDF
             </button>
           )}
         </div>

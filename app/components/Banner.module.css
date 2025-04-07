@@ -1,5 +1,6 @@
 .container {
   background-color: var(--background);
+  padding: 0 1.5rem;
 }
 
 .banner {

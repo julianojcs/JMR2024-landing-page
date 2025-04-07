@@ -1,54 +1,105 @@
-import Image from 'next/image'
-import saveTheDate from '/public/save_the_date.png'
-import { imagem, container, content, footer } from './page.module.css'
+import Banner from './components/Banner'
+import Header from './components/Header'
+import SocialMedias from './components/SocialMedias'
+import Description from './components/Description'
+import Promoters from './components/Promoters'
+import { MapIcon, CalendarIcon } from './components/icons'
+import { eventData } from './data/constants'
+import Events from './components/Events'
+import { notFound } from 'next/navigation'
+import Comission from './components/Comission'
+import Tables from './components/Tables'
+import ModalBanner from './components/ModalBanner'
+import Introduction from '/app/components/Introduction';
+import Sponsor from '/app/components/Sponsor'
 
-const metadata = {
-  title:
-    'Save the date - XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher',
-  description:
-    'XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher.',
-  keywords:
-    'Jornada Mineira de Radiologia, Jornada de POCUS, ABRAMEDE, SRMG, Radiologia, Diagnóstico por Imagem, Ultrassonografia, Abdômen, Musculoesquelética, Intervenção Guiada por Imagem, Palestras, Workshops, Mesas-redondas, Networking, Evento, Saúde, Profissionais da Saúde, Belo Horizonte, JMR2024, Abdômen, POCUS, Gastrointestinal, Geniturinario, Mama, MSK, BI-RADS, Intervenção Mamária, Intervenção não Vascular, Hands on, Inovação IA, Inteligêcia Artificial, IA, AI, Programação Científica, Comissão Científica SRMG, Comissão Científica ABRAMEDE, Augusto Antunes, Benito Pio Ceccato Júnior, Elísio José Salgado Ribeiro, Flávio Coelho Barros, Francisco Ribeiro Teixeira Junior, Júlio Guerra Domingues, Luis Ronan MF de Souza, Marcus Vinicius Amorim, Rogerio Augusto Pinto Silva, Thales Matheus M Santos, Adriene Moraes Campos, Anna Christina Gruber, Ivie Braga de Paula, Luciana Costa Silva, Maria Fernanda Borges Abreu, Paula Figueiredo Rocha, Raquel Del Fraro Rabelo, Raquel Sadala Mendes, Arthur Elias de Aguiar Machado, Luiz Ernani Meira Júnior, Marcus Vinicius Melo Andrade, Maria Aparecida Braga, Hermes Pardini, Grupo Fleury, Bayer, Unimed, Unimed BH, São MArcos Dasa, Bracco, Ceu Diagnósticos, CBR, AMMG, Core, Juliano Costa Silva, Juliano Costa, apfjuliano',
-  openGraph: {
-    title: 'JMR 2025 - Save the date',
-    description: 'XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher.',
-    type: 'website',
-    url: 'https://jornada.srmg.org.br/2025',
-    images: [
-      {
-        url: 'https://jornada.srmg.org.br/save_the_date_share.png',
-        width: 1200,
-        height: 630,
-        alt: 'JMR 2025 - save_the_date.png'
-      }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'JMR 2025 - save_the_date.png',
-    description: 'XI Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher.',
-    image: 'https://jornada.srmg.org.br/save_the_date_share.png'
+// export async function getServerSideProps(context) {
+//   if (!isValidRoute(context)) {
+//     context.res.statusCode = 404
+//     context.res.end()
+//     console.log('Invalid URL')
+//     return { props: { error: 'Invalid URL' } }
+//   }
+//
+//   const { year } = context.params
+//
+//   return {
+//     props: {
+//       year
+//     }
+//   }
+// }
+
+export async function generateMetadata() {
+  const year = 2025
+  console.log('eventData[year]: ', eventData[year])
+  // Check if year exists in eventData
+  if (!eventData[year]) {
+    notFound()
+  }
+
+  const event = eventData[year]
+
+  return {
+    title: event.title,
+    description: Array.isArray(event.description) ? event.description.join(' ') : event.description,
+    keywords: Array.isArray(event.keywords) ? event.keywords.join(', ') : event.keywords,
+    alternates: {
+      canonical: `https://jornada.srmg.org.br/${year}`
+    },
+    openGraph: {
+      title: event.ogTitle,
+      description: event.ogDescription,
+      type: 'website',
+      url: `https://jornada.srmg.org.br/${year}`,
+      images: [
+        {
+          url: `https://jornada.srmg.org.br/logo_jornada/jmr${year}.jpg`,
+          width: 1200,
+          height: 630,
+          alt: `JMR ${year} - Jornada Mineira de Radiologia`
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `JMR ${year} - Jornada Mineira de Radiologia`,
+      description: Array.isArray(event.description) ? event.description.join(' ') : event.description,
+      image: `https://jornada.srmg.org.br/logo_jornada/jmr${year}.jpg`
+    }
   }
 }
 
-export async function generateMetadata() {
-  return metadata
-}
-
 const Home = () => {
+  const year = 2025
+
+  // Check if year exists in eventData
+  if (!eventData[year]) {
+    notFound()
+  }
+
+  const data = eventData[year]
+
+  const props = {
+    year,
+    MapIcon,
+    CalendarIcon
+  }
   return (
-    <div className={container}>
-      <div className={content}>
-        <Image
-          src={saveTheDate}
-          alt="Save the date"
-          className={imagem}
-          priority
-        />
-      </div>
-      <div className={footer}>
-      </div>
-    </div>
+    <main>
+      {data.modal && <ModalBanner modalData={data.modal} />}
+      <Header props={props}>
+        <SocialMedias url={data.social.instagram} />
+      </Header>
+      <Banner data={data.banner} />
+      <Introduction introduction={data.introduction} />
+      <Description description={data.description} />
+      <Promoters button={data?.callToAct?.button01} year={year} />
+      <Events button={data?.callToAct?.button02} year={year} />
+      <Comission year={year} />
+      <Tables priceTables={data.priceTables} year={year} />
+      <Sponsor sponsorShip={data.sponsorShip} />
+    </main>
   )
 }
 

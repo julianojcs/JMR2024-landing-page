@@ -21,7 +21,13 @@ const Description = ( {description} ) => {
       <div
         className={classnames(`${collapsible} ${isExpanded ? collapsed : ''}`)}
       >
+        {Array.isArray(description) ? (
+          description.map((paragraph, index) => (
+            <p key={`desc-paragraph-${index}`}>{paragraph}</p>
+          ))
+        ) : (
         <p>{description}</p>
+        )}
       </div>
       <button
         className={classnames(

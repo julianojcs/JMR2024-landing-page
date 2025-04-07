@@ -42,7 +42,11 @@ export async function generateMetadata({ params }) {
 
   return {
     title: event.title,
-    description: event.description,
+    description: Array.isArray(event.description) ? event.description.join(' ') : event.description,
+    keywords: Array.isArray(event.keywords) ? event.keywords.join(', ') : event.keywords,
+    alternates: {
+      canonical: `https://jornada.srmg.org.br/${year}`
+    },
     openGraph: {
       title: event.ogTitle,
       description: event.ogDescription,
@@ -60,7 +64,7 @@ export async function generateMetadata({ params }) {
     twitter: {
       card: 'summary_large_image',
       title: `JMR ${year} - Jornada Mineira de Radiologia`,
-      description: event.description,
+      description: Array.isArray(event.description) ? event.description.join(' ') : event.description,
       image: `https://jornada.srmg.org.br/logo_jornada/jmr${year}.jpg`
     }
   }
@@ -87,13 +91,7 @@ const Home = ({ params }) => {
       <Header props={props}>
         <SocialMedias url={data.social.instagram} />
       </Header>
-      <Banner
-        lstBannerText={data.bannerText.description}
-        button={{
-          caption: data.bannerText.caption,
-          link: data.bannerText.link
-        }}
-      />
+      <Banner data={data.banner} />
       <Introduction introduction={data.introduction} />
       <Description description={data.description} />
       <Promoters button={data?.callToAct?.button01} year={year} />

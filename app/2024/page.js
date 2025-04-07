@@ -60,9 +60,7 @@ const Home = () => {
       >
         <SocialMedias />
       </Header>
-      <Banner
-        lstBannerText={['Emita o seu certificado', 'clicando em um dos botões abaixo.']}
-      />
+      <Banner data={data.banner} />
       <Description description={data.description}/>
       <Promoters
         button={callToAct?.button01}

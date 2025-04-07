@@ -1,19 +1,24 @@
 .container {
-  padding: 1.5rem 1.5rem 0rem;
+  /* padding: 1.5rem 1.5rem 0rem; */
   background-color: var(--background);
   color: var(--foreground);
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .collapsible {
   position: relative; /* Necessário para a sombra interna */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   justify-items: center;
   font-size: 1em;
   font-weight: 300;
   text-align: justify;  /* Adiciona justificação ao texto */
   background-color: inherit;
   color: inherit;
+  gap: 0.5rem;
 
   /* display: -webkit-box; */
 
