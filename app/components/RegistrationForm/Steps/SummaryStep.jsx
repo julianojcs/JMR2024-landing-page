@@ -6,11 +6,12 @@ import AsaasClient from '../../../lib/AsaasClient';
 import { useState } from 'react';
 
 const SummaryStep = () => {
-  const { formData, setCurrentStep, setPaymentResponse, setUploadError, setError, year, setReceiptDownloadUrl } = useRegistration();
+  const { formData, setCurrentStep, setPaymentResponse, setUploadError, setError, year, setReceiptDownloadUrl, paymentConfig } = useRegistration();
   const { personalInfo, category, selectedItems } = formData;
   // Estado para controlar feedback visual quando o usuário clica no anexo
   const [previewAttempted, setPreviewAttempted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { dueDays, billingType, url } = paymentConfig;
 
   // Função para exibir/abrir o arquivo local quando clicado
   const handleFilePreview = () => {
@@ -93,17 +94,17 @@ const SummaryStep = () => {
 
       // Determinar a URL base com base no ambiente
       const baseUrl = process.env.NODE_ENV === 'development'
-        ? "https://jornada.srmg.org.br"
+        ? url
         : window.location.origin;
 
       // 2. Criar pagamento no Asaas
       const asaas = new AsaasClient();
       const response = await asaas.payments.create({
-        billingType: 'UNDEFINED',
+        billingType: billingType,
         customer: personalInfo.userId,
         name: personalInfo.fullName,
         value: numericPrice,
-        dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        dueDate: new Date(Date.now() + dueDays * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
         description: description,
         externalReference: null,
         callback: {

@@ -739,6 +739,11 @@ export const eventData = {
     registrationForm: {
       title: 'Formulário de inscrição',
       description: 'A JMR 2025 / CIM 2025 acontecerão  nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+      paymentConfig: {
+        billingType: 'UNDEFINED',
+        dueDays: 3,
+        url: 'https://jornada.srmg.org.br',
+      },
       openToPublic: {
         title: 'Público em Geral',
         description: 'Curso aberto ao público em geral.',
@@ -9995,6 +10000,11 @@ export const eventData = {
     registrationForm: {
       title: 'Formulário de inscrição',
       description: 'A JMR 2025 / CIM 2025 acontecerão  nos dias 27 e 28 de Junho de 2025, na AMMG - Associação Médica de Minas Gerais, em Belo Horizonte - MG',
+      paymentConfig: {
+        billingType: 'UNDEFINED',
+        dueDays: 3,
+        url: 'https://jornada.srmg.org.br',
+      },
       openToPublic: {
         title: 'Público em Geral',
         description: 'Curso aberto ao público em geral.',

@@ -41,10 +41,14 @@ export const RegistrationProvider = ({ children, year, onCloseModal }) => {
     category: {},
     totalAmount: 0
   });
-
   const [currentStep, setCurrentStep] = useState(1);
   const [paymentResponse, setPaymentResponse] = useState(null);
   const [receiptDownloadUrl, setReceiptDownloadUrl] = useState(null);
+  const paymentConfig = eventData.registrationForm.paymentConfig || {
+    billingType: 'UNDEFINED',
+    dueDays: 3,
+    url: 'https://jornada.srmg.org.br',
+  };
 
   const updateFormData = (section, dataMember) => {
     setFormData(prev => {
@@ -175,6 +179,7 @@ export const RegistrationProvider = ({ children, year, onCloseModal }) => {
       currentStep,
       paymentResponse,
       eventData,
+      paymentConfig,
       year,
       updateFormData,
       setCurrentStep,

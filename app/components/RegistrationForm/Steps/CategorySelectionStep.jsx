@@ -15,24 +15,32 @@ const CategorySelectionStep = () => {
       const nextButton = document.querySelector(`.${styles.nextButton}`);
 
       if (nextButton) {
-        // Simular um clique visual no botão
-        nextButton.classList.add(styles.buttonPressing);
+        // Primeiro, role até o botão para garantir que está visível
+        nextButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Remover o efeito de "pressionado" após um curto período
+        // Aguarde o scroll terminar antes de iniciar os efeitos visuais
         setTimeout(() => {
-          nextButton.classList.remove(styles.buttonPressing);
+          // Simular um clique visual no botão
+          nextButton.classList.add(styles.buttonPressing);
 
-          // Em seguida, adicionar o efeito de destaque pulsante
-          nextButton.classList.add(styles.highlightButton);
-
-          // Rolar até o botão para garantir que está visível
-          nextButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-          // Remover os efeitos após um tempo
+          // Remover o efeito de "pressionado" após um curto período
           setTimeout(() => {
-            nextButton.classList.remove(styles.highlightButton);
-          }, 2500);
-        }, 150);
+            nextButton.classList.remove(styles.buttonPressing);
+
+            // Adicionar o efeito de destaque com o novo contorno suave
+            nextButton.classList.add(styles.highlightButton);
+            nextButton.classList.add(styles.smoothOutline);
+
+            // Colocar foco no botão para melhorar acessibilidade
+            nextButton.focus();
+
+            // Remover os efeitos após 5 segundos
+            setTimeout(() => {
+              nextButton.classList.remove(styles.highlightButton);
+              nextButton.classList.remove(styles.smoothOutline);
+            }, 5000); // Aumentado para 5 segundos
+          }, 200); // Reduzido para tornar a sequência mais responsiva
+        }, 500); // Tempo suficiente para o scroll terminar
       }
     }, 200);
   };

@@ -266,60 +266,105 @@
   }
 }
 
+/* Atualizar a animação pulseEffect para durar os 5 segundos completos */
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.6);
+  }
+  10% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 4px rgba(255, 193, 7, 0.5);
+  }
+  20% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  30% {
+    transform: scale(1.03);
+    box-shadow: 0 0 8px 3px rgba(255, 193, 7, 0.5);
+  }
+  40% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.3);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 10px 4px rgba(255, 193, 7, 0.5);
+  }
+  60% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 8px 3px rgba(255, 193, 7, 0.5);
+  }
+  80% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.3);
+  }
+  90% {
+    transform: scale(1.01);
+    box-shadow: 0 0 5px 2px rgba(255, 193, 7, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+/* Substitua a animação smoothOutline atual por esta versão que usa outline */
+@keyframes smoothOutline {
+  0% {
+    outline: 0px solid rgba(255, 193, 7, 0);
+    outline-offset: 0px;
+  }
+  25% {
+    outline: 1px solid rgba(255, 193, 7, 0.8);
+    outline-offset: 1px;
+  }
+  50% {
+    outline: 0px solid rgba(255, 193, 7, 0.6);
+    outline-offset: 2px;
+  }
+  75% {
+    outline: 1px solid rgba(255, 193, 7, 0.8);
+    outline-offset: 1px;
+  }
+  100% {
+    outline: 0px solid rgba(255, 193, 7, 0);
+    outline-offset: 0px;
+  }
+}
+
+/* Aplique a animação diretamente ao botão */
+.smoothOutline {
+  animation: smoothOutline 1.5s ease-in-out infinite;
+  outline-color: rgba(255, 193, 7, 0.8);
+  outline-style: solid;
+  /* Garante que o outline não ocupe espaço no layout */
+  outline-offset: 0;
+}
+
+/* Melhore a classe highlightButton com uma transição de cor mais suave */
 .highlightButton {
-  animation: pulseEffect 2.5s ease-in-out;
-  background-color: var(--primary-clr);
+  animation: pulseEffect 5s ease-in-out;
+  background-color: var(--primary-color);
   color: #fff;
-  font-weight: bold;
-  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.3);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(181, 137, 0, 0.3);
+  /* Garante que o outline não interfira com o border */
+  position: relative;
+  z-index: 1;
 }
 
 .buttonPressing {
   transform: scale(0.95);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-@keyframes pulseEffect {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.5);
-  }
-  10% {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px 4px rgba(0, 123, 255, 0.4);
-  }
-  20% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.3);
-  }
-  30% {
-    transform: scale(1.03);
-    box-shadow: 0 0 8px 3px rgba(0, 123, 255, 0.4);
-  }
-  40% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.2);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-  }
-}
-
-@keyframes pulseOutline {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.07);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.12);
-  }
 }
 
 @media (max-width: 768px) {
