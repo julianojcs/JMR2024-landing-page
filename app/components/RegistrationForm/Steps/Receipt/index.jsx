@@ -7,7 +7,8 @@ const Receipt = ({
   receipt,
   onFileChange,
   onFileRemove,
-  error
+  error,
+  isModal = false
 }) => {
   const fileInputRef = useRef(null)
 
@@ -23,7 +24,8 @@ const Receipt = ({
   }
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.receiptContainer} ${isModal ? styles.modalReceiptContainer : ''}`}>
+      <h3 className={styles.receiptTitle}>Comprovante</h3>
       <div className={styles.title}>
         <label>Comprovante<span className={styles.required}>*</span></label>
         {error && <span className={styles.error}>{error}</span>}

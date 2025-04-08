@@ -7,25 +7,48 @@ import styles from './CategorySelectionStep.module.css';
 const CategorySelectionStep = () => {
   const { formData, updateFormData, setCurrentStep } = useRegistration();
   const [error, setError] = useState({});
-  const [categorySelected, setCategorySelected] = useState(false);
+  const [showReceiptModal, setShowReceiptModal] = useState(false);
 
-  const categories = formData?.eventData?.categories.filter(category => {
-    if (!category.member) return true;
-    if (!formData.personalInfo.societies?.length) return true;
-    return category.member.some(society =>
-      formData.personalInfo.societies.includes(society)
-    );
-  }) || [];
+  // Função para destacar visualmente o botão "Próximo"
+  const highlightNextButton = () => {
+    setTimeout(() => {
+      const nextButton = document.querySelector(`.${styles.nextButton}`);
 
-  const shouldShowReceipt = () => {
-    if (!categorySelected || !formData.category) return false;
+      if (nextButton) {
+        // Simular um clique visual no botão
+        nextButton.classList.add(styles.buttonPressing);
 
-    const category = formData.category;
-    const societies = formData.personalInfo.societies || [];
+        // Remover o efeito de "pressionado" após um curto período
+        setTimeout(() => {
+          nextButton.classList.remove(styles.buttonPressing);
 
-    if (category?.receipt?.enabled === true) return true;
+          // Em seguida, adicionar o efeito de destaque pulsante
+          nextButton.classList.add(styles.highlightButton);
 
-    if (category?.member?.length > 0) {
+          // Rolar até o botão para garantir que está visível
+          nextButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          // Remover os efeitos após um tempo
+          setTimeout(() => {
+            nextButton.classList.remove(styles.highlightButton);
+          }, 2500);
+        }, 150);
+      }
+    }, 200);
+  };
+
+  // Função para verificar se a categoria requer comprovante
+  const isCategoryRequiringReceipt = (category) => {
+    if (!category) return false;
+
+    // Verificar se a categoria tem recibo habilitado explicitamente
+    if (category.receipt?.enabled === true) return true;
+
+    // Verificar se é categoria de membro
+    if (category.member?.length > 0) {
+      const societies = formData.personalInfo.societies || [];
+
+  // Se não tiver sociedades ou não for membro das sociedades necessárias
       if (societies.length === 0) return true;
       if (!category.member.some(m => societies.includes(m))) return true;
     }
@@ -35,25 +58,36 @@ const CategorySelectionStep = () => {
 
   const handleCategorySelect = (category) => {
     const selectedCategory = Category.fromEventData(category);
+    const needsReceipt = isCategoryRequiringReceipt(selectedCategory);
+    const changingCategory = formData.category?.id !== category.id;
 
-    // Verificar se está mudando de categoria
-    if (formData.category?.id !== category.id) {
-      // Resetar os produtos selecionados quando a categoria mudar
+    // Primeiro, atualize apenas a categoria para garantir que ela seja selecionada visualmente
+    updateFormData('category', selectedCategory);
+
+    // Se estiver mudando de categoria, reset produtos e recibo separadamente
+    if (changingCategory) {
       updateFormData('selectedItems', {
         journey: null,
         workshops: [],
         courses: [],
         dayUse: null
       });
-
-      // Resetar também o recibo quando mudar de categoria
       updateFormData('receipt', null);
     }
 
-    // Atualizar a categoria selecionada
-    updateFormData('category', selectedCategory);
-    setCategorySelected(true);
+    // Limpar erros relacionados à categoria
     setError(prev => ({ ...prev, category: '', receipt: '' }));
+
+    // Mostrar modal apenas se necessário E não tiver recibo (ou estiver trocando categoria)
+    if (needsReceipt && (!formData.receipt || changingCategory)) {
+      // Usar setTimeout para garantir que as atualizações de estado tenham efeito
+      setTimeout(() => {
+        setShowReceiptModal(true);
+      }, 50);
+    } else {
+      // Se não precisar mostrar o modal, destacar o botão "Próximo"
+      highlightNextButton();
+    }
   };
 
   const handleFileChange = (file, error = '') => {
@@ -64,6 +98,20 @@ const CategorySelectionStep = () => {
 
     updateFormData('receipt', file);
     setError(prev => ({ ...prev, receipt: '' }));
+    setShowReceiptModal(false);
+
+    // Após fechar o modal e atualizar o estado, destacar o botão "Próximo"
+    setTimeout(() => {
+      highlightNextButton();
+
+      // Também colocar o foco no botão após a rolagem
+      const nextButton = document.querySelector(`.${styles.nextButton}`);
+      if (nextButton) {
+        setTimeout(() => {
+          nextButton.focus();
+        }, 700); // Tempo suficiente para a rolagem terminar
+      }
+    }, 100);
   };
 
   const handlePrevious = () => {
@@ -75,10 +123,14 @@ const CategorySelectionStep = () => {
 
     if (!formData?.category || !(formData?.category?.id)) {
       newErrors.category = 'Por favor, selecione uma categoria';
-    }
+    } else {
+      // Só verificar necessidade de recibo se uma categoria foi selecionada
+      const needsReceipt = isCategoryRequiringReceipt(formData.category);
 
-    if (shouldShowReceipt() && !formData.receipt) {
-      newErrors.receipt = 'Por favor, envie o comprovante solicitado';
+      if (needsReceipt && !formData.receipt) {
+        newErrors.receipt = 'Por favor, envie o comprovante solicitado';
+        setShowReceiptModal(true);
+      }
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -89,11 +141,34 @@ const CategorySelectionStep = () => {
     setCurrentStep(3);
   };
 
+  // Verificar estado inicial ao montar o componente
   useEffect(() => {
     if (formData.category) {
-      setCategorySelected(true);
+      const needsReceipt = isCategoryRequiringReceipt(formData.category);
+
+      if (needsReceipt && !formData.receipt) {
+        // Usar setTimeout para garantir que o componente esteja montado
+        setTimeout(() => {
+          setShowReceiptModal(true);
+        }, 100);
+      }
     }
   }, []);
+
+  // Determinar se deve mostrar o recibo na página
+  const shouldShowReceiptInPage = () => {
+    return formData.category &&
+      isCategoryRequiringReceipt(formData.category) &&
+      formData.receipt;
+  };
+
+  const categories = formData?.eventData?.categories.filter(category => {
+    if (!category.member) return true;
+    if (!formData.personalInfo.societies?.length) return true;
+    return category.member.some(society =>
+      formData.personalInfo.societies.includes(society)
+    );
+  }) || [];
 
   return (
     <div className={styles.stepContent}>
@@ -119,18 +194,16 @@ const CategorySelectionStep = () => {
             {category.description && (
               <div className={styles.descriptionList}>
                 {Array.isArray(category.description) ? (
-                  // Se for um array, mapear cada item
                   category.description.map((item, index) => {
                     let itemClass = '';
                     let displayText = item;
 
-                    // Verificar se o item começa com um dos símbolos
                     if (item.startsWith('✓')) {
                       itemClass = styles.positive;
-                      displayText = item.substring(1).trim(); // Remove o símbolo
+                      displayText = item.substring(1).trim();
                     } else if (item.startsWith('✕')) {
                       itemClass = styles.negative;
-                      displayText = item.substring(1).trim(); // Remove o símbolo
+                      displayText = item.substring(1).trim();
                     } else {
                       itemClass = styles.neutral;
                     }
@@ -142,7 +215,6 @@ const CategorySelectionStep = () => {
                     );
                   })
                 ) : (
-                  // Se for uma string única
                   <p className={`${styles.descriptionItem} ${styles.neutral}`}>
                     {category.description}
                   </p>
@@ -158,7 +230,35 @@ const CategorySelectionStep = () => {
         ))}
       </div>
 
-      {shouldShowReceipt() && (
+      {/* Modal do Receipt - com controle melhorado */}
+      {showReceiptModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <div className={styles.modalHeader}>
+              <h3>Comprovante Necessário</h3>
+              <button
+                className={styles.closeButton}
+                onClick={() => setShowReceiptModal(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.modalBody}>
+              <p>Esta categoria requer o envio de um comprovante para continuar.</p>
+              <Receipt
+                receipt={formData.receipt}
+                onFileChange={handleFileChange}
+                onFileRemove={() => handleFileChange(null)}
+                error={error.receipt}
+                isModal={true}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mostrar o recibo na página apenas se já tiver um arquivo e for necessário */}
+      {shouldShowReceiptInPage() && (
         <Receipt
           receipt={formData.receipt}
           onFileChange={handleFileChange}
