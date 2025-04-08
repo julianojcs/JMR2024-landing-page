@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { eventData } from '../../../data/constants';
 import styles from './SpeakersForm.module.css';
-import { validateCPF, formatPhone } from '@/utils';
+import { validateCPF, formatPhone, formatCPF, formatName } from '@/utils';
 import { states } from '../../../data/states';
 import StateSelect from '../../../components/StateSelect'
 import Multselector from '@/components/Multselector';
@@ -74,52 +74,86 @@ const SpeakersForm = ({ params }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    let formattedValue = value;
 
+    // Formatação específica para cada campo
+    switch (name) {
+      case 'phone':
+        formattedValue = formatPhone(value);
+
+        // Limpar erro quando o usuário começar a digitar
+        if (errors.phone) {
+          setErrors(prev => ({
+            ...prev,
+            [name]: null
+          }));
+        }
+        break;
+
+      case 'cpf':
+        formattedValue = formatCPF(value);
+
+        // Limpar erro quando o usuário começar a digitar
+        if (errors.cpf) {
+          setErrors(prev => ({
+            ...prev,
+            [name]: null
+          }));
+        }
+
+        // Validação do CPF em tempo real quando chega ao comprimento completo
+        if (formattedValue.length === 14) {
+          if (!validateCPF(formattedValue)) {
+            setErrors(prev => ({ ...prev, cpf: 'CPF inválido' }));
+          }
+        }
+        break;
+
+      default:
+    // Para outros campos, mantenha o comportamento original
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+
+        // Limpar erro quando o usuário começar a digitar
+        if (errors[name]) {
+          setErrors(prev => ({
+            ...prev,
+            [name]: null
+          }));
+        }
+        return; // Saia da função para evitar a atualização duplicada abaixo
+    }
+
+    // Atualizar o formData com o valor formatado
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: formattedValue
     }));
-
-    // Limpar erro quando o usuário começar a digitar
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: null
-      }));
-    }
-
-    // Validação do CPF em tempo real
-    if (name === 'cpf' && value.length === 11) {
-      if (!validateCPF(value)) {
-        setErrors(prev => ({
-          ...prev,
-          cpf: 'CPF inválido'
-        }));
-      }
-    }
   };
 
   const validateForm = () => {
     const newErrors = {};
 
-  // Validação do nome completo
-  if (!formData.full_name?.trim()) {
-    newErrors.name = 'O nome completo é obrigatório';
-  } else {
-    const nameParts = formData.full_name
-      .trim()
-      .split(' ')
-      .filter(part => part.length > 0);
+    // Validação do nome completo
+    if (!formData.full_name?.trim()) {
+      newErrors.name = 'O nome completo é obrigatório';
+    } else {
+      const nameParts = formData.full_name
+        .trim()
+        .split(' ')
+        .filter(part => part.length > 0);
 
-    // Conta quantas partes do nome têm mais de 2 caracteres
-    const validNameParts = nameParts.filter(part => part.length > 2);
+      // Conta quantas partes do nome têm mais de 2 caracteres
+      const validNameParts = nameParts.filter(part => part.length > 2);
 
-    if (nameParts.length < 2) {
-      newErrors.name = 'Informe nome e sobrenome';
-    } else if (validNameParts.length < 2) {
-      newErrors.name = 'O nome deve conter pelo menos duas partes com mais de 2 caracteres';
+      if (nameParts.length < 2) {
+        newErrors.name = 'Informe nome e sobrenome';
+      } else if (validNameParts.length < 2) {
+        newErrors.name = 'O nome deve conter pelo menos duas partes com mais de 2 caracteres';
+      }
     }
-  }
 
     // Validação do nome para crachá
     if (!formData.badge_name?.trim()) {
@@ -147,7 +181,9 @@ const SpeakersForm = ({ params }) => {
     }
 
     // Validação do CPF
-    if (!validateCPF(formData.cpf)) {
+    if (!formData.cpf?.trim()) {
+      newErrors.cpf = 'O CPF é obrigatório';
+    } else if (!validateCPF(formData.cpf)) {
       newErrors.cpf = 'CPF inválido';
     }
 
@@ -220,7 +256,7 @@ const SpeakersForm = ({ params }) => {
     }
 
     const extension = file.name.split('.').pop();
-    const newFileName = `${formData.cpf || 'temp'}.${extension}`;
+    const newFileName = `${formData.cpf.replace(/\D/g, '') || 'temp'}.${extension}`;
     const newFile = new File([file], newFileName, { type: file.type });
 
     // Criar URL para preview da imagem
@@ -329,7 +365,7 @@ const SpeakersForm = ({ params }) => {
         position: 'top'
       });
       // Scroll to top smoothly
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
@@ -341,15 +377,20 @@ const SpeakersForm = ({ params }) => {
     ]
 
     textFields.forEach(field => {
-      formDataToSend.append(field, formData[field])
+      // Format name to capitalize first letter of each word
+      if (field === 'full_name' || field === 'badge_name' || field === 'city') {
+        formDataToSend.append(field, formatName(formData[field]));
+      } else {
+        formDataToSend.append(
+          field,
+          field === "cpf" ? formData.cpf.replace(/\D/g, '') : formData[field]
+        )
+      }
     })
 
     // Add arrays as JSON strings
     formDataToSend.append('categories', JSON.stringify(formData.categories))
     formDataToSend.append('lectures', JSON.stringify(formData.lectures))
-
-    console.log('Form data:', formData);
-    console.log('Form data to send:', formDataToSend);
 
     // Comprima a foto se existir
     if (formData.photo_path) {
@@ -535,29 +576,29 @@ const SpeakersForm = ({ params }) => {
             {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
           </div>
 
+          {/* Input para telefone */}
           <div className={styles.formGroup}>
-            <label htmlFor="phone">Telefone - (99)99999-9999<span className={styles.required}>*</span></label>
+            <label htmlFor="phone">Telefone<span className={styles.required}>*</span></label>
             <input
-              type="tel"
+              type="text"
               id="phone"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              onBlur={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})}
               className={styles.formControl}
               disabled={isSubmitting}
             />
             {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
           </div>
 
+          {/* Input para CPF */}
           <div className={styles.formGroup}>
-            <label htmlFor="cpf">CPF (somente números)<span className={styles.required}>*</span></label>
+            <label htmlFor="cpf">CPF<span className={styles.required}>*</span></label>
             <input
               type="text"
               id="cpf"
               name="cpf"
-              // pattern="\d{11}"
-              maxLength={11}
+              maxLength={14}
               value={formData.cpf}
               onChange={handleChange}
               className={styles.formControl}

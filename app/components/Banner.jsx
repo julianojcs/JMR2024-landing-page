@@ -3,8 +3,6 @@ import { container, banner, bannerText } from './Banner.module.css'
 import CallToAct from './CallToAct'
 
 const Banner = ({ data }) => {
-  console.log('Banner data:', data)
-
   if (!data) return null
   if (!data.description) return null
 
