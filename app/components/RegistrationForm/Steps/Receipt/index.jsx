@@ -7,8 +7,8 @@ import styles from './Receipt.module.css'
 const TrashIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="12"
-    height="12"
+    width="13"
+    height="13"
     fill="currentColor"
     viewBox="0 0 16 16"
     aria-hidden="true"
@@ -85,7 +85,9 @@ const Receipt = ({
               aria-label="Remover arquivo"
               title="Remover arquivo"
             >
-              <TrashIcon /><span>Excluir</span>
+              <div className={styles.removeControl}>
+                <TrashIcon /><span>Excluir</span>
+              </div>
             </button>
           </div>
         ) : (

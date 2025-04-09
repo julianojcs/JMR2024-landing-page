@@ -101,6 +101,7 @@ const CategorySelectionStep = () => {
   const handleFileChange = (file, error = '') => {
     if (error) {
       setError(prev => ({ ...prev, receipt: error }));
+      updateFormData('receipt', null);
       return;
     }
 
@@ -166,8 +167,7 @@ const CategorySelectionStep = () => {
   // Determinar se deve mostrar o recibo na página
   const shouldShowReceiptInPage = () => {
     return formData.category &&
-      isCategoryRequiringReceipt(formData.category) &&
-      formData.receipt;
+      isCategoryRequiringReceipt(formData.category)
   };
 
   const categories = formData?.eventData?.categories.filter(category => {
