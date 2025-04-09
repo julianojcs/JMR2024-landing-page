@@ -24,7 +24,7 @@
   --background: #F5F5F5; /* branco fumaça*/
   --foreground: #1F1F1F;
   --primary-clr: #0E1D59;
-  --primary-rgb: rgb(14, 29, 89);
+  --primary-rgb: 14, 29, 89;
   --secondary-clr:rgb(152, 128, 176);
   --danger-clr: #dc3545;
   --success-clr: #198754;
