@@ -1,3 +1,18 @@
+/* Estilo especial quando o recibo está em um modal */
+.modalReceiptContainer {
+  margin: 0;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: none;
+}
+
+.receiptTitle {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--color-primary, #0030B9);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -10,6 +25,11 @@
   justify-content: space-between;
   font-size: 0.75rem;
   font-weight: 600;
+}
+
+.title label {
+  font-weight: 600;
+  color: #444;
 }
 
 .dropZone {
@@ -53,6 +73,7 @@
 .fileInfo {
   display: flex;
   align-items: center;
+  width: 100%;
   justify-content: space-between;
   gap: 1rem;
   font-size: 0.875rem;
@@ -60,17 +81,26 @@
 }
 
 .removeButton {
-  background: none;
-  border: none;
-  color: var(--error-color);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-style: none;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: normal;
+  vertical-align: baseline;
+  font-style: normal;
+  color: #d32f2f;
   cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 4px;
-  transition: all 0.2s;
-}
 
-.removeButton:hover {
-  background: #fee2e2;
+
+  & span {
+    text-decoration: none;
+  }
+
+  & span:hover {
+    text-decoration: underline;
+  }
 }
 
 .error {
@@ -83,6 +113,32 @@
   color: #dc3545;
   margin-inline-start: 2px;
 }
+
+.trashIcon {
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
+.fileIcon {
+  margin-right: 2px;
+}
+
+.fileName {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.fileName span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 
 @media (max-width: 768px) {
   .dropZone {

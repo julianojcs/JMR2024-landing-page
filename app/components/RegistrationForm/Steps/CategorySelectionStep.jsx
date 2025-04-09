@@ -283,13 +283,15 @@ const CategorySelectionStep = () => {
         >
           Voltar
         </button>
-        <button
-          type="button"
-          onClick={handleNext}
-          className={styles.nextButton}
-        >
-          Próximo
-        </button>
+        <div className={styles.buttonWrapper} >
+          <button
+            type="button"
+            onClick={handleNext}
+            className={styles.nextButton}
+          >
+            Próximo
+          </button>
+        </div>
       </div>
     </div>
   );
