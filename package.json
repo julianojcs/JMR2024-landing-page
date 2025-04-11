@@ -18,8 +18,7 @@
     "migrate:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" prisma migrate dev --name test",
     "migrate:dev": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=dev\" prisma migrate dev --name dev",
     "migrate:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" prisma migrate deploy",
-    "generate": "npx prisma generate",
-    "custom-build": "prisma generate && next build"
+    "generate": "npx prisma generate"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
