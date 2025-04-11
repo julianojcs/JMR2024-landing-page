@@ -20,7 +20,7 @@
     "migrate:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" prisma migrate deploy",
     "generate": "npx prisma generate",
     "custom-build": "prisma generate && next build",
-    "postinstall": "migrate:main && generate"
+    "postinstall": "vercel-build"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
