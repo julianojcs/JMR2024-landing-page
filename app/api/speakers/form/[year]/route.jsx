@@ -111,7 +111,7 @@ export async function POST(request, {params}) {
           city: formData.get('city'),
           state: formData.get('state'),
           curriculum: formData.get('curriculum'),
-          photo_path: photo_path,
+          photo_path: photo_path || 'https://res.cloudinary.com/dixe3b2i5/image/upload/v1742929226/speakers/default-avatar.png',
           year: parseInt(year)
         }
       });

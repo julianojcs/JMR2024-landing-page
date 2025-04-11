@@ -18,8 +18,8 @@ model Speaker {
   city         String?
   state        String?
   curriculum   String            @db.Text
-  photo_path   String?           @map("photo_path")
-  year         Int              @default(dbgenerated("EXTRACT(YEAR FROM CURRENT_DATE)"))
+  photo_path   String            @default("https://res.cloudinary.com/dixe3b2i5/image/upload/v1742929226/speakers/default-avatar.png") @map("photo_path")
+  year         Int               @default(dbgenerated("EXTRACT(YEAR FROM CURRENT_DATE)"))
   created_at   DateTime          @default(now()) @map("created_at")
   updated_at   DateTime          @updatedAt @map("updated_at")
   lectures     SpeakerLecture[]

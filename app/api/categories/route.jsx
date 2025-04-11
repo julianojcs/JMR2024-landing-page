@@ -16,6 +16,7 @@ export async function GET() {
         { name: 'asc' }
       ]
     })
+    console.log('Fetched categories:', categories)
     return NextResponse.json(categories)
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })

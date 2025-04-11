@@ -10,8 +10,20 @@ export async function GET(request, { params }) {
     // Updated query to include lectures and categories
     const query = `
       WITH speaker_data AS (
-        SELECT DISTINCT ON (s.cpf) 
-          s.*,
+        SELECT DISTINCT ON (s.cpf)
+          s.id,
+          s.full_name,
+          s.badge_name,
+          s.email,
+          s.phone,
+          s.cpf,
+          s.city,
+          s.state,
+          s.curriculum,
+          s.photo_path,
+          s.year,
+          s.created_at,
+          s.updated_at,
           array_agg(DISTINCT l.name) FILTER (WHERE l.name IS NOT NULL) as lectures,
           array_agg(DISTINCT c.name) FILTER (WHERE c.name IS NOT NULL) as categories
         FROM speakers s
@@ -38,8 +50,8 @@ export async function GET(request, { params }) {
       // Transform empty arrays to null
       lectures: speaker.lectures?.length ? speaker.lectures : null,
       categories: speaker.categories?.length ? speaker.categories : null,
-      // Add Cloudinary URL if photo exists
-      photo_path: speaker.photo_path
+      // Add Cloudinary URL if photo exists, use default if null or empty
+      photo_url: speaker.photo_path && speaker.photo_path !== "null" && speaker.photo_path !== ""
         ? cloudinary.url(speaker.photo_path, {
             width: 50,
             height: 50,
@@ -47,7 +59,7 @@ export async function GET(request, { params }) {
             quality: 'auto',
             fetch_format: 'auto'
           })
-        : null
+        : "https://res.cloudinary.com/dixe3b2i5/image/upload/v1742929226/speakers/default-avatar.png"
     }));
 
     return NextResponse.json(processedSpeakers, {
