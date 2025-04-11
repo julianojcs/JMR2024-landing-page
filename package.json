@@ -14,11 +14,12 @@
     "seed:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" node prisma/seed.js",
     "seed:dev": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=dev\" node prisma/seed.js",
     "seed:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" node prisma/seed.js",
-    "vercel-build": "next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "migrate:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" prisma migrate dev --name test",
     "migrate:dev": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=dev\" prisma migrate dev --name dev",
     "migrate:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" prisma migrate deploy",
-    "generate": "npx prisma generate"
+    "generate": "npx prisma generate",
+    "custom-build": "npm install && prisma generate && next build"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
