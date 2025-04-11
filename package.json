@@ -8,7 +8,7 @@
     "dev": "npm run clean && dotenv -e .env.development -- next dev",
     "prod": "npm run clean && dotenv -e .env.production -- next dev",
     "start": "dotenv -e .env.production -- next start",
-    "build": "dotenv -e .env.production -- next build",
+    "build": "prisma generate && dotenv -e .env.production -- next build",
     "lint": "next lint",
     "seed": "node prisma/seed.js",
     "seed:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" node prisma/seed.js",
@@ -18,8 +18,7 @@
     "migrate:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" prisma migrate dev --name test",
     "migrate:dev": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=dev\" prisma migrate dev --name dev",
     "migrate:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" prisma migrate deploy",
-    "generate": "npx prisma generate",
-    "custom-build": "npm install && prisma generate && next build"
+    "generate": "npx prisma generate"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
@@ -47,16 +46,16 @@
     "react-select": "^5.10.0",
     "react-spinners": "^0.14.1",
     "sharp": "^0.33.5",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "@prisma/client": "^6.6.0",
+    "dotenv-cli": "^8.0.0",
+    "prisma": "^6.6.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.5.0",
-    "@prisma/client": "^6.6.0",
     "@types/node": "22.7.4",
     "@types/react": "18.3.10",
-    "dotenv-cli": "^8.0.0",
     "postcss": "^8",
-    "prisma": "^6.6.0",
     "typescript": "5.6.2"
   }
 }
