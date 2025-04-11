@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run custom-build",
-  "ignoreCommand": "npm run prisma:generate",
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": ".next",
   "installCommand": "npm install",
   "rewrites": [
     {
