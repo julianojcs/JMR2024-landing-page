@@ -754,7 +754,7 @@ const SpeakersForm = ({ params }) => {
                 <span className={styles.toggleSlider}></span>
               </label>
               <label htmlFor="consent" className={styles.consentLabel}>
-                Autorizo o uso da minha imagem e dados em todos os meios de divulgação do evento
+                Autorizo o uso do meu nome, imagem e mini currículo em todos os meios de divulgação do evento.
                 <span className={styles.required}>*</span>
               </label>
             </div>
