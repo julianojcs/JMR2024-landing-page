@@ -12,6 +12,7 @@ import Tables from '../components/Tables'
 import ModalBanner from '../components/ModalBanner'
 import Introduction from '/app/components/Introduction';
 import Sponsor from '/app/components/Sponsor'
+import TravelAgency from '/app/components/TravelAgency'
 
 // export async function getServerSideProps(context) {
 //   if (!isValidRoute(context)) {
@@ -94,6 +95,7 @@ const Home = ({ params }) => {
       <Banner data={data.banner} />
       <Introduction introduction={data.introduction} />
       <Description description={data.description} />
+      <TravelAgency data={data.travelAgency} />
       <Promoters button={data?.callToAct?.button01} year={year} />
       <Events button={data?.callToAct?.button02} year={year} />
       <Comission year={year} />

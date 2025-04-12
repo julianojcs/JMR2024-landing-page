@@ -1480,7 +1480,7 @@ export const eventData = {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
               { desktop: 'Vagas', mobile: 'Vagas' },
-              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
@@ -1521,7 +1521,7 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
@@ -1557,7 +1557,7 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
@@ -10764,7 +10764,7 @@ export const eventData = {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
               { desktop: 'Vagas', mobile: 'Vagas' },
-              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
@@ -10805,7 +10805,7 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
@@ -10841,7 +10841,7 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 20/04'], mobile: 'Até 20/04' },
+              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
