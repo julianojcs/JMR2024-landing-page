@@ -57,18 +57,19 @@
 
 .title {
   font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   text-align: center;
   font-weight: 700;
 }
 
 .description {
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
 }
 
 .description p {
-  margin-bottom: 1rem;
   line-height: 1.6;
+  text-align: justify;
+  text-indent: 1.5rem;
 }
 
 .logos {
@@ -126,29 +127,29 @@
 
 @media (max-width: 768px) {
   .modal {
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
     width: 85%;
   }
 
   .description {
     margin-bottom: 0;
     &>p {
-      margin-block-end: .5rem;
-      line-height: 1.4;
+      margin-block-end: .2rem;
+      line-height: 1.3;
       font-size: .9em;
     }
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .logos {
     margin-block-start: 0;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
     transform: scale(0.85);
   }
 }

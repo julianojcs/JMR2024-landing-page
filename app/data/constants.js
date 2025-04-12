@@ -639,7 +639,7 @@ export const eventData = {
       description: [
         'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
         'A JMR/CIM2025 fechou uma parceria incrível com a MedHubX, a plataforma de ensino médico referência em radiologia.',
-        'Garanta sua inscrição até 20/04 e tenha a chance de levar um ano de acesso completo a conteúdos exclusivos que transformarão sua prática na radiologia!',
+        'Garanta sua inscrição até 30/04 e tenha a chance de levar um ano de acesso completo a conteúdos exclusivos que transformarão sua prática na radiologia!',
         'O sorteio será realizado no dia 27/06 e o resultado será divulgado nas redes sociais da SRMG.',
         'Não perca essa oportunidade. Inscreva-se agora!'
       ],
@@ -651,8 +651,8 @@ export const eventData = {
           },
           link: 'https://www.srmg.org.br',
           src: '/logo_jornada/jmr2025.png',
-          width: 286,
-          height: 110
+          width: 207.92,
+          height: 80
         },
         {
           name: 'MedHubX',
@@ -661,8 +661,8 @@ export const eventData = {
           },
           link: 'https://www.medhubx.com',
           src: '/logo/medhubx.png',
-          width: 237,
-          height: 60,
+          width: 172.17,
+          height: 43.62,
           bgcolor: '#f8f9fa'
         }
       ],
@@ -757,7 +757,7 @@ export const eventData = {
           description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
           image: '/images/svg/courses.svg',
           prices: [
-            { bestBefore: '20/04/2025', value: 'R$ 88' },
+            { bestBefore: '30/04/2025', value: 'R$ 88' },
             { bestBefore: '20/05/2025', value: 'R$ 98' },
             { bestBefore: '25/06/2025', value: 'R$ 118' },
             { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -785,7 +785,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 325' },
+              { bestBefore: '30/04/2025', value: 'R$ 325' },
               { bestBefore: '20/05/2025', value: 'R$ 355' },
               { bestBefore: '25/06/2025', value: 'R$ 385' },
               { bestBefore: '27/06/2025', value: 'R$ 415' },
@@ -796,7 +796,7 @@ export const eventData = {
             description: ['Workshop exclusivo para médicos.'],
             image: '/images/svg/workshops.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 70' },
+              { bestBefore: '30/04/2025', value: 'R$ 70' },
               { bestBefore: '20/05/2025', value: 'R$ 80' },
               { bestBefore: '25/06/2025', value: 'R$ 87' },
               { bestBefore: '27/06/2025', value: 'R$ 94' },
@@ -807,7 +807,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -822,7 +822,7 @@ export const eventData = {
             ],
             image: '/images/svg/dayuse.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 243,75' },
+              { bestBefore: '30/04/2025', value: 'R$ 243,75' },
               { bestBefore: '20/05/2025', value: 'R$ 266,25' },
               { bestBefore: '25/06/2025', value: 'R$ 288,75' },
               { bestBefore: '27/06/2025', value: 'R$ 311,25' },
@@ -845,7 +845,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 705' },
+              { bestBefore: '30/04/2025', value: 'R$ 705' },
               { bestBefore: '20/05/2025', value: 'R$ 735' },
               { bestBefore: '25/06/2025', value: 'R$ 755' },
               { bestBefore: '27/06/2025', value: 'R$ 795' },
@@ -856,7 +856,7 @@ export const eventData = {
             description: ['Workshop exclusivo para médicos.'],
             image: '/images/svg/workshops.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 158' },
+              { bestBefore: '30/04/2025', value: 'R$ 158' },
               { bestBefore: '20/05/2025', value: 'R$ 165' },
               { bestBefore: '25/06/2025', value: 'R$ 170' },
               { bestBefore: '27/06/2025', value: 'R$ 180' },
@@ -867,7 +867,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -888,7 +888,7 @@ export const eventData = {
             ],
             image: '/images/svg/dayuse.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 528,75' },
+              { bestBefore: '30/04/2025', value: 'R$ 528,75' },
               { bestBefore: '20/05/2025', value: 'R$ 551,25' },
               { bestBefore: '25/06/2025', value: 'R$ 566,25' },
               { bestBefore: '27/06/2025', value: 'R$ 596,25' },
@@ -912,7 +912,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 179' },
+              { bestBefore: '30/04/2025', value: 'R$ 179' },
               { bestBefore: '20/05/2025', value: 'R$ 199' },
               { bestBefore: '25/06/2025', value: 'R$ 219' },
               { bestBefore: '27/06/2025', value: 'R$ 269' },
@@ -923,7 +923,7 @@ export const eventData = {
             description: ['Workshop exclusivo para médicos.'],
             image: '/images/svg/workshops.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 60' },
+              { bestBefore: '30/04/2025', value: 'R$ 60' },
               { bestBefore: '20/05/2025', value: 'R$ 70' },
               { bestBefore: '25/06/2025', value: 'R$ 80' },
               { bestBefore: '27/06/2025', value: 'R$ 90' },
@@ -935,7 +935,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -960,7 +960,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 67' },
+              { bestBefore: '30/04/2025', value: 'R$ 67' },
               { bestBefore: '20/05/2025', value: 'R$ 87' },
               { bestBefore: '25/06/2025', value: 'R$ 107' },
               { bestBefore: '27/06/2025', value: 'R$ 147' },
@@ -971,7 +971,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             description: ['Curso aberto ao público em geral.'],
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -997,7 +997,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 177' },
+              { bestBefore: '30/04/2025', value: 'R$ 177' },
               { bestBefore: '20/05/2025', value: 'R$ 197' },
               { bestBefore: '25/06/2025', value: 'R$ 217' },
               { bestBefore: '27/06/2025', value: 'R$ 297' },
@@ -1008,7 +1008,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             description: ['Curso aberto ao público em geral.'],
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -1034,7 +1034,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 68' },
+              { bestBefore: '30/04/2025', value: 'R$ 68' },
               { bestBefore: '20/05/2025', value: 'R$ 88' },
               { bestBefore: '25/06/2025', value: 'R$ 108' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -1045,7 +1045,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -1069,7 +1069,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -1618,6 +1618,12 @@ export const eventData = {
               href: 'https://www.telelaudo.com.br/',
               width: 84.73,
               height: 30
+              }, {
+                name: 'VX',
+                src: '/logo/vx.png',
+                href: 'https://www.vx.com.br/',
+                width: 90,
+                height: 25.65
             }],
           },
           bronze: {
@@ -9859,7 +9865,24 @@ export const eventData = {
           }
         ]
       }
-    ]
+    ],
+    travelAgency: {
+      active: true,
+      title: 'Agência Oficial',
+      description: [
+        'Clique na logo para conferir', 'passeios e hospedagens.'
+      ],
+      logo: {
+        name: 'GVB Travel',
+        get alt() {
+          return `Logo da ${this.name}`
+        },
+        link: '/pdf/gvb-travel-jmr2025.pdf',
+        src: '/logo/gvb-travel.png',
+        width: 100,
+        height: 71.5
+      }
+    }
   },
   2028: {
     title:
@@ -9900,7 +9923,7 @@ export const eventData = {
       description: [
         'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
         'A JMR/CIM2025 fechou uma parceria incrível com a MedHubX, a plataforma de ensino médico referência em radiologia.',
-        'Garanta sua inscrição até 20/04 e tenha a chance de levar um ano de acesso completo a conteúdos exclusivos que transformarão sua prática na radiologia!',
+        'Garanta sua inscrição até 30/04 e tenha a chance de levar um ano de acesso completo a conteúdos exclusivos que transformarão sua prática na radiologia!',
         'O sorteio será realizado no dia 27/06 e o resultado será divulgado nas redes sociais da SRMG.',
         'Não perca essa oportunidade. Inscreva-se agora!'
       ],
@@ -9912,8 +9935,8 @@ export const eventData = {
           },
           link: 'https://www.srmg.org.br',
           src: '/logo_jornada/jmr2025.png',
-          width: 286,
-          height: 110
+          width: 207.92,
+          height: 80
         },
         {
           name: 'MedHubX',
@@ -9922,8 +9945,8 @@ export const eventData = {
           },
           link: 'https://www.medhubx.com',
           src: '/logo/medhubx.png',
-          width: 237,
-          height: 60,
+          width: 172.17,
+          height: 43.62,
           bgcolor: '#f8f9fa'
         }
       ],
@@ -9955,13 +9978,13 @@ export const eventData = {
         alt: 'Logo da SRMG',
         src: '/logo/srmg.png'
       },
-      {
-        name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
-        shortName: 'SOGIMIG',
-        link: 'https://sogimig.org.br/',
-        alt: 'Logo da SOGIMIG',
-        src: '/logo/sogimig.png'
-      }
+        {
+          name: 'Associação de Ginecologistas e Obstetras de Minas Gerais (SOGIMIG)',
+          shortName: 'SOGIMIG',
+          link: 'https://sogimig.org.br/',
+          alt: 'Logo da SOGIMIG',
+          src: '/logo/sogimig.png'
+        }
       ]
     },
     date: {
@@ -10018,7 +10041,7 @@ export const eventData = {
           description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
           image: '/images/svg/courses.svg',
           prices: [
-            { bestBefore: '20/04/2025', value: 'R$ 88' },
+            { bestBefore: '30/04/2025', value: 'R$ 88' },
             { bestBefore: '20/05/2025', value: 'R$ 98' },
             { bestBefore: '25/06/2025', value: 'R$ 118' },
             { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10046,7 +10069,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 325' },
+              { bestBefore: '30/04/2025', value: 'R$ 325' },
               { bestBefore: '20/05/2025', value: 'R$ 355' },
               { bestBefore: '25/06/2025', value: 'R$ 385' },
               { bestBefore: '27/06/2025', value: 'R$ 415' },
@@ -10057,7 +10080,7 @@ export const eventData = {
             description: ['Workshop exclusivo para médicos.'],
             image: '/images/svg/workshops.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 70' },
+              { bestBefore: '30/04/2025', value: 'R$ 70' },
               { bestBefore: '20/05/2025', value: 'R$ 80' },
               { bestBefore: '25/06/2025', value: 'R$ 87' },
               { bestBefore: '27/06/2025', value: 'R$ 94' },
@@ -10068,7 +10091,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10083,7 +10106,7 @@ export const eventData = {
             ],
             image: '/images/svg/dayuse.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 243,75' },
+              { bestBefore: '30/04/2025', value: 'R$ 243,75' },
               { bestBefore: '20/05/2025', value: 'R$ 266,25' },
               { bestBefore: '25/06/2025', value: 'R$ 288,75' },
               { bestBefore: '27/06/2025', value: 'R$ 311,25' },
@@ -10106,7 +10129,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 705' },
+              { bestBefore: '30/04/2025', value: 'R$ 705' },
               { bestBefore: '20/05/2025', value: 'R$ 735' },
               { bestBefore: '25/06/2025', value: 'R$ 755' },
               { bestBefore: '27/06/2025', value: 'R$ 795' },
@@ -10117,7 +10140,7 @@ export const eventData = {
             description: ['Workshop exclusivo para médicos.'],
             image: '/images/svg/workshops.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 158' },
+              { bestBefore: '30/04/2025', value: 'R$ 158' },
               { bestBefore: '20/05/2025', value: 'R$ 165' },
               { bestBefore: '25/06/2025', value: 'R$ 170' },
               { bestBefore: '27/06/2025', value: 'R$ 180' },
@@ -10128,7 +10151,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10149,7 +10172,7 @@ export const eventData = {
             ],
             image: '/images/svg/dayuse.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 528,75' },
+              { bestBefore: '30/04/2025', value: 'R$ 528,75' },
               { bestBefore: '20/05/2025', value: 'R$ 551,25' },
               { bestBefore: '25/06/2025', value: 'R$ 566,25' },
               { bestBefore: '27/06/2025', value: 'R$ 596,25' },
@@ -10173,7 +10196,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 179' },
+              { bestBefore: '30/04/2025', value: 'R$ 179' },
               { bestBefore: '20/05/2025', value: 'R$ 199' },
               { bestBefore: '25/06/2025', value: 'R$ 219' },
               { bestBefore: '27/06/2025', value: 'R$ 269' },
@@ -10184,7 +10207,7 @@ export const eventData = {
             description: ['Workshop exclusivo para médicos.'],
             image: '/images/svg/workshops.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 60' },
+              { bestBefore: '30/04/2025', value: 'R$ 60' },
               { bestBefore: '20/05/2025', value: 'R$ 70' },
               { bestBefore: '25/06/2025', value: 'R$ 80' },
               { bestBefore: '27/06/2025', value: 'R$ 90' },
@@ -10196,7 +10219,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10221,7 +10244,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 67' },
+              { bestBefore: '30/04/2025', value: 'R$ 67' },
               { bestBefore: '20/05/2025', value: 'R$ 87' },
               { bestBefore: '25/06/2025', value: 'R$ 107' },
               { bestBefore: '27/06/2025', value: 'R$ 147' },
@@ -10232,7 +10255,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             description: ['Curso aberto ao público em geral.'],
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10258,7 +10281,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 177' },
+              { bestBefore: '30/04/2025', value: 'R$ 177' },
               { bestBefore: '20/05/2025', value: 'R$ 197' },
               { bestBefore: '25/06/2025', value: 'R$ 217' },
               { bestBefore: '27/06/2025', value: 'R$ 297' },
@@ -10269,7 +10292,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             description: ['Curso aberto ao público em geral.'],
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10295,7 +10318,7 @@ export const eventData = {
             description: ['Adquira o acesso completo à JMR/CIM 2025'],
             image: '/images/svg/journey.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 68' },
+              { bestBefore: '30/04/2025', value: 'R$ 68' },
               { bestBefore: '20/05/2025', value: 'R$ 88' },
               { bestBefore: '25/06/2025', value: 'R$ 108' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10306,7 +10329,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10330,7 +10353,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
-              { bestBefore: '20/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
               { bestBefore: '20/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
@@ -10669,50 +10692,50 @@ export const eventData = {
         }
       ]
     },
-    {
-      name: 'SOGIMIG',
-      get title() {
-        return `Comissão Científica ${this.name}`
-      },
-      link: 'https://www.sogimig.org.br',
-      src: '/logo/sogimig.png',
-      width: 150,
-      height: 60,
-      members: [
-        {
-          imagePath: '/avatars/Cassio_Furtini_Haddad.png',
-          name: 'Dr. Cássio Furtini Haddad'
+      {
+        name: 'SOGIMIG',
+        get title() {
+          return `Comissão Científica ${this.name}`
         },
-        {
-          imagePath: '/avatars/Angelica_Lemos_Debs_Diniz.png',
-          name: 'Dra. Angélica Lemos Debs Diniz'
-        },
-        {
-          imagePath: '/avatars/Ines_Katerina_Damasceno.png',
-          name: 'Dra. Ines Katerina Damasceno'
-        },
-        {
-          imagePath: '/avatars/Inessa_Beraldo_Bonomi.png',
-          name: 'Dra. Inessa Beraldo Bonomi'
-        },
-        {
-          imagePath: '/avatars/Joana_Sara_Fonseca_Dumont.png',
-          name: 'Dra. Joana Sara Fonseca Dumont'
-        },
-        {
-          imagePath: '/avatars/Lara_Rodrigues_Felix.png',
-          name: 'Dra. Lara Rodrigues Félix'
-        },
-        {
-          imagePath: '/avatars/Liv_Braga_de_Paula.png',
-          name: 'Dra. Liv Braga de Paula'
-        },
-        {
-          imagePath: '/avatars/Mariana_Seabra.png',
-          name: 'Dra. Mariana Seabra'
-        }
-      ]
-    }
+        link: 'https://www.sogimig.org.br',
+        src: '/logo/sogimig.png',
+        width: 150,
+        height: 60,
+        members: [
+          {
+            imagePath: '/avatars/Cassio_Furtini_Haddad.png',
+            name: 'Dr. Cássio Furtini Haddad'
+          },
+          {
+            imagePath: '/avatars/Angelica_Lemos_Debs_Diniz.png',
+            name: 'Dra. Angélica Lemos Debs Diniz'
+          },
+          {
+            imagePath: '/avatars/Ines_Katerina_Damasceno.png',
+            name: 'Dra. Ines Katerina Damasceno'
+          },
+          {
+            imagePath: '/avatars/Inessa_Beraldo_Bonomi.png',
+            name: 'Dra. Inessa Beraldo Bonomi'
+          },
+          {
+            imagePath: '/avatars/Joana_Sara_Fonseca_Dumont.png',
+            name: 'Dra. Joana Sara Fonseca Dumont'
+          },
+          {
+            imagePath: '/avatars/Lara_Rodrigues_Felix.png',
+            name: 'Dra. Lara Rodrigues Félix'
+          },
+          {
+            imagePath: '/avatars/Liv_Braga_de_Paula.png',
+            name: 'Dra. Liv Braga de Paula'
+          },
+          {
+            imagePath: '/avatars/Mariana_Seabra.png',
+            name: 'Dra. Mariana Seabra'
+          }
+        ]
+      }
     ],
     priceTables: {
       title: 'Valores das Inscrições',
@@ -10841,12 +10864,12 @@ export const eventData = {
           width: 90,
           height: 60
         }, {
-          name: 'SRMG',
-          src: '/logo/srmg.png',
-          href: 'http://www.srmg.org.br/',
-          width: 150,
-          height: 43
-        },
+            name: 'SRMG',
+            src: '/logo/srmg.png',
+            href: 'http://www.srmg.org.br/',
+            width: 150,
+            height: 43
+          },
         ]
       },
       sponsors: {
@@ -10879,6 +10902,12 @@ export const eventData = {
               href: 'https://www.telelaudo.com.br/',
               width: 84.73,
               height: 30
+              }, {
+                name: 'VX',
+                src: '/logo/vx.png',
+                href: 'https://www.vx.com.br/',
+                width: 90,
+                height: 25.65
             }],
           },
           bronze: {
@@ -19120,6 +19149,23 @@ export const eventData = {
           }
         ]
       }
-    ]
-  }
+    ],
+    travelAgency: {
+      active: true,
+      title: 'Agência Oficial',
+      description: [
+        'Clique na logo para conferir passeios e hospedagens.'
+      ],
+      logo: {
+        name: 'GVB Travel',
+        get alt() {
+          return `Logo da ${this.name}`
+        },
+        link: '/pdf/gvb-travel-jmr2025.pdf',
+        src: '/logo/gvb-travel.png',
+        width: 200,
+        height: 143
+      }
+    }
+  },
 }

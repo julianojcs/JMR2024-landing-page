@@ -1,0 +1,39 @@
+/* Este CSS pode ser colocado em um arquivo separado ou junto com o componente */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-block: 3rem 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-block-end: 15px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Corrigido: remova as aspas simples e use um valor válido de position */
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.description {
+  text-align: center;
+  max-width: 600px;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 15px;
+}

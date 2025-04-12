@@ -12,27 +12,10 @@ import Tables from './components/Tables'
 import ModalBanner from './components/ModalBanner'
 import Introduction from '/app/components/Introduction';
 import Sponsor from '/app/components/Sponsor'
-
-// export async function getServerSideProps(context) {
-//   if (!isValidRoute(context)) {
-//     context.res.statusCode = 404
-//     context.res.end()
-//     console.log('Invalid URL')
-//     return { props: { error: 'Invalid URL' } }
-//   }
-//
-//   const { year } = context.params
-//
-//   return {
-//     props: {
-//       year
-//     }
-//   }
-// }
+import TravelAgency from '/app/components/TravelAgency'
 
 export async function generateMetadata() {
-  const year = 2025
-  console.log('eventData[year]: ', eventData[year])
+  const year = new Date().getFullYear()
   // Check if year exists in eventData
   if (!eventData[year]) {
     notFound()
@@ -94,6 +77,7 @@ const Home = () => {
       <Banner data={data.banner} />
       <Introduction introduction={data.introduction} />
       <Description description={data.description} />
+      <TravelAgency data={data.travelAgency} />
       <Promoters button={data?.callToAct?.button01} year={year} />
       <Events button={data?.callToAct?.button02} year={year} />
       <Comission year={year} />
