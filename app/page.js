@@ -69,7 +69,7 @@ const Home = () => {
     CalendarIcon
   }
   return (
-    <main>
+    <main style={{ overflowX: 'hidden' }}>
       {data.modal && <ModalBanner modalData={data.modal} />}
       <Header props={props}>
         <SocialMedias url={data.social.instagram} />
