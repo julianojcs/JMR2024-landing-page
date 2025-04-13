@@ -2,8 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw; /* Use viewport width em vez de porcentagem */
+  height: 100vh; /* Use viewport height em vez de porcentagem */
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
@@ -11,6 +11,8 @@
   z-index: 1000;
   animation: fadeIn 0.3s ease-in-out;
   user-select: none;
+  overflow-x: hidden; /* Previne rolagem horizontal */
+  box-sizing: border-box; /* Garante que o padding não adicione largura extra */
 }
 
 .modal {
@@ -18,10 +20,11 @@
   border-radius: 12px;
   padding: 2rem;
   max-width: 90%;
-  width: 780px;
+  width: min(780px, 90vw); /* Usa o menor valor entre 780px e 90% da largura da viewport */
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   animation: slideIn 0.3s ease-in-out;
+  box-sizing: border-box; /* Garante que o padding não adicione largura extra */
 }
 
 .closeButton {
