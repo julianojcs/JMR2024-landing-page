@@ -60,6 +60,13 @@
   filter: sepia(100%); /* Opacidade ao passar o mouse */
 }
 
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .abramede {
   aspect-ratio: auto 401 / 145;
 }

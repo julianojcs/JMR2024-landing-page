@@ -7,7 +7,7 @@ import { eventData } from '../data/constants'
 import {
   container,
   comissionContainer,  comissionTitle,
-  medicosContainer,
+  medicosContainer, logoContainer,
   promoters
 } from './Comission.module.css'
 
@@ -38,13 +38,18 @@ const Comission = ({year}) => {
               />
             )}
             <div className={comissionTitle}>
-              <Link href={comission.link} target='_blank'>
+              <Link
+                href={comission.link}
+                target='_blank'
+                rel="noopener noreferrer"
+                className={logoContainer}
+                style={{ width: comission.width, height: comission.height }}
+              >
                 <Image
                   className={classnames(promoters)}
                   src={comission.src}
                   alt={`${comission.name} Logo`}
-                  width={comission.width}
-                  height={comission.height}
+                  fill
                 />
               </Link>
               <h2>{comission.title}</h2>

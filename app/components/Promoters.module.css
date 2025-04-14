@@ -11,6 +11,13 @@
   padding-block: 2rem;
 }
 
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .brands {
   height: 80px;
   width: auto;

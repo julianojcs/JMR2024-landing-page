@@ -88,7 +88,7 @@ const Home = ({ params }) => {
   }
   return (
     <main style={{ overflowX: 'hidden' }}>
-      {data.modal && <ModalBanner modalData={data.modal} />}
+      <ModalBanner modalData={data.modal} />
       <Header props={props}>
         <SocialMedias url={data.social.instagram} />
       </Header>

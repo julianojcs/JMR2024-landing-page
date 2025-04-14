@@ -1,4 +1,3 @@
-/* Este CSS pode ser colocado em um arquivo separado ou junto com o componente */
 .container {
   display: flex;
   flex-direction: column;
@@ -16,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Corrigido: remova as aspas simples e use um valor válido de position */
+  position: relative;
 }
 
 .logo {

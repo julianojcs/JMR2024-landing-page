@@ -14,18 +14,19 @@ const TravelAgency = ({ data }) => {
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>{title}</h3>
-      <Link href={logo.link} target="_blank" rel="noopener noreferrer">
-        <div
-          className={styles.logoContainer}
-          style={{ width: logo.width, height: logo.height }}
-        >
-          <Image
-            src={logo.src}
-            alt={logo.alt}
-            fill
-            className={styles.logo}
-          />
-        </div>
+      <Link
+        href={logo.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.logoContainer}
+        style={{ width: logo.width, height: logo.height }}
+      >
+        <Image
+          src={logo.src}
+          alt={logo.alt}
+          fill
+          className={styles.logo}
+        />
       </Link>
       <div className={styles.descriptionContainer}>
         {Array.isArray(description) ? (

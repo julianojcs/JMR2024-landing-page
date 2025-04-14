@@ -14,13 +14,19 @@ const Sponsor = ({sponsorShip}) => {
           <p>{promoters.title}</p>
           <div className={styles[promoters.className]}>
             {promoters.brands.map(({ name, src, href, width, height }) => (
-              <Link key={name} href={href} target='_blank'>
+              <Link
+                key={name}
+                href={href}
+                target='_blank'
+                rel="noopener noreferrer"
+                className={styles.logoContainer}
+                style={{ width: width, height: height }}
+              >
                 <Image
                   className={classnames(styles.imgSponsors)}
                   src={src}
                   alt={name}
-                  width={width}
-                  height={height}
+                  fill
                 />
               </Link>
             ))}
@@ -37,13 +43,19 @@ const Sponsor = ({sponsorShip}) => {
                 <hr className={styles.hr3}></hr>
                 <div className={styles.sponsorsBox}>
                   {sponsors.level[level].brands.map(({ name, src, href, width, height, rounded }) => (
-                    <Link key={name} href={href} target='_blank'>
+                    <Link
+                      key={name}
+                      href={href}
+                      target='_blank'
+                      rel="noopener noreferrer"
+                      className={styles.logoContainer}
+                      style={{ width: width, height: height }}
+                    >
                       <Image
                         className={styles.imgSponsors}
                         src={src}
                         alt={name}
-                        width={width}
-                        height={height}
+                        fill
                         style={{ borderRadius: rounded ? '50%' : '0' }}
                       />
                     </Link>
@@ -59,13 +71,19 @@ const Sponsor = ({sponsorShip}) => {
           <p>{institutionalSupports.title}</p>
           <div className={styles[institutionalSupports.className]}>
             {institutionalSupports.brands.map(({ name, src, href, width, height, className }) => (
-              <Link key={name} href={href} target='_blank'>
+              <Link
+                key={name}
+                href={href}
+                target='_blank'
+                rel="noopener noreferrer"
+                className={styles.logoContainer}
+                style={{ width: width, height: height }}
+              >
                 <Image
                   className={classnames(styles.imgSponsors, {[styles[className]]: className})}
                   src={src}
                   alt={name}
-                  width={width}
-                  height={height}
+                  fill
                 />
               </Link>
             ))}
@@ -77,13 +95,19 @@ const Sponsor = ({sponsorShip}) => {
           <p>{supports.title}</p>
           <div className={styles[supports.className]}>
             {supports.brands.map(({ name, src, href, width, height, className }) => (
-              <Link key={name} href={href} target='_blank'>
+              <Link
+                key={name}
+                href={href}
+                target='_blank'
+                rel="noopener noreferrer"
+                className={styles.logoContainer}
+                style={{ width: width, height: height }}
+              >
                 <Image
                   className={classnames(styles.imgSponsors, {[styles[className]]: className})}
                   src={src}
                   alt={name}
-                  width={width}
-                  height={height}
+                  fill
                 />
               </Link>
             ))}
@@ -95,13 +119,19 @@ const Sponsor = ({sponsorShip}) => {
           <p>{organizer.title}</p>
           <div className={styles[organizer.className]}>
             {organizer.brands.map(({ name, src, href, width, height, className, rounded }) => (
-              <Link key={name} href={href} target='_blank'>
+              <Link
+                key={name}
+                href={href}
+                target='_blank'
+                rel="noopener noreferrer"
+                className={styles.logoContainer}
+                style={{ width: width, height: height }}
+              >
                 <Image
                   className={classnames(styles.imgSponsors, {[styles[className]]: className})}
                   src={src}
                   alt={name}
-                  width={width}
-                  height={height}
+                  fill
                   style={{ borderRadius: rounded ? '50%' : '0' }}
                 />
               </Link>

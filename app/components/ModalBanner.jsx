@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { modal, backdrop, content, closeButton, title, description, logos, logo as lg, logoLink } from './ModalBanner.module.css'
+import { modal, backdrop, content, closeButton, title, description, logos, logo as lg, logoContainer, logoLink } from './ModalBanner.module.css'
 import Image from 'next/image'
 
 const CloseIcon = () => (
@@ -68,13 +68,17 @@ const ModalBanner = ({ modalData }) => {
                 data-has-bg={!!logo.bgcolor}
                 style={logo.bgcolor ? { '--logo-bg-color': logo.bgcolor } : undefined}
               >
-                <Image
-                  src={logo.src}
-                  alt={logo.alt || `Logo ${logo.name}`}
-                  width={logo.width}
-                  height={logo.height}
-                  className={lg}
-                />
+                <div
+                  className={logoContainer}
+                  style={{ width: logo.width, height: logo.height }}
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt || `Logo ${logo.name}`}
+                    className={lg}
+                    fill
+                  />
+                </div>
               </a>
             ))}
           </div>

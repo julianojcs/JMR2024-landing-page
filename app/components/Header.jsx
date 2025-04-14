@@ -1,12 +1,9 @@
 // components/Header.tsx
 import React from 'react'
-import dynamic from 'next/dynamic'
 import styles from './Header.module.css'
 // import { loadImagesFromFolders } from '../util/functions'
 import { eventData } from '../data/constants'
-
-// Importando o componente DynamicImage dinamicamente
-const DynamicImage = dynamic(() => import('./DynamicImage'))
+import Image from 'next/image'
 
 const Header = ({ children, props }) => {
   // Desestruturando todas as classes usadas do objeto styles
@@ -39,7 +36,7 @@ const Header = ({ children, props }) => {
   return (
     <section className={container}>
       {children}
-      <DynamicImage
+      <Image
         src={logoSrc}
         priority
         alt={data.title}

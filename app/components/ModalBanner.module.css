@@ -97,6 +97,13 @@
   transform: scale(1.05);
 }
 
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .logoLink {
   display: inline-block;
   padding-inline: 1rem;
