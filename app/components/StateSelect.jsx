@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import styles from './StateSelect.module.css'
 import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+import styles from './StateSelect.module.css'
 
-export default function StateSelect({ value, onChange, states }) {
+export default function StateSelect({ value, onChange, states, name = "state", id = "state" }) {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedState, setSelectedState] = useState(value)
   const [position, setPosition] = useState({ top: 0, left: 0 })
@@ -13,7 +13,7 @@ export default function StateSelect({ value, onChange, states }) {
 
   const handleStateSelect = (state) => {
     setSelectedState(state)
-    onChange({ target: { name: 'state', value: state.value } })
+    onChange({ target: { name: name, value: state.value } })
     setIsOpen(false)
     selectRef.current?.focus()
   }
@@ -82,7 +82,7 @@ export default function StateSelect({ value, onChange, states }) {
   }, [isOpen])
 
   return (
-    <div className={styles.selectContainer} ref={selectRef} id="state" aria-labelledby="state-label">
+    <div className={styles.selectContainer} ref={selectRef} id={id} name={name} aria-labelledby="state-label">
       <div
         tabIndex={0}
         className={styles.select}
