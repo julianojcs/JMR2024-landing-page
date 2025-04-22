@@ -24,9 +24,9 @@ const Banner = ({ data }) => {
       {data.button &&
         <CallToAct caption={caption} link={link} />
       }
-      {data.button &&
+      {/* {data.button &&
         <CallToAct caption={'Submeta o seu Trabalho'} link={'https://paper-subscribe.vercel.app/redirect?t=BDBBBKDcxh3rlAa0'} />
-      }
+      } */}
     </section>
   )
 }
