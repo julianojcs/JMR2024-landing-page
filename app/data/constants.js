@@ -1471,7 +1471,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 3,
-            date: ['20042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -1513,7 +1513,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['20042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -1549,7 +1549,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['20042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -10755,7 +10755,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 3,
-            date: ['20042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -10797,7 +10797,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['20042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -10833,7 +10833,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['20042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '20052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
