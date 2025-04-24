@@ -150,6 +150,9 @@ body {
 }
 
 html {
+  overflow: visible;
+  scrollbar-width: thin;
+  scrollbar-color: var(--facebook-clr, #1877f2) transparent;
   scroll-behavior: smooth !important;
 }
 
