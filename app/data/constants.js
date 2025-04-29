@@ -1621,7 +1621,7 @@ export const eventData = {
               }, {
                 name: 'VX',
                 src: '/logo/vx.png',
-                href: 'https://www.vx.com.br/',
+                href: 'https://www.vx.med.br/',
                 width: 90,
                 height: 25.65
             }],
@@ -10905,7 +10905,7 @@ export const eventData = {
               }, {
                 name: 'VX',
                 src: '/logo/vx.png',
-                href: 'https://www.vx.com.br/',
+                href: 'https://www.vx.med.br/',
                 width: 90,
                 height: 25.65
             }],
