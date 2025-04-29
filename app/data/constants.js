@@ -1654,6 +1654,18 @@ export const eventData = {
           href: 'https://www.medhubx.com',
           width: 110,
           height: 27.86
+        }, {
+          name: 'Biblioteca Virtual',
+          src: '/logo/bibliotecavirtual.png',
+          href: 'http://www.bibliotecavirtual.org.br',
+          width: 95.70,
+          height: 27.86
+        }, {
+          name: 'Espaço Namah - Yoga',
+          src: '/logo/namah.png',
+          href: 'https://espaconamah.com.br',
+          width: 74.33,
+          height: 37
         }],
       },
       institutionalSupports: {
@@ -10938,6 +10950,18 @@ export const eventData = {
           href: 'https://www.medhubx.com',
           width: 110,
           height: 27.86
+        }, {
+          name: 'Biblioteca Virtual',
+          src: '/logo/bibliotecavirtual.png',
+          href: 'http://www.bibliotecavirtual.org.br',
+          width: 95.70,
+          height: 27.86
+        }, {
+          name: 'Espaço Namah - Yoga',
+          src: '/logo/namah.png',
+          href: 'https://espaconamah.com.br',
+          width: 74.33,
+          height: 37
         }],
       },
       institutionalSupports: {
