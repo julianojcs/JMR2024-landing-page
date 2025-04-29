@@ -25,7 +25,7 @@ const Banner = ({ data }) => {
         <CallToAct caption={caption} link={link} />
       }
       {data.button &&
-        <CallToAct caption={'Submeta o seu Trabalho'} link={'https://paper-subscribe.vercel.app/redirect?t=BDBBBKDcxh3rlAa0'} />
+        <CallToAct caption={'Submeta o seu Trabalho'} link={'https://paper.joindigitalsolutions.com.br/redirect?t=BDBBBKDcxh3rlAa0'} />
       }
     </section>
   )
