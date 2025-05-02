@@ -24,6 +24,10 @@
 }
 
 .comissionTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: var(--secondary-clr);
   color: var(--secondary-text-clr);
   padding-top: 2svh;
