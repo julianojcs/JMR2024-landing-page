@@ -30,6 +30,21 @@ const nextConfig = {
       }
     ]
   },
+  // Redirecionar páginas
+  async redirects() {
+    return [
+      // Exemplo de redirecionamento
+      // {
+      //   source: '/old-page',
+      //   destination: '/new-page',
+      //   permanent: true,
+      // },
+    ]
+  },
+  // Variáveis de ambiente que devem estar disponíveis no cliente
+  env: {
+    // PUBLIC_API_URL: process.env.PUBLIC_API_URL,
+  },
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,

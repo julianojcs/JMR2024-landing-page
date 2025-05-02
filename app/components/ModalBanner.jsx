@@ -24,8 +24,18 @@ const CloseIcon = () => (
 const ModalBanner = ({ modalData }) => {
   const [isVisible, setIsVisible] = useState(false)
 
-  // Return early if modalData doesn't exist or is not active
-  if (!modalData || !modalData.active) return null
+  // Return early if modalData doesn't exist, is not active, or has expired
+  if (!modalData || !modalData.active || isExpired(modalData.expireAt)) return null
+
+  // Function to check if the modal has expired
+  function isExpired(expireAtDate) {
+    if (!expireAtDate) return false; // If no expiration date, don't expire
+
+    const currentDate = new Date();
+    const expirationDate = new Date(expireAtDate);
+
+    return currentDate > expirationDate;
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {

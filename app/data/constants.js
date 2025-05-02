@@ -635,6 +635,7 @@ export const eventData = {
     },
     modal: {
       active: true,
+      expireAt: '2024-04-30T23:59:59-0300',
       title: 'Sorteio de Inscrição',
       description: [
         'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
@@ -9931,6 +9932,7 @@ export const eventData = {
     },
     modal: {
       active: true,
+      expireAt: '2024-04-30T23:59:59-0300',
       title: 'Sorteio de Inscrição',
       description: [
         'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
