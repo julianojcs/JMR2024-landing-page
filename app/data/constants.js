@@ -633,41 +633,42 @@ export const eventData = {
         link: 'https://www.canva.com/design/DAGjujtuRg8/UE46Fq6VPopeumkfxUrFZw/view'
       }
     },
-    modal: {
-      active: true,
-      expireAt: '2024-04-30T23:59:59-0300',
-      title: 'Sorteio de Inscrição',
-      description: [
-        'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
-        'A JMR/CIM2025 fechou uma parceria incrível com a MedHubX, a plataforma de ensino médico referência em radiologia.',
-        'Garanta sua inscrição até 30/04 e tenha a chance de levar um ano de acesso completo a conteúdos exclusivos que transformarão sua prática na radiologia!',
-        'O sorteio será realizado no dia 27/06 e o resultado será divulgado nas redes sociais da SRMG.',
-        'Não perca essa oportunidade. Inscreva-se agora!'
-      ],
-      logos: [
-        {
-          name: 'Jornada Mineira de Radiologia',
-          get alt() {
-            return `Logo da ${this.name}`
+    modal: [{
+        active: true,
+        expireAt: '2025-04-30T23:59:59-0300',
+        title: 'Sorteio de Inscrição',
+        description: [
+          'Inscreva-se no primeiro lote e concorra a 2 assinaturas anuais da MedHubX!',
+          'A JMR/CIM2025 fechou uma parceria incrível com a MedHubX, a plataforma de ensino médico referência em radiologia.',
+          'Garanta sua inscrição até 30/04 e tenha a chance de levar um ano de acesso completo a conteúdos exclusivos que transformarão sua prática na radiologia!',
+          'O sorteio será realizado no dia 27/06 e o resultado será divulgado nas redes sociais da SRMG.',
+          'Não perca essa oportunidade. Inscreva-se agora!'
+        ],
+        logos: [
+          {
+            name: 'Jornada Mineira de Radiologia',
+            get alt() {
+              return `Logo da ${this.name}`
+            },
+            link: 'https://www.srmg.org.br',
+            src: '/logo_jornada/jmr2025.png',
+            width: 207.92,
+            height: 80
           },
-          link: 'https://www.srmg.org.br',
-          src: '/logo_jornada/jmr2025.png',
-          width: 207.92,
-          height: 80
-        },
-        {
-          name: 'MedHubX',
-          get alt() {
-            return `Logo da ${this.name}`
-          },
-          link: 'https://www.medhubx.com',
-          src: '/logo/medhubx.png',
-          width: 172.17,
-          height: 43.62,
-          bgcolor: '#f8f9fa'
-        }
-      ],
-    },
+          {
+            name: 'MedHubX',
+            get alt() {
+              return `Logo da ${this.name}`
+            },
+            link: 'https://www.medhubx.com',
+            src: '/logo/medhubx.png',
+            width: 172.17,
+            height: 43.62,
+            bgcolor: '#f8f9fa'
+          }
+        ],
+      }
+    ],
     introduction: {
       text: {
         greeting: null,
