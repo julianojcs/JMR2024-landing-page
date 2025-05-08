@@ -23,9 +23,22 @@ const CloseIcon = () => (
 
 const ModalBanner = ({ modalData }) => {
   const [isVisible, setIsVisible] = useState(false)
+  // Find active modal with the latest expiration date
+  const data = modalData?.reduce((latest, modal) => {
+    if (!modal.active || isExpired(modal.expireAt)) return latest;
 
-  // Return early if modalData doesn't exist, is not active, or has expired
-  if (!modalData || !modalData.active || isExpired(modalData.expireAt)) return null
+    // If no valid modal found yet, use current one
+    if (!latest) return modal;
+
+    // Compare expiration dates and keep the one with later date
+    const currentExpire = new Date(modal.expireAt);
+    const latestExpire = new Date(latest.expireAt);
+
+    return currentExpire > latestExpire ? modal : latest;
+  }, null);
+
+  // Return early if data doesn't exist, is not active, or has expired
+  if (!data || !data.active || isExpired(data.expireAt)) return null
 
   // Function to check if the modal has expired
   function isExpired(expireAtDate) {
@@ -59,16 +72,16 @@ const ModalBanner = ({ modalData }) => {
         </button>
 
         <div className={content}>
-          <h2 className={title}>{modalData.title}</h2>
+          <h2 className={title}>{data.title}</h2>
 
           <div className={description}>
-            {modalData.description.map((text, index) => (
+            {data.description.map((text, index) => (
               <p key={index}>{text}</p>
             ))}
           </div>
 
           <div className={logos}>
-            {modalData.logos.map((logo, index) => (
+            {data.logos.map((logo, index) => (
               <a
                 key={index}
                 href={logo.link}

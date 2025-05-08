@@ -3,7 +3,7 @@
   bottom: -4px;
   right: -4px;
   height: var(--badge-size);
-  min-width: var(--badge-size);
+  width: var(--badge-size);
   background-color: var(--badge-background);
   color: white;
   border-radius: 50%;
