@@ -1236,15 +1236,15 @@ export const eventData = {
             title: true
           },
           cardlist: [
-            {
-              date: '27/06',
-              title: 'POCUS',
-              subtitle: 'Geral',
-              link: 'https://www.canva.com/design/DAGh0-qhaPE/mUjzHR3EZT8MI47KFWEvTg/view',
-              img: '/images/cards/pocus.png',
-              width: '63',
-              height: '125'
-            },
+            // {
+            //   date: '27/06',
+            //   title: 'POCUS',
+            //   subtitle: 'Geral',
+            //   link: 'https://www.canva.com/design/DAGh0-qhaPE/mUjzHR3EZT8MI47KFWEvTg/view',
+            //   img: '/images/cards/pocus.png',
+            //   width: '63',
+            //   height: '125'
+            // },
             {
               date: '27/06',
               title: 'Mama',
@@ -12124,15 +12124,15 @@ export const eventData = {
             title: true
           },
           cardlist: [
-            {
-              date: '27/06',
-              title: 'POCUS',
-              subtitle: 'Geral',
-              link: 'https://www.canva.com/design/DAGh0-qhaPE/mUjzHR3EZT8MI47KFWEvTg/view',
-              img: '/images/cards/pocus.png',
-              width: '63',
-              height: '125'
-            },
+            // {
+            //   date: '27/06',
+            //   title: 'POCUS',
+            //   subtitle: 'Geral',
+            //   link: 'https://www.canva.com/design/DAGh0-qhaPE/mUjzHR3EZT8MI47KFWEvTg/view',
+            //   img: '/images/cards/pocus.png',
+            //   width: '63',
+            //   height: '125'
+            // },
             {
               date: '27/06',
               title: 'Mama',
