@@ -621,7 +621,18 @@ export const eventData = {
       'Diagnóstico por imagem',
       'Inovação em radiologia',
       'Excelência em diagnóstico',
-      'Congresso de Radiologia'
+      'Congresso de Radiologia',
+      'Gestão de Qualidade',
+      'Radiologia Intervencionista',
+      'Radiologia Musculoesquelética',
+      'Radiologia Torácica',
+      'Radiologia Abdominal',
+      'Neurorradiologia',
+      'Imagem da Mulher',
+      'Imagem Abdominal',
+      'Imagem Musculoesquelética',
+      'Imagem Torácica',
+      'Inteligencia Artificial em Radiologia'
     ],
     ogTitle: 'JMR 2025 - Jornada Mineira de Radiologia',
     ogDescription:
@@ -633,8 +644,9 @@ export const eventData = {
         link: 'https://www.canva.com/design/DAGjujtuRg8/UE46Fq6VPopeumkfxUrFZw/view'
       }
     },
-    modal: [{
-        active: true,
+    modal: [
+      {
+        active: false,
         expireAt: '2025-04-30T23:59:59-0300',
         title: 'Sorteio de Inscrição',
         description: [
@@ -665,6 +677,39 @@ export const eventData = {
             width: 172.17,
             height: 43.62,
             bgcolor: '#f8f9fa'
+          }
+        ],
+      }, {
+        active: true,
+        expireAt: '2025-06-25T23:59:59-0300',
+        title: 'Sorteio de Inscrição',
+        description: [
+          'nscreva-se no terceiro lote e concorra a 3 vagas no Curso Rads do Grupo "Radiologia Abdominal - Educação em Radiologia"!',
+          'A JMR/CIM2025 fechou uma parceria incrível com a Radiologia Abdominal - @radiologiabominal, atual referência em radiologia abdominal.',
+          'Garanta sua inscrição até 25/06 e tenha a chance de aprender os RADS e transformar sua prática na radiologia abdominal!',
+          'O sorteio será realizado no dia 28/06 e o resultado será divulgado nas redes sociais da SRMG.',
+          'Não perca essa oportunidade. Inscreva-se JÁ!'
+        ],
+        logos: [
+          {
+            name: 'Jornada Mineira de Radiologia',
+            get alt() {
+              return `Logo da ${this.name}`
+            },
+            link: 'https://www.srmg.org.br',
+            src: '/logo_jornada/jmr2025.png',
+            width: 207.92,
+            height: 80
+          },
+          {
+            name: 'MedHubX',
+            get alt() {
+              return `Logo da ${this.name}`
+            },
+            link: 'https://www.instagram.com/radiologiabdominal',
+            src: '/logo/radiologiabominal.png',
+            width: 172.17,
+            height: 76.62
           }
         ],
       }
@@ -760,9 +805,19 @@ export const eventData = {
           image: '/images/svg/courses.svg',
           prices: [
             { bestBefore: '30/04/2025', value: 'R$ 88' },
-            { bestBefore: '20/05/2025', value: 'R$ 98' },
-            { bestBefore: '25/06/2025', value: 'R$ 118' },
-            { bestBefore: '27/06/2025', value: 'R$ 148' },
+            { bestBefore: '30/05/2025', value: 'R$ 98' },
+            { bestBefore: '25/06/2025', value: 'R$ 105' },
+            { bestBefore: '27/06/2025', value: 'R$ 111' },
+          ]
+        }, {
+          title: 'Curso de Gestão e Qualidade',
+          description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+          image: '/images/svg/courses.svg',
+          prices: [
+            { bestBefore: '30/04/2025', value: 'R$ 88' },
+            { bestBefore: '30/05/2025', value: 'R$ 98' },
+            { bestBefore: '25/06/2025', value: 'R$ 105' },
+            { bestBefore: '27/06/2025', value: 'R$ 111' },
           ]
         }],
         workshops: [],
@@ -788,7 +843,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 325' },
-              { bestBefore: '20/05/2025', value: 'R$ 355' },
+              { bestBefore: '30/05/2025', value: 'R$ 355' },
               { bestBefore: '25/06/2025', value: 'R$ 385' },
               { bestBefore: '27/06/2025', value: 'R$ 415' },
             ],
@@ -799,20 +854,30 @@ export const eventData = {
             image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 70' },
-              { bestBefore: '20/05/2025', value: 'R$ 80' },
+              { bestBefore: '30/05/2025', value: 'R$ 80' },
               { bestBefore: '25/06/2025', value: 'R$ 87' },
               { bestBefore: '27/06/2025', value: 'R$ 94' },
             ]
           }],
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            description: ['Curso aberto ao público em geral.'],
+            description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 118' },
-              { bestBefore: '27/06/2025', value: 'R$ 148' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
+            ]
+          }, {
+            title: 'Curso de Gestão e Qualidade',
+            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
+            prices: [
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
           }],
           dayUse: {
@@ -825,7 +890,7 @@ export const eventData = {
             image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 243,75' },
-              { bestBefore: '20/05/2025', value: 'R$ 266,25' },
+              { bestBefore: '30/05/2025', value: 'R$ 266,25' },
               { bestBefore: '25/06/2025', value: 'R$ 288,75' },
               { bestBefore: '27/06/2025', value: 'R$ 311,25' },
             ],
@@ -848,7 +913,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 705' },
-              { bestBefore: '20/05/2025', value: 'R$ 735' },
+              { bestBefore: '30/05/2025', value: 'R$ 735' },
               { bestBefore: '25/06/2025', value: 'R$ 755' },
               { bestBefore: '27/06/2025', value: 'R$ 795' },
             ]
@@ -859,20 +924,30 @@ export const eventData = {
             image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 158' },
-              { bestBefore: '20/05/2025', value: 'R$ 165' },
+              { bestBefore: '30/05/2025', value: 'R$ 165' },
               { bestBefore: '25/06/2025', value: 'R$ 170' },
               { bestBefore: '27/06/2025', value: 'R$ 180' },
             ]
           },],
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            description: ['Curso aberto ao público em geral.'],
+            description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 118' },
-              { bestBefore: '27/06/2025', value: 'R$ 148' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
+            ]
+          }, {
+            title: 'Curso de Gestão e Qualidade',
+            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
+            prices: [
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
           }],
           // get courses() {
@@ -891,10 +966,10 @@ export const eventData = {
             image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 528,75' },
-              { bestBefore: '20/05/2025', value: 'R$ 551,25' },
+              { bestBefore: '30/05/2025', value: 'R$ 551,25' },
               { bestBefore: '25/06/2025', value: 'R$ 566,25' },
               { bestBefore: '27/06/2025', value: 'R$ 596,25' },
-            ],
+            ]
           }
         }, {
           id: 3,
@@ -915,7 +990,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 179' },
-              { bestBefore: '20/05/2025', value: 'R$ 199' },
+              { bestBefore: '30/05/2025', value: 'R$ 199' },
               { bestBefore: '25/06/2025', value: 'R$ 219' },
               { bestBefore: '27/06/2025', value: 'R$ 269' },
             ],
@@ -926,7 +1001,7 @@ export const eventData = {
             image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 60' },
-              { bestBefore: '20/05/2025', value: 'R$ 70' },
+              { bestBefore: '30/05/2025', value: 'R$ 70' },
               { bestBefore: '25/06/2025', value: 'R$ 80' },
               { bestBefore: '27/06/2025', value: 'R$ 90' },
             ]
@@ -934,13 +1009,23 @@ export const eventData = {
           ],
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            description: ['Curso aberto ao público em geral.'],
+            description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 118' },
-              { bestBefore: '27/06/2025', value: 'R$ 148' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
+            ]
+          }, {
+            title: 'Curso de Gestão e Qualidade',
+            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
+            prices: [
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
           }]
         }, {
@@ -963,20 +1048,30 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 67' },
-              { bestBefore: '20/05/2025', value: 'R$ 87' },
+              { bestBefore: '30/05/2025', value: 'R$ 87' },
               { bestBefore: '25/06/2025', value: 'R$ 107' },
               { bestBefore: '27/06/2025', value: 'R$ 147' },
             ]
           },
           courses: [{
             title: 'Curso de Inteligência Artificial',
+            description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
-            description: ['Curso aberto ao público em geral.'],
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 118' },
-              { bestBefore: '27/06/2025', value: 'R$ 148' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
+            ]
+          }, {
+            title: 'Curso de Gestão e Qualidade',
+            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
+            prices: [
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
           }]
         }, {
@@ -1000,20 +1095,30 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 177' },
-              { bestBefore: '20/05/2025', value: 'R$ 197' },
+              { bestBefore: '30/05/2025', value: 'R$ 197' },
               { bestBefore: '25/06/2025', value: 'R$ 217' },
               { bestBefore: '27/06/2025', value: 'R$ 297' },
             ]
           },
           courses: [{
             title: 'Curso de Inteligência Artificial',
+            description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
-            description: ['Curso aberto ao público em geral.'],
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 118' },
-              { bestBefore: '27/06/2025', value: 'R$ 148' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
+            ]
+          }, {
+            title: 'Curso de Gestão e Qualidade',
+            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
+            prices: [
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
           }]
         }, {
@@ -1037,20 +1142,30 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 68' },
-              { bestBefore: '20/05/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 88' },
               { bestBefore: '25/06/2025', value: 'R$ 108' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
           },
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            description: ['Curso aberto ao público em geral.'],
+            description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 118' },
-              { bestBefore: '27/06/2025', value: 'R$ 148' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
+            ]
+          }, {
+            title: 'Curso de Gestão e Qualidade',
+            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
+            prices: [
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
           }]
         }, {
@@ -1058,7 +1173,8 @@ export const eventData = {
           title: 'Público em Geral',
           description: [
             '✓Curso aberto ao público em geral.',
-            '✓O curso de Inteligência Artificial em Medicina é aberto a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.',
+            '✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.',
+            '✓A inscrição é feito por curso, com cobrança individual para cada um deles.',
             '✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada.'
           ],
           image: '/images/svg/publico.svg',
@@ -1068,13 +1184,23 @@ export const eventData = {
           },
           courses: [{
             title: 'Curso de Inteligência Artificial',
-            description: ['Curso aberto ao público em geral.'],
+            description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 118' },
-              { bestBefore: '27/06/2025', value: 'R$ 148' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
+            ]
+          }, {
+            title: 'Curso de Gestão e Qualidade',
+            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
+            image: '/images/svg/courses.svg',
+            prices: [
+              { bestBefore: '30/04/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
+              { bestBefore: '25/06/2025', value: 'R$ 105' },
+              { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
           }]
         }
@@ -1238,6 +1364,14 @@ export const eventData = {
               title: ['Inteligência', 'Artificial'],
               link: 'https://www.canva.com/design/DAGh67UbIoI/wNMT_3Dit7XvK5hXhjqNKQ/view',
               img: '/images/cards/ia.png',
+              width: '166',
+              height: '164'
+            },
+            {
+              date: '28/06',
+              title: ['Gestão e', 'Qualidade'],
+              link: '#',
+              img: '/images/cards/gestao-e-qualidade.png',
               width: '166',
               height: '164'
             }
@@ -1473,7 +1607,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 3,
-            date: ['30042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '30052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -1482,8 +1616,8 @@ export const eventData = {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
               { desktop: 'Vagas', mobile: 'Vagas' },
-              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
-              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
+              { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
             ],
@@ -1515,7 +1649,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['30042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '30052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -1523,8 +1657,8 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
-              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
+              { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
             ],
@@ -1538,7 +1672,9 @@ export const eventData = {
         {
           title: {
             tag: 'h2',
-            text: 'Curso de Inteligência Artificial',
+            text: [
+              'Cursos de: ',
+              '"Inteligência Artificial" ou "Gestão e Qualidade"'],
             color: '#052c65'
           },
           subtitle: {
@@ -1551,7 +1687,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['30042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '30052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -1559,13 +1695,13 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
-              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
+              { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
             ],
             rows: [
-              { cells: ['Aberto ao Público', { validar: false, comprovante: false }, 'R$ 88', 'R$ 98', 'R$ 118', 'R$ 148'] }
+              { cells: ['Aberto ao Público', { validar: false, comprovante: false }, 'R$ 88', 'R$ 98', 'R$ 105', 'R$ 111'] }
             ]
           }
         }
@@ -10057,7 +10193,7 @@ export const eventData = {
           image: '/images/svg/courses.svg',
           prices: [
             { bestBefore: '30/04/2025', value: 'R$ 88' },
-            { bestBefore: '20/05/2025', value: 'R$ 98' },
+            { bestBefore: '30/05/2025', value: 'R$ 98' },
             { bestBefore: '25/06/2025', value: 'R$ 118' },
             { bestBefore: '27/06/2025', value: 'R$ 148' },
           ]
@@ -10085,7 +10221,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 325' },
-              { bestBefore: '20/05/2025', value: 'R$ 355' },
+              { bestBefore: '30/05/2025', value: 'R$ 355' },
               { bestBefore: '25/06/2025', value: 'R$ 385' },
               { bestBefore: '27/06/2025', value: 'R$ 415' },
             ],
@@ -10096,7 +10232,7 @@ export const eventData = {
             image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 70' },
-              { bestBefore: '20/05/2025', value: 'R$ 80' },
+              { bestBefore: '30/05/2025', value: 'R$ 80' },
               { bestBefore: '25/06/2025', value: 'R$ 87' },
               { bestBefore: '27/06/2025', value: 'R$ 94' },
             ]
@@ -10107,7 +10243,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10122,7 +10258,7 @@ export const eventData = {
             image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 243,75' },
-              { bestBefore: '20/05/2025', value: 'R$ 266,25' },
+              { bestBefore: '30/05/2025', value: 'R$ 266,25' },
               { bestBefore: '25/06/2025', value: 'R$ 288,75' },
               { bestBefore: '27/06/2025', value: 'R$ 311,25' },
             ],
@@ -10145,7 +10281,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 705' },
-              { bestBefore: '20/05/2025', value: 'R$ 735' },
+              { bestBefore: '30/05/2025', value: 'R$ 735' },
               { bestBefore: '25/06/2025', value: 'R$ 755' },
               { bestBefore: '27/06/2025', value: 'R$ 795' },
             ]
@@ -10156,7 +10292,7 @@ export const eventData = {
             image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 158' },
-              { bestBefore: '20/05/2025', value: 'R$ 165' },
+              { bestBefore: '30/05/2025', value: 'R$ 165' },
               { bestBefore: '25/06/2025', value: 'R$ 170' },
               { bestBefore: '27/06/2025', value: 'R$ 180' },
             ]
@@ -10167,7 +10303,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10188,7 +10324,7 @@ export const eventData = {
             image: '/images/svg/dayuse.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 528,75' },
-              { bestBefore: '20/05/2025', value: 'R$ 551,25' },
+              { bestBefore: '30/05/2025', value: 'R$ 551,25' },
               { bestBefore: '25/06/2025', value: 'R$ 566,25' },
               { bestBefore: '27/06/2025', value: 'R$ 596,25' },
             ],
@@ -10212,7 +10348,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 179' },
-              { bestBefore: '20/05/2025', value: 'R$ 199' },
+              { bestBefore: '30/05/2025', value: 'R$ 199' },
               { bestBefore: '25/06/2025', value: 'R$ 219' },
               { bestBefore: '27/06/2025', value: 'R$ 269' },
             ],
@@ -10223,7 +10359,7 @@ export const eventData = {
             image: '/images/svg/workshops.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 60' },
-              { bestBefore: '20/05/2025', value: 'R$ 70' },
+              { bestBefore: '30/05/2025', value: 'R$ 70' },
               { bestBefore: '25/06/2025', value: 'R$ 80' },
               { bestBefore: '27/06/2025', value: 'R$ 90' },
             ]
@@ -10235,7 +10371,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10260,7 +10396,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 67' },
-              { bestBefore: '20/05/2025', value: 'R$ 87' },
+              { bestBefore: '30/05/2025', value: 'R$ 87' },
               { bestBefore: '25/06/2025', value: 'R$ 107' },
               { bestBefore: '27/06/2025', value: 'R$ 147' },
             ]
@@ -10271,7 +10407,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10297,7 +10433,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 177' },
-              { bestBefore: '20/05/2025', value: 'R$ 197' },
+              { bestBefore: '30/05/2025', value: 'R$ 197' },
               { bestBefore: '25/06/2025', value: 'R$ 217' },
               { bestBefore: '27/06/2025', value: 'R$ 297' },
             ]
@@ -10308,7 +10444,7 @@ export const eventData = {
             description: ['Curso aberto ao público em geral.'],
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10334,7 +10470,7 @@ export const eventData = {
             image: '/images/svg/journey.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 68' },
-              { bestBefore: '20/05/2025', value: 'R$ 88' },
+              { bestBefore: '30/05/2025', value: 'R$ 88' },
               { bestBefore: '25/06/2025', value: 'R$ 108' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10345,7 +10481,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10369,7 +10505,7 @@ export const eventData = {
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '20/05/2025', value: 'R$ 98' },
+              { bestBefore: '30/05/2025', value: 'R$ 98' },
               { bestBefore: '25/06/2025', value: 'R$ 118' },
               { bestBefore: '27/06/2025', value: 'R$ 148' },
             ]
@@ -10770,7 +10906,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 3,
-            date: ['30042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '30052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -10779,8 +10915,8 @@ export const eventData = {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
               { desktop: 'Vagas', mobile: 'Vagas' },
-              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
-              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
+              { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
             ],
@@ -10812,7 +10948,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['30042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '30052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -10820,8 +10956,8 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
-              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
+              { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
             ],
@@ -10848,7 +10984,7 @@ export const eventData = {
           },
           bestBefore: {
             rowStart: 2,
-            date: ['30042025', '20052025', '25062025', '28062025']
+            date: ['30042025', '30052025', '25062025', '28062025']
           },
           callToAct: {
             caption: 'Clique aqui para fazer sua inscrição!',
@@ -10856,13 +10992,13 @@ export const eventData = {
           table: {
             headers: [
               { desktop: 'Categorias', mobile: 'Categ.' },
-              { desktop: ['Desconto', 'até 30/04 '], mobile: 'Até 30/04 ' },
-              { desktop: ['Desconto', 'até 20/05'], mobile: 'Até 20/05' },
+              { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
+              { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
               { desktop: 'No Local', mobile: 'No Local' }
             ],
             rows: [
-              { cells: ['Aberto ao Público', { validar: false, comprovante: false }, 'R$ 88', 'R$ 98', 'R$ 118', 'R$ 148'] }
+              { cells: ['Aberto ao Público', { validar: false, comprovante: false }, 'R$ 88', 'R$ 98', 'R$ 105', 'R$ 111'] }
             ]
           }
         }
