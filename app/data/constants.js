@@ -684,8 +684,8 @@ export const eventData = {
         expireAt: '2025-06-25T23:59:59-0300',
         title: 'Sorteio de Inscrição',
         description: [
-          'nscreva-se no terceiro lote e concorra a 3 vagas no Curso Rads do Grupo "Radiologia Abdominal - Educação em Radiologia"!',
-          'A JMR/CIM2025 fechou uma parceria incrível com a Radiologia Abdominal - @radiologiabominal, atual referência em radiologia abdominal.',
+          'Inscreva-se no terceiro lote e concorra a 3 vagas no Curso Rads do Grupo "Radiologia Abdominal - Educação em Radiologia"!',
+          'A JMR/CIM2025 fechou uma parceria incrível com a Radiologia Abdominal - @radiologiabdominal, atual referência em radiologia abdominal.',
           'Garanta sua inscrição até 25/06 e tenha a chance de aprender os RADS e transformar sua prática na radiologia abdominal!',
           'O sorteio será realizado no dia 28/06 e o resultado será divulgado nas redes sociais da SRMG.',
           'Não perca essa oportunidade. Inscreva-se JÁ!'
@@ -707,7 +707,7 @@ export const eventData = {
               return `Logo da ${this.name}`
             },
             link: 'https://www.instagram.com/radiologiabdominal',
-            src: '/logo/radiologiabominal.png',
+            src: '/logo/radiologiabdominal.png',
             width: 172.17,
             height: 76.62
           }
@@ -1804,6 +1804,12 @@ export const eventData = {
           href: 'https://espaconamah.com.br',
           width: 74.33,
           height: 37
+        }, {
+          name: 'Radiologia Abdominal',
+          src: '/logo/radiologiabdominal.png',
+          href: 'https://www.instagram.com/radiologiabdominal',
+          width: 90.00,
+          height: 39.15
         }],
       },
       institutionalSupports: {
