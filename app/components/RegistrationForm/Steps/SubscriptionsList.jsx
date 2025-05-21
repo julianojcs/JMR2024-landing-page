@@ -10,8 +10,8 @@ const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) =
   const statusMap = {
     'CONFIRMED': { label: 'Confirmado', className: styles.confirmed },
     'PENDING': { label: 'Pendente', className: styles.pending },
-    'OVERDUE': { label: 'Atrasado/Vencido', className: styles.overdue },
-    'RECEIVED': { label: 'Recebido', className: styles.confirmed },
+    'OVERDUE': { label: 'Vencido', className: styles.overdue },
+    'RECEIVED': { label: 'Confirmado', className: styles.confirmed },
     'REFUNDED': { label: 'Reembolsado', className: styles.refunded },
     'CANCELED': { label: 'Cancelado', className: styles.canceled }
   };
