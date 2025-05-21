@@ -339,8 +339,26 @@
   .infoGrid {
     grid-template-columns: repeat(2, 1fr); /* Em telas muito pequenas, mostrar 2 colunas */
   }
-  
+
   .infoItem {
     padding: 0.25rem 0;
   }
+}
+
+/* Adicione ao SummaryStep.module.css */
+.errorMessage {
+  background-color: #fdecea;
+  color: #d32f2f;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.errorMessage::before {
+  content: "⚠️";
+  margin-right: 8px;
+  font-size: 1.1rem;
 }

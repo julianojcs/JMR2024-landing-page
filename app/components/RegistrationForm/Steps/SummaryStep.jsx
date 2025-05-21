@@ -1,30 +1,33 @@
+import { useState } from 'react';
 import { useRegistration } from '../../../contexts/RegistrationContext';
 import styles from './SummaryStep.module.css';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../../lib/firebase';
 import AsaasClient from '../../../lib/AsaasClient';
-import { useState } from 'react';
 
 const SummaryStep = () => {
-  const { formData, setCurrentStep, setPaymentResponse, setUploadError, setError, year, setReceiptDownloadUrl, paymentConfig } = useRegistration();
+  const {
+    formData,
+    setCurrentStep,
+    setPaymentResponse,
+    year,
+    setReceiptDownloadUrl,
+    paymentConfig
+  } = useRegistration();
+
   const { personalInfo, category, selectedItems } = formData;
-  // Estado para controlar feedback visual quando o usuário clica no anexo
+  const [uploadError, setUploadError] = useState(null);
+  const [error, setError] = useState(null);
   const [previewAttempted, setPreviewAttempted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { dueDays, billingType, url } = paymentConfig;
 
-  // Função para exibir/abrir o arquivo local quando clicado
   const handleFilePreview = () => {
     if (!formData.receipt) return;
 
     try {
-      // Criar URL temporária para o arquivo
       const fileUrl = URL.createObjectURL(formData.receipt);
-
-      // Abrir em nova aba
       window.open(fileUrl, '_blank');
-
-      // Revogue a URL após abrir para liberar memória
       setTimeout(() => {
         URL.revokeObjectURL(fileUrl);
       }, 100);
@@ -69,16 +72,15 @@ const SummaryStep = () => {
   };
 
   const handleNext = async () => {
-    // Ativar o loading
+    setError(null);
+    setUploadError(null);
     setIsLoading(true);
 
     try {
       const { personalInfo, category, selectedItems, receipt } = formData;
 
-      // 1. Preparar dados para o Asaas
       let description = `Inscrição ${category.title}`;
 
-      // Adiciona produtos na descrição
       if (selectedItems.journey) description += ` - ${selectedItems.journey.title}`;
       if (selectedItems.workshops?.length)
         description += ` - Workshops: ${selectedItems.workshops.map(w => w.title).join(', ')}`;
@@ -88,16 +90,13 @@ const SummaryStep = () => {
 
       description += ` - ${personalInfo.fullName}`;
 
-      // Calcular valor total
       const total = calculateTotal();
       const numericPrice = parseFloat(total.replace(/[^\d,.-]/g, '').replace(',', '.')).toFixed(2);
 
-      // Determinar a URL base com base no ambiente
       const baseUrl = process.env.NODE_ENV === 'development'
         ? url
         : window.location.origin;
 
-      // 2. Criar pagamento no Asaas
       const asaas = new AsaasClient();
       const response = await asaas.payments.create({
         billingType: billingType,
@@ -114,10 +113,8 @@ const SummaryStep = () => {
 
       setPaymentResponse(response);
 
-      // 3. Upload do recibo (se existir)
       if (response.id && receipt) {
         try {
-          // Função para normalizar nome
           const normalizeFileName = (name) => {
             return name
               .normalize('NFD')
@@ -130,11 +127,9 @@ const SummaryStep = () => {
           const fileExtension = receipt.name.split('.').pop();
           const fileName = `${normalizeFileName(personalInfo.fullName)}_${personalInfo.cpf.replace(/\D/g, '')}_${response.invoiceNumber}_${response.id}.${fileExtension}`;
 
-          // Criar referência no storage
           const storageRef = ref(storage, `JMR${year}/Comprovantes/${fileName}`);
           const uploadTask = uploadBytesResumable(storageRef, receipt);
 
-          // Fazer upload
           await new Promise((resolve, reject) => {
             uploadTask.on(
               'state_changed',
@@ -161,13 +156,11 @@ const SummaryStep = () => {
         }
       }
 
-      // 4. Ir para passo final
       setCurrentStep(5);
     } catch (error) {
       console.error('Error processing payment:', error);
       setError('Ocorreu um erro ao processar o pagamento. Tente novamente.');
     } finally {
-      // Desativar o loading em qualquer caso
       setIsLoading(false);
     }
   };
@@ -175,6 +168,13 @@ const SummaryStep = () => {
   return (
     <div className={styles.stepContent}>
       <h2 className={styles.title}>Resumo do Pedido</h2>
+
+      {error && <div className={styles.errorMessage}>{error}</div>}
+      {uploadError && (
+        <div className={styles.errorMessage}>
+          Erro ao enviar comprovante: {uploadError.message || 'Falha no upload'}
+        </div>
+      )}
 
       <div className={styles.summaryCard}>
         <section className={styles.section}>
@@ -201,7 +201,6 @@ const SummaryStep = () => {
             <span className={styles.value}>{category.title}</span>
             {category.member && <span className={styles.memberBadge}>Membro</span>}
 
-            {/* Tornar o nome do arquivo clicável */}
             {formData.receipt && (
               <div
                 className={`${styles.attachmentInfo} ${styles.clickable} ${previewAttempted ? styles.attempted : ''}`}
@@ -299,7 +298,6 @@ const SummaryStep = () => {
         </button>
       </div>
 
-      {/* Overlay de loading para toda a tela */}
       {isLoading && (
         <div className={styles.loadingOverlay}>
           <div className={styles.loadingContent}>

@@ -1,24 +1,53 @@
 import { useState, useEffect } from 'react';
 import { useRegistration } from '../../../contexts/RegistrationContext';
-import { fetchCustomerByCPF, checkMembership, updateCustomerData, createCustomerData } from '../../../services/api';
+import {
+  fetchCustomerByCPF,
+  checkMembership,
+  updateCustomerData,
+  createCustomerData,
+  fetchPaymentsByCpf
+} from '../../../services/api';
 import { formatCPF, formatPhone, formatCEP, formatName } from '../../../utils';
 import { validateCPF, validateEmail } from '../../../utils';
 import styles from './PersonalInfoStep.module.css';
+import { Subscription } from '../../../models';
+import SubscriptionsList from './SubscriptionsList';
 
 const PersonalInfoStep = () => {
     const { formData, updateFormData, setCurrentStep } = useRegistration();
-  const [initialFormState, setInitialFormState] = useState(formData.personalInfo);
+    const [initialFormState, setInitialFormState] = useState(formData.personalInfo);
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [cpfVerified, setCpfVerified] = useState(false);
+    const [subscriptions, setSubscriptions] = useState([]);
+    const [viewMode, setViewMode] = useState('personalInfo');
 
     useEffect(() => {
-        // If there's a CPF already filled in formData, validate and set cpfVerified
         const cpf = formData.personalInfo.cpf;
         if (cpf?.length === 14 && validateCPF(cpf)) {
             setCpfVerified(true);
+
+            const fetchInitialData = async () => {
+                try {
+                    const paymentsResponse = await fetchPaymentsByCpf(cpf);
+                    if (paymentsResponse && paymentsResponse.data) {
+                        const subscriptionsList = paymentsResponse.data.map(payment =>
+                            new Subscription(payment)
+                        );
+                        setSubscriptions(subscriptionsList);
+
+                        if (subscriptionsList.length > 0 && formData.personalInfo.userId) {
+                            setViewMode('subscriptions');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Erro ao buscar pagamentos iniciais:', error);
+                }
+            };
+
+            fetchInitialData();
         }
-    }, []); // Empty dependency array means this runs once when component mounts
+    }, []);
 
     const requiredFields = [
         { name: 'cpf', text: 'CPF' },
@@ -83,8 +112,9 @@ const PersonalInfoStep = () => {
         const cpf = formatCPF(e.target.value);
         updateFormData('personalInfo', { cpf });
 
-        // Limpa erro anterior do CPF
         setErrors(prev => ({ ...prev, cpf: '' }));
+        setSubscriptions([]);
+        setViewMode('personalInfo');
 
         if (cpf.length === 14) {
             if (!validateCPF(cpf)) {
@@ -99,8 +129,25 @@ const PersonalInfoStep = () => {
                 const customer = await fetchCustomerByCPF(cpf);
                 if (customer) {
                     updatePersonalInfoData(customer);
+
+                    try {
+                        const paymentsResponse = await fetchPaymentsByCpf(cpf);
+                        if (paymentsResponse && paymentsResponse.data) {
+                            const subscriptionsList = paymentsResponse.data.map(payment =>
+                                new Subscription(payment)
+                            );
+                            setSubscriptions(subscriptionsList);
+
+                            if (subscriptionsList.length > 0) {
+                                setViewMode('subscriptions');
+                            }
+                        }
+                    } catch (paymentError) {
+                        console.error('Erro ao buscar pagamentos:', paymentError);
+                    }
                 } else {
                     resetFormFields(membershipData);
+                    setViewMode('personalInfo');
                 }
 
                 setCpfVerified(true);
@@ -117,41 +164,37 @@ const PersonalInfoStep = () => {
     };
 
     const updatePersonalInfoData = (customer) => {
-      const newPersonalInfo = {
-        userId: customer.id,
-        fullName: formatName(customer.name),
-        email: customer.email.toLowerCase(),
-        phone: customer.phone,
-        zipCode: customer.zipCode,
-        address: formatName(customer.address),
-        number: customer.number,
-        complement: customer.complement,
-        neighborhood: formatName(customer.neighborhood),
-        city: formatName(customer.city),
-        state: customer.state,
-        crm: customer.crm,
-        stateCrm: customer.stateCrm,
-        isNewCustomer: false
-      }
-      updateFormData('personalInfo', newPersonalInfo);
-      // Store initial state for comparison
-      setInitialFormState(prev => ({
-        ...prev,
-        ...newPersonalInfo
-      }))
+        const newPersonalInfo = {
+            userId: customer.id,
+            fullName: formatName(customer.name),
+            email: customer.email.toLowerCase(),
+            phone: customer.phone,
+            zipCode: customer.zipCode,
+            address: formatName(customer.address),
+            number: customer.number,
+            complement: customer.complement,
+            neighborhood: formatName(customer.neighborhood),
+            city: formatName(customer.city),
+            state: customer.state,
+            crm: customer.crm,
+            stateCrm: customer.stateCrm,
+            isNewCustomer: false
+        }
+        updateFormData('personalInfo', newPersonalInfo);
+        setInitialFormState(prev => ({
+            ...prev,
+            ...newPersonalInfo
+        }))
     };
 
     const handleChange = (e, formatter = null) => {
         const { name, value } = e.target;
         let formattedValue = formatter ? formatter(value) : value;
 
-        // Format specific fields
         switch (name) {
             case 'email':
                 formattedValue = formattedValue.toLowerCase();
-                // Clear previous email error
                 setErrors(prev => ({ ...prev, email: '' }));
-                // Validate email if there's a value
                 if (formattedValue && !validateEmail(formattedValue)) {
                     setErrors(prev => ({ ...prev, email: 'Email inválido' }));
                 }
@@ -159,7 +202,6 @@ const PersonalInfoStep = () => {
             case 'address':
             case 'neighborhood':
             case 'city':
-                // Don't format while typing to maintain cursor position
                 break;
             default:
                 break;
@@ -170,7 +212,6 @@ const PersonalInfoStep = () => {
         });
     };
 
-    // Add handler for address-related fields
     const handleAddressFieldBlur = (e) => {
         const { name, value } = e.target;
         const formattedValue = formatName(value);
@@ -211,21 +252,18 @@ const PersonalInfoStep = () => {
         const newErrors = {};
         const { personalInfo } = formData;
 
-        // Validação específica para CPF
         if (!personalInfo.cpf?.trim()) {
             newErrors.cpf = 'CPF é obrigatório';
         } else if (!validateCPF(personalInfo.cpf)) {
             newErrors.cpf = 'CPF inválido';
         }
 
-        // Validação específica para email
         if (!personalInfo.email?.trim()) {
             newErrors.email = 'Email é obrigatório';
         } else if (!validateEmail(personalInfo.email)) {
             newErrors.email = 'Email inválido';
         }
 
-        // Validação dos demais campos obrigatórios
         requiredFields.forEach(field => {
             if (field.name !== 'cpf' && field.name !== 'email' && !personalInfo[field.name]?.trim()) {
                 newErrors[field.name] = `${field.text} é obrigatório`;
@@ -236,15 +274,14 @@ const PersonalInfoStep = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-  // Check if data has changed
-  const hasDataChanged = (originalData, currentData) => {
-    const fieldsToCompare = [
-      'fullName', 'email', 'phone', 'zipCode', 'address',
-      'number', 'complement', 'neighborhood', 'city', 'state', 'crm', 'stateCrm'
-    ]
+    const hasDataChanged = (originalData, currentData) => {
+        const fieldsToCompare = [
+            'fullName', 'email', 'phone', 'zipCode', 'address',
+            'number', 'complement', 'neighborhood', 'city', 'state', 'crm', 'stateCrm'
+        ]
 
-    return fieldsToCompare.some(field => originalData[field] !== currentData[field])
-  }
+        return fieldsToCompare.some(field => originalData[field] !== currentData[field])
+    }
 
     const handleNext = async () => {
         if (validateForm()) {
@@ -261,8 +298,8 @@ const PersonalInfoStep = () => {
                         isNewCustomer: false
                     });
                 } else {
-                  if (personalInfo.userId && hasDataChanged(initialFormState, personalInfo)) {
-                      await updateCustomerData(customerId, personalInfo);
+                    if (personalInfo.userId && hasDataChanged(initialFormState, personalInfo)) {
+                        await updateCustomerData(customerId, personalInfo);
                     }
                 }
             } catch (error) {
@@ -279,33 +316,49 @@ const PersonalInfoStep = () => {
         }
     };
 
+    const toggleViewMode = () => {
+        setViewMode(current => current === 'personalInfo' ? 'subscriptions' : 'personalInfo');
+    };
+
+    const handleViewSubscriptions = () => {
+        if (subscriptions.length === 0) {
+            alert('Você não possui inscrições anteriores.');
+            return;
+        }
+
+        setViewMode('subscriptions');
+    };
+
     return (
         <div className={styles.stepContent}>
-            <h2 className={styles.title}>Dados Pessoais</h2>
-            <form>
-                <div className={`${styles.formGroup} ${styles.cpfGroup}`}>
-                    {renderLabel('cpf')}
-                    <div
-                        className={styles.cpfInputWrapper}
-                        data-has-societies={formData.personalInfo.societies?.length > 0}
-                        data-societies={formData.personalInfo.societies?.join(', ')}
-                    >
-                        <input
-                            type="text"
-                            id="cpf"
-                            name="cpf"
-                            className={styles.cpfInput}
-                            value={formData.personalInfo.cpf}
-                            onChange={handleCPFChange}
-                            maxLength={14}
-                            disabled={isLoading}
-                        />
-                    </div>
-                    {errors.cpf && <span className={styles.error}>{errors.cpf}</span>}
-                </div>
+            <h2 className={styles.title}>
+                {viewMode === 'personalInfo' ? 'Meus Dados Pessoais' : 'Minhas Inscrições'}
+            </h2>
 
-                {cpfVerified && (
-                    <>
+            <div className={`${styles.formGroup} ${styles.cpfGroup}`}>
+                {renderLabel('cpf')}
+                <div
+                    className={styles.cpfInputWrapper}
+                    data-has-societies={formData.personalInfo.societies?.length > 0}
+                    data-societies={formData.personalInfo.societies?.join(', ')}
+                >
+                    <input
+                        type="text"
+                        id="cpf"
+                        name="cpf"
+                        className={styles.cpfInput}
+                        value={formData.personalInfo.cpf}
+                        onChange={handleCPFChange}
+                        maxLength={14}
+                        disabled={isLoading}
+                    />
+                </div>
+                {errors.cpf && <span className={styles.error}>{errors.cpf}</span>}
+            </div>
+
+            {cpfVerified && (
+                viewMode === 'personalInfo' ? (
+                    <form>
                         <div className={styles.formRow}>
                             <div className={styles.formGroup}>
                                 {renderLabel('fullName')}
@@ -462,17 +515,33 @@ const PersonalInfoStep = () => {
                         </div>
 
                         <div className={styles.buttonGroup}>
+                            {subscriptions.length > 0 && (
+                                <button
+                                    type="button"
+                                    onClick={handleViewSubscriptions}
+                                    className={styles.secondaryButton}
+                                >
+                                    Minhas Inscrições ({subscriptions.length})
+                                </button>
+                            )}
+
                             <button
                                 type="button"
                                 onClick={handleNext}
-                                className={styles.nextButton}
+                                className={styles.primaryButton}
                             >
-                                Próximo
+                                Nova Inscrição
                             </button>
                         </div>
-                    </>
-                )}
-            </form>
+                    </form>
+                ) : (
+                    <SubscriptionsList
+                        subscriptions={subscriptions}
+                        onToggleView={toggleViewMode}
+                        onNewSubscription={handleNext}
+                    />
+                )
+            )}
         </div>
     );
 };
