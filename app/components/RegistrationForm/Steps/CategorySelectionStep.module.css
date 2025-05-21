@@ -375,6 +375,10 @@
     grid-auto-rows: 1fr; /* Maintain equal heights on mobile */
   }
 
+  .buttonWrapper {
+    width: 100%;
+  }
+
   .buttonGroup {
     flex-direction: column;
     gap: 1rem;

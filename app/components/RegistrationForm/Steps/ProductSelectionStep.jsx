@@ -86,8 +86,6 @@ const ProductSelectionStep = () => {
     <div className={styles.stepContent}>
       <h2 className={styles.title}>Selecione os Produtos</h2>
 
-      {error && <div className={styles.error}>{error}</div>}
-
       {category && (
         <div className={styles.selectedCategory}>
           <span className={styles.categoryLabel}>Categoria selecionada:</span> {category.title}
@@ -97,7 +95,7 @@ const ProductSelectionStep = () => {
 
         {/* Coluna 1 */}
         <h3 className={`${styles.CellGridLayout} ${styles.journeyDayuse} ${styles.sectionTitle}`}>Jornada</h3>
-        {category?.journey && (
+        {category?.journey ? (
           <>
             <div className={`${styles.CellGridLayout} ${styles.productCard} ${styles.journeyDayuse} ${formData.selectedItems.journey ? styles.selected : ''}`}
                 onClick={handleJourneySelect}
@@ -133,11 +131,13 @@ const ProductSelectionStep = () => {
               </div>
             )}
           </>
+        ) : (
+          <p className={styles.noJourneyDayuse}>Nenhum produto de Jornada ou Day Use disponível nesta categoria.</p>
         )}
 
         {/* Coluna 2 */}
         <h3 className={`${styles.CellGridLayout} ${styles.workshops} ${styles.sectionTitle}`}>Workshops</h3>
-        {category?.workshops.length > 0 && (
+        {category?.workshops.length > 0 ? (
           category.workshops.map((workshop, index) => (
             <div
               key={index}
@@ -156,10 +156,13 @@ const ProductSelectionStep = () => {
               <p className={styles.price}>{workshop?.getCurrentPrice()?.value}</p>
             </div>
           ))
+        ) : (
+          <p className={styles.noWorkshops}>Nenhum Workshop disponível nesta categoria.</p>
         )}
 
+        {/* Coluna 3 */}
         <h3 className={`${styles.CellGridLayout} ${styles.courses} ${styles.sectionTitle}`}>Cursos</h3>
-        {category?.courses?.length > 0 &&
+        {category?.courses?.length > 0 ? (
           category.courses.map((course, index) => (
             <div
               key={index}
@@ -178,9 +181,13 @@ const ProductSelectionStep = () => {
               <p className={styles.price}>{course?.getCurrentPrice()?.value}</p>
             </div>
           ))
-        }
-
+        ) : (
+          <p className={styles.noCourses}>Nenhum Curso disponível nesta categoria.</p>
+        )}
       </div>
+
+      {error && <div className={styles.error}>{error}</div>}
+
       <div className={styles.buttonGroup}>
         <button
           type="button"

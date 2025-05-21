@@ -272,11 +272,11 @@
   margin-top: 0.25rem;
 }
 
-/* Botão de expandir agora é posicionado absolutamente */
+/* Botão de expandir com posição fixa */
 .expandButton {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem; /* Posição fixa baseada no centro do cabeçalho colapsado */
+  right: 0.25rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -286,8 +286,8 @@
   padding: 4px;
   color: #666;
   border-radius: 50%;
-  transition: all 0.2s ease;
   z-index: 2;
+  transition: color 0.2s ease, background-color 0.2s ease; /* Transição apenas para cor e fundo */
 }
 
 .expandButton:hover {
@@ -295,6 +295,7 @@
   color: var(--color-primary);
 }
 
+/* Apenas o ícone tem transição de rotação */
 .expandIcon {
   transition: transform 0.3s ease;
 }

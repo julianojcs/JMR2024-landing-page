@@ -216,6 +216,21 @@
     grid-template-columns: 1fr;
   }
 
+  .CellGridLayout {
+      max-width: unset;
+    &.sectionTitle {
+      grid-row: unset;
+    }
+  }
+  .journeyDayuse,
+  .workshops,
+  .courses {
+    grid-column: unset;
+  }
+  .productsWrapper {
+    grid-template-columns: 1fr;
+  }
+
   .buttonGroup {
     flex-direction: column;
     gap: 1rem;

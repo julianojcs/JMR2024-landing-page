@@ -34,12 +34,22 @@ const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) =
     return withoutPrefix;
   };
 
-  // Função para alternar a expansão de um card
+  // Função para alternar a expansão de um card, fechando os demais
   const toggleCardExpansion = (index) => {
-    setExpandedCards(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
+    setExpandedCards(prev => {
+      // Se o card clicado já está expandido, apenas o fecha
+      if (prev[index]) {
+        return { ...prev, [index]: false };
+      }
+
+      // Caso contrário, fecha todos e abre apenas o clicado
+      const newState = {};
+      Object.keys(prev).forEach(key => {
+        newState[key] = false;
+      });
+
+      return { ...newState, [index]: true };
+    });
   };
 
   // Inicializa os cards como retraídos

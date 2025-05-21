@@ -182,8 +182,6 @@ const CategorySelectionStep = () => {
     <div className={styles.stepContent}>
       <h2 className={styles.title}>Selecione a sua Categoria</h2>
 
-      {error.category && <div className={styles.error}>{error.category}</div>}
-
       <div className={styles.categoriesGrid}>
         {categories.map((category) => (
           <div
@@ -274,6 +272,8 @@ const CategorySelectionStep = () => {
           error={error.receipt}
         />
       )}
+
+      {error.category && <div className={styles.error}>{error.category}</div>}
 
       <div className={styles.buttonGroup}>
         <button
