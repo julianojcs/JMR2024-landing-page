@@ -51,9 +51,19 @@ const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) =
     setExpandedCards(initialExpandState);
   }, [subscriptions]);
 
-  // Função para formatar a data em formato brasileiro
+  // Versão alternativa que simplesmente manipula a string
   const formatDate = (dateString) => {
     if (!dateString) return '—';
+
+    // Se a entrada é uma data ISO (YYYY-MM-DD)
+    if (dateString.includes('-')) {
+      const parts = dateString.split('T')[0].split('-');
+      if (parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`; // DD/MM/YYYY
+      }
+    }
+
+    // Fallback para o método padrão
     const date = new Date(dateString);
     return date.toLocaleDateString('pt-BR');
   };
@@ -112,7 +122,7 @@ const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) =
             const isExpanded = expandedCards[index] || false;
             const categoryTitle = extractCategory(sub.description);
             const statusInfo = statusMap[sub.status] || { label: sub.status, className: '' };
-
+console.log(sub);
             return (
               <div
                 key={index}
