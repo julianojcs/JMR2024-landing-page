@@ -31,6 +31,19 @@
   background-color: #fff;
   transition: all 0.3s ease;
   position: relative; /* Para posicionar o pseudo-elemento */
+
+  &[data-status-type="PENDING"] {
+    background-color: rgba(var(--subscription-status-color-pending-rgb), 0.075);
+  }
+  &[data-status-type="CONFIRMED"] {
+    background-color: rgba(var(--subscription-status-color-confirmed-rgb), 0.075);
+  }
+  &[data-status-type="OVERDUE"] {
+    background-color: rgba(var(--subscription-status-color-overdue-rgb), 0.075);
+  }
+  &[data-status-type="RECEIVED"] {
+    background-color: rgba(var(--subscription-status-color-confirmed-rgb), 0.075);
+  }
 }
 
 .card.expanded {
@@ -55,23 +68,23 @@
 
 /* Estilos para cada tipo de status */
 .card[data-status-type="CONFIRMED"]::before {
-  background-color: #e6f7e6;
-  color: #2e7d32;
+  background-color: var(--subscription-status-color-confirmed, a#4ade80);
+  color: white;
 }
 
 .card[data-status-type="PENDING"]::before {
-  background-color: #fff9e6;
-  color: #b38000;
+  background-color: var(--subscription-status-color-pending, #f59e0b);
+  color: white;
 }
 
 .card[data-status-type="OVERDUE"]::before {
-  background-color: #ffebee;
-  color: #c62828;
+  background-color: var(--subscription-status-color-overdue, #ef4444);
+  color: white;
 }
 
 .card[data-status-type="RECEIVED"]::before {
-  background-color: #e6f7e6;
-  color: #2e7d32;
+  background-color: var(--subscription-status-color-confirmed, #4ade80);
+  color: white;
 }
 
 .card[data-status-type="REFUNDED"]::before {

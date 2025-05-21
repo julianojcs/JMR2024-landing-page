@@ -123,6 +123,25 @@
   --jornada-warning-900: rgb(47.2, 21.4, 0);
   --jornada-danger-100: rgb(248, 214.6, 217.8);
   --jornada-danger-200: rgb(241, 174.2, 180.6);
+
+  --subscription-status-color-pending: #f59e0b;
+  --subscription-status-color-pending-rgb: 245, 158, 11;
+  --subscription-status-color-pending-hover: #eab308;
+  --subscription-status-color-pending-active: #d97706;
+  --subscription-status-color-pending-dark: #ca8a04;
+
+  --subscription-status-color-confirmed: #4ade80;
+  --subscription-status-color-confirmed-rgb: 74, 222, 128;
+  --subscription-status-color-confirmed-hover: #3bbf77;
+  --subscription-status-color-confirmed-active: #36b24f;
+  --subscription-status-color-confirmed-dark: #2cae4f;
+
+  --subscription-status-color-overdue: #ef4444;
+  --subscription-status-color-overdue-rgb: 239, 68, 68;
+  --subscription-status-color-overdue-hover: #dc2626;
+  --subscription-status-color-overdue-active: #c62828;
+  --subscription-status-color-overdue-dark: #b91c1c;
+
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -134,7 +153,7 @@
     --secondary-text-clr: #E4E1E5;
     --accent-clr: #BB2426;
     --background: #292b2c;
-    --foreground: #f7f7f7; 
+    --foreground: #f7f7f7;
   }
 } */
 
