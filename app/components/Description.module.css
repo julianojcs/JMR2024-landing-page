@@ -14,7 +14,9 @@
   justify-content: flex-start;
   justify-items: center;
   font-size: 1em;
-  font-weight: 300;
+  font-weight: 500;
+  line-height: 1.6;
+  padding-inline: 1.5rem;
   text-align: justify;  /* Adiciona justificação ao texto */
   background-color: inherit;
   color: inherit;
@@ -24,7 +26,7 @@
 
   /* -webkit-line-clamp: 4; /* Mostra apenas 4 linhas */
   /* -webkit-box-orient: vertical; */
-  height: 4em; /* 4 linhas de texto */
+  height: 7em; /* 4 linhas de texto */
   overflow: hidden; /* Esconde o conteúdo que ultrapassa as 4 linhas */
   text-overflow: ellipsis;
 
@@ -45,6 +47,7 @@
   opacity: 1; /* Sombra visível por padrão */
 }
 .collapsible > p {
+  text-indent: 2rem;
   background-color: var(--background);
 }
 
