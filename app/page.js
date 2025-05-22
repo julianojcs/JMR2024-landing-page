@@ -13,6 +13,7 @@ import ModalBanner from './components/ModalBanner'
 import Introduction from '/app/components/Introduction';
 import Sponsor from '/app/components/Sponsor'
 import TravelAgency from '/app/components/TravelAgency'
+import SubscriptionsStatusSection from '/app/components/SubscriptionsStatusSection'
 
 export async function generateMetadata() {
   const year = new Date().getFullYear()
@@ -77,6 +78,7 @@ const Home = () => {
       <Banner data={data.banner} />
       <Introduction introduction={data.introduction} />
       <Description description={data.description} />
+      <SubscriptionsStatusSection />
       <TravelAgency data={data.travelAgency} />
       <Promoters button={data?.callToAct?.button01} year={year} />
       <Events button={data?.callToAct?.button02} year={year} />

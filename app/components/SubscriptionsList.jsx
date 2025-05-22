@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './SubscriptionsList.module.css';
 
-const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) => {
+const SubscriptionsList = ({ subscriptions }) => {
   // Estado para controlar quais cards estão expandidos
   const [expandedCards, setExpandedCards] = useState({});
 
@@ -89,17 +89,6 @@ const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) =
     return types[billingType] || billingType;
   };
 
-  // Função para renderizar o status com estilo apropriado
-  const renderStatus = (status) => {
-    const statusInfo = statusMap[status] || { label: status, className: '' };
-
-    return (
-      <span className={`${styles.status} ${statusInfo.className}`}>
-        {statusInfo.label}
-      </span>
-    );
-  };
-
   // Ícone de expansão/retração
   const ExpandIcon = ({ expanded }) => (
     <svg
@@ -121,7 +110,7 @@ const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) =
   );
 
   return (
-    <div className={styles.container}>
+    <>
       {subscriptions.length === 0 ? (
         <p className={styles.noSubscriptions}>
           Você ainda não possui inscrições.
@@ -132,7 +121,7 @@ const SubscriptionsList = ({ subscriptions, onToggleView, onNewSubscription }) =
             const isExpanded = expandedCards[index] || false;
             const categoryTitle = extractCategory(sub.description);
             const statusInfo = statusMap[sub.status] || { label: sub.status, className: '' };
-console.log(sub);
+
             return (
               <div
                 key={index}
@@ -214,25 +203,7 @@ console.log(sub);
           })}
         </div>
       )}
-
-      <div className={styles.buttonGroup}>
-        <button
-          type="button"
-          onClick={onToggleView}
-          className={styles.secondaryButton}
-        >
-          Meus Dados Pessoais
-        </button>
-
-        <button
-          type="button"
-          onClick={onNewSubscription}
-          className={styles.primaryButton}
-        >
-          Nova Inscrição
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 

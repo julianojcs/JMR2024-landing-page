@@ -11,7 +11,7 @@ import { formatCPF, formatPhone, formatCEP, formatName } from '../../../utils';
 import { validateCPF, validateEmail } from '../../../utils';
 import styles from './PersonalInfoStep.module.css';
 import { Subscription } from '../../../models';
-import SubscriptionsList from './SubscriptionsList';
+import Subscriptions from './Subscriptions';
 
 const PersonalInfoStep = () => {
     const { formData, updateFormData, setCurrentStep } = useRegistration();
@@ -535,7 +535,7 @@ const PersonalInfoStep = () => {
                         </div>
                     </form>
                 ) : (
-                    <SubscriptionsList
+                    <Subscriptions
                         subscriptions={subscriptions}
                         onToggleView={toggleViewMode}
                         onNewSubscription={handleNext}

@@ -681,6 +681,7 @@ export const eventData = {
         ],
       }, {
         active: true,
+        activeAt: '2025-05-31T00:00:00-0300',
         expireAt: '2025-06-25T23:59:59-0300',
         title: 'Sorteio de Inscrição',
         description: [
