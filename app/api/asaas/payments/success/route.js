@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import emailService from '/app/services/emailService';
-import { fetchPaymentById, fetchCustomerById } from '../../../app/services/api';
-import { Subscription } from '../../../../models';
+import { fetchPaymentById, fetchCustomerById } from '/app/services/api';
+import { Subscription } from '/app/models';
 
 const prisma = new PrismaClient();
 
