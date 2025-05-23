@@ -107,10 +107,10 @@ export const checkMembership = async (cpf, societies) => {
 
     const cleanCPF = cpf.replace(/\D/g, '');
     const memberSocieties = societies.filter(society =>
-        society.affiliated?.some(member => member.cpf.replace(/\D/g, '') === cleanCPF)
+        society.affiliated?.some(member => member?.cpf?.replace(/\D/g, '') === cleanCPF)
     ).map(society => {
         const member = society.affiliated.find(
-            member => member.cpf.replace(/\D/g, '') === cleanCPF
+            member => member?.cpf?.replace(/\D/g, '') === cleanCPF
         );
         return {
             shortName: society.shortName,
@@ -132,4 +132,37 @@ export const checkMembership = async (cpf, societies) => {
         isMember: memberSocieties.length > 0,
         societies: memberSocieties.map(society => society.shortName)
     };
+};
+
+/**
+ * Fetch payments for a customer using their CPF directly
+ * @param {string} cpf - The customer's CPF
+ * @returns {Promise} - All payment data associated with this CPF
+ */
+export const fetchPaymentsByCpf = async (cpf) => {
+  if (!cpf) {
+    throw new Error('CPF é obrigatório');
+  }
+
+  try {
+    const asaas = new AsaasClient();
+
+    // Format CPF to remove non-numeric characters
+    const formattedCpf = cpf.replace(/\D/g, '');
+
+    // Use the cpfCnpj filter directly in the listPayments method
+    const payments = await asaas.payments.list({
+      cpfCnpj: formattedCpf,
+      limit: 100 // Adjust limit as needed
+    });
+
+    return {
+      success: true,
+      data: payments.data || [],
+      totalCount: payments.totalCount || 0
+    };
+  } catch (error) {
+    console.error('Error fetching payments by CPF:', error);
+    throw new Error('Erro ao buscar pagamentos do cliente');
+  }
 };
