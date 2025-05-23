@@ -9,9 +9,17 @@ export async function POST(req) {
     let result;
 
     // Usar um template específico ou enviar email personalizado
-    if (template === 'subscription-confirmation' && data) {
-      result = await emailService.sendSubscriptionConfirmation(data);
+    if (template && data) {
+      // Se temos um template e dados, usar o método sendTemplateEmail
+      if (template === 'subscription-confirmation') {
+        result = await emailService.sendSubscriptionConfirmation(data);
+      } else if (['payment-confirmed', 'payment-pending', 'payment-overdue', 'payment-cancelled'].includes(template)) {
+        result = await emailService.sendTemplateEmail(template, data);
+      } else {
+        throw new Error(`Template de email '${template}' não encontrado`);
+      }
     } else {
+      // Email padrão sem template
       result = await emailService.sendEmail({ to, subject, text, html });
     }
 

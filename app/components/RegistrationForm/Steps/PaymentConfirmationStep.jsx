@@ -1,6 +1,9 @@
 import { useRegistration } from '../../../contexts/RegistrationContext';
 import styles from './PaymentConfirmationStep.module.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+// Adicionar esta variável fora do componente para persistir entre renderizações
+const emailAlreadySent = new Set();
 
 const PaymentConfirmationStep = () => {
   const { formData, paymentResponse, uploadError, year, closeModal, receiptDownloadUrl } = useRegistration();
@@ -8,6 +11,161 @@ const PaymentConfirmationStep = () => {
 
   // Estado para feedback visual ao tentar baixar o anexo
   const [downloadAttempted, setDownloadAttempted] = useState(false);
+  // Estado para controlar o envio do email
+  const [emailSent, setEmailSent] = useState(false);
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailError, setEmailError] = useState(null);
+  // Ref para garantir que o email seja enviado apenas uma vez
+  const emailSentRef = useRef(false);
+
+  // Função para enviar email de confirmação
+  const sendConfirmationEmail = async () => {
+    // Se já enviou ou está enviando, não faça nada
+    if (emailSentRef.current || emailSending) return;
+
+    try {
+      setEmailSending(true);
+
+      // Verificar se temos um email válido
+      if (!personalInfo?.email) {
+        throw new Error('Email do destinatário não disponível');
+      }
+
+      // Preparar lista de itens selecionados com valores
+      const selectedItemsList = [];
+      console.log('Itens selecionados:', selectedItems);
+
+      // Função para formatar o preço adequadamente
+      // priceObject: {"bestBefore": "30/05/2025", "value": "R$ 735,00" }
+      const formatPrice = (priceObject) => {
+        // Se priceObject for um objeto com propriedade value
+        if (priceObject && typeof priceObject === 'object' && priceObject.value) {
+          return priceObject.value;
+        }
+        // Se for um número
+        else if (typeof priceObject === 'number') {
+          return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(priceObject);
+        }
+        // Se for uma string já formatada
+        else if (typeof priceObject === 'string') {
+          return priceObject;
+        }
+        // Caso não consiga determinar o preço
+        return 'Preço não disponível';
+      };
+
+      if (selectedItems.journey) {
+        const price = selectedItems.journey.getCurrentPrice();
+        selectedItemsList.push(`${selectedItems.journey.title} - ${formatPrice(price)}`);
+      }
+
+      if (selectedItems.workshops?.length > 0) {
+        selectedItems.workshops.forEach(workshop => {
+          const price = workshop.getCurrentPrice();
+          selectedItemsList.push(`Workshop: ${workshop.title} - ${formatPrice(price)}`);
+        });
+      }
+
+      if (selectedItems.courses?.length > 0) {
+        selectedItems.courses.forEach(course => {
+          const price = course.getCurrentPrice();
+          selectedItemsList.push(`${course.title} - ${formatPrice(price)}`);
+        });
+      }
+
+      if (selectedItems.dayUse) {
+        const price = selectedItems.dayUse.getCurrentPrice();
+        selectedItemsList.push(`Day Use: ${selectedItems.dayUse.title} - ${formatPrice(price)}`);
+      }
+
+      console.log('Lista de itens selecionados:', selectedItemsList);
+
+      // Resto do código permanece igual...
+      const emailData = {
+        name: personalInfo.fullName,
+        email: personalInfo.email,
+        eventName: `JMR & CIM ${year}`,
+        subscription: {
+          event: {
+            date: '27 a 28 de Junho de 2025'
+          },
+          status: 'PENDING', // Sempre pendente no momento inicial
+          id: paymentResponse?.id || '',
+          invoiceNumber: paymentResponse?.invoiceNumber || '',
+          value: paymentResponse?.value || 0,
+          dueDate: paymentResponse?.dueDate,
+          invoiceUrl: paymentResponse?.invoiceUrl,
+          bankSlipUrl: paymentResponse?.bankSlipUrl
+        },
+        selectedItems: selectedItemsList,
+        category: category,
+        receiptDownloadUrl: receiptDownloadUrl
+      };
+      console.log('Dados do email de confirmação:', emailData);
+
+      console.log('Enviando email de confirmação de inscrição');
+
+      // Usar a API com o template de confirmação de inscrição
+      const response = await fetch('/api/emails/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          template: 'subscription-confirmation',
+          data: emailData
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setEmailSent(true);
+        emailSentRef.current = true;
+        setEmailError(null);
+      } else {
+        throw new Error(result.error || 'Erro ao enviar email');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar email de confirmação:', error);
+      setEmailError(error.message || 'Falha ao enviar email de confirmação');
+    } finally {
+      setEmailSending(false);
+    }
+  };
+
+  // Enviar email quando o componente montar
+  useEffect(() => {
+    // Verificar se já enviamos um email para este ID de pagamento específico
+    const paymentId = paymentResponse?.id;
+
+    // Só enviar o email se:
+    // 1. Temos os dados necessários
+    // 2. Não enviamos o email nesta instância do componente (emailSentRef)
+    // 3. Não enviamos um email para este ID de pagamento em nenhuma instância anterior (emailAlreadySent)
+    if (
+      personalInfo?.email &&
+      paymentId &&
+      !emailSentRef.current &&
+      !emailAlreadySent.has(paymentId)
+    ) {
+      // Registrar que estamos enviando um email para este ID
+      emailAlreadySent.add(paymentId);
+      sendConfirmationEmail();
+    }
+
+    // Cleanup function para remover o ID quando o componente for desmontado
+    // Isso é opcional e pode ser necessário apenas em certos cenários
+    return () => {
+      // Se quiser permitir reenvio quando o componente for montado novamente, descomente:
+      // if (paymentId) emailAlreadySent.delete(paymentId);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Função para fechar o modal
   const handleModalClose = () => {
@@ -34,11 +192,9 @@ const PaymentConfirmationStep = () => {
 
   // Função para tentar baixar o comprovante
   const handleDownloadReceipt = () => {
-    // Se temos a URL de download (armazenada após upload)
     if (receiptDownloadUrl) {
       window.open(receiptDownloadUrl, '_blank');
     } else {
-      // Caso não tenha URL disponível (pode acontecer se o arquivo foi apenas anexado)
       setDownloadAttempted(true);
       setTimeout(() => setDownloadAttempted(false), 3000);
     }
@@ -79,6 +235,23 @@ const PaymentConfirmationStep = () => {
             Inscrição Realizada com Sucesso!
           </h3>
         </div>
+
+        {/* Status de envio do email */}
+        {(emailSent || emailSending || emailError) && (
+          <div className={`${styles.emailStatus} ${emailError ? styles.emailError : ''}`}>
+            {emailSending && <span>Enviando comprovante por email...</span>}
+            {emailSent && !emailError && (
+              <span className={styles.emailSuccess}>
+                Um email com todos os detalhes foi enviado para {personalInfo.email}
+              </span>
+            )}
+            {emailError && (
+              <span className={styles.emailErrorText}>
+                Não foi possível enviar o email de confirmação. Por favor, salve estas informações.
+              </span>
+            )}
+          </div>
+        )}
 
         {/* Informações do pagamento */}
         <section className={styles.section}>
@@ -182,7 +355,7 @@ const PaymentConfirmationStep = () => {
           {/* Comprovante clicável */}
           {formData.receipt && (
             <div
-              className={`${styles.attachmentInfo} ${receiptDownloadUrl ? styles.clickable : ''} ${downloadAttempted ? styles.attempted : ''}`} 
+              className={`${styles.attachmentInfo} ${receiptDownloadUrl ? styles.clickable : ''} ${downloadAttempted ? styles.attempted : ''}`}
               onClick={handleDownloadReceipt}
               title={receiptDownloadUrl ? "Clique para baixar o comprovante" : "Comprovante anexado, mas download não disponível"}
             >
@@ -235,9 +408,20 @@ const PaymentConfirmationStep = () => {
           </div>
         )}
 
-        {/* Botão para voltar */}
+        {/* Botão para enviar email novamente */}
+        {emailError && (
+          <button
+            onClick={sendConfirmationEmail}
+            className={styles.resendEmailButton}
+            disabled={emailSending}
+          >
+            {emailSending ? 'Enviando...' : 'Reenviar Email'}
+          </button>
+        )}
+
+        {/* Botão para fechar */}
         <div className={styles.navigationSection}>
-          <button onClick={handleModalClose} className={styles.returnButton} >
+          <button onClick={handleModalClose} className={styles.returnButton}>
             Fechar
           </button>
         </div>

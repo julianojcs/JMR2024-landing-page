@@ -251,6 +251,7 @@ class AsaasClient {
    * @throws {Error} If the request fails
    */
   async createPayment(data) {
+    console.log('createPayment data: ', data)
     try {
       const response = await fetch(`${this.baseApiUrl}/payments`, {
         method: 'POST',

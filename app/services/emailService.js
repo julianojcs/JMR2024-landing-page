@@ -1,5 +1,21 @@
 import nodemailer from 'nodemailer';
 
+const formatDate = (dateString) => {
+  if (!dateString) return 'A definir';
+
+  // Se a entrada é uma data ISO (YYYY-MM-DD)
+  if (dateString.includes('-')) {
+    const parts = dateString.split('T')[0].split('-');
+    if (parts.length === 3) {
+      return `${parts[2]}/${parts[1]}/${parts[0]}`; // DD/MM/YYYY
+    }
+  }
+
+  // Fallback para o método padrão
+  const date = new Date(dateString);
+  return date.toLocaleDateString('pt-BR');
+};
+
 class EmailService {
   constructor() {
     this.transporter = nodemailer.createTransport({
@@ -48,55 +64,196 @@ class EmailService {
    * @param {string} data.email - Email do inscrito
    * @param {string} data.eventName - Nome do evento
    * @param {Object} data.subscription - Dados da inscrição
+   * @param {Array} data.selectedItems - Itens selecionados (opcional)
+   * @param {Object} data.category - Categoria da inscrição (opcional)
+   * @param {string} data.receiptDownloadUrl - URL para download do comprovante (opcional)
    * @returns {Promise} - Resultado do envio
    */
   async sendSubscriptionConfirmation(data) {
-    const subject = `Confirmação de Inscrição - ${data.eventName}`;
+    const { name, email, eventName, subscription, selectedItems = [], category, receiptDownloadUrl } = data;
+
+    // Formatar o valor se disponível
+    const formattedValue = subscription?.value
+      ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(subscription.value)
+      : 'Não definido';
+
+    // Formatar data de vencimento se disponível
+    const dueDate = formatDate(subscription?.dueDate)
+
+    // Definir o assunto do email
+    const subject = `Inscrição Realizada - ${eventName}`;
+
+    // Versão de texto simples do email
     const text = `
-      Olá ${data.name},
+      Olá ${name},
 
-      Sua inscrição para o evento ${data.eventName} foi confirmada!
+      Sua inscrição para o ${eventName} foi realizada com sucesso!
 
-      Detalhes da inscrição:
-      - Evento: ${data.eventName}
-      - Data: ${data.subscription.event?.date || 'A confirmar'}
-      - Status do pagamento: ${data.subscription.status === 'paid' ? 'Confirmado' : 'Pendente'}
+      DETALHES DA INSCRIÇÃO:
+      - Evento: ${eventName}
+      - Data do evento: ${subscription?.event?.date || '27 a 28 de Junho de 2025'}
+      - Categoria: ${category?.title || 'Não especificada'}
+      - Status do pagamento: Aguardando Pagamento
+      ${subscription?.invoiceNumber ? `- Número da inscrição: ${subscription.invoiceNumber}` : ''}
+      ${subscription?.id ? `- ID do pagamento: ${subscription.id}` : ''}
+      ${subscription?.value ? `- Valor: ${formattedValue}` : ''}
+      ${subscription?.dueDate ? `- Vencimento: ${dueDate}` : ''}
 
-      Obrigado por se inscrever! Aguardamos você no evento.
+      ${selectedItems?.length > 0 ? `
+      PRODUTOS SELECIONADOS:
+      ${selectedItems.map(item => `- ${item}`).join('\n')}
+      ` : ''}
+
+      ${subscription?.invoiceUrl ? `
+      LINKS IMPORTANTES:
+      - Efetuar pagamento: ${subscription.invoiceUrl}
+      ${subscription.bankSlipUrl ? `- Baixar boleto em PDF: ${subscription.bankSlipUrl}` : ''}
+      ${receiptDownloadUrl ? `- Baixar comprovante anexado: ${receiptDownloadUrl}` : ''}
+      ` : ''}
+
+      Estamos aguardando a confirmação do seu pagamento para finalizar sua inscrição.
+      Após o pagamento, você receberá um email de confirmação.
 
       Atenciosamente,
-      Equipe do Congresso SRMG
+      Equipe JMR & CIM ${new Date().getFullYear()}
+      Em caso de dúvidas, entre em contato conosco pelo email srmg@srmg.com
+      © 2025 Join Digital Solutions - Todos os direitos reservados - (27)98133-0708
     `;
 
+    // Versão HTML do email
     const html = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #0E1D59;">Confirmação de Inscrição</h2>
-        <p>Olá <strong>${data.name}</strong>,</p>
-
-        <p>Sua inscrição para o evento <strong>${data.eventName}</strong> foi confirmada!</p>
-
-        <div style="background-color: #f7f7f7; padding: 15px; border-radius: 5px; margin: 20px 0;">
-          <h3 style="margin-top: 0; color: #0E1D59;">Detalhes da inscrição:</h3>
-          <ul style="list-style-type: none; padding-left: 0;">
-            <li><strong>Evento:</strong> ${data.eventName}</li>
-            <li><strong>Data:</strong> ${data.subscription.event?.date || 'A confirmar'}</li>
-            <li><strong>Status do pagamento:</strong>
-              <span style="color: ${data.subscription.status === 'paid' ? 'green' : 'orange'}">
-                ${data.subscription.status === 'paid' ? 'Confirmado' : 'Pendente'}
-              </span>
-            </li>
-          </ul>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+        <div style="background-color: #0E1D59; padding: 20px; text-align: center;">
+          <h1 style="color: white; margin: 0;">
+            Inscrição Realizada! ✓
+          </h1>
         </div>
 
-        <p>Obrigado por se inscrever! Aguardamos você no evento.</p>
+        <div style="padding: 20px;">
+          <p style="font-size: 16px;">Olá <strong>${name}</strong>,</p>
 
-        <p>Atenciosamente,<br>
-        <strong>Equipe do Congresso SRMG</strong></p>
+          <p style="font-size: 16px;">
+            Sua inscrição para o <strong>${eventName}</strong> foi realizada com sucesso!
+          </p>
+
+          <!-- Bloco de detalhes da inscrição -->
+          <div style="background-color: #f7f7f7; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0E1D59;">
+            <h2 style="margin-top: 0; color: #0E1D59; font-size: 18px;">Detalhes da Inscrição</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 8px 0; width: 40%;"><strong>Evento:</strong></td>
+                <td style="padding: 8px 0;">${eventName}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0;"><strong>Data do evento:</strong></td>
+                <td style="padding: 8px 0;">${subscription?.event?.date || '27 a 28 de Junho de 2025'}</td>
+              </tr>
+              ${category?.title ? `
+              <tr>
+                <td style="padding: 8px 0;"><strong>Categoria:</strong></td>
+                <td style="padding: 8px 0;">${category.title}</td>
+              </tr>` : ''}
+              <tr>
+                <td style="padding: 8px 0;"><strong>Status do pagamento:</strong></td>
+                <td style="padding: 8px 0;">
+                  <span style="color: orange; font-weight: bold;">
+                    Aguardando Pagamento
+                  </span>
+                </td>
+              </tr>
+              ${subscription?.invoiceNumber ? `
+              <tr>
+                <td style="padding: 8px 0;"><strong>Número da inscrição:</strong></td>
+                <td style="padding: 8px 0;">${subscription.invoiceNumber}</td>
+              </tr>` : ''}
+              ${subscription?.id ? `
+              <tr>
+                <td style="padding: 8px 0;"><strong>ID do pagamento:</strong></td>
+                <td style="padding: 8px 0;">${subscription.id}</td>
+              </tr>` : ''}
+              ${subscription?.value ? `
+              <tr>
+                <td style="padding: 8px 0;"><strong>Valor total:</strong></td>
+                <td style="padding: 8px 0;"><strong>${formattedValue}</strong></td>
+              </tr>` : ''}
+              ${subscription?.dueDate ? `
+              <tr>
+                <td style="padding: 8px 0;"><strong>Vencimento:</strong></td>
+                <td style="padding: 8px 0;">${dueDate}</td>
+              </tr>` : ''}
+            </table>
+          </div>
+
+          <!-- Produtos selecionados -->
+          ${selectedItems?.length > 0 ? `
+          <div style="background-color: #f7f7f7; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0E1D59;">
+            <h2 style="margin-top: 0; color: #0E1D59; font-size: 18px;">Produtos Selecionados</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              ${selectedItems.map((item, index) => `
+                <tr style="border-bottom: ${index < selectedItems.length - 1 ? '1px solid #e0e0e0' : 'none'}">
+                  <td style="padding: 10px 0;">
+                    <span style="display: inline-block; margin-right: 8px; color: #0E1D59;">✓</span>
+                    ${item}
+                  </td>
+                </tr>
+              `).join('')}
+            </table>
+          </div>` : ''}
+
+          <!-- Links importantes -->
+          ${subscription?.invoiceUrl ? `
+          <div style="background-color: #f7f7f7; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0E1D59;">
+            <h2 style="margin-top: 0; color: #0E1D59; font-size: 18px;">Links Importantes</h2>
+            <p style="margin-bottom: 15px;">
+              <a href="${subscription.invoiceUrl}"
+                 style="display: inline-block; padding: 10px 20px; background-color: #0E1D59; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                <span style="display: inline-block; margin-right: 8px;">💳</span> Efetuar Pagamento
+              </a>
+            </p>
+
+            ${subscription.bankSlipUrl ? `
+            <p style="margin-bottom: 15px;">
+              <a href="${subscription.bankSlipUrl}"
+                 style="display: inline-block; padding: 8px 16px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                <span style="display: inline-block; margin-right: 8px;">📄</span> Baixar Boleto em PDF
+              </a>
+            </p>` : ''}
+
+            ${receiptDownloadUrl ? `
+            <p style="margin-bottom: 15px;">
+              <a href="${receiptDownloadUrl}"
+                 style="display: inline-block; padding: 8px 16px; background-color: #2196F3; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                <span style="display: inline-block; margin-right: 8px;">📎</span> Baixar Comprovante Anexado
+              </a>
+            </p>` : ''}
+          </div>` : ''}
+
+          <!-- Mensagem de conclusão -->
+          <div style="margin: 30px 0; padding: 15px; background-color: #fff8e1; border-radius: 5px;">
+            <p style="margin: 0 0 10px 0;">
+              Estamos aguardando a confirmação do seu pagamento para finalizar sua inscrição.
+              Após o pagamento, você receberá um email de confirmação.
+            </p>
+          </div>
+
+          <!-- Assinatura -->
+          <p style="margin-top: 30px; color: #666; font-size: 14px;">
+            Atenciosamente,<br>
+            <strong>Equipe JMR & CIM ${new Date().getFullYear()}</strong>
+          </p>
+
+          <!-- Rodapé -->
+          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #999; text-align: center;">
+            Este é um email automático. Por favor não responda diretamente.
+            <p>Em caso de dúvidas, entre em contato conosco pelo email: <a href="mailto:srmg@srmg.com" style="color: #0E1D59;">srmg@srmg.com</a></p>
+            <p>© ${new Date().getFullYear()} Join Digital Solutions - Todos os direitos reservados - <a href="http://wa.me/5527981330708">Whatsapp</a></p">
+          </div>
+        </div>
       </div>
     `;
 
     return this.sendEmail({
-      to: data.email,
+      to: email,
       subject,
       text,
       html
@@ -168,7 +325,7 @@ class EmailService {
       Sua inscrição está confirmada. Aguardamos você no evento!
 
       Atenciosamente,
-      Equipe do Congresso SRMG
+      Equipe JMR & CIM 2025
     `;
   }
 
@@ -194,7 +351,7 @@ class EmailService {
         <p>Sua inscrição está confirmada. Aguardamos você no evento!</p>
 
         <p>Atenciosamente,<br>
-        <strong>Equipe do Congresso SRMG</strong></p>
+        <strong>Equipe JMR & CIM 2025</strong></p>
       </div>
     `;
   }
@@ -219,7 +376,7 @@ class EmailService {
       ${data.paymentType === 'BOLETO' ? 'O pagamento via boleto pode levar até 3 dias úteis para ser compensado.' : 'O pagamento via PIX geralmente é confirmado em poucos minutos.'}
 
       Atenciosamente,
-      Equipe do Congresso SRMG
+      Equipe JMR & CIM 2025
     `;
   }
 
@@ -252,7 +409,7 @@ class EmailService {
         <p>${paymentTypeMessage}</p>
 
         <p>Atenciosamente,<br>
-        <strong>Equipe do Congresso SRMG</strong></p>
+        <strong>Equipe JMR & CIM 2025</strong></p>
       </div>
     `;
   }

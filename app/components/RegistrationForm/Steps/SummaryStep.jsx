@@ -5,6 +5,21 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../../lib/firebase';
 import AsaasClient from '../../../lib/AsaasClient';
 
+// Função auxiliar para converter valores monetários para números
+const currencyToNumber = (currencyString) => {
+  if (!currencyString) return 0;
+
+  // Remover qualquer símbolo de moeda e espaços
+  // Remover todos os pontos (separadores de milhar)
+  // Substituir vírgula por ponto decimal
+  return parseFloat(
+    currencyString
+      .replace(/[R$\s]/g, '')
+      .replace(/\./g, '')
+      .replace(',', '.')
+  );
+};
+
 const SummaryStep = () => {
   const {
     formData,
@@ -43,22 +58,22 @@ const SummaryStep = () => {
 
     if (selectedItems.journey) {
       const journeyPrice = selectedItems.journey.getCurrentPrice();
-      total += parseFloat(journeyPrice.value.replace(/[^\d,]/g, '').replace(',', '.'));
+      total += currencyToNumber(journeyPrice.value);
     }
 
     selectedItems.workshops?.forEach(workshop => {
       const workshopPrice = workshop.getCurrentPrice();
-      total += parseFloat(workshopPrice.value.replace(/[^\d,]/g, '').replace(',', '.'));
+      total += currencyToNumber(workshopPrice.value);
     });
 
     selectedItems.courses?.forEach(course => {
       const coursePrice = course.getCurrentPrice();
-      total += parseFloat(coursePrice.value.replace(/[^\d,]/g, '').replace(',', '.'));
+      total += currencyToNumber(coursePrice.value);
     });
 
     if (selectedItems.dayUse) {
       const dayUsePrice = selectedItems.dayUse.getCurrentPrice();
-      total += parseFloat(dayUsePrice.value.replace(/[^\d,]/g, '').replace(',', '.'));
+      total += currencyToNumber(dayUsePrice.value);
     }
 
     return new Intl.NumberFormat('pt-BR', {
@@ -91,7 +106,7 @@ const SummaryStep = () => {
       description += ` - ${personalInfo.fullName}`;
 
       const total = calculateTotal();
-      const numericPrice = parseFloat(total.replace(/[^\d,.-]/g, '').replace(',', '.')).toFixed(2);
+      const numericPrice = currencyToNumber(total).toFixed(2);
 
       const baseUrl = process.env.NODE_ENV === 'development'
         ? url
