@@ -107,7 +107,7 @@ const SummaryStep = () => {
         description: description,
         externalReference: null,
         callback: {
-          successUrl: `${baseUrl}/api/asaas/payments/success`
+          successUrl: `${baseUrl}/payment/confirmation`
         }
       });
 
