@@ -4,7 +4,7 @@ import emailService from '/app/services/emailService';
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { to, subject, text, html, template, data } = body;
+    const { to, bcc, subject, text, html, template, data } = body;
 
     let result;
 
@@ -20,7 +20,7 @@ export async function POST(req) {
       }
     } else {
       // Email padrão sem template
-      result = await emailService.sendEmail({ to, subject, text, html });
+      result = await emailService.sendEmail({ to, bcc, subject, text, html });
     }
 
     if (result.success) {

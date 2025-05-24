@@ -16,6 +16,15 @@ const publicGetGeneralProgram = (branchs = [], year) => {
 
 export const eventData = {
   2024: {
+    event: {
+      name: 'Jornada Mineira de Radiologia 2024',
+      shortName: 'JMR & CIM 2024',
+      date: '1 e 2 de novembro de 2024',
+      shortDate: '01 e 02/11/2024',
+      email: 'srmg@srmg.org.br',
+      bcc: 'jmr@@srmg.org.br',
+      phone: '(27)98133-0708',
+    },
     title:
       'X Jornada Mineira de Radiologia & I Jornada Mineira de POCUS ABRAMEDE/MG e SRMG | 01 e 02 de Novembro de 2024',
     description:
@@ -601,8 +610,17 @@ export const eventData = {
     }
   },
   2025: {
+    event: {
+      name: 'Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher 2025',
+      shortName: 'JMR & CIM 2025',
+      date: '27 e 28 de Junho de 2025',
+      shortDate: '27 e 28/06/2025',
+      email: 'srmg@srmg.org.br',
+      bcc: 'jmr@srmg.org.br',
+      phone: '(27)98133-0708',
+    },
     title:
-      'JMR 2025 & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
+      'JMR & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
     description:
       [
         'Nos dias 27 e 28 de Junho de 2025, Belo Horizonte será palco de dois grandes eventos científicos: a Jornada Mineira de Radiologia 2025 (JMR), organizada pela SRMG, e o Congresso de Imaginologia da Mulher 2025 (CIM), realizado em parceria com a SOGIMIG.',
@@ -634,9 +652,9 @@ export const eventData = {
       'Imagem Torácica',
       'Inteligencia Artificial em Radiologia'
     ],
-    ogTitle: 'JMR 2025 - Jornada Mineira de Radiologia',
+    ogTitle: 'JMR & CIM 2025 - Jornada Mineira de Radiologia e Congresso de Imaginologia da Mulher',
     ogDescription:
-      'Junte-se à Jornada Mineira de Radiologia 2025 e descubra as inovações na área de diagnóstico por imagem.',
+      'Junte-se à Jornada Mineira de Radiologia e ao Congresso de Imaginologia da Mulher 2025 e descubra as inovações na área de diagnóstico por imagem.',
     banner: {
       description: ['Regulamento Submissão de', 'Trabalhos JMR/CIM2025'],
       button: {
@@ -759,7 +777,7 @@ export const eventData = {
     },
     recurrenceRule: 'RRULE:FREQ=DAILY;COUNT=2',
     location: {
-      name: 'Associação Médica de Minas Gerais',
+      name: 'Associação Médica de Minas Gerais - AMMG',
       city: 'Belo Horizonte',
       state: 'MG',
       street: 'Av. João Pinheiro',
@@ -11617,6 +11635,15 @@ export const eventData = {
     }
   },
   2028: {
+    event: {
+      name: 'Jornada Mineira de Radiologia 2025',
+      shortName: 'JMR & CIM 2025',
+      date: '27 e 28 de Junho de 2025',
+      shortDate: '27 e 28/06/2025',
+      email: 'srmg@srmg.org.br',
+      bcc: 'jmr@@srmg.org.br',
+      phone: '(27)98133-0708',
+    },
     title:
       'JMR 2025 & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
     description:

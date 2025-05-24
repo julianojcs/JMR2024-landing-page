@@ -161,79 +161,67 @@
 .attachmentInfo {
   display: flex;
   align-items: center;
-  padding: 0.1rem 0.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
+  padding-inline: 8px;
+  background-color: #f5f5f5;
   border-radius: 4px;
-  font-size: 0.75rem;
-  color: #666;
-  width: fit-content;
-  border-left: 2px solid #ddd;
-  transition: all 0.2s ease;
-  position: relative;
+  border: 1px solid #e0e0e0;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: small;
+}
+
+.attachmentIcon {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.attachmentName {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333;
+}
+
+.previewHint {
+  color: #0E1D59;
+  font-size: 0.85em;
+  font-weight: 500;
+  text-decoration: underline;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .clickable {
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s;
 }
 
 .clickable:hover {
-  background-color: #e9ecef;
-  border-left-color: var(--primary-color, #1877f2);
-}
-
-.clickable:hover .previewHint {
-  opacity: 1;
-}
-
-.attachmentIcon {
-  margin-right: 0.5rem;
-  font-size: 0.75rem;
-  color: #888;
-}
-
-.attachmentName {
-  font-size: 0.9rem;
-  color: #555;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 80%;
-}
-
-.previewHint {
-  position: absolute;
-  right: 0.75rem;
-  background-color: var(--primary-color, #1877f2);
-  color: white;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 3px;
-  opacity: 0;
-  transition: opacity 0.2s;
-  bottom: 1.7rem;
-  left: 1rem;
-}
-
-.previewError {
-  position: absolute;
-  right: 0.75rem;
-  background-color: #f44336;
-  color: white;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 3px;
-  animation: fadeOut 3s;
+  background-color: #e8e8e8;
 }
 
 .attempted {
   border-left-color: #f44336;
 }
 
+.attempted .previewError {
+  color: #d32f2f;
+  font-size: 0.85em;
+  margin-left: 8px;
+  animation: fadeIn 0.3s ease;
+  flex-shrink: 0;
+}
+
 @keyframes fadeOut {
   0% { opacity: 1; }
   70% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Estilos para o botão quando está em loading */

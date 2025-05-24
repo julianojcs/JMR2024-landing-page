@@ -33,12 +33,14 @@ class EmailService {
    * Enviar email
    * @param {Object} options - Opções do email
    * @param {string} options.to - Destinatário do email
+   * @param {string|string[]} options.cc - Destinatários em cópia (opcional)
+   * @param {string|string[]} options.bcc - Destinatários em cópia oculta (opcional)
    * @param {string} options.subject - Assunto do email
    * @param {string} options.text - Conteúdo de texto simples
    * @param {string} options.html - Conteúdo HTML (opcional)
    * @returns {Promise} - Resultado do envio
    */
-  async sendEmail({ to, subject, text, html }) {
+  async sendEmail({ to, cc, bcc, subject, text, html }) {
     try {
       const mailOptions = {
         from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
@@ -47,6 +49,10 @@ class EmailService {
         text,
         html: html || text,
       };
+
+      // Adicionar cc e bcc se fornecidos
+      if (cc) mailOptions.cc = cc;
+      if (bcc) mailOptions.bcc = bcc;
 
       const info = await this.transporter.sendMail(mailOptions);
       console.log('Email enviado:', info.messageId);
@@ -67,10 +73,14 @@ class EmailService {
    * @param {Array} data.selectedItems - Itens selecionados (opcional)
    * @param {Object} data.category - Categoria da inscrição (opcional)
    * @param {string} data.receiptDownloadUrl - URL para download do comprovante (opcional)
+   * @param {string|string[]} data.cc - Destinatários em cópia (opcional)
+   * @param {string|string[]} data.bcc - Destinatários em cópia oculta (opcional)
+   * @param {string} data.event.shortName - Nome curto do evento (opcional)
+   * @param {string} data.event.date - Data do evento (opcional)
    * @returns {Promise} - Resultado do envio
    */
   async sendSubscriptionConfirmation(data) {
-    const { name, email, eventName, subscription, selectedItems = [], category, receiptDownloadUrl } = data;
+    const { name, email, phone, eventName, subscription, selectedItems = [], category, receiptDownloadUrl, cc, bcc, event } = data;
 
     // Formatar o valor se disponível
     const formattedValue = subscription?.value
@@ -107,17 +117,18 @@ class EmailService {
       ${subscription?.invoiceUrl ? `
       LINKS IMPORTANTES:
       - Efetuar pagamento: ${subscription.invoiceUrl}
-      ${subscription.bankSlipUrl ? `- Baixar boleto em PDF: ${subscription.bankSlipUrl}` : ''}
-      ${receiptDownloadUrl ? `- Baixar comprovante anexado: ${receiptDownloadUrl}` : ''}
+      ${subscription.bankSlipUrl ? `- Baixar Boleto em PDF: ${subscription.bankSlipUrl}` : ''}
+      ${receiptDownloadUrl ? `- Baixar Anexo: ${receiptDownloadUrl}` : ''}
       ` : ''}
 
       Estamos aguardando a confirmação do seu pagamento para finalizar sua inscrição.
       Após o pagamento, você receberá um email de confirmação.
 
       Atenciosamente,
-      Equipe JMR & CIM ${new Date().getFullYear()}
-      Em caso de dúvidas, entre em contato conosco pelo email srmg@srmg.com
-      © 2025 Join Digital Solutions - Todos os direitos reservados - (27)98133-0708
+      Equipe ${eventName || 'JMR & CIM 2025'}
+      Em caso de dúvidas, entre em contato conosco pelo email ${email || "srmg@srmg.org.br"}
+      © ${new Date().getFullYear()} Join Digital Solutions - Todos os direitos reservados - ${phone || "(27)98133-0708"}
+      Este é um email automático. Por favor não responda diretamente.
     `;
 
     // Versão HTML do email
@@ -223,7 +234,7 @@ class EmailService {
             <p style="margin-bottom: 15px;">
               <a href="${receiptDownloadUrl}"
                  style="display: inline-block; padding: 8px 16px; background-color: #2196F3; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
-                <span style="display: inline-block; margin-right: 8px;">📎</span> Baixar Comprovante Anexado
+                <span style="display: inline-block; margin-right: 8px;">📎</span> Baixar Anexo
               </a>
             </p>` : ''}
           </div>` : ''}
@@ -245,8 +256,8 @@ class EmailService {
           <!-- Rodapé -->
           <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #999; text-align: center;">
             Este é um email automático. Por favor não responda diretamente.
-            <p>Em caso de dúvidas, entre em contato conosco pelo email: <a href="mailto:srmg@srmg.com" style="color: #0E1D59;">srmg@srmg.com</a></p>
-            <p>© ${new Date().getFullYear()} Join Digital Solutions - Todos os direitos reservados - <a href="http://wa.me/5527981330708">Whatsapp</a></p">
+            <p>Em caso de dúvidas, entre em contato conosco pelo email: <a href="mailto:${event?.email || "srmg@srmg.org.br"}" style="color: #0E1D59;">${event?.email || "srmg@srmg.org.br"}</a></p>
+            <p>© ${new Date().getFullYear()} Join Digital Solutions - Todos os direitos reservados - <a href="http://wa.me/5527981330708">Whatsapp</a></p>
           </div>
         </div>
       </div>
@@ -254,6 +265,8 @@ class EmailService {
 
     return this.sendEmail({
       to: email,
+      cc,
+      bcc,
       subject,
       text,
       html
@@ -264,12 +277,15 @@ class EmailService {
    * Envia um email baseado em um template predefinido
    * @param {string} templateName - Nome do template a ser usado
    * @param {Object} data - Dados para preencher o template
+   * @param {string|string[]} data.cc - Destinatários em cópia (opcional)
+   * @param {string|string[]} data.bcc - Destinatários em cópia oculta (opcional)
    * @returns {Promise} - Resultado do envio
    */
   async sendTemplateEmail(templateName, data) {
     let subject = '';
     let text = '';
     let html = '';
+    const { cc, bcc } = data;
 
     // Selecionar o template com base no nome
     switch (templateName) {
@@ -301,9 +317,11 @@ class EmailService {
         throw new Error(`Template de email '${templateName}' não encontrado`);
     }
 
-    // Enviar o email com o template selecionado
+    // Enviar o email com o template selecionado, incluindo cc e bcc
     return this.sendEmail({
       to: data.email,
+      cc,
+      bcc,
       subject,
       text,
       html

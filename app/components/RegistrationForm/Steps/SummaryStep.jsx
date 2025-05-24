@@ -220,7 +220,7 @@ const SummaryStep = () => {
               <div
                 className={`${styles.attachmentInfo} ${styles.clickable} ${previewAttempted ? styles.attempted : ''}`}
                 onClick={handleFilePreview}
-                title="Clique para visualizar o arquivo"
+                title={`${formData.receipt.name || "Clique para visualizar o arquivo"}`}
               >
                 <span className={styles.attachmentIcon}>📎</span>
                 <span className={styles.attachmentName}>
@@ -228,7 +228,6 @@ const SummaryStep = () => {
                     ? formData.receipt
                     : formData.receipt.name || 'Comprovante anexado'}
                 </span>
-                <span className={styles.previewHint}>Visualizar</span>
                 {previewAttempted && (
                   <span className={styles.previewError}>Não foi possível abrir este arquivo</span>
                 )}

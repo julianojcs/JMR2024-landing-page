@@ -185,18 +185,30 @@
 
 .productsList {
   list-style-type: none;
-  padding-left: 0.5rem;
+  padding: 0;
   margin: 0;
 }
 
 .productItem {
-  padding: 0.35rem 0;
-  border-bottom: 1px dashed #eee;
-  color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .productItem:last-child {
   border-bottom: none;
+}
+
+.productName {
+  padding-right: 10px;
+}
+
+.productPrice {
+  font-weight: 600;
+  color: #0E1D59;
+  white-space: nowrap;
 }
 
 .attachmentInfo {

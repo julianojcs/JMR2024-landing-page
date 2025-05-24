@@ -5,8 +5,29 @@ import { useState, useEffect, useRef } from 'react';
 // Adicionar esta variável fora do componente para persistir entre renderizações
 const emailAlreadySent = new Set();
 
+// Função para formatar o preço adequadamente, movida para fora do componente
+const formatPrice = (priceObject) => {
+  // Se priceObject for um objeto com propriedade value
+  if (priceObject && typeof priceObject === 'object' && priceObject.value) {
+    return priceObject.value;
+  }
+  // Se for um número
+  else if (typeof priceObject === 'number') {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(priceObject);
+  }
+  // Se for uma string já formatada
+  else if (typeof priceObject === 'string') {
+    return priceObject;
+  }
+  // Caso não consiga determinar o preço
+  return 'Preço não disponível';
+};
+
 const PaymentConfirmationStep = () => {
-  const { formData, paymentResponse, uploadError, year, closeModal, receiptDownloadUrl } = useRegistration();
+  const { formData, eventData, paymentResponse, uploadError, year, closeModal, receiptDownloadUrl } = useRegistration();
   const { personalInfo, category, selectedItems } = formData;
 
   // Estado para feedback visual ao tentar baixar o anexo
@@ -34,28 +55,6 @@ const PaymentConfirmationStep = () => {
       // Preparar lista de itens selecionados com valores
       const selectedItemsList = [];
       console.log('Itens selecionados:', selectedItems);
-
-      // Função para formatar o preço adequadamente
-      // priceObject: {"bestBefore": "30/05/2025", "value": "R$ 735,00" }
-      const formatPrice = (priceObject) => {
-        // Se priceObject for um objeto com propriedade value
-        if (priceObject && typeof priceObject === 'object' && priceObject.value) {
-          return priceObject.value;
-        }
-        // Se for um número
-        else if (typeof priceObject === 'number') {
-          return new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-          }).format(priceObject);
-        }
-        // Se for uma string já formatada
-        else if (typeof priceObject === 'string') {
-          return priceObject;
-        }
-        // Caso não consiga determinar o preço
-        return 'Preço não disponível';
-      };
 
       if (selectedItems.journey) {
         const price = selectedItems.journey.getCurrentPrice();
@@ -87,10 +86,12 @@ const PaymentConfirmationStep = () => {
       const emailData = {
         name: personalInfo.fullName,
         email: personalInfo.email,
-        eventName: `JMR & CIM ${year}`,
+        bcc: eventData?.event?.bcc || 'jmr@srmg.org.br',
+        phone: eventData?.event?.phone || '(27)98133-0708',
+        eventName: eventData?.event?.shortName || `JMR & CIM ${year}`,
         subscription: {
           event: {
-            date: '27 a 28 de Junho de 2025'
+            date: eventData?.event?.date || '27 a 28 de Junho de 2025'
           },
           status: 'PENDING', // Sempre pendente no momento inicial
           id: paymentResponse?.id || '',
@@ -320,7 +321,10 @@ const PaymentConfirmationStep = () => {
             <ul className={styles.productsList}>
               {selectedItems.journey && (
                 <li className={styles.productItem}>
-                  {selectedItems.journey.title}
+                  <span className={styles.productName}>{selectedItems.journey.title}</span>
+                  <span className={styles.productPrice}>
+                    {formatPrice(selectedItems.journey.getCurrentPrice())}
+                  </span>
                 </li>
               )}
 
@@ -328,7 +332,10 @@ const PaymentConfirmationStep = () => {
                 <>
                   {selectedItems.workshops.map((workshop, index) => (
                     <li key={`workshop-${index}`} className={styles.productItem}>
-                      {workshop.title}
+                      <span className={styles.productName}>Workshop: {workshop.title}</span>
+                      <span className={styles.productPrice}>
+                        {formatPrice(workshop.getCurrentPrice())}
+                      </span>
                     </li>
                   ))}
                 </>
@@ -338,7 +345,10 @@ const PaymentConfirmationStep = () => {
                 <>
                   {selectedItems.courses.map((course, index) => (
                     <li key={`course-${index}`} className={styles.productItem}>
-                      {course.title}
+                      <span className={styles.productName}>{course.title}</span>
+                      <span className={styles.productPrice}>
+                        {formatPrice(course.getCurrentPrice())}
+                      </span>
                     </li>
                   ))}
                 </>
@@ -346,7 +356,10 @@ const PaymentConfirmationStep = () => {
 
               {selectedItems.dayUse && (
                 <li className={styles.productItem}>
-                  {selectedItems.dayUse.title}
+                  <span className={styles.productName}>Day Use: {selectedItems.dayUse.title}</span>
+                  <span className={styles.productPrice}>
+                    {formatPrice(selectedItems.dayUse.getCurrentPrice())}
+                  </span>
                 </li>
               )}
             </ul>
@@ -400,10 +413,8 @@ const PaymentConfirmationStep = () => {
             <p className={styles.errorMsg}>
               Não foi possível fazer o upload do comprovante.
               Por favor, envie o comprovante para{' '}
-              <a href="mailto:congressosrmg@gmail.com">
-                congressosrmg@gmail.com
-              </a>
-              {' '}com o ID do pagamento: {paymentResponse?.id}
+              <a href={`${eventData?.event?.bcc || "mailto:jmr@srmg.org.br"}`}>${eventData?.event?.bcc || "jmr@srmg.org.br"}</a>
+              {' '}com o :seu número de inscrição {paymentResponse?.invoiceNumber} no assunto.
             </p>
           </div>
         )}
