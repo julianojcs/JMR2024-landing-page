@@ -1893,6 +1893,11 @@ export const eventData = {
             "email": "leocqueiroz@gmail.com"
           },
           {
+            "name": "Géssica Lafetá Rabelo",
+            "cpf": "09565629652",
+            "email": "ge_rabelo@yahoo.com.br"
+          },
+          {
             "name": "LUCIANA COSTA SILVA",
             "cpf": "02527422659",
             "email": "lucianacosta@me.com"
