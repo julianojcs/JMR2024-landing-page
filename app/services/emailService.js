@@ -91,7 +91,7 @@ class EmailService {
     const dueDate = formatDate(subscription?.dueDate)
 
     // Definir o assunto do email
-    const subject = `Inscrição Realizada - ${eventName}`;
+    const subject = `Inscrição Realizada - ${eventName} (${name} #${subscription.invoiceNumber})`;
 
     // Versão de texto simples do email
     const text = `
