@@ -1888,6 +1888,58 @@ export const eventData = {
         src: '/logo/srmg.png',
         affiliated: [
           {
+            "name": "Augusto Goncalves dos Santos Filho",
+            "cpf": "563.585.046-49"
+          },
+          {
+            "name": "Caroline Sormanti Schnaider Azevedo",
+            "cpf": "031.233.816-33"
+          },
+          {
+            "name": "Claudia Magalhaes de Vasconcelos Rocha",
+            "cpf": "957.765.676-53"
+          },
+          {
+            "name": "Douglas Ribeiro Bomfim",
+            "cpf": "056.494.256-12"
+          },
+          {
+            "name": "Flavio Guabiroba Coelho",
+            "cpf": "426.948.506-00"
+          },
+          {
+            "name": "Jacques Scarpelli Cabral",
+            "cpf": "777.728.906-30"
+          },
+          {
+            "name": "Jovita Lane Soares Santos Zanini",
+            "cpf": "039.689.766-57"
+          },
+          {
+            "name": "Juliana Naves de Souza",
+            "cpf": "306.741.478-04"
+          },
+          {
+            "name": "Julio Gontijo Fernandes",
+            "cpf": "620.441.926-91"
+          },
+          {
+            "name": "Junia Maria de Oliveira Lapertosa",
+            "cpf": "533.153.086-91"
+          },
+          {
+            "name": "Luiz Lustosa Rubiao",
+            "cpf": "642.319.096-87"
+          },
+          {
+            "name": "Raphael Guedes Andrade",
+            "cpf": "054.254.036-31"
+          },
+          {
+            "name": "Thais Abreu de Castro",
+            "cpf": "469.557.716-04"
+          },
+          {
             "name": "LEONARDO CAMPOS DE QUEIROZ",
             "cpf": "00227147669",
             "email": "leocqueiroz@gmail.com"
