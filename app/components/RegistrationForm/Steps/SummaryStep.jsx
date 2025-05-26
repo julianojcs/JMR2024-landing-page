@@ -112,6 +112,16 @@ const SummaryStep = () => {
         ? url
         : window.location.origin;
 
+      // Melhorar o logging antes da chamada API
+      console.log('Enviando requisição para o Asaas:', {
+        billingType,
+        customerId: personalInfo.userId,
+        name: personalInfo.fullName,
+        value: numericPrice,
+        dueDate: new Date(Date.now() + dueDays * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        description
+      });
+
       const asaas = new AsaasClient();
       const response = await asaas.payments.create({
         billingType: billingType,
@@ -124,6 +134,19 @@ const SummaryStep = () => {
         callback: {
           successUrl: `${baseUrl}/payment/confirmation`
         }
+      });
+
+      // Validar explicitamente a resposta do Asaas
+      if (!response || !response.id || !response.invoiceNumber) {
+        console.error('Resposta inválida do Asaas:', response);
+        throw new Error('Não foi possível criar o pagamento. Resposta inválida do provedor de pagamentos.');
+      }
+
+      console.log('Pagamento criado com sucesso no Asaas:', {
+        id: response.id,
+        invoiceNumber: response.invoiceNumber,
+        status: response.status,
+        value: response.value
       });
 
       setPaymentResponse(response);
@@ -170,14 +193,25 @@ const SummaryStep = () => {
           setUploadError(error);
         }
       }
-
-      setCurrentStep(5);
     } catch (error) {
-      console.error('Error processing payment:', error);
-      setError('Ocorreu um erro ao processar o pagamento. Tente novamente.');
+      console.error('Erro detalhado ao processar pagamento:', error);
+
+      // Verificar se é um erro específico do Asaas
+      if (error.response && error.response.data) {
+        console.error('Erro do Asaas:', error.response.data);
+        setError(`Erro no processamento do pagamento: ${error.response.data.message || 'Verifique os dados e tente novamente'}`);
+      } else {
+        setError(`Ocorreu um erro ao processar o pagamento: ${error.message || 'Tente novamente ou contate o suporte'}`);
+      }
+
+      // Impedir a navegação para o próximo passo em caso de erro
+      return;
     } finally {
       setIsLoading(false);
     }
+
+    // Navegar para o próximo passo apenas se não houver erro
+    setCurrentStep(5);
   };
 
   return (

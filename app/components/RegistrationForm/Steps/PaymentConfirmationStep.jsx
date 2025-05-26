@@ -230,12 +230,33 @@ const PaymentConfirmationStep = () => {
       <div className={styles.summaryCard}>
         <div className={styles.header}>
           <div className={styles.icon}>
-            ✓
+            {paymentResponse?.id ? '✓' : '⚠️'}
           </div>
           <h3 className={styles.confirmationTitle}>
-            Inscrição Realizada com Sucesso!
+            {paymentResponse?.id
+              ? 'Inscrição Realizada com Sucesso!'
+              : 'Falha no processamento da inscrição'}
           </h3>
         </div>
+
+        {/* Adicionar mensagem de erro quando não há ID de pagamento */}
+        {!paymentResponse?.id && (
+          <div className={styles.errorSection}>
+            <p className={styles.errorMsg}>
+              Não foi possível concluir sua inscrição no sistema de pagamentos.
+              Por favor, tente novamente ou entre em contato com nosso suporte em{' '}
+              <a href={`${eventData?.event?.bcc || "mailto:jmr@srmg.org.br"}`}>
+                {eventData?.event?.bcc || "jmr@srmg.org.br"}
+              </a>.
+            </p>
+            <button
+              onClick={() => setCurrentStep(4)}
+              className={styles.retryButton}
+            >
+              Tentar novamente
+            </button>
+          </div>
+        )}
 
         {/* Status de envio do email */}
         {(emailSent || emailSending || emailError) && (

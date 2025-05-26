@@ -242,38 +242,55 @@ class AsaasClient {
 
   /**
    * Create a new payment
-   * @param {Object} data - Payment data
-   * @param {string} data.customer - Customer ID
-   * @param {string} data.billingType - Billing type (e.g., "BOLETO")
-   * @param {number} data.value - Payment value
-   * @param {string} data.dueDate - Payment due date (YYYY-MM-DD)
+   * @param {Object} paymentData - Payment data
+   * @param {string} paymentData.customer - Customer ID
+   * @param {string} paymentData.billingType - Billing type (e.g., "BOLETO")
+   * @param {number} paymentData.value - Payment value
+   * @param {string} paymentData.dueDate - Payment due date (YYYY-MM-DD)
    * @returns {Promise<Object>} Created payment response
    * @throws {Error} If the request fails
    */
-  async createPayment(data) {
-    console.log('createPayment data: ', data)
+  async createPayment(paymentData) {
+    console.log('createPayment data: ', paymentData);
     try {
       const response = await fetch(`${this.baseApiUrl}/payments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(paymentData)
       });
 
-      const responseData = await response.json();
-      console.log('responseData: ', responseData)
+      const data = await response.json();
+
+      console.log('Resposta do Asaas:', data);
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}, message: ${JSON.stringify(responseData)}`);
+        // Transformando erros da API em exceções com contexto
+        const error = new Error(`Erro na API do Asaas: ${data.message || 'Falha desconhecida'}`);
+        error.response = {
+          status: response.status,
+          data
+        };
+        throw error;
       }
 
-      return responseData;
-    } catch (error) {
-      if (error instanceof TypeError) {
-        throw new Error(`Network error: ${error.message}`);
+      // Verificação adicional para garantir que os campos necessários existem
+      if (!data.id || !data.invoiceNumber) {
+        console.error('Resposta do Asaas incompleta:', data);
+        const error = new Error('Resposta da API do Asaas não contém os campos obrigatórios');
+        error.response = {
+          status: response.status,
+          data
+        };
+        throw error;
       }
-      throw new Error(`Payment creation failed: ${error.message}`);
+
+      return data;
+    } catch (error) {
+      console.error('[AsaasClient] Erro ao criar pagamento:', error);
+      // Repassar o erro para ser tratado pelo componente
+      throw error;
     }
   }
 
