@@ -13,7 +13,7 @@ export default function SubscriptionsStatusSection() {
   const closeModal = () => setIsModalOpen(false)
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id='subscriptions-status'>
       <div className={styles.content}>
         <div className={styles.textContent}>
           <h2 className={styles.title}>Acompanhe sua Inscrição</h2>

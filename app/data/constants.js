@@ -1781,6 +1781,12 @@ export const eventData = {
                 href: 'https://www.vx.med.br/',
                 width: 90,
                 height: 25.65
+            }, {
+              name: 'Canon Medical Systems',
+              src: '/logo/canon-medical-systems.png',
+              href: 'https://br.medical.canon/',
+              width: 60,
+              height: 22.61
             }],
           },
           bronze: {
