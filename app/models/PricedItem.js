@@ -14,10 +14,18 @@ class PricedItem {
   getCurrentPrice() {
     if (!this.prices || this.prices.length === 0) return null;
 
+    // Obter data atual e zerar a hora
     const now = new Date();
+    now.setHours(0, 0, 0, 0);
+
     const currentPrice = this.prices.find(price => {
+      // Parse da data no formato dia/mês/ano
       const [day, month, year] = price.bestBefore.split('/');
+      // Mês em JavaScript é 0-indexed (jan=0, dez=11)
       const deadline = new Date(year, month - 1, day);
+      // Zerar as horas para garantir comparação apenas de datas
+      deadline.setHours(0, 0, 0, 0);
+
       return now <= deadline;
     }) || this.prices[this.prices.length - 1];
 
