@@ -74,6 +74,7 @@ export async function generateMetadata({ params }) {
 
 const Home = ({ params }) => {
   const { year } = params
+  console.log('Ano passado para Table na rota específica /year:', year);
 
   // Check if year exists in eventData
   if (!eventData[year]) {

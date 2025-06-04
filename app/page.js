@@ -55,7 +55,8 @@ export async function generateMetadata() {
 }
 
 const Home = () => {
-  const year = 2025
+  const year = new Date().getFullYear()
+  console.log('Ano passado para Table na rota raiz:', currentYear);
 
   // Check if year exists in eventData
   if (!eventData[year]) {

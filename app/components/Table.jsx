@@ -17,11 +17,17 @@ export default function Table({ theTable, year }) {
   }
 
   const generateBestBeforeClasses = () => {
-    if (!theTable?.bestBefore?.date) return []
+    if (!theTable?.bestBefore?.date) return [];
+
+    console.log('Ano recebido no componente Table:', year);
+
+    // Convertendo year para número se for string
+    const currentYear = year ? parseInt(year, 10) : new Date().getFullYear();
 
     return theTable.bestBefore.date.map(date => {
-      return verifyDate(date) ? '' : styles.textoTachado
-    })
+      // Passar o ano explicitamente para a função verifyDate
+      return verifyDate(date, currentYear) ? '' : styles.textoTachado;
+    });
   }
   const bestBefore = generateBestBeforeClasses()
 
