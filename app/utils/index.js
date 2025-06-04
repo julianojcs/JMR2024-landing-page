@@ -54,57 +54,21 @@ export const validateCPF = (cpf) => {
 //   return value.slice(0, 14);
 // }
 
-// export function verifyDate(ddmmaaaa) {
-//   // Extrair o dia, mês e ano da string DDMMAAAA
-//   const dia = parseInt(ddmmaaaa.slice(0, 2), 10)
-//   const mes = parseInt(ddmmaaaa.slice(2, 4), 10) - 1 // Meses em JavaScript começam do 0
-//   const ano = parseInt(ddmmaaaa.slice(4), 10)
-//
-//   // Criar um objeto Date com a data informada
-//   const dataInformada = new Date(ano, mes, dia)
-//
-//   // Obter a data de hoje, sem horas, minutos e segundos
-//   const hoje = new Date()
-//   hoje.setHours(0, 0, 0, 0)
-//
-//   // Comparar a data informada com a data de hoje
-//   return dataInformada >= hoje
-// }
+export function verifyDate(ddmmaaaa) {
+  // Extrair o dia, mês e ano da string DDMMAAAA
+  const dia = parseInt(ddmmaaaa.slice(0, 2), 10)
+  const mes = parseInt(ddmmaaaa.slice(2, 4), 10) - 1 // Meses em JavaScript começam do 0
+  const ano = parseInt(ddmmaaaa.slice(4), 10)
 
-export function verifyDate(dateString, currentYear = new Date().getFullYear()) {
-  // Adicionar logs para debug
-  console.log(`Verificando data: ${dateString}, ano: ${currentYear}`);
+  // Criar um objeto Date com a data informada
+  const dataInformada = new Date(ano, mes, dia)
 
-  try {
-    // Extrair dia e mês da string (formato DD/MM)
-    const [day, month] = dateString.split('/').map(num => parseInt(num, 10));
+  // Obter a data de hoje, sem horas, minutos e segundos
+  const hoje = new Date()
+  hoje.setHours(0, 0, 0, 0)
 
-    // Se o mês ou dia forem inválidos, retornar false
-    if (isNaN(day) || isNaN(month) || day < 1 || day > 31 || month < 1 || month > 12) {
-      console.warn(`Data inválida: ${dateString}`);
-      return false;
-    }
-
-    // Criar objeto de data para a data especificada
-    const specifiedDate = new Date(currentYear, month - 1, day);
-    specifiedDate.setHours(0, 0, 0, 0);
-
-    // Obter data atual e zerar hora
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0);
-
-    // Comparar se a data especificada é maior ou igual à atual
-    const isValid = specifiedDate >= currentDate;
-
-    console.log(`Data atual: ${currentDate.toLocaleDateString()}`);
-    console.log(`Data especificada: ${specifiedDate.toLocaleDateString()}`);
-    console.log(`A data ${dateString}/${currentYear} ${isValid ? 'é válida' : 'não é válida (tachada)'}`);
-
-    return isValid;
-  } catch (error) {
-    console.error(`Erro ao verificar data ${dateString}:`, error);
-    return false;
-  }
+  // Comparar a data informada com a data de hoje
+  return dataInformada >= hoje
 }
 
 const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'a', 'o', 'as', 'os'];
