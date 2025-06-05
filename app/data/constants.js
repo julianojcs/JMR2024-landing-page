@@ -1815,8 +1815,8 @@ export const eventData = {
           name: 'MedHubX',
           src: '/logo/medhubx.png',
           href: 'https://www.medhubx.com',
-          width: 110,
-          height: 27.86
+          width: 99,
+          height: 25.07
         }, {
           name: 'Biblioteca Virtual',
           src: '/logo/bibliotecavirtual.png',
@@ -1833,8 +1833,20 @@ export const eventData = {
           name: 'Radiologia Abdominal',
           src: '/logo/radiologiabdominal.png',
           href: 'https://www.instagram.com/radiologiabdominal',
+          width: 81.00,
+          height: 35.24
+        }, {
+          name: 'Sorveteria Universal',
+          src: '/logo/sorveteria-universal.png',
+          href: 'https://www.instagram.com/sorveteriauniversal',
           width: 90.00,
-          height: 39.15
+          height: 35.24
+        }, {
+          name: 'Pipocando',
+          src: '/logo/pipocando.png',
+          href: '#',
+          width: 90.00,
+          height: 35.24
         }],
       },
       institutionalSupports: {
