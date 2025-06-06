@@ -701,6 +701,19 @@ export const eventData = {
         active: true,
         activeAt: '2025-05-31T00:00:00-0300',
         expireAt: '2025-06-25T23:59:59-0300',
+        title: 'Comunicado Oficial – Adiamento da Divulgação dos Trabalhos Científicos Aprovados',
+        description: [
+          'A Comissão Organizadora da Jornada Mineira de Radiologia 2025 / Congresso de Imagem da Mulher 2025 (JMR 2025 / CIM 2025) informa que, devido a um problema técnico imprevisto, a divulgação dos resultados dos trabalhos científicos aprovados, inicialmente prevista para o dia 05 de junho, será reprogramada para o dia 09 de junho de 2025.',
+          'Lamentamos sinceramente o ocorrido e reforçamos nosso compromisso com a seriedade e o rigor científico em todas as etapas do evento. Sabemos da expectativa dos autores e autoras que submeteram seus trabalhos e agradecemos profundamente pela compreensão e paciência.',
+          'A nova data garantirá a finalização adequada do processo de avaliação, assegurando a qualidade que é marca registrada da JMR/CIM.',
+          'Estamos à disposição para eventuais dúvidas e seguimos trabalhando para oferecer um congresso científico de excelência.',
+          'Atenciosamente,',
+          'Comissão Organizadora da JMR 2025 / CIM 2025'
+        ],
+      }, {
+        active: true,
+        activeAt: '2025-05-31T00:00:00-0300',
+        expireAt: '2025-06-25T23:59:59-0300',
         title: 'Sorteio de Inscrição',
         description: [
           'Inscreva-se no terceiro lote e concorra a 3 vagas no Curso Rads do Grupo "Radiologia Abdominal - Educação em Radiologia"!',
@@ -1755,9 +1768,21 @@ export const eventData = {
             brands: [{
               name: 'Unimed BH',
               src: '/logo/unimed-bh.png',
-              href: 'https://www.unimedbh.com.br/',
+              href: 'https://www.unimedbh.com.br',
               width: 80,
               height: 33.47
+            }, {
+              name: 'Prontofar',
+              src: '/logo/prontofar.png',
+              href: 'http://prontofar.com.br',
+              width: 84,
+              height: 15.39
+            }, {
+              name: 'Unimed BH',
+              src: '/logo/icare.png',
+              href: 'https://icaremedicalgroup.com.br',
+              width: 80,
+              height: 27.19
             }],
           },
           silver: {
