@@ -1778,7 +1778,7 @@ export const eventData = {
               width: 84,
               height: 15.39
             }, {
-              name: 'Unimed BH',
+              name: 'iCare Group',
               src: '/logo/icare.png',
               href: 'https://icaremedicalgroup.com.br',
               width: 80,
