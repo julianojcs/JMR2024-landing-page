@@ -664,6 +664,7 @@ export const eventData = {
     },
     modal: [
       {
+        id: 1,
         active: false,
         expireAt: '2025-04-30T23:59:59-0300',
         title: 'Sorteio de Inscrição',
@@ -698,9 +699,10 @@ export const eventData = {
           }
         ],
       }, {
+        id: 2,
         active: true,
         activeAt: '2025-05-31T00:00:00-0300',
-        expireAt: '2025-06-25T23:59:59-0300',
+        expireAt: '2025-06-08T23:59:59-0300',
         title: 'Comunicado Oficial – Adiamento da Divulgação dos Trabalhos Científicos Aprovados',
         description: [
           'A Comissão Organizadora da Jornada Mineira de Radiologia 2025 / Congresso de Imagem da Mulher 2025 (JMR 2025 / CIM 2025) informa que, devido a um problema técnico imprevisto, a divulgação dos resultados dos trabalhos científicos aprovados, inicialmente prevista para o dia 05 de junho, será reprogramada para o dia 09 de junho de 2025.',
@@ -711,8 +713,9 @@ export const eventData = {
           'Comissão Organizadora da JMR 2025 / CIM 2025'
         ],
       }, {
+        id: 3,
         active: true,
-        activeAt: '2025-05-31T00:00:00-0300',
+        activeAt: '2025-06-10T15:00:00-0300',
         expireAt: '2025-06-25T23:59:59-0300',
         title: 'Sorteio de Inscrição',
         description: [
@@ -744,6 +747,43 @@ export const eventData = {
             height: 76.62
           }
         ],
+      }, {
+        id: 4,
+        active: true,
+        activeAt: '2025-06-09T00:00:00-0300',
+        expireAt: '2025-06-25T23:59:59-0300',
+        title: 'Relação de trabalhos científicos aceitos para apresentação na JMR2025 & CIM2025',
+        description: [
+          'Segue abaixo a seleção dos trabalhos científicos aceitos para apresentação no evento.',
+          'Aqueles selecionados como aprovado para apresentação oral, são trabalhos que a Comissão avaliadora considerou adequados para este tipo de apresentação.',
+          'Obs: vide observação ao final do documento!'
+        ],
+        logos: [
+          {
+            name: 'Resultado Trabalhos Científicos',
+            get alt() {
+              return `Logo dos ${this.name}`
+            },
+            link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view',
+            src: '/images/aviso2.png',
+            width: 207.92,
+            height: 80
+          },
+          {
+            name: 'Resultado Trabalhos Científicos',
+            get alt() {
+              return `Logo dos ${this.name}`
+            },
+            link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view',
+            src: '/images/aviso.png',
+            width: 172.17,
+            height: 76.62
+          }
+        ],
+        button: {
+          caption: 'Lista de trabalhos científicos classificados!',
+          link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view'
+        }
       }
     ],
     introduction: {

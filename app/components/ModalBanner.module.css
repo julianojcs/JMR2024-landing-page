@@ -16,7 +16,7 @@
 }
 
 .modal {
-  background-color: #0E1D59;
+  background: linear-gradient(135deg, hsl(228, 72.80%, 24.2%), hsl(228, 72.80%, 7.2%));
   border-radius: 12px;
   padding: 2rem;
   max-width: 90%;
@@ -173,6 +173,12 @@
 .logoContainer[data-has-bg="true"] {
   background-color: var(--logo-bg-color);
   border-radius: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem auto 1.5rem;
 }
 
 @keyframes fadeIn {

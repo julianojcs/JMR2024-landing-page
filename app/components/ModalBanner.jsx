@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import styles from './ModalBanner.module.css';
+import CallToAct from './CallToAct';
 
 const ModalBanner = ({ modalData = [] }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -194,6 +195,12 @@ const ModalBanner = ({ modalData = [] }) => {
                   </Link>
                 </div>
               ))}
+            </div>
+          )}
+
+          {currentBanner.button && (
+            <div className={styles.buttonContainer }>
+              <CallToAct {...currentBanner?.button} />
             </div>
           )}
         </div>
