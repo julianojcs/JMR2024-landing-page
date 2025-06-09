@@ -1613,6 +1613,18 @@ export const eventData = {
         {
           imagePath: '/avatars/Lauro_Santos_Silva.png',
           name: 'Dr. Lauro Santos Silva'
+        },
+        {
+          imagePath: '/avatars/Augusto_Antunes.png',
+          name: 'Dr. Augusto Antunes'
+        },
+        {
+          imagePath: '/avatars/Julio_Guerra_Domingues.png',
+          name: 'Dr. Julio Guerra Domingues'
+        },
+        {
+          imagePath: '/avatars/Thales_Matheus_M_Santos.png',
+          name: 'Dr. Thales Matheus M. Santos'
         }
       ]
     },
@@ -1941,6 +1953,12 @@ export const eventData = {
           href: 'https://www.sammg.com.br/',
           width: 80,
           height: 15.39
+        }, {
+          name: 'CI-IA',
+          src: '/logo/ci-ia.png',
+          href: 'https://ciia-saude.dcc.ufmg.br/',
+          width: 80,
+          height: 34
         }],
       },
       organizer: {

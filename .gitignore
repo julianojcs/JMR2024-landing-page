@@ -43,3 +43,9 @@ next-env.d.ts
 
 # Copies
 *.copy
+
+/docs
+/app/models/mongo/examples
+/app/models/mongo/migrations
+/app/models/mongo/tests
+/app/scripts
