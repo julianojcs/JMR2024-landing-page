@@ -80,49 +80,71 @@ class EmailService {
    * @returns {Promise} - Resultado do envio
    */
   async sendSubscriptionConfirmation(data) {
-    const { name, email, phone, eventName, subscription, selectedItems = [], category, receiptDownloadUrl, cc, bcc, event } = data;
+    console.log('📧 EmailService - Dados recebidos:', data);
+    console.log('📧 EmailService - couponInfo:', data.couponInfo);
 
-    // Formatar o valor se disponível
-    const formattedValue = subscription?.value
+    const { name, email, phone, eventName, subscription, selectedItems = [], category, receiptDownloadUrl, cc, bcc, event, couponInfo } = data;
+
+    // Verificar se é uma inscrição gratuita (cupom 100%)
+    const isFreeRegistration = (subscription?.value === 0 && subscription?.status === 'CONFIRMED') ||
+                               (subscription?.billingType === 'COUPON' && subscription?.value === 0);
+
+    // Formatar o valor corretamente - se for 0, mostrar R$ 0,00
+    const formattedValue = subscription?.value !== undefined
       ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(subscription.value)
       : 'Não definido';
 
     // Formatar data de vencimento se disponível
     const dueDate = formatDate(subscription?.dueDate)
 
-    // Definir o assunto do email
-    const subject = `Inscrição Realizada - ${eventName} (${name} #${subscription.invoiceNumber})`;
+    // Definir o assunto do email baseado no tipo de inscrição
+    const subject = isFreeRegistration
+      ? `Inscrição Confirmada Gratuitamente - ${eventName} (${name} #${subscription.invoiceNumber})`
+      : `Inscrição Realizada - ${eventName} (${name} #${subscription.invoiceNumber})`;
 
     // Versão de texto simples do email
     const text = `
       Olá ${name},
 
-      Sua inscrição para o ${eventName} foi realizada com sucesso!
+      ${isFreeRegistration
+        ? `Sua inscrição para o ${eventName} foi confirmada gratuitamente através do uso de cupom de desconto!`
+        : `Sua inscrição para o ${eventName} foi realizada com sucesso!`
+      }
 
       DETALHES DA INSCRIÇÃO:
       - Evento: ${eventName}
       - Data do evento: ${subscription?.event?.date || '27 a 28 de Junho de 2025'}
       - Categoria: ${category?.title || 'Não especificada'}
-      - Status do pagamento: Aguardando Pagamento
+      - Status: ${isFreeRegistration ? 'Confirmada (Gratuita)' : 'Aguardando Pagamento'}
       ${subscription?.invoiceNumber ? `- Número da inscrição: ${subscription.invoiceNumber}` : ''}
-      ${subscription?.id ? `- ID do pagamento: ${subscription.id}` : ''}
-      ${subscription?.value ? `- Valor: ${formattedValue}` : ''}
-      ${subscription?.dueDate ? `- Vencimento: ${dueDate}` : ''}
+      ${subscription?.id ? `- ID da inscrição: ${subscription.id}` : ''}
+      ${subscription?.value !== undefined ? `- Valor: ${formattedValue}` : ''}
+      ${!isFreeRegistration && subscription?.dueDate ? `- Vencimento: ${dueDate}` : ''}
+      ${couponInfo?.isUsed ? `- Cupom aplicado: Desconto de ${couponInfo.totalDiscount}` : ''}
 
       ${selectedItems?.length > 0 ? `
       PRODUTOS SELECIONADOS:
       ${selectedItems.map(item => `- ${item}`).join('\n')}
       ` : ''}
 
-      ${subscription?.invoiceUrl ? `
+      ${!isFreeRegistration && subscription?.invoiceUrl ? `
       LINKS IMPORTANTES:
       - Efetuar pagamento: ${subscription.invoiceUrl}
       ${subscription.bankSlipUrl ? `- Baixar Boleto em PDF: ${subscription.bankSlipUrl}` : ''}
-      ${receiptDownloadUrl ? `- Baixar Anexo: ${receiptDownloadUrl}` : ''}
       ` : ''}
 
-      Estamos aguardando a confirmação do seu pagamento para finalizar sua inscrição.
-      Após o pagamento, você receberá um email de confirmação.
+      ${receiptDownloadUrl ? `- Baixar Anexo: ${receiptDownloadUrl}` : ''}
+
+      ${isFreeRegistration
+        ? `🎉 Não é necessário efetuar nenhum pagamento. Sua inscrição já está confirmada!`
+        : `Estamos aguardando a confirmação do seu pagamento para finalizar sua inscrição.
+      Após o pagamento, você receberá um email de confirmação.`
+      }
+
+      ${couponInfo?.hasDiscount || couponInfo?.isUsed ? `
+      ⚠️ POLÍTICA DE DESCONTOS:
+      Descontos aplicados através de cupons promocionais não são reembolsáveis e não podem ser convertidos em créditos para outros eventos. O desconto concedido é válido exclusivamente para esta inscrição e não possui valor monetário transferível.
+      ` : ''}
 
       Atenciosamente,
       Equipe ${eventName || 'JMR & CIM 2025'}
@@ -134,9 +156,9 @@ class EmailService {
     // Versão HTML do email
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-        <div style="background-color: #0E1D59; padding: 20px; text-align: center;">
+        <div style="background-color: ${isFreeRegistration ? '#4CAF50' : '#0E1D59'}; padding: 20px; text-align: center;">
           <h1 style="color: white; margin: 0;">
-            Inscrição Realizada! ✓
+            ${isFreeRegistration ? '🎉 Inscrição Confirmada Gratuitamente! ✓' : 'Inscrição Realizada! ✓'}
           </h1>
         </div>
 
@@ -144,12 +166,15 @@ class EmailService {
           <p style="font-size: 16px;">Olá <strong>${name}</strong>,</p>
 
           <p style="font-size: 16px;">
-            Sua inscrição para o <strong>${eventName}</strong> foi realizada com sucesso!
+            ${isFreeRegistration
+              ? `Sua inscrição para o <strong>${eventName}</strong> foi confirmada gratuitamente através do uso de cupom de desconto!`
+              : `Sua inscrição para o <strong>${eventName}</strong> foi realizada com sucesso!`
+            }
           </p>
 
           <!-- Bloco de detalhes da inscrição -->
-          <div style="background-color: #f7f7f7; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0E1D59;">
-            <h2 style="margin-top: 0; color: #0E1D59; font-size: 18px;">Detalhes da Inscrição</h2>
+          <div style="background-color: ${isFreeRegistration ? '#e8f5e8' : '#f7f7f7'}; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid ${isFreeRegistration ? '#4CAF50' : '#0E1D59'};">
+            <h2 style="margin-top: 0; color: ${isFreeRegistration ? '#4CAF50' : '#0E1D59'}; font-size: 18px;">Detalhes da Inscrição</h2>
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; width: 40%;"><strong>Evento:</strong></td>
@@ -165,10 +190,10 @@ class EmailService {
                 <td style="padding: 8px 0;">${category.title}</td>
               </tr>` : ''}
               <tr>
-                <td style="padding: 8px 0;"><strong>Status do pagamento:</strong></td>
+                <td style="padding: 8px 0;"><strong>Status:</strong></td>
                 <td style="padding: 8px 0;">
-                  <span style="color: orange; font-weight: bold;">
-                    Aguardando Pagamento
+                  <span style="color: ${isFreeRegistration ? '#4CAF50' : 'orange'}; font-weight: bold;">
+                    ${isFreeRegistration ? '✅ Confirmada (Gratuita)' : '⏳ Aguardando Pagamento'}
                   </span>
                 </td>
               </tr>
@@ -179,18 +204,23 @@ class EmailService {
               </tr>` : ''}
               ${subscription?.id ? `
               <tr>
-                <td style="padding: 8px 0;"><strong>ID do pagamento:</strong></td>
+                <td style="padding: 8px 0;"><strong>ID da inscrição:</strong></td>
                 <td style="padding: 8px 0;">${subscription.id}</td>
               </tr>` : ''}
-              ${subscription?.value ? `
+              ${subscription?.value !== undefined ? `
               <tr>
                 <td style="padding: 8px 0;"><strong>Valor total:</strong></td>
                 <td style="padding: 8px 0;"><strong>${formattedValue}</strong></td>
               </tr>` : ''}
-              ${subscription?.dueDate ? `
+              ${!isFreeRegistration && subscription?.dueDate ? `
               <tr>
                 <td style="padding: 8px 0;"><strong>Vencimento:</strong></td>
                 <td style="padding: 8px 0;">${dueDate}</td>
+              </tr>` : ''}
+              ${couponInfo?.isUsed ? `
+              <tr>
+                <td style="padding: 8px 0;"><strong>Cupom aplicado:</strong></td>
+                <td style="padding: 8px 0;"><span style="color: #4CAF50; font-weight: bold;">Desconto de ${couponInfo.totalDiscount}</span></td>
               </tr>` : ''}
             </table>
           </div>
@@ -200,19 +230,26 @@ class EmailService {
           <div style="background-color: #f7f7f7; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0E1D59;">
             <h2 style="margin-top: 0; color: #0E1D59; font-size: 18px;">Produtos Selecionados</h2>
             <table style="width: 100%; border-collapse: collapse;">
-              ${selectedItems.map((item, index) => `
+              ${selectedItems.map((item, index) => {
+                console.log('📧 EmailService - Item original:', item);
+                const processedItem = item.replace(
+                  /~~([^~]+)~~\s*(R\$[\d,.\s]+|Desconto aplicado)/g,
+                  '<span style="text-decoration: line-through; color: #999; font-size: 0.9em;">$1</span> <span style="color: #28a745; font-weight: 600;">$2</span>'
+                );
+                console.log('📧 EmailService - Item processado:', processedItem);
+                return `
                 <tr style="border-bottom: ${index < selectedItems.length - 1 ? '1px solid #e0e0e0' : 'none'}">
                   <td style="padding: 10px 0;">
                     <span style="display: inline-block; margin-right: 8px; color: #0E1D59;">✓</span>
-                    ${item}
+                    ${processedItem}
                   </td>
-                </tr>
-              `).join('')}
+                </tr>`;
+              }).join('')}
             </table>
           </div>` : ''}
 
-          <!-- Links importantes -->
-          ${subscription?.invoiceUrl ? `
+          <!-- Links importantes - só mostrar para pagamentos -->
+          ${!isFreeRegistration && subscription?.invoiceUrl ? `
           <div style="background-color: #f7f7f7; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #0E1D59;">
             <h2 style="margin-top: 0; color: #0E1D59; font-size: 18px;">Links Importantes</h2>
             <p style="margin-bottom: 15px;">
@@ -229,21 +266,28 @@ class EmailService {
                 <span style="display: inline-block; margin-right: 8px;">📄</span> Baixar Boleto em PDF
               </a>
             </p>` : ''}
+          </div>` : ''}
 
-            ${receiptDownloadUrl ? `
+          <!-- Link para anexo (sempre mostrar se disponível) -->
+          ${receiptDownloadUrl ? `
+          <div style="background-color: #f7f7f7; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #2196F3;">
+            <h2 style="margin-top: 0; color: #2196F3; font-size: 18px;">Anexo</h2>
             <p style="margin-bottom: 15px;">
               <a href="${receiptDownloadUrl}"
                  style="display: inline-block; padding: 8px 16px; background-color: #2196F3; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
                 <span style="display: inline-block; margin-right: 8px;">📎</span> Baixar Anexo
               </a>
-            </p>` : ''}
+            </p>
           </div>` : ''}
 
           <!-- Mensagem de conclusão -->
-          <div style="margin: 30px 0; padding: 15px; background-color: #fff8e1; border-radius: 5px;">
+          <div style="margin: 30px 0; padding: 15px; background-color: ${isFreeRegistration ? '#e8f5e8' : '#fff8e1'}; border-radius: 5px;">
             <p style="margin: 0 0 10px 0;">
-              Estamos aguardando a confirmação do seu pagamento para finalizar sua inscrição.
-              Após o pagamento, você receberá um email de confirmação.
+              ${isFreeRegistration
+                ? '🎉 Não é necessário efetuar nenhum pagamento. Sua inscrição já está confirmada!'
+                : `Estamos aguardando a confirmação do seu pagamento para finalizar sua inscrição.
+              Após o pagamento, você receberá um email de confirmação.`
+              }
             </p>
           </div>
 
@@ -257,6 +301,15 @@ class EmailService {
           <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #999; text-align: center;">
             Este é um email automático. Por favor não responda diretamente.
             <p>Em caso de dúvidas, entre em contato conosco pelo email: <a href="mailto:${event?.email || "srmg@srmg.org.br"}" style="color: #0E1D59;">${event?.email || "srmg@srmg.org.br"}</a></p>
+
+            <!-- Disclaimer sobre política de descontos -->
+            ${couponInfo?.hasDiscount || couponInfo?.isUsed ? `
+            <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-left: 3px solid #ff9800; font-size: 11px; text-align: left; line-height: 1.4;">
+              <strong>⚠️ POLÍTICA DE DESCONTOS:</strong><br>
+              Descontos aplicados através de cupons promocionais não são reembolsáveis e não podem ser convertidos em créditos para outros eventos.
+              O desconto concedido é válido exclusivamente para esta inscrição e não possui valor monetário transferível.
+            </div>` : ''}
+
             <p>© ${new Date().getFullYear()} Join Digital Solutions - Todos os direitos reservados - <a href="http://wa.me/5527981330708">Whatsapp</a></p>
           </div>
         </div>

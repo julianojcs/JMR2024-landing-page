@@ -39,6 +39,66 @@ const PaymentConfirmationStep = () => {
   // Ref para garantir que o email seja enviado apenas uma vez
   const emailSentRef = useRef(false);
 
+  // Helper para verificar se há cupom aplicado e calcular desconto
+  const getCouponInfo = () => {
+    // Se é billing type COUPON, então há desconto
+    if (paymentResponse?.billingType === 'COUPON') {
+      return {
+        isUsed: true,
+        totalDiscount: paymentResponse?.value === 0 ? '100%' : 'Desconto aplicado'
+      };
+    }
+    return null;
+  };
+
+  // Helper para calcular desconto individual por produto (aproximação)
+  const getProductDiscount = () => {
+    const couponInfo = getCouponInfo();
+    if (!couponInfo || !couponInfo.isUsed) return 0;
+
+    // Para cupom de 100%, o desconto é o valor total do produto
+    if (couponInfo.totalDiscount === '100%') {
+      return 'full'; // Desconto total
+    }
+
+    // Para outros descontos, verificar se há diferença entre valor original e pago
+    if (paymentResponse?.value !== undefined && paymentResponse.value >= 0) {
+      // Se houve desconto mas não é 100%, consideramos desconto parcial
+      return 'partial'; // Desconto parcial
+    }
+
+    return 0;
+  };
+
+  // Helper para renderizar preço com desconto
+  const renderProductPrice = (item) => {
+    const discount = getProductDiscount();
+    const currentPrice = item.getCurrentPrice();
+
+    if (discount === 'full') {
+      // Desconto de 100%
+      return (
+        <div className={styles.priceWithDiscount}>
+          <span className={styles.originalPrice}>{currentPrice.value}</span>/
+          <span className={styles.discountedPrice}>R$ 0,00</span>
+        </div>
+      );
+    } else if (discount === 'partial') {
+      // Desconto parcial - para descontos parciais reais, seria necessário
+      // ter mais informações sobre o valor do desconto por produto
+      // Por enquanto, apenas mostramos uma indicação visual de que há desconto
+      return (
+        <div className={styles.priceWithDiscount}>
+          <span className={styles.originalPrice}>{currentPrice.value}</span>/
+          <span className={styles.discountedPrice}>Desconto aplicado</span>
+        </div>
+      );
+    } else {
+      // Sem desconto
+      return <span className={styles.singlePrice}>{currentPrice.value}</span>;
+    }
+  };
+
   // Função para enviar email de confirmação
   const sendConfirmationEmail = async () => {
     // Se já enviou ou está enviando, não faça nada
@@ -52,35 +112,69 @@ const PaymentConfirmationStep = () => {
         throw new Error('Email do destinatário não disponível');
       }
 
-      // Preparar lista de itens selecionados com valores
+      // Preparar lista de itens selecionados com valores (incluindo desconto se aplicável)
       const selectedItemsList = [];
-      console.log('Itens selecionados:', selectedItems);
+      const discount = getProductDiscount();
+      console.log('🔍 PaymentConfirmationStep - Itens selecionados:', selectedItems);
+      console.log('🔍 PaymentConfirmationStep - Tipo de desconto:', discount);
+      console.log('🔍 PaymentConfirmationStep - PaymentResponse:', paymentResponse);
 
       if (selectedItems.journey) {
-        const price = selectedItems.journey.getCurrentPrice();
-        selectedItemsList.push(`${selectedItems.journey.title} - ${formatPrice(price)}`);
+        let priceInfo;
+        if (discount === 'full') {
+          priceInfo = `~~${selectedItems.journey.getCurrentPrice().value}~~ R$ 0,00`;
+          console.log('🔍 PaymentConfirmationStep - Journey com desconto total:', priceInfo);
+        } else if (discount === 'partial') {
+          priceInfo = `~~${selectedItems.journey.getCurrentPrice().value}~~ Desconto aplicado`;
+          console.log('🔍 PaymentConfirmationStep - Journey com desconto parcial:', priceInfo);
+        } else {
+          priceInfo = formatPrice(selectedItems.journey.getCurrentPrice());
+          console.log('🔍 PaymentConfirmationStep - Journey sem desconto:', priceInfo);
+        }
+        selectedItemsList.push(`${selectedItems.journey.title} - ${priceInfo}`);
       }
 
       if (selectedItems.workshops?.length > 0) {
         selectedItems.workshops.forEach(workshop => {
-          const price = workshop.getCurrentPrice();
-          selectedItemsList.push(`Workshop: ${workshop.title} - ${formatPrice(price)}`);
+          let priceInfo;
+          if (discount === 'full') {
+            priceInfo = `~~${workshop.getCurrentPrice().value}~~ R$ 0,00`;
+          } else if (discount === 'partial') {
+            priceInfo = `~~${workshop.getCurrentPrice().value}~~ Desconto aplicado`;
+          } else {
+            priceInfo = formatPrice(workshop.getCurrentPrice());
+          }
+          selectedItemsList.push(`Workshop: ${workshop.title} - ${priceInfo}`);
         });
       }
 
       if (selectedItems.courses?.length > 0) {
         selectedItems.courses.forEach(course => {
-          const price = course.getCurrentPrice();
-          selectedItemsList.push(`${course.title} - ${formatPrice(price)}`);
+          let priceInfo;
+          if (discount === 'full') {
+            priceInfo = `~~${course.getCurrentPrice().value}~~ R$ 0,00`;
+          } else if (discount === 'partial') {
+            priceInfo = `~~${course.getCurrentPrice().value}~~ Desconto aplicado`;
+          } else {
+            priceInfo = formatPrice(course.getCurrentPrice());
+          }
+          selectedItemsList.push(`${course.title} - ${priceInfo}`);
         });
       }
 
       if (selectedItems.dayUse) {
-        const price = selectedItems.dayUse.getCurrentPrice();
-        selectedItemsList.push(`Day Use: ${selectedItems.dayUse.title} - ${formatPrice(price)}`);
+        let priceInfo;
+        if (discount === 'full') {
+          priceInfo = `~~${selectedItems.dayUse.getCurrentPrice().value}~~ R$ 0,00`;
+        } else if (discount === 'partial') {
+          priceInfo = `~~${selectedItems.dayUse.getCurrentPrice().value}~~ Desconto aplicado`;
+        } else {
+          priceInfo = formatPrice(selectedItems.dayUse.getCurrentPrice());
+        }
+        selectedItemsList.push(`Day Use: ${selectedItems.dayUse.title} - ${priceInfo}`);
       }
 
-      console.log('Lista de itens selecionados:', selectedItemsList);
+      console.log('🔍 PaymentConfirmationStep - Lista final de itens selecionados:', selectedItemsList);
 
       // Resto do código permanece igual...
       const emailData = {
@@ -93,17 +187,30 @@ const PaymentConfirmationStep = () => {
           event: {
             date: eventData?.event?.date || '27 a 28 de Junho de 2025'
           },
-          status: 'PENDING', // Sempre pendente no momento inicial
+          status: paymentResponse?.status || 'PENDING', // Usar o status real do payment response
           id: paymentResponse?.id || '',
           invoiceNumber: paymentResponse?.invoiceNumber || '',
           value: paymentResponse?.value || 0,
           dueDate: paymentResponse?.dueDate,
           invoiceUrl: paymentResponse?.invoiceUrl,
-          bankSlipUrl: paymentResponse?.bankSlipUrl
+          bankSlipUrl: paymentResponse?.bankSlipUrl,
+          billingType: paymentResponse?.billingType // Adicionar billing type para detectar cupons
         },
         selectedItems: selectedItemsList,
         category: category,
-        receiptDownloadUrl: receiptDownloadUrl
+        receiptDownloadUrl: receiptDownloadUrl,
+        // Melhorar informações do cupom para incluir todos os tipos de desconto
+        couponInfo: (() => {
+          const couponInfo = getCouponInfo();
+          if (couponInfo) {
+            return {
+              isUsed: true,
+              totalDiscount: couponInfo.totalDiscount,
+              hasDiscount: true
+            };
+          }
+          return null;
+        })()
       };
       console.log('Dados do email de confirmação:', emailData);
 
@@ -205,6 +312,11 @@ const PaymentConfirmationStep = () => {
   const getPaymentStatus = () => {
     if (!paymentResponse) return { text: 'Pendente', className: 'pending', icon: '⌛' };
 
+    // Para pagamentos gratuitos (cupom 100%)
+    if (paymentResponse.billingType === 'COUPON' && paymentResponse.value === 0) {
+      return { text: 'Inscrição Gratuita (Cupom)', className: 'confirmed', icon: '🎟️' };
+    }
+
     switch (paymentResponse.status) {
       case 'PENDING': return { text: 'Aguardando Pagamento', className: 'pending', icon: '⌛' };
       case 'CONFIRMED': return { text: 'Confirmado', className: 'confirmed', icon: '✅' };
@@ -298,7 +410,8 @@ const PaymentConfirmationStep = () => {
             </div>
           )}
 
-          {paymentResponse?.value && (
+          {/* Só mostrar o valor se não for inscrição gratuita (cupom 100%) */}
+          {paymentResponse?.value !== undefined && !(paymentResponse?.billingType === 'COUPON' && paymentResponse?.value === 0) && (
             <div className={styles.infoItem}>
               <span className={styles.label}>Valor:</span>
               <span className={styles.totalValue}>
@@ -344,7 +457,7 @@ const PaymentConfirmationStep = () => {
                 <li className={styles.productItem}>
                   <span className={styles.productName}>{selectedItems.journey.title}</span>
                   <span className={styles.productPrice}>
-                    {formatPrice(selectedItems.journey.getCurrentPrice())}
+                    {renderProductPrice(selectedItems.journey)}
                   </span>
                 </li>
               )}
@@ -355,7 +468,7 @@ const PaymentConfirmationStep = () => {
                     <li key={`workshop-${index}`} className={styles.productItem}>
                       <span className={styles.productName}>Workshop: {workshop.title}</span>
                       <span className={styles.productPrice}>
-                        {formatPrice(workshop.getCurrentPrice())}
+                        {renderProductPrice(workshop)}
                       </span>
                     </li>
                   ))}
@@ -368,7 +481,7 @@ const PaymentConfirmationStep = () => {
                     <li key={`course-${index}`} className={styles.productItem}>
                       <span className={styles.productName}>{course.title}</span>
                       <span className={styles.productPrice}>
-                        {formatPrice(course.getCurrentPrice())}
+                        {renderProductPrice(course)}
                       </span>
                     </li>
                   ))}
@@ -379,7 +492,7 @@ const PaymentConfirmationStep = () => {
                 <li className={styles.productItem}>
                   <span className={styles.productName}>Day Use: {selectedItems.dayUse.title}</span>
                   <span className={styles.productPrice}>
-                    {formatPrice(selectedItems.dayUse.getCurrentPrice())}
+                    {renderProductPrice(selectedItems.dayUse)}
                   </span>
                 </li>
               )}
@@ -407,26 +520,51 @@ const PaymentConfirmationStep = () => {
           )}
         </section>
 
-        {/* Links de pagamento */}
-        <div className={styles.paymentLinks}>
-          {paymentResponse?.invoiceUrl && (
-            <button
-              onClick={handlePayment}
-              className={styles.paymentButton}
-            >
-              Efetuar Pagamento
-            </button>
-          )}
+        {/* Links de pagamento - só mostrar se não for pagamento gratuito */}
+        {paymentResponse?.billingType !== 'COUPON' && paymentResponse?.value !== 0 && (
+          <div className={styles.paymentLinks}>
+            {paymentResponse?.invoiceUrl && (
+              <button
+                onClick={handlePayment}
+                className={styles.paymentButton}
+              >
+                Efetuar Pagamento
+              </button>
+            )}
 
-          {paymentResponse?.bankSlipUrl && (
-            <button
-              onClick={handleDownloadBoleto}
-              className={styles.downloadButton}
-            >
-              Baixar Boleto em PDF
-            </button>
-          )}
-        </div>
+            {paymentResponse?.bankSlipUrl && (
+              <button
+                onClick={handleDownloadBoleto}
+                className={styles.downloadButton}
+              >
+                Baixar Boleto em PDF
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Mensagem especial para inscrições gratuitas */}
+        {paymentResponse?.billingType === 'COUPON' && paymentResponse?.value === 0 && (
+          <div className={styles.freeRegistrationMessage}>
+            <p className={styles.freeMessage}>
+              🎉 Sua inscrição foi confirmada gratuitamente através do uso de cupom de desconto!
+              Não é necessário efetuar nenhum pagamento.
+            </p>
+          </div>
+        )}
+
+        {/* Disclaimer de política de descontos */}
+        {getCouponInfo()?.isUsed && (
+          <div className={styles.disclaimerSection}>
+            <div className={styles.disclaimer}>
+              <strong>⚠️ POLÍTICA DE DESCONTOS:</strong>
+              <p>
+                Descontos aplicados através de cupons promocionais não são reembolsáveis e não podem ser convertidos em créditos para outros eventos.
+                O desconto concedido é válido exclusivamente para esta inscrição e não possui valor monetário transferível.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Mensagem de erro */}
         {uploadError && (

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf .next && rm -rf node_modules/.cache",
-    "dev": "npm run clean && dotenv -e .env.development -- next dev",
+    "dev": "npm run clean && dotenv -e .env -- next dev",
     "prod": "npm run clean && dotenv -e .env.production -- next dev",
     "start": "dotenv -e .env.production -- next start",
     "build": "prisma generate && dotenv -e .env.production -- next build",
@@ -18,7 +18,14 @@
     "migrate:test": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=test\" prisma migrate dev --name test",
     "migrate:dev": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=dev\" prisma migrate dev --name dev",
     "migrate:main": "DATABASE_URL=\"$POSTGRES_PRISMA_URL?branch=main\" prisma migrate deploy",
-    "generate": "npx prisma generate"
+    "generate": "npx prisma generate",
+    "mongo:setup": "dotenv -e .env -- node app/scripts/setupMongoDB.js",
+    "mongo:test": "dotenv -e .env.test -- node app/scripts/runCupomTests.js",
+    "mongo:test-unit": "dotenv -e .env.test -- node app/scripts/runCupomTests.js --unit-only",
+    "mongo:test-perf": "dotenv -e .env.test -- node app/scripts/runCupomTests.js --perf-only",
+    "mongo:migrate": "dotenv -e .env -- node app/scripts/runCupomMigration.js",
+    "mongo:migrate-validate": "dotenv -e .env -- node app/scripts/runCupomMigration.js --validate-only",
+    "mongo:inspect": "dotenv -e .env -- node app/scripts/inspectCupons.js"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
@@ -27,7 +34,7 @@
     "@bull-board/api": "^6.7.10",
     "@bull-board/express": "^6.7.10",
     "@preact/signals-react": "^3.0.1",
-    "@prisma/client": "^6.7.0",
+    "@prisma/client": "^6.9.0",
     "@vercel/postgres": "^0.10.0",
     "bull": "^4.16.5",
     "classnames": "^2.5.1",
@@ -35,9 +42,12 @@
     "clsx": "^2.1.1",
     "dotenv-cli": "^8.0.0",
     "firebase": "^11.5.0",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.15.1",
     "next": "^14.2.24",
     "next-auth": "^4.24.7",
     "next-cloudinary": "^6.13.0",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^6.6.5",
     "pagarme": "^4.35.2",
     "pg": "^8.13.3",
@@ -55,7 +65,7 @@
     "@types/node": "22.7.4",
     "@types/react": "18.3.10",
     "postcss": "^8",
-    "prisma": "^6.7.0",
+    "prisma": "^6.9.0",
     "typescript": "5.6.2"
   }
 }

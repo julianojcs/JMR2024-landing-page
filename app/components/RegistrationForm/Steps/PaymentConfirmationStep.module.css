@@ -153,18 +153,21 @@
 
 .pending {
   background-color: #fff9c4;
-  color: #f57f17;
+  color: #ff9800;
+  font-weight: bold;
 }
 
 .confirmed {
   background-color: #e8f5e9;
-  color: #2e7d32;
+  color: #4CAF50;
+  font-weight: bold;
   border: 1px solid #c8e6c9;
 }
 
 .overdue {
   background-color: #ffebee;
-  color: #c62828;
+  color: #f44336;
+  font-weight: bold;
   border: 1px solid #ffcdd2;
 }
 
@@ -209,6 +212,34 @@
   font-weight: 600;
   color: #0E1D59;
   white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.priceWithDiscount {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.originalPrice {
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.discountedPrice {
+  font-weight: 600;
+  color: #28a745;
+  font-size: 1rem;
+}
+
+.singlePrice {
+  font-weight: 600;
+  color: #0E1D59;
 }
 
 .attachmentInfo {
@@ -336,4 +367,67 @@
 .resendEmailButton:disabled {
   background-color: #f5a9a1;
   cursor: not-allowed;
+}
+
+/* Estilos para mensagens de inscrição gratuita */
+.freeRegistrationMessage {
+  background-color: #e8f5e8;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.freeMessage {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2e7d32;
+  line-height: 1.5;
+}
+
+/* Estilo para status confirmado (incluindo pagamentos gratuitos) */
+.confirmed {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Garantir que a classe existe para compatibilidade */
+.pending {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.overdue {
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Estilos para disclaimer de política de descontos */
+.disclaimerSection {
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.disclaimer {
+  background-color: #f9f9f9;
+  border-left: 3px solid #ff9800;
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.disclaimer strong {
+  color: #e65100;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.disclaimer p {
+  margin: 0;
+  color: #666;
+  text-align: justify;
 }

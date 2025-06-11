@@ -35,6 +35,13 @@ const SummaryStep = () => {
   const [error, setError] = useState(null);
   const [previewAttempted, setPreviewAttempted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Estados para o cupom
+  const [couponCode, setCouponCode] = useState('');
+  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [couponError, setCouponError] = useState('');
+  const [isCouponLoading, setIsCouponLoading] = useState(false);
+
   const { dueDays, billingType, url } = paymentConfig;
 
   const handleFilePreview = () => {
@@ -53,7 +60,78 @@ const SummaryStep = () => {
     }
   };
 
-  const calculateTotal = () => {
+  // Função para validar e aplicar cupom
+  const validateCoupon = async (code) => {
+    if (!code || code.trim() === '') {
+      setCouponError('');
+      return;
+    }
+
+    setIsCouponLoading(true);
+    setCouponError('');
+
+    try {
+      const response = await fetch(`/api/cupons/validate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          code: code.trim().toUpperCase(),
+          year: year,
+          category: category.id, // Usar ID numérico da categoria
+          products: getSelectedProductCodes(),
+          orderValue: calculateSubtotal()
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Erro ao validar cupom');
+      }
+
+      if (data.valid) {
+        setAppliedCoupon(data.coupon);
+        setCouponError('');
+      } else {
+        setAppliedCoupon(null);
+        setCouponError(data.message || 'Cupom inválido');
+      }
+    } catch (error) {
+      console.error('Erro ao validar cupom:', error);
+      setAppliedCoupon(null);
+      setCouponError(error.message || 'Erro ao validar cupom. Tente novamente.');
+    } finally {
+      setIsCouponLoading(false);
+    }
+  };
+
+  // Função para obter códigos dos produtos selecionados
+  const getSelectedProductCodes = () => {
+    const products = [];
+
+    if (selectedItems.journey) {
+      products.push('CONGRESS');
+    }
+
+    if (selectedItems.workshops?.length > 0) {
+      products.push('WORKSHOP');
+    }
+
+    if (selectedItems.courses?.length > 0) {
+      products.push('COURSE');
+    }
+
+    if (selectedItems.dayUse) {
+      products.push('DAY_USE');
+    }
+
+    return products;
+  };
+
+  // Função para calcular subtotal (sem desconto)
+  const calculateSubtotal = () => {
     let total = 0;
 
     if (selectedItems.journey) {
@@ -76,10 +154,92 @@ const SummaryStep = () => {
       total += currencyToNumber(dayUsePrice.value);
     }
 
+    return total;
+  };
+
+  // Função para aplicar desconto do cupom
+  const calculateDiscount = (subtotal, coupon) => {
+    if (!coupon) return 0;
+
+    let discount = 0;
+
+    if (coupon.discount.type === 'PERCENTAGE') {
+      discount = subtotal * (coupon.discount.value / 100);
+
+      // Aplicar limite máximo se definido
+      if (coupon.discount.maxAmount && discount > coupon.discount.maxAmount) {
+        discount = coupon.discount.maxAmount;
+      }
+    } else if (coupon.discount.type === 'FIXED_AMOUNT') {
+      discount = coupon.discount.value;
+
+      // Desconto não pode ser maior que o subtotal
+      if (discount > subtotal) {
+        discount = subtotal;
+      }
+    }
+
+    return discount;
+  };
+
+  const calculateTotal = () => {
+    const subtotal = calculateSubtotal();
+    const discount = appliedCoupon ? calculateDiscount(subtotal, appliedCoupon) : 0;
+    const total = subtotal - discount;
+
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL'
     }).format(total);
+  };
+
+  // Helper para renderizar preço com desconto quando há cupom aplicado
+  const renderProductPrice = (item) => {
+    if (!appliedCoupon) {
+      return <span className={styles.singlePrice}>{item.getCurrentPrice().value}</span>;
+    }
+
+    const currentPrice = item.getCurrentPrice();
+    const discount = calculateDiscount(currencyToNumber(currentPrice.value), appliedCoupon);
+
+    if (discount === currencyToNumber(currentPrice.value)) {
+      // Desconto de 100%
+      return (
+        <div className={styles.priceWithDiscount}>
+          <span className={styles.originalPrice}>{currentPrice.value}</span>/
+          <span className={styles.discountedPrice}>R$ 0,00</span>
+        </div>
+      );
+    } else if (discount > 0) {
+      // Desconto parcial
+      const finalPrice = currencyToNumber(currentPrice.value) - discount;
+      const discountedPrice = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format(finalPrice);
+
+      return (
+        <div className={styles.priceWithDiscount}>
+          <span className={styles.originalPrice}>{currentPrice.value}</span>/
+          <span className={styles.discountedPrice}>{discountedPrice}</span>
+        </div>
+      );
+    } else {
+      // Sem desconto
+      return <span className={styles.singlePrice}>{currentPrice.value}</span>;
+    }
+  };
+
+  // Função para aplicar cupom
+  const handleApplyCoupon = async () => {
+    await validateCoupon(couponCode);
+  };
+
+  // Função para remover cupom
+  const handleRemoveCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponCode('');
+    setCouponError('');
   };
 
   const handlePrevious = () => {
@@ -105,51 +265,151 @@ const SummaryStep = () => {
 
       description += ` - ${personalInfo.fullName}`;
 
+      // Incluir informações do cupom na descrição se houver
+      if (appliedCoupon) {
+        description += ` - Cupom: ${appliedCoupon.code}`;
+      }
+
       const total = calculateTotal();
       const numericPrice = currencyToNumber(total).toFixed(2);
 
-      const baseUrl = process.env.NODE_ENV === 'development'
-        ? url
-        : window.location.origin;
+      let response;
 
-      // Melhorar o logging antes da chamada API
-      console.log('Enviando requisição para o Asaas:', {
-        billingType,
-        customerId: personalInfo.userId,
-        name: personalInfo.fullName,
-        value: numericPrice,
-        dueDate: new Date(Date.now() + dueDays * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        description
-      });
+      // Se o valor total for 0 (cupom de 100% desconto), criar resposta simulada
+      if (parseFloat(numericPrice) === 0) {
+        // Gerar ID e número de fatura aleatórios
+        const randomId = `free_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        const randomInvoiceNumber = Math.floor(10000000 + Math.random() * 90000000).toString();
 
-      const asaas = new AsaasClient();
-      const response = await asaas.payments.create({
-        billingType: billingType,
-        customer: personalInfo.userId,
-        name: personalInfo.fullName,
-        value: numericPrice,
-        dueDate: new Date(Date.now() + dueDays * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        description: description,
-        externalReference: null,
-        callback: {
-          successUrl: `${baseUrl}/payment/confirmation`
+        response = {
+          object: "payment",
+          id: randomId,
+          dateCreated: new Date().toISOString().split('T')[0],
+          customer: personalInfo.userId,
+          paymentLink: null,
+          value: 0,
+          netValue: 0,
+          originalValue: null,
+          interestValue: null,
+          description: description,
+          billingType: "COUPON",
+          pixTransaction: null,
+          status: "CONFIRMED",
+          dueDate: null,
+          originalDueDate: null,
+          paymentDate: new Date().toISOString().split('T')[0],
+          clientPaymentDate: null,
+          installmentNumber: null,
+          invoiceUrl: null,
+          invoiceNumber: randomInvoiceNumber,
+          externalReference: null,
+          deleted: false,
+          anticipated: false,
+          anticipable: false,
+          creditDate: null,
+          estimatedCreditDate: null,
+          transactionReceiptUrl: null,
+          nossoNumero: null,
+          bankSlipUrl: null,
+          lastInvoiceViewedDate: null,
+          lastBankSlipViewedDate: null,
+          discount: {
+            value: 0.00,
+            limitDate: null,
+            dueDateLimitDays: 0,
+            type: "FIXED"
+          },
+          fine: {
+            value: 0.00,
+            type: "FIXED"
+          },
+          interest: {
+            value: 0.00,
+            type: "PERCENTAGE"
+          },
+          postalService: false,
+          custody: null,
+          escrow: null,
+          refunds: null
+        };
+
+        console.log('Inscrição gratuita criada (cupom 100%):', {
+          id: response.id,
+          invoiceNumber: response.invoiceNumber,
+          status: response.status,
+          value: response.value
+        });
+      } else {
+        // Valor maior que 0, usar Asaas normalmente
+        const baseUrl = process.env.NODE_ENV === 'development'
+          ? url
+          : window.location.origin;
+
+        const asaas = new AsaasClient();
+        response = await asaas.payments.create({
+          billingType: billingType,
+          customer: personalInfo.userId,
+          name: personalInfo.fullName,
+          value: numericPrice,
+          dueDate: new Date(Date.now() + dueDays * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+          description: description,
+          externalReference: null,
+          callback: {
+            successUrl: `${baseUrl}/payment/confirmation`
+          }
+        });
+
+        // Validar explicitamente a resposta do Asaas
+        if (!response || !response.id || !response.invoiceNumber) {
+          console.error('Resposta inválida do Asaas:', response);
+          throw new Error('Não foi possível criar o pagamento. Resposta inválida do provedor de pagamentos.');
         }
-      });
 
-      // Validar explicitamente a resposta do Asaas
-      if (!response || !response.id || !response.invoiceNumber) {
-        console.error('Resposta inválida do Asaas:', response);
-        throw new Error('Não foi possível criar o pagamento. Resposta inválida do provedor de pagamentos.');
+        console.log('Pagamento criado com sucesso no Asaas:', {
+          id: response.id,
+          invoiceNumber: response.invoiceNumber,
+          status: response.status,
+          value: response.value
+        });
       }
 
-      console.log('Pagamento criado com sucesso no Asaas:', {
-        id: response.id,
-        invoiceNumber: response.invoiceNumber,
-        status: response.status,
-        value: response.value
-      });
-
       setPaymentResponse(response);
+
+      // Se há cupom aplicado, registrar o uso com CPF e valor do desconto
+      if (appliedCoupon) {
+        try {
+          const subtotal = calculateSubtotal();
+          const discountAmount = calculateDiscount(subtotal, appliedCoupon);
+
+          const couponResponse = await fetch('/api/cupons/use', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              couponId: appliedCoupon._id,
+              cpf: personalInfo.cpf,
+              discountAmount: discountAmount
+            })
+          });
+
+          if (couponResponse.ok) {
+            const couponResult = await couponResponse.json();
+            console.log('Cupom utilizado com sucesso:', {
+              cupom: appliedCoupon.code,
+              cpf: personalInfo.cpf,
+              desconto: discountAmount,
+              usageCount: couponResult.usageCount
+            });
+          } else {
+            const errorData = await couponResponse.json();
+            console.warn('Falha ao registrar uso do cupom:', errorData.message);
+          }
+        } catch (couponError) {
+          console.warn('Erro ao registrar uso do cupom:', couponError);
+          // Não interromper o fluxo se houver erro no cupom
+        }
+      }
 
       if (response.id && receipt) {
         try {
@@ -278,27 +538,21 @@ const SummaryStep = () => {
               <span className={styles.productName}>
                 {selectedItems.journey.title}
               </span>
-              <span className={styles.productPrice}>
-                {selectedItems.journey.getCurrentPrice().value}
-              </span>
+              {renderProductPrice(selectedItems.journey)}
             </div>
           )}
 
           {selectedItems.workshops?.map((workshop, index) => (
             <div key={index} className={styles.productItem}>
               <span className={styles.productName}>{workshop.title}</span>
-              <span className={styles.productPrice}>
-                {workshop.getCurrentPrice().value}
-              </span>
+              {renderProductPrice(workshop)}
             </div>
           ))}
 
           {selectedItems.courses?.map((course, index) => (
             <div key={index} className={styles.productItem}>
               <span className={styles.productName}>{course.title}</span>
-              <span className={styles.productPrice}>
-                {course.getCurrentPrice().value}
-              </span>
+              {renderProductPrice(course)}
             </div>
           ))}
 
@@ -307,16 +561,118 @@ const SummaryStep = () => {
               <span className={styles.productName}>
                 {selectedItems.dayUse.title}
               </span>
-              <span className={styles.productPrice}>
-                {selectedItems.dayUse.getCurrentPrice().value}
-              </span>
+              {renderProductPrice(selectedItems.dayUse)}
+            </div>
+          )}
+        </section>
+
+        {/* Seção do cupom */}
+        <section className={styles.section}>
+          <h3 className={styles.sectionTitle}>Cupom de Desconto</h3>
+
+          {!appliedCoupon ? (
+            <div className={styles.couponInputSection}>
+              <div className={styles.couponInputGroup}>
+                <input
+                  type="text"
+                  value={couponCode}
+                  onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                  onBlur={() => handleApplyCoupon()}
+                  placeholder="Digite o código do cupom"
+                  className={styles.couponInput}
+                  disabled={isCouponLoading}
+                />
+                <button
+                  type="button"
+                  onClick={handleApplyCoupon}
+                  disabled={!couponCode.trim() || isCouponLoading}
+                  className={`${styles.applyCouponButton} ${isCouponLoading ? styles.loading : ''}`}
+                >
+                  {isCouponLoading ? (
+                    <div className={styles.buttonSpinner}></div>
+                  ) : (
+                    'Aplicar'
+                  )}
+                </button>
+              </div>
+
+              {couponError && (
+                <div className={styles.couponError}>
+                  {couponError}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className={styles.appliedCouponSection}>
+              <div className={styles.appliedCouponInfo}>
+                <div className={styles.appliedCouponHeader}>
+                  <span className={styles.couponIcon}>🎟️</span>
+                  <div className={styles.couponDetails}>
+                    <span className={styles.couponName}>{appliedCoupon.name}</span>
+                    <span className={styles.couponCode}>Código: {appliedCoupon.code}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleRemoveCoupon}
+                    className={styles.removeCouponButton}
+                    title="Remover cupom"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                {appliedCoupon.description && (
+                  <div className={styles.couponDescription}>
+                    {appliedCoupon.description}
+                  </div>
+                )}
+
+                <div className={styles.discountInfo}>
+                  <span className={styles.discountLabel}>Desconto:</span>
+                  <span className={styles.discountValue}>
+                    {appliedCoupon.discount.type === 'PERCENTAGE'
+                      ? `${appliedCoupon.discount.value}%`
+                      : new Intl.NumberFormat('pt-BR', {
+                          style: 'currency',
+                          currency: 'BRL'
+                        }).format(appliedCoupon.discount.value)
+                    }
+                  </span>
+                </div>
+              </div>
             </div>
           )}
         </section>
 
         <div className={styles.totalSection}>
-          <span className={styles.totalLabel}>Total:</span>
-          <span className={styles.totalValue}>{calculateTotal()}</span>
+          {appliedCoupon && (
+            <>
+              <div className={styles.subtotalRow}>
+                <span className={styles.subtotalLabel}>Subtotal:</span>
+                <span className={styles.subtotalValue}>
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(calculateSubtotal())}
+                </span>
+              </div>
+
+              <div className={styles.discountRow}>
+                <span className={styles.discountLabel}>Desconto ({appliedCoupon.code}):</span>
+                <span className={styles.discountValue}>
+                  -{new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(calculateDiscount(calculateSubtotal(), appliedCoupon))}
+                </span>
+              </div>
+            </>
+          )}
+
+          <div className={styles.totalRow}>
+            <span className={styles.totalLabel}>Total:</span>
+            <span className={styles.totalValue}>{calculateTotal()}</span>
+          </div>
         </div>
       </div>
 
