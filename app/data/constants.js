@@ -752,9 +752,9 @@ export const eventData = {
         active: true,
         activeAt: '2025-06-09T00:00:00-0300',
         expireAt: '2025-06-25T23:59:59-0300',
-        title: 'Relação de trabalhos científicos aceitos para apresentação na JMR2025 & CIM2025',
+        title: 'Relação de trabalhos científicos aprovados para apresentação na JMR2025 & CIM2025',
         description: [
-          'Segue abaixo a seleção dos trabalhos científicos aceitos para apresentação no evento.',
+          'Segue abaixo a seleção dos trabalhos científicos aprovados para apresentação no evento.',
           'Aqueles selecionados como aprovado para apresentação oral, são trabalhos que a Comissão avaliadora considerou adequados para este tipo de apresentação.',
           'Obs: vide observação ao final do documento!'
         ],
@@ -1924,6 +1924,12 @@ export const eventData = {
           href: '#',
           width: 90.00,
           height: 35.24
+        }, {
+          name: 'LifePong',
+          src: '/logo/lifepong.png',
+          href: 'https://lifepong.com.br/',
+          width: 40,
+          height: 40
         }],
       },
       institutionalSupports: {
