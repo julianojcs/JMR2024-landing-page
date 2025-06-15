@@ -1287,15 +1287,22 @@ export const eventData = {
       cardSections: [
         {
           title: ' ',
+          color: 'var(--primary-clr)',
           cardlist: [
             {
               date: '27/06',
-              color: 'var(--primary-clr)',
               title: ['Abertura', 'Oficial'],
               img: '/images/cards/oppening.png',
               width: '125',
               height: '125',
               countdownTimer: 'June 27, 2025 18:00:00'
+            }, {
+              date: '27/06',
+              title: ['Atividades', 'Não Técnicas'],
+              img: '/images/cards/relax.png',
+              link: 'https://www.canva.com/design/DAGUJkf_kqM/QxLpU9VyWCREdAycJkn8XQ/view',
+              width: '125',
+              height: '125'
             }
           ]
         },
