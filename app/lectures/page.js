@@ -475,15 +475,14 @@ export default function LecturesPage() {
                           </button>
                           <button
                             onClick={() => handleDelete(lecture.id)}
-                            className={`${styles.deleteButton} ${deletingId === lecture.id ? styles.loading : ''}`}
+                            className={`${styles.deleteButton} ${deletingId === lecture.id ? styles.buttonLoading : ''}`}
                             title="Excluir palestra"
                             disabled={deletingId === lecture.id}
                           >
-                            {deletingId === lecture.id ? (
-                              <span className={styles.buttonSpinner}></span>
-                            ) : (
-                              <HiTrash size={14} />
-                            )}
+                            <HiTrash
+                              size={14}
+                              className={deletingId === lecture.id ? styles.iconSpinning : ''}
+                            />
                           </button>
                         </>
                       )}
