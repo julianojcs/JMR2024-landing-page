@@ -14,7 +14,6 @@ import ModalPhotoPreview from '@/components/ModalPhotoPreview';
 import NotificationBanner from '@/components/NotificationBanner';
 import Header from '@/components/Header';
 import SocialMedias from '@/components/SocialMedias';
-import AuthGuard from '@/components/AuthGuard';
 import { MapIcon, CalendarIcon } from '@/components/icons'
 import '@/styles/react-select.css'
 
@@ -505,11 +504,10 @@ const SpeakersForm = ({ params }) => {
   }, [errors]);
 
   return (
-    <AuthGuard>
-      <>
-        <Header props={props}>
-          <SocialMedias url={data.social.instagram} />
-        </Header>
+    <>
+      <Header props={props}>
+        <SocialMedias url={data.social.instagram} />
+      </Header>
       <div className={styles.formContainer}>
         {notification.show && (
           <NotificationBanner
@@ -791,8 +789,7 @@ const SpeakersForm = ({ params }) => {
           speakerName={formData.full_name}
         />
       </div>
-      </>
-    </AuthGuard>
+    </>
   );
 };
 
