@@ -368,6 +368,47 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
+/* Sortable header styles */
+.sortableHeader {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sortableHeader:hover {
+  color: #1f2937;
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.sortIcon {
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.sortIconActive {
+  opacity: 1;
+  color: var(--danger-clr,rgb(255, 0, 4));
+}
+
+.sortIconInactive {
+  opacity: 0.3;
+}
+
+.sortableHeader:hover .sortIcon {
+  opacity: 0.7;
+}
+
+.activeSortIcon {
+  opacity: 1 !important;
+  color: #6366f1;
+}
+
 .table th:first-child {
   border-top-left-radius: 12px;
 }

@@ -91,32 +91,65 @@ export default function SpeakersList({ params }) {
     }
   }
 
+  // Função para ordenar os dados da tabela por qualquer coluna
+  // Funciona com diferentes tipos de dados: strings, números, datas, CPF, etc.
   const sortData = (key) => {
     let direction = 'asc';
+    // Se clicar na mesma coluna, inverte a direção
     if (sortConfig.key === key && sortConfig.direction === 'asc') {
       direction = 'desc';
     }
     setSortConfig({ key, direction });
 
     const sortedData = [...speakers].sort((a, b) => {
+      // Handle null/undefined values - put them at the end
+      if (a[key] == null && b[key] == null) return 0;
       if (a[key] == null) return 1;
       if (b[key] == null) return -1;
 
       let compareA = a[key];
       let compareB = b[key];
 
-      // Special handling for date
+      // Special handling for dates
       if (key === 'created_at') {
         compareA = new Date(a[key]).getTime();
         compareB = new Date(b[key]).getTime();
       }
-
-      // Case insensitive string comparison
-      if (typeof compareA === 'string') {
-        compareA = compareA.toLowerCase();
-        compareB = compareB.toLowerCase();
+      // Special handling for CPF (remove formatting for proper numerical comparison)
+      else if (key === 'cpf') {
+        compareA = (a[key] || '').replace(/\D/g, '');
+        compareB = (b[key] || '').replace(/\D/g, '');
+        // Convert to number for proper sorting
+        compareA = compareA ? parseInt(compareA, 10) : 0;
+        compareB = compareB ? parseInt(compareB, 10) : 0;
+      }
+      // Special handling for phone numbers (remove formatting)
+      else if (key === 'phone') {
+        compareA = (a[key] || '').replace(/\D/g, '');
+        compareB = (b[key] || '').replace(/\D/g, '');
+      }
+      // Special handling for city/state combination
+      else if (key === 'city') {
+        compareA = `${(a.city || '').toLowerCase()}/${(a.state || '').toLowerCase()}`;
+        compareB = `${(b.city || '').toLowerCase()}/${(b.state || '').toLowerCase()}`;
+      }
+      // Special handling for email (case insensitive)
+      else if (key === 'email') {
+        compareA = (a[key] || '').toLowerCase();
+        compareB = (b[key] || '').toLowerCase();
+      }
+      // Case insensitive string comparison for other text fields
+      else if (typeof compareA === 'string') {
+        compareA = compareA.toLowerCase().trim();
+        compareB = compareB.toLowerCase().trim();
       }
 
+      // Numeric comparison for numbers
+      if (typeof compareA === 'number' && typeof compareB === 'number') {
+        return direction === 'asc' ? compareA - compareB : compareB - compareA;
+      }
+
+      // String comparison
       if (compareA < compareB) return direction === 'asc' ? -1 : 1;
       if (compareA > compareB) return direction === 'asc' ? 1 : -1;
       return 0;

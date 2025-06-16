@@ -28,6 +28,10 @@ export default function LecturesPage() {
   const [editingName, setEditingName] = useState('')
   const [updatingId, setUpdatingId] = useState(null)
 
+  // Sorting states
+  const [sortKey, setSortKey] = useState(null)
+  const [sortDirection, setSortDirection] = useState('asc')
+
   useEffect(() => {
     fetchLectures()
   }, [])
@@ -214,9 +218,78 @@ export default function LecturesPage() {
     }
   }
 
+  // Sorting functions
+  const handleSort = (key) => {
+    if (sortKey === key) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortKey(key)
+      setSortDirection('asc')
+    }
+  }
+
+  const getSortedLectures = (lecturesToSort) => {
+    if (!sortKey) return lecturesToSort
+
+    return [...lecturesToSort].sort((a, b) => {
+      let aValue = a[sortKey]
+      let bValue = b[sortKey]
+
+      // Handle null/undefined values
+      if (aValue == null && bValue == null) return 0
+      if (aValue == null) return sortDirection === 'asc' ? 1 : -1
+      if (bValue == null) return sortDirection === 'asc' ? -1 : 1
+
+      // Handle different data types
+      if (sortKey === 'id') {
+        aValue = parseInt(aValue) || 0
+        bValue = parseInt(bValue) || 0
+      } else if (sortKey === 'created_at') {
+        aValue = new Date(aValue).getTime()
+        bValue = new Date(bValue).getTime()
+      } else if (typeof aValue === 'string' && typeof bValue === 'string') {
+        aValue = aValue.toLowerCase()
+        bValue = bValue.toLowerCase()
+      }
+
+      let comparison = 0
+      if (aValue > bValue) {
+        comparison = 1
+      } else if (aValue < bValue) {
+        comparison = -1
+      }
+
+      return sortDirection === 'desc' ? -comparison : comparison
+    })
+  }
+
+  const renderSortIcon = (columnKey) => {
+    if (sortKey !== columnKey) {
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={styles.sortIconInactive}>
+          <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+        </svg>
+      )
+    }
+    return (
+      <span className={`${styles.sortIcon} ${styles.activeSortIcon}`}>
+        {sortDirection === 'asc' ?
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={styles.sortIconActive}>
+            <path fill="currentColor" d="M7 14l5-5 5 5z"/>
+          </svg>
+        :
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={styles.sortIconActive}>
+          <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+        </svg>}
+      </span>
+    )
+  }
+
   const filteredLectures = lectures.filter(lecture =>
     lecture.name?.toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  const sortedAndFilteredLectures = getSortedLectures(filteredLectures)
 
   if (loading) {
     return (
@@ -370,7 +443,7 @@ export default function LecturesPage() {
         </div>
       )}
 
-      {filteredLectures.length === 0 ? (
+      {sortedAndFilteredLectures.length === 0 ? (
         <div className={styles.emptyState}>
           <div className={styles.emptyIcon}>
             <HiExclamationCircle size={48} />
@@ -388,15 +461,47 @@ export default function LecturesPage() {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th className={styles.idColumn}>ID</th>
-                <th className={styles.nameColumn}>Nome da Palestra</th>
-                <th className={styles.statusColumn}>Status</th>
-                <th className={styles.dateColumn}>Data de Criação</th>
+                <th className={styles.idColumn}>
+                  <div
+                    className={styles.sortableHeader}
+                    onClick={() => handleSort('id')}
+                  >
+                    ID
+                    {renderSortIcon('id')}
+                  </div>
+                </th>
+                <th className={styles.nameColumn}>
+                  <div
+                    className={styles.sortableHeader}
+                    onClick={() => handleSort('name')}
+                  >
+                    Nome da Palestra
+                    {renderSortIcon('name')}
+                  </div>
+                </th>
+                <th className={styles.statusColumn}>
+                  <div
+                    className={styles.sortableHeader}
+                    onClick={() => handleSort('status')}
+                  >
+                    Status
+                    {renderSortIcon('status')}
+                  </div>
+                </th>
+                <th className={styles.dateColumn}>
+                  <div
+                    className={styles.sortableHeader}
+                    onClick={() => handleSort('created_at')}
+                  >
+                    Data de Criação
+                    {renderSortIcon('created_at')}
+                  </div>
+                </th>
                 <th className={styles.actionsColumn}>Ações</th>
               </tr>
             </thead>
             <tbody>
-              {filteredLectures.map((lecture) => (
+              {sortedAndFilteredLectures.map((lecture) => (
                 <tr key={lecture.id} className={styles.tableRow}>
                   <td className={`${styles.idCell} ${styles.idColumn}`}>
                     <span className={styles.idBadge}>#{lecture.id}</span>
