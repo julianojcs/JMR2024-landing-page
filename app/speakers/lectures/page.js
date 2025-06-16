@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import styles from './lectures.module.css'
+import AuthGuard from '../../components/AuthGuard'
 import {
   HiPlus,
   HiX,
@@ -243,7 +244,8 @@ export default function LecturesPage() {
   }
 
   return (
-    <div className={styles.container}>
+    <AuthGuard>
+      <div className={styles.container}>
       {/* Toast de Sucesso */}
       {successMessage && (
         <div className={`${styles.successToast} ${
@@ -494,6 +496,7 @@ export default function LecturesPage() {
           </table>
         </div>
       )}
-    </div>
+      </div>
+    </AuthGuard>
   )
 }
