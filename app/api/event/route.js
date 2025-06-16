@@ -3,7 +3,8 @@ import { useMongoDB } from '@/hooks/useMongoDB';
 import Event from '@/models/mongo/Event';
 
 /**
- * GET /api/[year]/event - Recupera informações do evento de um determinado ano
+ * GET /api/event - Recupera informações do evento
+ * Pode receber year como query parameter (?year=2024) ou retornar o ano atual
  * @param {Request} request - Objeto de requisição
  * @param {Object} context - Contexto da requisição contendo parâmetros da rota
  * @returns {Response} Resposta com dados do evento ou mensagem de erro
@@ -15,14 +16,23 @@ export async function GET(request, context) {
     // Conectar ao MongoDB utilizando o hook
     await useMongoDB();
 
-    // Recuperar o parâmetro year da URL
-    const { year } = await context.params;
+    // Get year from query parameters
+    const { searchParams } = new URL(request.url);
+    const yearParam = searchParams.get('year');
 
+    let year = yearParam;
+
+    // If no year provided, get current year (latest event)
     if (!year) {
-      return NextResponse.json(
-        { success: false, message: 'Ano não especificado na requisição' },
-        { status: 400 }
-      );
+      const latestEvent = await Event.findOne().sort({ year: -1 }).lean();
+      if (latestEvent) {
+        year = latestEvent.year;
+      } else {
+        return NextResponse.json(
+          { success: false, message: 'Nenhum evento encontrado' },
+          { status: 404 }
+        );
+      }
     }
 
     // Buscar o evento para o ano especificado
