@@ -72,7 +72,7 @@
 
 /* Lectures Page Styles */
 .container {
-  min-height: 100vh;
+  min-height: calc(100dvh - 146px);
   background: #f8fafc;
   padding: 2rem;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -718,62 +718,140 @@
     padding: 1rem;
   }
 
+  .header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
   .title {
     font-size: 2rem;
   }
 
+  .subtitle {
+    font-size: 1.125rem;
+  }
+
   .controls {
     flex-direction: column;
-    align-items: stretch;
+    gap: 1rem;
   }
 
   .controlsRight {
     flex-direction: column;
-    align-items: stretch;
+    gap: 1rem;
   }
 
   .searchBox {
+    order: 2;
     max-width: none;
   }
 
-  .stats {
-    text-align: center;
-  }
-
   .addButton {
+    order: 1;
+    align-self: stretch;
     justify-content: center;
   }
 
-  .createForm {
-    padding: 1.5rem;
-    margin: 0 1rem;
+  .stats {
+    order: 3;
+    align-self: center;
+    text-align: center;
   }
 
-  .formActions {
-    flex-direction: column;
-  }
-
-  .formCancelButton,
-  .submitButton {
-    width: 100%;
+  /* Mobile table styles - hide status and date columns */
+  .statusColumn,
+  .dateColumn {
+    display: none !important;
   }
 
   .tableContainer {
     overflow-x: auto;
     border-radius: 15px;
+    margin: 0 -1rem;
   }
 
   .table {
-    min-width: 600px;
+    min-width: 100%;
   }
 
   .table th,
   .table td {
-    padding: 1rem 0.75rem;
+    padding: 0.875rem 0.5rem;
+  }
+
+  .idColumn {
+    width: 80px;
+    min-width: 80px;
+  }
+
+  .nameColumn {
+    width: auto;
+    min-width: 150px;
+  }
+
+  .actionsColumn {
+    width: 120px;
+    min-width: 120px;
   }
 
   .nameCell {
-    min-width: 200px;
+    min-width: 150px;
+  }
+
+  .idBadge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .lectureName {
+    font-size: 0.875rem;
+    line-height: 1.25;
+  }
+
+  .editInput {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.5rem;
+  }
+
+  .actionButtons {
+    gap: 0.375rem;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .actionButtons button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .createFormContainer {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
+
+  .createForm {
+    padding: 1.5rem;
+    margin: 0;
+    border-radius: 15px;
+  }
+
+  .formTitle {
+    font-size: 1.25rem;
+  }
+
+  .formActions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .formCancelButton,
+  .submitButton {
+    width: 100%;
+    justify-content: center;
   }
 
   .statusBadges {
@@ -781,11 +859,16 @@
   }
 
   .actionButtons {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
   .title {
     font-size: 1.75rem;
   }
@@ -802,13 +885,90 @@
     font-size: 3rem;
   }
 
-  .createForm {
-    padding: 1rem;
-    margin: 0;
-    border-radius: 15px;
+  .table th,
+  .table td {
+    padding: 0.75rem 0.375rem;
   }
 
-  .formTitle {
-    font-size: 1.25rem;
+  .idColumn {
+    width: 70px;
+    min-width: 70px;
+  }
+
+  .nameColumn {
+    min-width: 120px;
+  }
+
+  .actionsColumn {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .idBadge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .lectureName {
+    font-size: 0.8rem;
+  }
+
+  .editInput {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.375rem;
+  }
+
+  .actionButtons button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .successToast {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .createForm {
+    padding: 1rem;
+  }
+}
+
+/* Desktop styles for columns that are hidden on mobile */
+@media (min-width: 769px) {
+  .statusColumn,
+  .dateColumn {
+    display: table-cell;
+  }
+
+  .table {
+    min-width: 800px;
+  }
+
+  .idColumn {
+    width: 100px;
+  }
+
+  .nameColumn {
+    width: auto;
+    min-width: 200px;
+  }
+
+  .statusColumn {
+    width: 150px;
+  }
+
+  .dateColumn {
+    width: 150px;
+  }
+
+  .actionsColumn {
+    width: 150px;
+  }
+
+  .actionButtons {
+    flex-direction: row;
   }
 }

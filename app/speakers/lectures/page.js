@@ -388,20 +388,20 @@ export default function LecturesPage() {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Nome da Palestra</th>
-                <th>Status</th>
-                <th>Data de Criação</th>
-                <th>Ações</th>
+                <th className={styles.idColumn}>ID</th>
+                <th className={styles.nameColumn}>Nome da Palestra</th>
+                <th className={styles.statusColumn}>Status</th>
+                <th className={styles.dateColumn}>Data de Criação</th>
+                <th className={styles.actionsColumn}>Ações</th>
               </tr>
             </thead>
             <tbody>
               {filteredLectures.map((lecture) => (
                 <tr key={lecture.id} className={styles.tableRow}>
-                  <td className={styles.idCell}>
+                  <td className={`${styles.idCell} ${styles.idColumn}`}>
                     <span className={styles.idBadge}>#{lecture.id}</span>
                   </td>
-                  <td className={styles.nameCell}>
+                  <td className={`${styles.nameCell} ${styles.nameColumn}`}>
                     <div className={styles.lectureName}>
                       {editingId === lecture.id ? (
                         <input
@@ -423,7 +423,7 @@ export default function LecturesPage() {
                       )}
                     </div>
                   </td>
-                  <td className={styles.statusCell}>
+                  <td className={`${styles.statusCell} ${styles.statusColumn}`}>
                     <div className={styles.statusBadges}>
                       {lecture.is_fixed && (
                         <span className={styles.fixedBadge}>Fixo</span>
@@ -436,13 +436,13 @@ export default function LecturesPage() {
                       )}
                     </div>
                   </td>
-                  <td className={styles.dateCell}>
+                  <td className={`${styles.dateCell} ${styles.dateColumn}`}>
                     {lecture.created_at ?
                       new Date(lecture.created_at).toLocaleDateString('pt-BR') :
                       'N/A'
                     }
                   </td>
-                  <td className={styles.actionsCell}>
+                  <td className={`${styles.actionsCell} ${styles.actionsColumn}`}>
                     <div className={styles.actionButtons}>
                       {editingId === lecture.id ? (
                         <>
