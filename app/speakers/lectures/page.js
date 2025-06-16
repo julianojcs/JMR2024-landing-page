@@ -479,24 +479,6 @@ export default function LecturesPage() {
                     {renderSortIcon('name')}
                   </div>
                 </th>
-                <th className={styles.statusColumn}>
-                  <div
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('status')}
-                  >
-                    Status
-                    {renderSortIcon('status')}
-                  </div>
-                </th>
-                <th className={styles.dateColumn}>
-                  <div
-                    className={styles.sortableHeader}
-                    onClick={() => handleSort('created_at')}
-                  >
-                    Data de Criação
-                    {renderSortIcon('created_at')}
-                  </div>
-                </th>
                 <th className={styles.actionsColumn}>Ações</th>
               </tr>
             </thead>
@@ -527,25 +509,6 @@ export default function LecturesPage() {
                         lecture.name || 'Sem nome'
                       )}
                     </div>
-                  </td>
-                  <td className={`${styles.statusCell} ${styles.statusColumn}`}>
-                    <div className={styles.statusBadges}>
-                      {lecture.is_fixed && (
-                        <span className={styles.fixedBadge}>Fixo</span>
-                      )}
-                      {lecture.is_new && (
-                        <span className={styles.newBadge}>Novo</span>
-                      )}
-                      {!lecture.is_fixed && !lecture.is_new && (
-                        <span className={styles.regularBadge}>Regular</span>
-                      )}
-                    </div>
-                  </td>
-                  <td className={`${styles.dateCell} ${styles.dateColumn}`}>
-                    {lecture.created_at ?
-                      new Date(lecture.created_at).toLocaleDateString('pt-BR') :
-                      'N/A'
-                    }
                   </td>
                   <td className={`${styles.actionsCell} ${styles.actionsColumn}`}>
                     <div className={styles.actionButtons}>

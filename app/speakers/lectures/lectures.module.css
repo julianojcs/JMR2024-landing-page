@@ -799,12 +799,6 @@
     text-align: center;
   }
 
-  /* Mobile table styles - hide status and date columns */
-  .statusColumn,
-  .dateColumn {
-    display: none !important;
-  }
-
   .tableContainer {
     overflow-x: auto;
     border-radius: 15px;
@@ -977,15 +971,10 @@
   }
 }
 
-/* Desktop styles for columns that are hidden on mobile */
+/* Desktop styles for table columns */
 @media (min-width: 769px) {
-  .statusColumn,
-  .dateColumn {
-    display: table-cell;
-  }
-
   .table {
-    min-width: 800px;
+    min-width: 600px;
   }
 
   .idColumn {
@@ -994,19 +983,11 @@
 
   .nameColumn {
     width: auto;
-    min-width: 200px;
-  }
-
-  .statusColumn {
-    width: 150px;
-  }
-
-  .dateColumn {
-    width: 150px;
+    min-width: 300px;
   }
 
   .actionsColumn {
-    width: 150px;
+    width: 200px;
   }
 
   .actionButtons {
