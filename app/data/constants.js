@@ -1930,37 +1930,25 @@ export const eventData = {
               href: 'https://dopsom.com.br/',
               width: 86,
               height: 17.76
-            }],
-          },
-        },
+            }, {
+              name: 'Orizonti',
+              src: '/logo/orizonti.png',
+              href: 'https://hospitalorizonti.com.br/',
+              width: 80,
+              height: 33
+            }]
+          }
+        }
       },
       supports: {
         title: 'Apoio:',
         className: 'promoters',
         brands: [{
-          name: 'MedHubX',
-          src: '/logo/medhubx.png',
-          href: 'https://www.medhubx.com',
-          width: 99,
-          height: 25.07
-        }, {
-          name: 'Biblioteca Virtual',
-          src: '/logo/bibliotecavirtual.png',
-          href: 'http://www.bibliotecavirtual.org.br',
-          width: 95.70,
-          height: 27.86
-        }, {
           name: 'Espaço Namah - Yoga',
           src: '/logo/namah.png',
           href: 'https://espaconamah.com.br',
           width: 74.33,
           height: 37
-        }, {
-          name: 'Radiologia Abdominal',
-          src: '/logo/radiologiabdominal.png',
-          href: 'https://www.instagram.com/radiologiabdominal',
-          width: 81.00,
-          height: 35.24
         }, {
           name: 'Sorveteria Universal',
           src: '/logo/sorveteria-universal.png',
@@ -1979,18 +1967,6 @@ export const eventData = {
           href: 'https://lifepong.com.br/',
           width: 40,
           height: 40
-        }, {
-          name: 'CRM-MG',
-          src: '/logo/crm-mg.png',
-          href: 'https://crmmg.org.br/',
-          width: 80,
-          height: 25.14
-        }, {
-          name: 'Orizonti',
-          src: '/logo/orizonti.png',
-          href: 'https://hospitalorizonti.com.br/',
-          width: 80,
-          height: 33
         }, {
           name: 'Janaina Pacheco',
           src: '/logo/janaina-pacheco.png',
@@ -2032,6 +2008,18 @@ export const eventData = {
           href: 'https://ciia-saude.dcc.ufmg.br/',
           width: 80,
           height: 34
+        }, {
+          name: 'Biblioteca Virtual',
+          src: '/logo/bibliotecavirtual.png',
+          href: 'http://www.bibliotecavirtual.org.br',
+          width: 95.70,
+          height: 27.86
+        }, {
+          name: 'CRM-MG',
+          src: '/logo/crm-mg.png',
+          href: 'https://crmmg.org.br/',
+          width: 80,
+          height: 25.14
         }],
       },
       organizer: {
