@@ -1871,6 +1871,12 @@ export const eventData = {
               href: 'https://br.medical.canon/',
               width: 60,
               height: 22.61
+            }, {
+              name: 'Konica Minolta',
+              src: '/logo/konica-minolta.png',
+              href: 'https://www.konicaminolta.com/br-pt',
+              width: 65.52,
+              height: 38
             }],
           },
           bronze: {
@@ -1888,6 +1894,42 @@ export const eventData = {
               href: 'https://www.materdei.com.br/',
               width: 104.45,
               height: 25
+            }, {
+              name: 'MedFi',
+              src: '/logo/medfi.png',
+              href: 'https://medficonsultoria.com.br/',
+              width: 48.12,
+              height: 38
+            }, {
+              name: 'Hermes Pardini',
+              src: '/logo/hermes-pardini.png',
+              href: 'https://www.hermespardini.com.br/',
+              width: 80,
+              height: 36.55
+            }, {
+              name: 'Guerbet',
+              src: '/logo/guerbet.png',
+              href: 'https://www.guerbet.com/pt-br',
+              width: 80,
+              height: 25.39
+            }, {
+              name: 'Supri Medical',
+              src: '/logo/supri-medical.png',
+              href: 'https://www.supri-medical.com/',
+              width: 100,
+              height: 20.81
+            }, {
+              name: 'Mhédica',
+              src: '/logo/mhedica.png',
+              href: 'https://www.mhedica.com.br/',
+              width: 80,
+              height: 20.94
+            }, {
+              name: 'Dopsom',
+              src: '/logo/dopsom.png',
+              href: 'https://dopsom.com.br/',
+              width: 86,
+              height: 17.76
             }],
           },
         },
@@ -1937,6 +1979,24 @@ export const eventData = {
           href: 'https://lifepong.com.br/',
           width: 40,
           height: 40
+        }, {
+          name: 'CRM-MG',
+          src: '/logo/crm-mg.png',
+          href: 'https://crmmg.org.br/',
+          width: 80,
+          height: 25.14
+        }, {
+          name: 'Orizonti',
+          src: '/logo/orizonti.png',
+          href: 'https://hospitalorizonti.com.br/',
+          width: 80,
+          height: 33
+        }, {
+          name: 'Janaina Pacheco',
+          src: '/logo/janaina-pacheco.png',
+          href: 'https://www.instagram.com/janainapachecoarquitetura/',
+          width: 90,
+          height: 41.09
         }],
       },
       institutionalSupports: {
