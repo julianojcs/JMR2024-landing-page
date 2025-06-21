@@ -640,7 +640,6 @@ export const eventData = {
       'Inovação em radiologia',
       'Excelência em diagnóstico',
       'Congresso de Radiologia',
-      'Gestão de Qualidade',
       'Radiologia Intervencionista',
       'Radiologia Musculoesquelética',
       'Radiologia Torácica',
@@ -881,16 +880,6 @@ export const eventData = {
             { bestBefore: '25/06/2025', value: 'R$ 105' },
             { bestBefore: '27/06/2025', value: 'R$ 111' },
           ]
-        }, {
-          title: 'Curso de Gestão e Qualidade',
-          description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
-          image: '/images/svg/courses.svg',
-          prices: [
-            { bestBefore: '30/04/2025', value: 'R$ 88' },
-            { bestBefore: '30/05/2025', value: 'R$ 98' },
-            { bestBefore: '25/06/2025', value: 'R$ 105' },
-            { bestBefore: '27/06/2025', value: 'R$ 111' },
-          ]
         }],
         workshops: [],
         dayUse: null
@@ -934,16 +923,6 @@ export const eventData = {
           courses: [{
             title: 'Curso de Inteligência Artificial',
             description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
-            image: '/images/svg/courses.svg',
-            prices: [
-              { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '30/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 105' },
-              { bestBefore: '27/06/2025', value: 'R$ 111' },
-            ]
-          }, {
-            title: 'Curso de Gestão e Qualidade',
-            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
@@ -1004,16 +983,6 @@ export const eventData = {
           courses: [{
             title: 'Curso de Inteligência Artificial',
             description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
-            image: '/images/svg/courses.svg',
-            prices: [
-              { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '30/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 105' },
-              { bestBefore: '27/06/2025', value: 'R$ 111' },
-            ]
-          }, {
-            title: 'Curso de Gestão e Qualidade',
-            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
@@ -1089,16 +1058,6 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 105' },
               { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
-          }, {
-            title: 'Curso de Gestão e Qualidade',
-            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
-            image: '/images/svg/courses.svg',
-            prices: [
-              { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '30/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 105' },
-              { bestBefore: '27/06/2025', value: 'R$ 111' },
-            ]
           }]
         }, {
           id: 4,
@@ -1128,16 +1087,6 @@ export const eventData = {
           courses: [{
             title: 'Curso de Inteligência Artificial',
             description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
-            image: '/images/svg/courses.svg',
-            prices: [
-              { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '30/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 105' },
-              { bestBefore: '27/06/2025', value: 'R$ 111' },
-            ]
-          }, {
-            title: 'Curso de Gestão e Qualidade',
-            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
@@ -1182,16 +1131,6 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 105' },
               { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
-          }, {
-            title: 'Curso de Gestão e Qualidade',
-            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
-            image: '/images/svg/courses.svg',
-            prices: [
-              { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '30/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 105' },
-              { bestBefore: '27/06/2025', value: 'R$ 111' },
-            ]
           }]
         }, {
           id: 6,
@@ -1229,16 +1168,6 @@ export const eventData = {
               { bestBefore: '25/06/2025', value: 'R$ 105' },
               { bestBefore: '27/06/2025', value: 'R$ 111' },
             ]
-          }, {
-            title: 'Curso de Gestão e Qualidade',
-            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
-            image: '/images/svg/courses.svg',
-            prices: [
-              { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '30/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 105' },
-              { bestBefore: '27/06/2025', value: 'R$ 111' },
-            ]
           }]
         }, {
           id: 7,
@@ -1257,16 +1186,6 @@ export const eventData = {
           courses: [{
             title: 'Curso de Inteligência Artificial',
             description: ['Curso de Inteligência Artificial, aberto ao público em geral.'],
-            image: '/images/svg/courses.svg',
-            prices: [
-              { bestBefore: '30/04/2025', value: 'R$ 88' },
-              { bestBefore: '30/05/2025', value: 'R$ 98' },
-              { bestBefore: '25/06/2025', value: 'R$ 105' },
-              { bestBefore: '27/06/2025', value: 'R$ 111' },
-            ]
-          }, {
-            title: 'Curso de Gestão e Qualidade',
-            description: ['Curso de Gestão e Qualidade, aberto ao público em geral.'],
             image: '/images/svg/courses.svg',
             prices: [
               { bestBefore: '30/04/2025', value: 'R$ 88' },
@@ -1443,14 +1362,6 @@ export const eventData = {
               title: ['Inteligência', 'Artificial'],
               link: 'https://www.canva.com/design/DAGh67UbIoI/wNMT_3Dit7XvK5hXhjqNKQ/view',
               img: '/images/cards/ia.png',
-              width: '166',
-              height: '164'
-            },
-            {
-              date: '28/06',
-              title: ['Gestão e', 'Qualidade'],
-              link: 'https://www.canva.com/design/DAGhSSh1U7E/7XHbWc6cRIjKgV4dzOONEw/view',
-              img: '/images/cards/gestao-e-qualidade.png',
               width: '166',
               height: '164'
             }
@@ -1764,8 +1675,7 @@ export const eventData = {
           title: {
             tag: 'h2',
             text: [
-              'Cursos de: ',
-              '"Inteligência Artificial" ou "Gestão e Qualidade"'],
+              'Curso de Inteligência Artificial'],
             color: '#052c65'
           },
           subtitle: {
