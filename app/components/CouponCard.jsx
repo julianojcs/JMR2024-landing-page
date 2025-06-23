@@ -1,10 +1,56 @@
 // Componente para exibir um card de cupom
 import { useState } from 'react';
-import styles from './CupomCard.module.css';
+import styles from './CouponCard.module.css';
 import { FiEdit2, FiTrash2, FiCalendar, FiDollarSign, FiUsers, FiTag, FiPackage, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
-export default function CupomCard({ cupom, onEdit, onDelete, categories = [], products = [] }) {
+export default function CouponCard({ cupom, onEdit, onDelete, categories = [], products = [] }) {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // Estados possíveis dos cupons com suas respectivas configurações
+  const couponStates = {
+    active: {
+      label: 'Ativo',
+      className: styles.active,
+      color: '#10b981',
+      bgColor: '#ecfdf5',
+      priority: 1
+    },
+    expired: {
+      label: 'Expirado',
+      className: styles.expired,
+      color: '#f59e0b',
+      bgColor: '#fffbeb',
+      priority: 2
+    },
+    redeemed: {
+      label: 'Esgotado',
+      className: styles.redeemed,
+      color: '#ef4444',
+      bgColor: '#fef2f2',
+      priority: 3
+    },
+    sold_out: {
+      label: 'Vendas Encerradas',
+      className: styles.soldOut,
+      color: '#8b5cf6',
+      bgColor: '#faf5ff',
+      priority: 4
+    },
+    inactive: {
+      label: 'Inativo',
+      className: styles.inactive,
+      color: '#6b7280',
+      bgColor: '#f9fafb',
+      priority: 5
+    },
+    pending: {
+      label: 'Pendente',
+      className: styles.pending,
+      color: '#06b6d4',
+      bgColor: '#f0f9ff',
+      priority: 6
+    }
+  }
 
   // Função para traduzir códigos de categoria em nomes
   const getCategoryNames = (categoryCodes) => {
@@ -48,10 +94,38 @@ export default function CupomCard({ cupom, onEdit, onDelete, categories = [], pr
     return names.join(', ');
   };
 
-  // Função para determinar status do cupom
-  const getCupomStatus = () => {
-    if (!cupom.active) return 'inactive';
-    if (new Date(cupom.validity.until) < new Date()) return 'expired';
+  // Função para determinar status do cupom com lógica aprimorada
+  const getCouponStatus = () => {
+    const now = new Date();
+    const validUntil = new Date(cupom.validity.until);
+    const validFrom = new Date(cupom.validity.from);
+
+    // Verifica se o cupom está inativo
+    if (!cupom.active) {
+      return 'inactive';
+    }
+
+    // Verifica se o cupom ainda não iniciou
+    if (validFrom > now) {
+      return 'pending';
+    }
+
+    // Verifica se o cupom expirou
+    if (validUntil < now) {
+      return 'expired';
+    }
+
+    // Verifica se o cupom foi completamente utilizado (esgotado)
+    if (cupom.usage.limit && cupom.usage.used >= cupom.usage.limit) {
+      return 'redeemed';
+    }
+
+    // Verifica se está próximo do esgotamento (mais de 90% usado)
+    if (cupom.usage.limit && (cupom.usage.used / cupom.usage.limit) >= 0.9) {
+      return 'sold_out';
+    }
+
+    // Se passou por todas as verificações, está ativo
     return 'active';
   };
 
@@ -59,6 +133,18 @@ export default function CupomCard({ cupom, onEdit, onDelete, categories = [], pr
   const getUsagePercentage = () => {
     if (!cupom.usage.limit) return 0;
     return Math.round((cupom.usage.used / cupom.usage.limit) * 100);
+  };
+
+  // Função para determinar classe da barra de progresso baseada no estado e percentual
+  const getProgressFillClass = () => {
+    const percentage = getUsagePercentage();
+
+    if (status === 'redeemed') return `${styles.progressFill} ${styles.danger}`;
+    if (status === 'soldOut') return `${styles.progressFill} ${styles.soldOut}`;
+    if (percentage >= 90) return `${styles.progressFill} ${styles.danger}`;
+    if (percentage >= 70) return `${styles.progressFill} ${styles.warning}`;
+
+    return `${styles.progressFill} ${styles.active}`;
   };
 
   // Função para formatar data
@@ -74,21 +160,72 @@ export default function CupomCard({ cupom, onEdit, onDelete, categories = [], pr
     }).format(value);
   };
 
-  const status = getCupomStatus();
+  // Função para obter tooltip do status
+  const getStatusTooltip = () => {
+    const now = new Date();
+    const validUntil = new Date(cupom.validity.until);
+    const validFrom = new Date(cupom.validity.from);
+    const daysUntilExpiry = Math.ceil((validUntil - now) / (1000 * 60 * 60 * 24));
+    const daysUntilStart = Math.ceil((validFrom - now) / (1000 * 60 * 60 * 24));
+
+    switch (status) {
+      case 'active':
+        return `Cupom ativo. Expira em ${daysUntilExpiry} dias (${formatDate(cupom.validity.until)})`;
+      case 'expired':
+        return `Cupom expirado em ${formatDate(cupom.validity.until)}`;
+      case 'redeemed':
+        return `Cupom esgotado. Todas as ${cupom.usage.limit} utilizações foram consumidas`;
+      case 'sold_out':
+        return `Cupom quase esgotado. ${cupom.usage.limit - cupom.usage.used} utilizações restantes`;
+      case 'inactive':
+        return 'Cupom desativado manualmente';
+      case 'pending':
+        return `Cupom será ativado em ${daysUntilStart} dias (${formatDate(cupom.validity.from)})`;
+      default:
+        return 'Status do cupom';
+    }
+  };
+
+  const status = getCouponStatus();
+  const statusConfig = couponStates[status];
   const usagePercentage = getUsagePercentage();
 
   return (
-    <div className={`${styles.cupomCard} ${styles[status]}`}>
+    <div className={`${styles.cupomCard} ${statusConfig.className}`}>
       <div className={styles.header}>
         <div className={styles.mainInfo}>
           <h3 className={styles.code}>{cupom.code}</h3>
           <p className={styles.name}>{cupom.name}</p>
-          <span className={styles.year}>Ano {cupom.year}</span>
+          <div className={styles.metaInfo}>
+            <span className={styles.year}>Ano {cupom.year}</span>
+            {status === 'pending' && (
+              <span className={styles.badge}>
+                🕐 Inicia em {formatDate(cupom.validity.from)}
+              </span>
+            )}
+            {status === 'redeemed' && (
+              <span className={`${styles.badge} ${styles.badgeDanger}`}>
+                🚫 Esgotado
+              </span>
+            )}
+            {status === 'soldOut' && (
+              <span className={`${styles.badge} ${styles.badgeWarning}`}>
+                🔥 Quase esgotado
+              </span>
+            )}
+          </div>
         </div>
 
         <div className={styles.actions}>
-          <span className={`${styles.status} ${styles[status]}`}>
-            {status === 'active' ? 'Ativo' : status === 'inactive' ? 'Inativo' : 'Expirado'}
+          <span
+            className={`${styles.status} ${statusConfig.className}`}
+            style={{
+              backgroundColor: statusConfig.bgColor,
+              color: statusConfig.color
+            }}
+            title={getStatusTooltip()}
+          >
+            {statusConfig.label}
           </span>
           <div className={styles.buttons}>
             {onEdit && (
@@ -212,18 +349,28 @@ export default function CupomCard({ cupom, onEdit, onDelete, categories = [], pr
             <div className={styles.progress}>
               <div className={styles.progressInfo}>
                 <span>Utilização</span>
-                <span>{usagePercentage}%</span>
+                <span className={status === 'redeemed' ? styles.textDanger : ''}>
+                  {usagePercentage}%
+                </span>
               </div>
               <div className={styles.progressBar}>
                 <div
-                  className={styles.progressFill}
+                  className={getProgressFillClass()}
                   style={{
-                    width: `${usagePercentage}%`,
-                    backgroundColor: usagePercentage >= 90 ? '#ef4444' :
-                                   usagePercentage >= 70 ? '#f59e0b' : '#10b981'
+                    width: `${usagePercentage}%`
                   }}
                 />
               </div>
+              {status === 'redeemed' && (
+                <div className={styles.progressWarning}>
+                  ⚠️ Cupom esgotado - todas as utilizações foram consumidas
+                </div>
+              )}
+              {status === 'soldOut' && (
+                <div className={styles.progressAlert}>
+                  🔥 Quase esgotado - poucas utilizações restantes
+                </div>
+              )}
             </div>
           )}
         </div>

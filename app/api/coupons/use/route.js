@@ -1,5 +1,5 @@
 import { useMongoDB } from '../../../hooks/useMongoDB.js';
-import Cupom from '../../../models/mongo/Cupom.js';
+import Coupon from '../../../models/mongo/Coupon.js';
 
 // POST - Usar cupom (incrementar contador de uso e registrar uso)
 export async function POST(request) {
@@ -30,11 +30,11 @@ export async function POST(request) {
     }
 
     // Buscar o cupom
-    const cupom = await Cupom.findById(couponId);
+    const cupom = await Coupon.findById(couponId);
 
     if (!cupom) {
       return Response.json(
-        { success: false, message: 'Cupom não encontrado' },
+        { success: false, message: 'Coupon não encontrado' },
         { status: 404 }
       );
     }
@@ -53,7 +53,7 @@ export async function POST(request) {
       }
       // Outros motivos de invalidade (expirado, inativo, etc.)
       return Response.json(
-        { success: false, message: 'Cupom não está válido para uso' },
+        { success: false, message: 'Coupon não está válido para uso' },
         { status: 400 }
       );
     }
@@ -74,7 +74,7 @@ export async function POST(request) {
 
     return Response.json({
       success: true,
-      message: 'Cupom utilizado com sucesso',
+      message: 'Coupon utilizado com sucesso',
       usageCount: cupom.usage.used,
       discountAmount
     });

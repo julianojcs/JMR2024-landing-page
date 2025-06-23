@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from './SubscriptionsStatus.module.css'
 import SubscriptionsList from './SubscriptionsList'
-import { fetchPaymentsByCpf, fetchCustomerByCPF } from '../services/api';
-import { Subscription } from '../models';
 import { validateCPF, validateEmail } from '../utils';
 
 export default function SubscriptionStatus() {
@@ -52,36 +50,30 @@ export default function SubscriptionStatus() {
     setError('')
 
     try {
-      const customer = await fetchCustomerByCPF(cpf);
-      console.log('Cliente encontrado:', customer);
-      if (!customer) {
-        setError('Não encontramos um cliente associado a este CPF.');
+      // Usar o novo endpoint híbrido que combina dados do MongoDB e Asaas
+      const response = await fetch(`/api/subscriptions/by-cpf?cpf=${encodeURIComponent(cpf)}&email=${encodeURIComponent(email)}`);
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || 'Erro ao buscar inscrições');
         setIsLoading(false);
         return;
       }
 
-      // Verificar se o e-mail informado corresponde ao cadastrado
-      if (email.toLowerCase() !== customer.email.toLowerCase()) {
-        setError('O e-mail informado não corresponde ao cadastrado para este CPF.');
-        setIsLoading(false);
-        return;
-      }
+      if (data.success && data.data) {
+        console.log('Inscrições encontradas:', data.data);
+        setSubscriptions(data.data || []);
 
-      const paymentsResponse = await fetchPaymentsByCpf(cpf);
-      if (paymentsResponse && paymentsResponse.data) {
-        const subscriptionsList = paymentsResponse.data.map(payment =>
-          new Subscription(payment)
-        );
-        console.log('Pagamentos encontrados:', subscriptionsList);
-        setSubscriptions(subscriptionsList || []);
-        if (subscriptionsList.length === 0) {
+        if (data.data.length === 0) {
           setError('Não encontramos inscrições associadas a este e-mail e CPF.');
+        } else {
+          console.log(`✅ ${data.data.length} inscrições encontradas (MongoDB: ${data.sources?.mongodb || 0}, Asaas: ${data.sources?.asaas || 0})`);
         }
       } else {
         setError('Não encontramos inscrições associadas a este e-mail e CPF.');
       }
     } catch (error) {
-      console.error('Erro ao buscar dados do cliente ou pagamentos:', error);
+      console.error('Erro ao buscar inscrições:', error);
       setError('Ocorreu um erro ao verificar suas inscrições. Por favor, tente novamente.');
     } finally {
       setIsLoading(false)

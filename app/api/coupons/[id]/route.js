@@ -1,6 +1,6 @@
-// API para operações específicas em cupons
+// API para operações específicas em coupons
 import { NextResponse } from 'next/server';
-import Cupom from '../../../models/mongo/Cupom.js';
+import Coupon from '../../../models/mongo/Coupon.js';
 import { useMongoDB } from '../../../hooks/useMongoDB.js';
 
 // Função utilitária para ajustar datas com timezone brasileiro (UTC-3)
@@ -24,12 +24,12 @@ export async function GET(request, { params }) {
     await useMongoDB();
 
     const { id } = params;
-    const cupom = await Cupom.findById(id);
+    const cupom = await Coupon.findById(id);
 
     if (!cupom) {
       return NextResponse.json({
         success: false,
-        message: 'Cupom não encontrado'
+        message: 'Coupon não encontrado'
       }, { status: 404 });
     }
 
@@ -55,11 +55,11 @@ export async function PUT(request, { params }) {
     const { id } = params;
     const data = await request.json();
 
-    const cupom = await Cupom.findById(id);
+    const cupom = await Coupon.findById(id);
     if (!cupom) {
       return NextResponse.json({
         success: false,
-        message: 'Cupom não encontrado'
+        message: 'Coupon não encontrado'
       }, { status: 404 });
     }
 
@@ -113,12 +113,12 @@ export async function PUT(request, { params }) {
     }
 
     // Atualizar cupom
-    const updatedCupom = await Cupom.findByIdAndUpdate(id, updateData, { new: true });
+    const updatedCoupon = await Coupon.findByIdAndUpdate(id, updateData, { new: true });
 
     return NextResponse.json({
       success: true,
-      message: 'Cupom atualizado com sucesso',
-      data: updatedCupom
+      message: 'Coupon atualizado com sucesso',
+      data: updatedCoupon
     });
 
   } catch (error) {
@@ -137,20 +137,20 @@ export async function DELETE(request, { params }) {
 
     const { id } = params;
 
-    const cupom = await Cupom.findByIdAndUpdate(id, {
+    const cupom = await Coupon.findByIdAndUpdate(id, {
       active: false
     }, { new: true });
 
     if (!cupom) {
       return NextResponse.json({
         success: false,
-        message: 'Cupom não encontrado'
+        message: 'Coupon não encontrado'
       }, { status: 404 });
     }
 
     return NextResponse.json({
       success: true,
-      message: 'Cupom desativado com sucesso'
+      message: 'Coupon desativado com sucesso'
     });
 
   } catch (error) {

@@ -4,8 +4,7 @@ import {
   fetchCustomerByCPF,
   checkMembership,
   updateCustomerData,
-  createCustomerData,
-  fetchPaymentsByCpf
+  createCustomerData
 } from '../../../services/api';
 import { formatCPF, formatPhone, formatCEP, formatName } from '../../../utils';
 import { validateCPF, validateEmail } from '../../../utils';
@@ -29,19 +28,21 @@ const PersonalInfoStep = () => {
 
             const fetchInitialData = async () => {
                 try {
-                    const paymentsResponse = await fetchPaymentsByCpf(cpf);
-                    if (paymentsResponse && paymentsResponse.data) {
-                        const subscriptionsList = paymentsResponse.data.map(payment =>
-                            new Subscription(payment)
-                        );
-                        setSubscriptions(subscriptionsList);
+                    // Usar o novo endpoint híbrido
+                    const response = await fetch(`/api/subscriptions/by-cpf?cpf=${encodeURIComponent(cpf)}`);
+                    const data = await response.json();
 
-                        if (subscriptionsList.length > 0 && formData.personalInfo.userId) {
+                    if (response.ok && data.success && data.data) {
+                        setSubscriptions(data.data || []);
+
+                        if (data.data.length > 0 && formData.personalInfo.userId) {
                             setViewMode('subscriptions');
                         }
+
+                        console.log(`✅ ${data.data.length} inscrições encontradas no PersonalInfoStep (MongoDB: ${data.sources?.mongodb || 0}, Asaas: ${data.sources?.asaas || 0})`);
                     }
                 } catch (error) {
-                    console.error('Erro ao buscar pagamentos iniciais:', error);
+                    console.error('Erro ao buscar inscrições iniciais:', error);
                 }
             };
 
@@ -131,19 +132,21 @@ const PersonalInfoStep = () => {
                     updatePersonalInfoData(customer);
 
                     try {
-                        const paymentsResponse = await fetchPaymentsByCpf(cpf);
-                        if (paymentsResponse && paymentsResponse.data) {
-                            const subscriptionsList = paymentsResponse.data.map(payment =>
-                                new Subscription(payment)
-                            );
-                            setSubscriptions(subscriptionsList);
+                        // Usar o novo endpoint híbrido para buscar inscrições
+                        const response = await fetch(`/api/subscriptions/by-cpf?cpf=${encodeURIComponent(cpf)}`);
+                        const data = await response.json();
 
-                            if (subscriptionsList.length > 0) {
+                        if (response.ok && data.success && data.data) {
+                            setSubscriptions(data.data || []);
+
+                            if (data.data.length > 0) {
                                 setViewMode('subscriptions');
                             }
+
+                            console.log(`✅ ${data.data.length} inscrições encontradas (MongoDB: ${data.sources?.mongodb || 0}, Asaas: ${data.sources?.asaas || 0})`);
                         }
                     } catch (paymentError) {
-                        console.error('Erro ao buscar pagamentos:', paymentError);
+                        console.error('Erro ao buscar inscrições:', paymentError);
                     }
                 } else {
                     resetFormFields(membershipData);

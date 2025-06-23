@@ -5,7 +5,7 @@ import Multselector from './Multselector';
 import styles from './CouponFormSection.module.css';
 
 export default function CouponFormSection({
-  editingCupom,
+  editingCoupon,
   onSuccess,
   onError,
   onCancelEdit,
@@ -36,24 +36,24 @@ export default function CouponFormSection({
   const [touchedFields, setTouchedFields] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  // Atualizar formulário quando editingCupom mudar
+  // Atualizar formulário quando editingCoupon mudar
   useEffect(() => {
-    if (editingCupom) {
+    if (editingCoupon) {
       setFormData({
-        code: editingCupom.code || '',
-        name: editingCupom.name || '',
-        year: editingCupom.year?.toString() || new Date().getFullYear().toString(),
-        discountType: editingCupom.discount?.type || 'PERCENTAGE',
-        discountValue: editingCupom.discount?.value?.toString() || '',
-        maxAmount: editingCupom.discount?.maxAmount?.toString() || '',
-        usageLimit: editingCupom.usage?.limit?.toString() || '',
-        limitPerUser: editingCupom.usage?.limitPerUser?.toString() || '1',
-        validFrom: editingCupom.validity?.from ? new Date(editingCupom.validity.from).toISOString().split('T')[0] : '',
-        validUntil: editingCupom.validity?.until ? new Date(editingCupom.validity.until).toISOString().split('T')[0] : '',
-        minOrderValue: editingCupom.restrictions?.minOrderValue?.toString() || '0',
-        applicableCategories: editingCupom.restrictions?.applicableCategories || [0],
-        applicableProducts: editingCupom.restrictions?.applicableProducts || ['ALL'],
-        active: editingCupom.active !== false
+        code: editingCoupon.code || '',
+        name: editingCoupon.name || '',
+        year: editingCoupon.year?.toString() || new Date().getFullYear().toString(),
+        discountType: editingCoupon.discount?.type || 'PERCENTAGE',
+        discountValue: editingCoupon.discount?.value?.toString() || '',
+        maxAmount: editingCoupon.discount?.maxAmount?.toString() || '',
+        usageLimit: editingCoupon.usage?.limit?.toString() || '',
+        limitPerUser: editingCoupon.usage?.limitPerUser?.toString() || '1',
+        validFrom: editingCoupon.validity?.from ? new Date(editingCoupon.validity.from).toISOString().split('T')[0] : '',
+        validUntil: editingCoupon.validity?.until ? new Date(editingCoupon.validity.until).toISOString().split('T')[0] : '',
+        minOrderValue: editingCoupon.restrictions?.minOrderValue?.toString() || '0',
+        applicableCategories: editingCoupon.restrictions?.applicableCategories || [0],
+        applicableProducts: editingCoupon.restrictions?.applicableProducts || ['ALL'],
+        active: editingCoupon.active !== false
       });
       setTouchedFields({});
       setHasSubmitted(false);
@@ -63,7 +63,7 @@ export default function CouponFormSection({
       setTouchedFields({});
       setHasSubmitted(false);
     }
-  }, [editingCupom]);
+  }, [editingCoupon]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -159,8 +159,8 @@ export default function CouponFormSection({
     setSubmitting(true);
 
     try {
-      const method = editingCupom ? 'PUT' : 'POST';
-      const url = editingCupom ? `/api/cupons/${editingCupom.id}` : '/api/cupons';
+      const method = editingCoupon ? 'PUT' : 'POST';
+      const url = editingCoupon ? `/api/coupons/${editingCoupon.id}` : '/api/coupons';
 
       const response = await fetch(url, {
         method,
@@ -173,8 +173,8 @@ export default function CouponFormSection({
       const data = await response.json();
 
       if (data.success) {
-        onSuccess?.(editingCupom ? 'Cupom atualizado com sucesso!' : 'Cupom criado com sucesso!');
-        if (!editingCupom) {
+        onSuccess?.(editingCoupon ? 'Coupon atualizado com sucesso!' : 'Coupon criado com sucesso!');
+        if (!editingCoupon) {
           // Reset form for new coupon
           setFormData(getInitialFormData());
           setTouchedFields({});
@@ -222,7 +222,7 @@ export default function CouponFormSection({
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.formGroup}>
-        <label className={styles.label}>Código do Cupom*</label>
+        <label className={styles.label}>Código do Coupon*</label>
         <input
           type="text"
           name="code"
@@ -237,7 +237,7 @@ export default function CouponFormSection({
       </div>
 
       <div className={styles.formGroup}>
-        <label className={styles.label}>Nome do Cupom*</label>
+        <label className={styles.label}>Nome do Coupon*</label>
         <input
           type="text"
           name="name"
@@ -442,12 +442,12 @@ export default function CouponFormSection({
             className={styles.checkbox}
             disabled={submitting}
           />
-          <label className={styles.label}>Cupom ativo</label>
+          <label className={styles.label}>Coupon ativo</label>
         </div>
       </div>
 
       <div className={styles.formActions}>
-        {editingCupom && (
+        {editingCoupon && (
           <button
             type="button"
             className={styles.cancelButton}
@@ -462,7 +462,7 @@ export default function CouponFormSection({
           className={styles.submitButton}
           disabled={submitting}
         >
-          {submitting ? (editingCupom ? 'Atualizando...' : 'Criando...') : (editingCupom ? 'Salvar' : 'Criar Cupom')}
+          {submitting ? (editingCoupon ? 'Atualizando...' : 'Criando...') : (editingCoupon ? 'Salvar' : 'Criar Coupon')}
         </button>
       </div>
     </form>

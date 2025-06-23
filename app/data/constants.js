@@ -713,7 +713,7 @@ export const eventData = {
         ],
       }, {
         id: 3,
-        active: true,
+        active: false,
         activeAt: '2025-06-10T15:00:00-0300',
         expireAt: '2025-06-25T23:59:59-0300',
         title: 'Sorteio de Inscrição',

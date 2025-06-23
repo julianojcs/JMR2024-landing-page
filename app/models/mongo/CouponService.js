@@ -1,5 +1,5 @@
-// Configurações e utilitários para o sistema de cupons
-import Cupom from './Cupom.js';
+// Configurações e utilitários para o sistema de coupons
+import Coupon from './Coupon.js';
 
 // Configurações padrão do sistema
 export const CUPOM_CONFIG = {
@@ -49,34 +49,34 @@ export const CUPOM_CONFIG = {
   }
 };
 
-// Classe utilitária para operações com cupons
-export class CupomService {
+// Classe utilitária para operações com coupons
+export class CouponService {
 
   // Criar um novo cupom com validações
-  static async createCupom(cupomData) {
+  static async createCoupon(cupomData) {
     try {
       // Validar dados básicos
-      this.validateCupomData(cupomData);
+      this.validateCouponData(cupomData);
 
       // Normalizar código
       cupomData.code = cupomData.code.toUpperCase().trim();
 
       // Verificar se código já existe
-      const existing = await Cupom.findOne({ code: cupomData.code });
+      const existing = await Coupon.findOne({ code: cupomData.code });
       if (existing) {
-        throw new Error(`Cupom com código '${cupomData.code}' já existe`);
+        throw new Error(`Coupon com código '${cupomData.code}' já existe`);
       }
 
       // Aplicar valores padrão se não fornecidos
       const cupomWithDefaults = this.applyDefaults(cupomData);
 
       // Criar cupom
-      const cupom = await Cupom.create(cupomWithDefaults);
+      const cupom = await Coupon.create(cupomWithDefaults);
 
       return {
         success: true,
         cupom,
-        message: `Cupom '${cupom.code}' criado com sucesso`
+        message: `Coupon '${cupom.code}' criado com sucesso`
       };
 
     } catch (error) {
@@ -88,7 +88,7 @@ export class CupomService {
   }
 
   // Validar dados do cupom
-  static validateCupomData(data) {
+  static validateCouponData(data) {
     const { VALIDATION } = CUPOM_CONFIG;
 
     if (!data.code || data.code.length < VALIDATION.CODE_MIN_LENGTH) {
@@ -154,8 +154,8 @@ export class CupomService {
     };
   }
 
-  // Buscar cupons válidos
-  static async getValidCupons(filters = {}) {
+  // Buscar coupons válidos
+  static async getValidCoupons(filters = {}) {
     const query = {
       active: true,
       'validity.from': { $lte: new Date() },
@@ -163,7 +163,7 @@ export class CupomService {
       ...filters
     };
 
-    // Adicionar filtro para cupons não esgotados
+    // Adicionar filtro para coupons não esgotados
     query.$expr = {
       $or: [
         { $eq: ['$usage.limit', null] },
@@ -171,24 +171,24 @@ export class CupomService {
       ]
     };
 
-    return await Cupom.find(query).sort({ 'validity.until': 1 });
+    return await Coupon.find(query).sort({ 'validity.until': 1 });
   }
 
   // Aplicar cupom a um pedido
-  static async applyCupom(codigo, cpf, orderData) {
+  static async applyCoupon(codigo, cpf, orderData) {
     try {
-      const cupom = await Cupom.findOne({
+      const cupom = await Coupon.findOne({
         code: codigo.toUpperCase(),
         active: true
       });
 
       if (!cupom) {
-        return { success: false, message: 'Cupom não encontrado' };
+        return { success: false, message: 'Coupon não encontrado' };
       }
 
       // Verificar validade
       if (!cupom.isValid) {
-        return { success: false, message: 'Cupom inválido ou expirado' };
+        return { success: false, message: 'Coupon inválido ou expirado' };
       }
 
       // Verificar se usuário pode usar
@@ -209,7 +209,7 @@ export class CupomService {
       if (!this.checkCategoryCompatibility(cupom, orderData.categories)) {
         return {
           success: false,
-          message: 'Cupom não aplicável aos produtos selecionados'
+          message: 'Coupon não aplicável aos produtos selecionados'
         };
       }
 
@@ -239,12 +239,12 @@ export class CupomService {
   }
 
   // Confirmar uso do cupom (após pagamento)
-  static async confirmCupomUsage(codigo, cpf, amount) {
+  static async confirmCouponUsage(codigo, cpf, amount) {
     try {
-      const cupom = await Cupom.findOne({ code: codigo.toUpperCase() });
+      const cupom = await Coupon.findOne({ code: codigo.toUpperCase() });
 
       if (!cupom) {
-        throw new Error('Cupom não encontrado');
+        throw new Error('Coupon não encontrado');
       }
 
       await cupom.recordUsage(cpf, amount);
@@ -275,11 +275,11 @@ export class CupomService {
     return orderCategories.some(category => aplicaveis.includes(category));
   }
 
-  // Obter estatísticas de cupons
-  static async getCupomStats(year = null) {
+  // Obter estatísticas de coupons
+  static async getCouponStats(year = null) {
     const match = year ? { year } : {};
 
-    const stats = await Cupom.aggregate([
+    const stats = await Coupon.aggregate([
       { $match: match },
       {
         $group: {
@@ -309,7 +309,7 @@ export class CupomService {
   }
 
   // Gerar código único para cupom
-  static generateCupomCode(prefix = '', length = 8) {
+  static generateCouponCode(prefix = '', length = 8) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let code = prefix.toUpperCase();
 
@@ -321,7 +321,7 @@ export class CupomService {
   }
 
   // Criar cupom promocional rápido
-  static async createPromotionalCupom(params) {
+  static async createPromotionalCoupon(params) {
     const {
       prefix = 'PROMO',
       discountType = 'PERCENTAGE',
@@ -335,7 +335,7 @@ export class CupomService {
       name = null
     } = params;
 
-    const code = this.generateCupomCode(prefix, 10);
+    const code = this.generateCouponCode(prefix, 10);
     const cupomName = name || `Promoção ${discountType === 'PERCENTAGE' ? discountValue + '%' : 'R$ ' + discountValue}`;
 
     const cupomData = {
@@ -361,8 +361,8 @@ export class CupomService {
       }
     };
 
-    return await this.createCupom(cupomData);
+    return await this.createCoupon(cupomData);
   }
 }
 
-export default CupomService;
+export default CouponService;

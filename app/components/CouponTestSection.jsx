@@ -35,7 +35,7 @@ export default function CouponTestSection({ categories = [], products = [], data
     const command = `validate-coupon --code=${testData.code} --value=${testData.orderValue} --category=${testData.category} --year=${testData.year}`;
 
     try {
-      const response = await fetch('/api/cupons/validate', {
+      const response = await fetch('/api/coupons/validate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export default function CouponTestSection({ categories = [], products = [], data
         const discountAmount = isNaN(Number(result.discountAmount)) ? result.discountAmount || '0.00' : Number(result.discountAmount).toFixed(2);
         output = `✅ CUPOM VÁLIDO\nCódigo: ${result.coupon.code}\nNome: ${result.coupon.name}\nDesconto: ${result.coupon.discount.type === 'PERCENTAGE' ? `${result.coupon.discount.value}%` : `R$ ${result.coupon.discount.value}`}\nValor Original: R$ ${testData.orderValue}\nValor Final: R$ ${finalPrice}\nDesconto Aplicado: R$ ${discountAmount}`;
       } else {
-        output = `❌ CUPOM INVÁLIDO\nMotivo: ${result.message || 'Cupom não encontrado ou inválido'}`;
+        output = `❌ CUPOM INVÁLIDO\nMotivo: ${result.message || 'Coupon não encontrado ou inválido'}`;
       }
 
       setTestResults(prev => [...prev, {
@@ -98,7 +98,7 @@ export default function CouponTestSection({ categories = [], products = [], data
       {/* Formulário de Teste */}
       <div className={styles.testForm}>
         <div className={styles.testFormGroup}>
-          <label className={styles.testLabel}>Código do Cupom:</label>
+          <label className={styles.testLabel}>Código do Coupon:</label>
           <input
             type="text"
             name="code"
@@ -208,7 +208,7 @@ export default function CouponTestSection({ categories = [], products = [], data
               {testRunning ? (
                 <span className={styles.loadingDots}>Validando</span>
               ) : (
-                'Validar Cupom'
+                'Validar Coupon'
               )}
             </button>
 
@@ -240,7 +240,7 @@ export default function CouponTestSection({ categories = [], products = [], data
       <div className={styles.terminalPrompt}>
         <span className={styles.promptSymbol}>$</span>
         <span className={styles.promptText}>
-          {testRunning ? 'Executando validação...' : 'Pronto para validar cupons'}
+          {testRunning ? 'Executando validação...' : 'Pronto para validar coupons'}
         </span>
         {!testRunning && <span className={styles.cursor}>▋</span>}
       </div>

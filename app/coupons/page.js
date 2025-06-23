@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './page.module.css';
-import CupomCard from '../components/CupomCard.jsx';
+import styles from './coupons.module.css';
+import CouponCard from '../components/CouponCard.jsx';
 import CollapsibleSection from '../components/CollapsibleSection.jsx';
 import CouponFormSection from '../components/CouponFormSection.jsx';
 import CouponTestSection from '../components/CouponTestSection.jsx';
 
-export default function CuponsPage() {
-  const [cupons, setCupons] = useState([]);
+export default function CouponsPage() {
+  const [coupons, setCoupons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -30,9 +30,9 @@ export default function CuponsPage() {
   });
 
   // Estados para edição e exclusão
-  const [editingCupom, setEditingCupom] = useState(null);
+  const [editingCoupon, setEditingCoupon] = useState(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(null);
-  const [deletingCupom, setDeletingCupom] = useState(false);
+  const [deletingCoupon, setDeletingCoupon] = useState(false);
 
   // Estados para seções colapsáveis
   const [formSectionCollapsed, setFormSectionCollapsed] = useState(false);
@@ -65,8 +65,8 @@ export default function CuponsPage() {
     }
   };
 
-  // Carregar cupons
-  const loadCupons = async (page = 1) => {
+  // Carregar coupons
+  const loadCoupons = async (page = 1) => {
     try {
       setLoading(true);
       const params = new URLSearchParams({
@@ -84,14 +84,14 @@ export default function CuponsPage() {
         params.append('search', filters.search.trim());
       }
 
-      const response = await fetch(`/api/cupons?${params}`);
+      const response = await fetch(`/api/coupons?${params}`);
       const data = await response.json();
 
       if (data.success) {
-        setCupons(data.data);
+        setCoupons(data.data);
         setPagination(data.pagination);
       } else {
-        setError(data.message || 'Erro ao carregar cupons');
+        setError(data.message || 'Erro ao carregar coupons');
       }
     } catch (error) {
       setError('Erro ao conectar com o servidor');
@@ -105,17 +105,17 @@ export default function CuponsPage() {
     loadSharedData();
   }, []);
 
-  // Carregar cupons quando filtros mudarem
+  // Carregar coupons quando filtros mudarem
   useEffect(() => {
-    loadCupons(1);
+    loadCoupons(1);
   }, [filters]);
 
   // Callback para sucesso no formulário
   const handleFormSuccess = (message) => {
     setSuccess(message);
     setError('');
-    setEditingCupom(null);
-    loadCupons(); // Recarregar lista
+    setEditingCoupon(null);
+    loadCoupons(); // Recarregar lista
   };
 
   // Callback para erro no formulário
@@ -126,20 +126,20 @@ export default function CuponsPage() {
 
   // Callback para cancelar edição
   const handleCancelEdit = () => {
-    setEditingCupom(null);
+    setEditingCoupon(null);
     setError('');
     setSuccess('');
   };
 
   // Função para editar cupom
-  const handleEditCupom = (cupom) => {
-    setEditingCupom(cupom);
+  const handleEditCoupon = (cupom) => {
+    setEditingCoupon(cupom);
     setError('');
     setSuccess('');
   };
 
   // Função para confirmar exclusão
-  const handleDeleteCupom = (cupom) => {
+  const handleDeleteCoupon = (cupom) => {
     setShowDeleteConfirm(cupom);
   };
 
@@ -147,28 +147,28 @@ export default function CuponsPage() {
   const handleConfirmDelete = async () => {
     if (!showDeleteConfirm) return;
 
-    setDeletingCupom(true);
+    setDeletingCoupon(true);
     setError('');
     setSuccess('');
 
     try {
-      const response = await fetch(`/api/cupons/${showDeleteConfirm.id}`, {
+      const response = await fetch(`/api/coupons/${showDeleteConfirm.id}`, {
         method: 'DELETE'
       });
 
       const data = await response.json();
 
       if (data.success) {
-        setSuccess('Cupom excluído com sucesso!');
+        setSuccess('Coupon excluído com sucesso!');
         setShowDeleteConfirm(null);
-        loadCupons(); // Recarregar lista
+        loadCoupons(); // Recarregar lista
       } else {
         setError(data.message || 'Erro ao excluir cupom');
       }
     } catch (error) {
       setError('Erro ao conectar com o servidor');
     } finally {
-      setDeletingCupom(false);
+      setDeletingCoupon(false);
     }
   };
 
@@ -190,17 +190,17 @@ export default function CuponsPage() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Gerenciamento de Cupons</h1>
+        <h1 className={styles.title}>Gerenciamento de Coupons</h1>
         <p className={styles.subtitle}>
-          Visualize e gerencie todos os cupons de desconto do sistema
+          Visualize e gerencie todos os coupons de desconto do sistema
         </p>
       </div>
 
       <div className={styles.mainContent}>
-        {/* Seção de Cupons */}
+        {/* Seção de Coupons */}
         <div className={styles.leftColumn}>
-          <section className={styles.cuponsSection}>
-            <h2 className={styles.sectionTitle}>Cupons Existentes</h2>
+          <section className={styles.couponsSection}>
+            <h2 className={styles.sectionTitle}>Coupons Existentes</h2>
 
             {/* Filtros */}
             <div className={styles.filters}>
@@ -241,10 +241,10 @@ export default function CuponsPage() {
             {error && <div className={styles.error}>{error}</div>}
             {success && <div className={styles.success}>{success}</div>}
 
-            {/* Lista de Cupons */}
+            {/* Lista de Coupons */}
             {loading ? (
-              <div className={styles.loading}>Carregando cupons...</div>
-            ) : cupons.length === 0 ? (
+              <div className={styles.loading}>Carregando coupons...</div>
+            ) : coupons.length === 0 ? (
               <div className={styles.emptyState}>
                 <div className={styles.emptyIcon}>🎫</div>
                 <h3>Nenhum cupom encontrado</h3>
@@ -252,13 +252,13 @@ export default function CuponsPage() {
               </div>
             ) : (
               <>
-                <div className={styles.cuponsGrid}>
-                  {cupons.map((cupom) => (
-                    <CupomCard
+                <div className={styles.couponsGrid}>
+                  {coupons.map((cupom) => (
+                    <CouponCard
                       key={cupom._id}
                       cupom={cupom}
-                      onEdit={handleEditCupom}
-                      onDelete={handleDeleteCupom}
+                      onEdit={handleEditCoupon}
+                      onDelete={handleDeleteCoupon}
                       categories={categories}
                       products={products}
                     />
@@ -271,7 +271,7 @@ export default function CuponsPage() {
                     <button
                       className={styles.paginationButton}
                       disabled={pagination.current === 1}
-                      onClick={() => loadCupons(pagination.current - 1)}
+                      onClick={() => loadCoupons(pagination.current - 1)}
                     >
                       Anterior
                     </button>
@@ -283,7 +283,7 @@ export default function CuponsPage() {
                     <button
                       className={styles.paginationButton}
                       disabled={pagination.current === pagination.total}
-                      onClick={() => loadCupons(pagination.current + 1)}
+                      onClick={() => loadCoupons(pagination.current + 1)}
                     >
                       Próxima
                     </button>
@@ -298,12 +298,12 @@ export default function CuponsPage() {
         <div className={styles.rightColumn}>
           {/* Seção do Formulário */}
           <CollapsibleSection
-            title={editingCupom ? 'Editar Cupom' : 'Criar Novo Cupom'}
+            title={editingCoupon ? 'Editar Coupon' : 'Criar Novo Coupon'}
             collapsed={formSectionCollapsed}
             onToggle={() => setFormSectionCollapsed(!formSectionCollapsed)}
           >
             <CouponFormSection
-              editingCupom={editingCupom}
+              editingCoupon={editingCoupon}
               onSuccess={handleFormSuccess}
               onError={handleFormError}
               onCancelEdit={handleCancelEdit}
@@ -344,16 +344,16 @@ export default function CuponsPage() {
               <button
                 onClick={handleCancelDelete}
                 className={styles.cancelButton}
-                disabled={deletingCupom}
+                disabled={deletingCoupon}
               >
                 Cancelar
               </button>
               <button
                 onClick={handleConfirmDelete}
                 className={styles.deleteButton}
-                disabled={deletingCupom}
+                disabled={deletingCoupon}
               >
-                {deletingCupom ? 'Excluindo...' : 'Excluir'}
+                {deletingCoupon ? 'Excluindo...' : 'Excluir'}
               </button>
             </div>
           </div>

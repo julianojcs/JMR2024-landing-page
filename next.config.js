@@ -54,6 +54,7 @@ const nextConfig = {
       '@/api': path.join(__dirname, './app/api'),
       '@/lib': path.join(__dirname, './app/lib'),
       '@/hooks': path.join(__dirname, './app/hooks'),
+      '@/services': path.join(__dirname, './app/services'),
       '@/data': path.join(__dirname, './app/data')
     }
     return config

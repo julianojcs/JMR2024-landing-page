@@ -1,5 +1,5 @@
 import { useMongoDB } from '../../../hooks/useMongoDB.js';
-import Cupom from '../../../models/mongo/Cupom.js';
+import Coupon from '../../../models/mongo/Coupon.js';
 
 // POST - Validar cupom
 export async function POST(request) {
@@ -9,11 +9,11 @@ export async function POST(request) {
     const { code, year, category, products, orderValue } = await request.json();
 
     // Buscar o cupom pelo código
-    const cupom = await Cupom.findOne({ code });
+    const cupom = await Coupon.findOne({ code });
 
     if (!cupom) {
       return Response.json(
-        { valid: false, message: 'Cupom não encontrado' },
+        { valid: false, message: 'Coupon não encontrado' },
         { status: 404 }
       );
     }
@@ -21,7 +21,7 @@ export async function POST(request) {
     // Verificar se o cupom está ativo
     if (!cupom.active) {
       return Response.json(
-        { valid: false, message: 'Cupom inativo' },
+        { valid: false, message: 'Coupon inativo' },
         { status: 400 }
       );
     }
@@ -30,14 +30,14 @@ export async function POST(request) {
     const now = new Date();
     if (cupom.validity?.from && new Date(cupom.validity.from) > now) {
       return Response.json(
-        { valid: false, message: 'Cupom ainda não é válido' },
+        { valid: false, message: 'Coupon ainda não é válido' },
         { status: 400 }
       );
     }
 
     if (cupom.validity?.until && new Date(cupom.validity.until) < now) {
       return Response.json(
-        { valid: false, message: 'Cupom expirado' },
+        { valid: false, message: 'Coupon expirado' },
         { status: 400 }
       );
     }
@@ -45,7 +45,7 @@ export async function POST(request) {
     // Verificar ano do evento
     if (cupom.year && cupom.year !== year && cupom.year !== year.toString()) {
       return Response.json(
-        { valid: false, message: 'Cupom não válido para este ano' },
+        { valid: false, message: 'Coupon não válido para este ano' },
         { status: 400 }
       );
     }
@@ -55,7 +55,7 @@ export async function POST(request) {
       if (!cupom.restrictions.applicableCategories.includes(0) &&
           !cupom.restrictions.applicableCategories.includes(category)) {
         return Response.json(
-          { valid: false, message: 'Cupom não válido para sua categoria' },
+          { valid: false, message: 'Coupon não válido para sua categoria' },
           { status: 400 }
         );
       }
@@ -68,7 +68,7 @@ export async function POST(request) {
 
       if (!hasValidProduct) {
         return Response.json(
-          { valid: false, message: 'Cupom não válido para os produtos selecionados' },
+          { valid: false, message: 'Coupon não válido para os produtos selecionados' },
           { status: 400 }
         );
       }
@@ -89,12 +89,12 @@ export async function POST(request) {
     // Verificar limite de uso
     if (cupom.usage?.limit && cupom.usage.used >= cupom.usage.limit) {
       return Response.json(
-        { valid: false, message: 'Cupom esgotado' },
+        { valid: false, message: 'Coupon esgotado' },
         { status: 400 }
       );
     }
 
-    // Cupom válido - retornar dados do cupom
+    // Coupon válido - retornar dados completos do cupom incluindo restrictions
     return Response.json({
       valid: true,
       coupon: {
@@ -102,9 +102,10 @@ export async function POST(request) {
         code: cupom.code,
         name: cupom.name,
         discount: cupom.discount,
+        restrictions: cupom.restrictions, // Incluir restrictions para cálculo de desconto
         description: cupom.description || `Desconto de ${cupom.discount.type === 'PERCENTAGE' ? cupom.discount.value + '%' : 'R$ ' + (isNaN(Number(cupom.discount.value)) ? cupom.discount.value : Number(cupom.discount.value).toFixed(2))}`
       },
-      message: 'Cupom aplicado com sucesso!'
+      message: 'Coupon aplicado com sucesso!'
     });
 
   } catch (error) {

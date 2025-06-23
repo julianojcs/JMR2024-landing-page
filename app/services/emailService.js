@@ -120,7 +120,7 @@ class EmailService {
       ${subscription?.id ? `- ID da inscrição: ${subscription.id}` : ''}
       ${subscription?.value !== undefined ? `- Valor: ${formattedValue}` : ''}
       ${!isFreeRegistration && subscription?.dueDate ? `- Vencimento: ${dueDate}` : ''}
-      ${couponInfo?.isUsed ? `- Cupom aplicado: Desconto de ${couponInfo.totalDiscount}` : ''}
+      ${couponInfo?.isUsed ? `- Coupon aplicado: ${couponInfo.totalDiscount}` : ''}
 
       ${selectedItems?.length > 0 ? `
       PRODUTOS SELECIONADOS:
@@ -143,7 +143,7 @@ class EmailService {
 
       ${couponInfo?.hasDiscount || couponInfo?.isUsed ? `
       ⚠️ POLÍTICA DE DESCONTOS:
-      Descontos aplicados através de cupons promocionais não são reembolsáveis e não podem ser convertidos em créditos para outros eventos. O desconto concedido é válido exclusivamente para esta inscrição e não possui valor monetário transferível.
+      Descontos aplicados através de coupons promocionais não são reembolsáveis e não podem ser convertidos em créditos para outros eventos. O desconto concedido é válido exclusivamente para esta inscrição e não possui valor monetário transferível.
       ` : ''}
 
       Atenciosamente,
@@ -219,8 +219,8 @@ class EmailService {
               </tr>` : ''}
               ${couponInfo?.isUsed ? `
               <tr>
-                <td style="padding: 8px 0;"><strong>Cupom aplicado:</strong></td>
-                <td style="padding: 8px 0;"><span style="color: #4CAF50; font-weight: bold;">Desconto de ${couponInfo.totalDiscount}</span></td>
+                <td style="padding: 8px 0;"><strong>Coupon aplicado:</strong></td>
+                <td style="padding: 8px 0;"><span style="color: #4CAF50; font-weight: bold;">${couponInfo.totalDiscount}</span></td>
               </tr>` : ''}
             </table>
           </div>
@@ -306,7 +306,7 @@ class EmailService {
             ${couponInfo?.hasDiscount || couponInfo?.isUsed ? `
             <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-left: 3px solid #ff9800; font-size: 11px; text-align: left; line-height: 1.4;">
               <strong>⚠️ POLÍTICA DE DESCONTOS:</strong><br>
-              Descontos aplicados através de cupons promocionais não são reembolsáveis e não podem ser convertidos em créditos para outros eventos.
+              Descontos aplicados através de coupons promocionais não são reembolsáveis e não podem ser convertidos em créditos para outros eventos.
               O desconto concedido é válido exclusivamente para esta inscrição e não possui valor monetário transferível.
             </div>` : ''}
 

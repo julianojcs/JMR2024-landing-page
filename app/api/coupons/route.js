@@ -1,6 +1,6 @@
-// API para gerenciar cupons
+// API para gerenciar coupons
 import { NextResponse } from 'next/server';
-import Cupom from '../../models/mongo/Cupom.js';
+import Coupon from '../../models/mongo/Coupon.js';
 import { useMongoDB } from '../../hooks/useMongoDB.js';
 
 // Função utilitária para ajustar datas com timezone brasileiro (UTC-3)
@@ -18,7 +18,7 @@ const adjustDateForBrazilTimezone = (dateString, isEndDate = false) => {
   }
 };
 
-// GET - Listar todos os cupons
+// GET - Listar todos os coupons
 export async function GET(request) {
   try {
     await useMongoDB();
@@ -54,29 +54,29 @@ export async function GET(request) {
       filters.year = year;
     }
 
-    // Buscar cupons com paginação
+    // Buscar coupons com paginação
     const skip = (page - 1) * limit;
-    const cupons = await Cupom.find(filters)
+    const coupons = await Coupon.find(filters)
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
 
     // Contar total para paginação
-    const total = await Cupom.countDocuments(filters);
+    const total = await Coupon.countDocuments(filters);
 
     return NextResponse.json({
       success: true,
-      data: cupons,
+      data: coupons,
       pagination: {
         current: page,
         total: Math.ceil(total / limit),
-        count: cupons.length,
+        count: coupons.length,
         totalItems: total
       }
     });
 
   } catch (error) {
-    console.error('Erro ao buscar cupons:', error);
+    console.error('Erro ao buscar coupons:', error);
     return NextResponse.json({
       success: false,
       message: 'Erro interno do servidor'
@@ -100,11 +100,11 @@ export async function POST(request) {
     }
 
     // Verificar se código já existe
-    const existingCupom = await Cupom.findOne({
+    const existingCoupon = await Coupon.findOne({
       code: data.code.toUpperCase()
     });
 
-    if (existingCupom) {
+    if (existingCoupon) {
       return NextResponse.json({
         success: false,
         message: 'Código do cupom já existe'
@@ -140,12 +140,12 @@ export async function POST(request) {
     };
 
     // Criar cupom
-    const novoCupom = await Cupom.create(cupomData);
+    const novoCoupon = await Coupon.create(cupomData);
 
     return NextResponse.json({
       success: true,
-      message: 'Cupom criado com sucesso',
-      data: novoCupom
+      message: 'Coupon criado com sucesso',
+      data: novoCoupon
     }, { status: 201 });
 
   } catch (error) {

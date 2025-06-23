@@ -1,4 +1,4 @@
-// models/Cupom.js
+// models/Coupon.js
 import mongoose from 'mongoose';
 const { Schema, models, model } = mongoose;
 
@@ -8,7 +8,7 @@ const sanitizeCpf = (cpf) => {
   return cpf.toString().replace(/\D/g, '');
 };
 
-const CupomSchema = new Schema({
+const CouponSchema = new Schema({
   // Identificação do cupom
   code: {
     type: String,
@@ -130,7 +130,7 @@ const CupomSchema = new Schema({
 });
 
 // Virtual para verificar se o cupom está válido
-CupomSchema.virtual('isValid').get(function() {
+CouponSchema.virtual('isValid').get(function() {
   const now = new Date();
   return this.active &&
          this.validity.from <= now &&
@@ -139,18 +139,18 @@ CupomSchema.virtual('isValid').get(function() {
 });
 
 // Virtual para verificar se o cupom está expirado
-CupomSchema.virtual('isExpired').get(function() {
+CouponSchema.virtual('isExpired').get(function() {
   return this.validity.until < new Date();
 });
 
 // Virtual para calcular porcentagem de uso
-CupomSchema.virtual('usagePercentage').get(function() {
+CouponSchema.virtual('usagePercentage').get(function() {
   if (this.usage.limit === null) return 0;
   return (this.usage.used / this.usage.limit) * 100;
 });
 
 // Método para verificar se um usuário pode usar o cupom
-CupomSchema.methods.canUserUse = function(cpf) {
+CouponSchema.methods.canUserUse = function(cpf) {
   if (!this.isValid) return false;
 
   if (this.usage.limitPerUser === null) return true;
@@ -162,7 +162,7 @@ CupomSchema.methods.canUserUse = function(cpf) {
 };
 
 // Método para calcular o desconto
-CupomSchema.methods.calculateDiscount = function(orderValue) {
+CouponSchema.methods.calculateDiscount = function(orderValue) {
   if (!this.isValid || orderValue < this.restrictions.minOrderValue) {
     return 0;
   }
@@ -184,7 +184,7 @@ CupomSchema.methods.calculateDiscount = function(orderValue) {
 };
 
 // Método para registrar uso do cupom
-CupomSchema.methods.recordUsage = function(cpf, amount) {
+CouponSchema.methods.recordUsage = function(cpf, amount) {
   // Sanitizar CPF (apenas números)
   const sanitizedCpf = sanitizeCpf(cpf);
 
@@ -198,7 +198,7 @@ CupomSchema.methods.recordUsage = function(cpf, amount) {
 };
 
 // Índices para performance
-CupomSchema.index({ active: 1, 'validity.until': 1 });
-CupomSchema.index({ year: 1 });
+CouponSchema.index({ active: 1, 'validity.until': 1 });
+CouponSchema.index({ year: 1 });
 
-export default models.Cupom || model('Cupom', CupomSchema);
+export default models.Coupon || model('Coupon', CouponSchema);

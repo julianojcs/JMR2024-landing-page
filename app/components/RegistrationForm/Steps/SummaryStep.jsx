@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRegistration } from '../../../contexts/RegistrationContext';
+import { useCoupon } from '../../../hooks/useCoupon';
 import styles from './SummaryStep.module.css';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../../lib/firebase';
@@ -25,6 +26,7 @@ const SummaryStep = () => {
     formData,
     setCurrentStep,
     setPaymentResponse,
+    updateFormData,
     year,
     setReceiptDownloadUrl,
     paymentConfig
@@ -38,9 +40,16 @@ const SummaryStep = () => {
 
   // Estados para o cupom
   const [couponCode, setCouponCode] = useState('');
-  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [appliedCoupon, setAppliedCoupon] = useState(formData.appliedCoupon || null);
   const [couponError, setCouponError] = useState('');
   const [isCouponLoading, setIsCouponLoading] = useState(false);
+
+  // Hook para gerenciar cupons
+  const {
+    calculateTotalDiscountByProducts,
+    getItemDiscount,
+    isProductEligibleForCoupon
+  } = useCoupon();
 
   const { dueDays, billingType, url } = paymentConfig;
 
@@ -71,21 +80,26 @@ const SummaryStep = () => {
     setCouponError('');
 
     try {
-      const response = await fetch(`/api/cupons/validate`, {
+      const requestData = {
+        code: code.trim().toUpperCase(),
+        year: year,
+        category: category.id, // Usar ID numérico da categoria
+        products: getSelectedProductCodes(),
+        orderValue: calculateSubtotal()
+      };
+
+      console.log('🔧 Validando cupom - Request data:', requestData);
+
+      const response = await fetch(`/api/coupons/validate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          code: code.trim().toUpperCase(),
-          year: year,
-          category: category.id, // Usar ID numérico da categoria
-          products: getSelectedProductCodes(),
-          orderValue: calculateSubtotal()
-        })
+        body: JSON.stringify(requestData)
       });
 
       const data = await response.json();
+      console.log('🔧 Resposta da validação:', data);
 
       if (!response.ok) {
         throw new Error(data.message || 'Erro ao validar cupom');
@@ -93,13 +107,16 @@ const SummaryStep = () => {
 
       if (data.valid) {
         setAppliedCoupon(data.coupon);
+        updateFormData('appliedCoupon', data.coupon); // Salvar no contexto
         setCouponError('');
+        console.log('🔧 Cupom aplicado com sucesso:', data.coupon);
       } else {
         setAppliedCoupon(null);
-        setCouponError(data.message || 'Cupom inválido');
+        setCouponError(data.message || 'Coupon inválido');
+        console.log('🔧 Cupom inválido:', data.message);
       }
     } catch (error) {
-      console.error('Erro ao validar cupom:', error);
+      console.error('🔧 Erro ao validar cupom:', error);
       setAppliedCoupon(null);
       setCouponError(error.message || 'Erro ao validar cupom. Tente novamente.');
     } finally {
@@ -157,34 +174,17 @@ const SummaryStep = () => {
     return total;
   };
 
-  // Função para aplicar desconto do cupom
-  const calculateDiscount = (subtotal, coupon) => {
-    if (!coupon) return 0;
+  // Função para aplicar desconto do cupom usando a nova lógica por produto
+  const calculateTotalDiscount = () => {
+    if (!appliedCoupon) return 0;
 
-    let discount = 0;
-
-    if (coupon.discount.type === 'PERCENTAGE') {
-      discount = subtotal * (coupon.discount.value / 100);
-
-      // Aplicar limite máximo se definido
-      if (coupon.discount.maxAmount && discount > coupon.discount.maxAmount) {
-        discount = coupon.discount.maxAmount;
-      }
-    } else if (coupon.discount.type === 'FIXED_AMOUNT') {
-      discount = coupon.discount.value;
-
-      // Desconto não pode ser maior que o subtotal
-      if (discount > subtotal) {
-        discount = subtotal;
-      }
-    }
-
-    return discount;
+    const { totalDiscount } = calculateTotalDiscountByProducts(selectedItems, appliedCoupon);
+    return totalDiscount;
   };
 
   const calculateTotal = () => {
     const subtotal = calculateSubtotal();
-    const discount = appliedCoupon ? calculateDiscount(subtotal, appliedCoupon) : 0;
+    const discount = calculateTotalDiscount();
     const total = subtotal - discount;
 
     return new Intl.NumberFormat('pt-BR', {
@@ -194,38 +194,58 @@ const SummaryStep = () => {
   };
 
   // Helper para renderizar preço com desconto quando há cupom aplicado
-  const renderProductPrice = (item) => {
+  const renderProductPrice = (item, itemType, itemIndex = 0) => {
+    console.log('🎯 renderProductPrice chamado:', {
+      itemType,
+      itemTitle: item.title,
+      cupomAplicado: !!appliedCoupon,
+      cupomCode: appliedCoupon?.code
+    });
+
     if (!appliedCoupon) {
       return <span className={styles.singlePrice}>{item.getCurrentPrice().value}</span>;
     }
 
     const currentPrice = item.getCurrentPrice();
-    const discount = calculateDiscount(currencyToNumber(currentPrice.value), appliedCoupon);
+    const productValue = currencyToNumber(currentPrice.value);
+    const discount = getItemDiscount(item, itemType, itemIndex, appliedCoupon);
 
-    if (discount === currencyToNumber(currentPrice.value)) {
+    console.log('🎯 Cálculo do desconto:', {
+      itemType,
+      itemTitle: item.title,
+      productValue,
+      discount,
+      cupom: appliedCoupon.code,
+      currentPriceValue: currentPrice.value
+    });
+
+    if (discount === productValue) {
       // Desconto de 100%
+      console.log('🎯 Aplicando desconto de 100%');
       return (
         <div className={styles.priceWithDiscount}>
-          <span className={styles.originalPrice}>{currentPrice.value}</span>/
+          <span className={styles.originalPrice}>{currentPrice.value}</span>
           <span className={styles.discountedPrice}>R$ 0,00</span>
         </div>
       );
     } else if (discount > 0) {
       // Desconto parcial
-      const finalPrice = currencyToNumber(currentPrice.value) - discount;
+      const finalPrice = productValue - discount;
       const discountedPrice = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
       }).format(finalPrice);
 
+      console.log('🎯 Aplicando desconto parcial:', { finalPrice, discountedPrice });
       return (
         <div className={styles.priceWithDiscount}>
-          <span className={styles.originalPrice}>{currentPrice.value}</span>/
+          <span className={styles.originalPrice}>{currentPrice.value}</span>
           <span className={styles.discountedPrice}>{discountedPrice}</span>
         </div>
       );
     } else {
-      // Sem desconto
+      // Sem desconto para este produto
+      console.log('🎯 Sem desconto para este produto');
       return <span className={styles.singlePrice}>{currentPrice.value}</span>;
     }
   };
@@ -238,6 +258,7 @@ const SummaryStep = () => {
   // Função para remover cupom
   const handleRemoveCoupon = () => {
     setAppliedCoupon(null);
+    updateFormData('appliedCoupon', null); // Remover do contexto
     setCouponCode('');
     setCouponError('');
   };
@@ -267,7 +288,7 @@ const SummaryStep = () => {
 
       // Incluir informações do cupom na descrição se houver
       if (appliedCoupon) {
-        description += ` - Cupom: ${appliedCoupon.code}`;
+        description += ` - Coupon: ${appliedCoupon.code}`;
       }
 
       const total = calculateTotal();
@@ -378,10 +399,9 @@ const SummaryStep = () => {
       // Se há cupom aplicado, registrar o uso com CPF e valor do desconto
       if (appliedCoupon) {
         try {
-          const subtotal = calculateSubtotal();
-          const discountAmount = calculateDiscount(subtotal, appliedCoupon);
+          const discountAmount = calculateTotalDiscount();
 
-          const couponResponse = await fetch('/api/cupons/use', {
+          const couponResponse = await fetch('/api/coupons/use', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -395,7 +415,7 @@ const SummaryStep = () => {
 
           if (couponResponse.ok) {
             const couponResult = await couponResponse.json();
-            console.log('Cupom utilizado com sucesso:', {
+            console.log('Coupon utilizado com sucesso:', {
               cupom: appliedCoupon.code,
               cpf: personalInfo.cpf,
               desconto: discountAmount,
@@ -538,21 +558,25 @@ const SummaryStep = () => {
               <span className={styles.productName}>
                 {selectedItems.journey.title}
               </span>
-              {renderProductPrice(selectedItems.journey)}
+              <span data-testid="journey-price">
+                {renderProductPrice(selectedItems.journey, 'journey')}
+              </span>
             </div>
           )}
 
           {selectedItems.workshops?.map((workshop, index) => (
             <div key={index} className={styles.productItem}>
               <span className={styles.productName}>{workshop.title}</span>
-              {renderProductPrice(workshop)}
+              {renderProductPrice(workshop, 'workshop', index)}
             </div>
           ))}
 
           {selectedItems.courses?.map((course, index) => (
             <div key={index} className={styles.productItem}>
               <span className={styles.productName}>{course.title}</span>
-              {renderProductPrice(course)}
+              <span data-testid="course-price">
+                {renderProductPrice(course, 'course', index)}
+              </span>
             </div>
           ))}
 
@@ -561,14 +585,14 @@ const SummaryStep = () => {
               <span className={styles.productName}>
                 {selectedItems.dayUse.title}
               </span>
-              {renderProductPrice(selectedItems.dayUse)}
+              {renderProductPrice(selectedItems.dayUse, 'dayUse')}
             </div>
           )}
         </section>
 
         {/* Seção do cupom */}
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>Cupom de Desconto</h3>
+          <h3 className={styles.sectionTitle}>Coupon de Desconto</h3>
 
           {!appliedCoupon ? (
             <div className={styles.couponInputSection}>
@@ -596,14 +620,13 @@ const SummaryStep = () => {
                 </button>
               </div>
 
-              {couponError && (
-                <div className={styles.couponError}>
-                  {couponError}
-                </div>
+              {couponError && (              <div className={styles.couponError} data-testid="coupon-error">
+                {couponError}
+              </div>
               )}
             </div>
           ) : (
-            <div className={styles.appliedCouponSection}>
+            <div className={styles.appliedCouponSection} data-testid="applied-coupon">
               <div className={styles.appliedCouponInfo}>
                 <div className={styles.appliedCouponHeader}>
                   <span className={styles.couponIcon}>🎟️</span>
@@ -649,7 +672,7 @@ const SummaryStep = () => {
             <>
               <div className={styles.subtotalRow}>
                 <span className={styles.subtotalLabel}>Subtotal:</span>
-                <span className={styles.subtotalValue}>
+                <span className={styles.subtotalValue} data-testid="subtotal-value">
                   {new Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
@@ -659,11 +682,11 @@ const SummaryStep = () => {
 
               <div className={styles.discountRow}>
                 <span className={styles.discountLabel}>Desconto ({appliedCoupon.code}):</span>
-                <span className={styles.discountValue}>
+                <span className={styles.discountValue} data-testid="discount-value">
                   -{new Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
-                  }).format(calculateDiscount(calculateSubtotal(), appliedCoupon))}
+                  }).format(calculateTotalDiscount())}
                 </span>
               </div>
             </>
@@ -671,7 +694,7 @@ const SummaryStep = () => {
 
           <div className={styles.totalRow}>
             <span className={styles.totalLabel}>Total:</span>
-            <span className={styles.totalValue}>{calculateTotal()}</span>
+            <span className={styles.totalValue} data-testid="total-value">{calculateTotal()}</span>
           </div>
         </div>
       </div>

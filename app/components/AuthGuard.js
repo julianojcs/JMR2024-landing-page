@@ -27,13 +27,34 @@ export default function AuthGuard({ children }) {
     setError('')
 
     try {
-      const response = await fetch('/api/auth/validate-token', {
+      // First, try POST method
+      let response = await fetch('/api/auth/validate-token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ token }),
       })
+
+      // If POST fails with 405, try GET method as fallback
+      if (response.status === 405) {
+        console.log('POST failed with 405, trying GET fallback...')
+        response = await fetch(`/api/auth/validate-token?token=${encodeURIComponent(token)}`, {
+          method: 'GET',
+        })
+      }
+
+      // If still failing, try the v2 API
+      if (!response.ok && response.status === 405) {
+        console.log('Original API failed, trying v2 API...')
+        response = await fetch('/api/auth/validate-token-v2', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ token }),
+        })
+      }
 
       const data = await response.json()
 
@@ -47,8 +68,49 @@ export default function AuthGuard({ children }) {
       }
     } catch (err) {
       console.error('Erro na validação:', err)
-      setError('Erro ao validar token. Tente novamente.')
-      setToken('')
+
+      // Try GET method as ultimate fallback
+      try {
+        console.log('Trying GET fallback due to error...')
+        const fallbackResponse = await fetch(`/api/auth/validate-token?token=${encodeURIComponent(token)}`, {
+          method: 'GET',
+        })
+
+        const fallbackData = await fallbackResponse.json()
+
+        if (fallbackResponse.ok) {
+          setIsAuthenticated(true)
+          sessionStorage.setItem('lectures_auth', 'true')
+          setError('')
+        } else {
+          // Try v2 API with GET as final fallback
+          try {
+            console.log('Trying v2 API GET fallback...')
+            const v2Response = await fetch(`/api/auth/validate-token-v2?token=${encodeURIComponent(token)}`, {
+              method: 'GET',
+            })
+
+            const v2Data = await v2Response.json()
+
+            if (v2Response.ok) {
+              setIsAuthenticated(true)
+              sessionStorage.setItem('lectures_auth', 'true')
+              setError('')
+            } else {
+              setError(v2Data.error || fallbackData.error || 'Token de acesso inválido')
+              setToken('')
+            }
+          } catch (v2Error) {
+            console.error('V2 API também falhou:', v2Error)
+            setError(fallbackData.error || 'Token de acesso inválido')
+            setToken('')
+          }
+        }
+      } catch (fallbackErr) {
+        console.error('Fallback também falhou:', fallbackErr)
+        setError('Erro ao validar token. Verifique sua conexão e tente novamente.')
+        setToken('')
+      }
     } finally {
       setValidatingToken(false)
     }

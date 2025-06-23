@@ -1,7 +1,7 @@
-/* Estilos para o componente CupomCard - Design limpo e moderno */
+/* Estilos para o componente CouponCard - Design limpo e moderno */
 
 .cupomCard {
-  background: white;
+  background: rgba(158, 158, 158, 0.15);
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 1rem;
@@ -16,19 +16,84 @@
   border-color: #d1d5db;
 }
 
-/* Estados do cupom */
+/* Estados do cupom com cores distintas */
 .cupomCard.active {
   border-left: 4px solid #10b981;
+  /* background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%); */
 }
 
 .cupomCard.inactive {
-  border-left: 4px solid #ef4444;
-  opacity: 0.8;
+  border-left: 4px solid #6b7280;
+  /* background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); */
+  opacity: 0.7;
 }
 
 .cupomCard.expired {
   border-left: 4px solid #f59e0b;
-  background-color: #fffbeb;
+  /* background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); */
+}
+
+.cupomCard.redeemed {
+  border-left: 4px solid #ef4444;
+  /* background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); */
+}
+
+.cupomCard.soldOut {
+  border-left: 4px solid #8b5cf6;
+  /* background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); */
+}
+
+.cupomCard.pending {
+  border-left: 4px solid #06b6d4;
+  /* background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); */
+}
+
+/* Efeitos visuais aprimorados para estados */
+.cupomCard.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+}
+
+.cupomCard.expired:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.15);
+}
+
+.cupomCard.redeemed:hover {
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
+}
+
+.cupomCard.soldOut:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.15);
+}
+
+.cupomCard.pending:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.15);
+}
+
+.cupomCard.inactive:hover {
+  box-shadow: 0 4px 15px rgba(107, 114, 128, 0.1);
+}
+
+/* Efeito de brilho para cupons ativos */
+.cupomCard.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(16, 185, 129, 0.05) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.cupomCard.active:hover::before {
+  opacity: 1;
 }
 
 /* Header */
@@ -59,13 +124,49 @@
   line-height: 1.4;
 }
 
+/* Meta informações */
+.metaInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badgeDanger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.badgeWarning {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  animation: pulse 2s infinite;
+}
+
+/* Melhorias no ano */
 .year {
   font-size: 12px;
   color: #9ca3af;
   background: #f3f4f6;
-  padding: 2px 8px;
-  border-radius: 4px;
+  padding: 3px 8px;
+  border-radius: 12px;
   font-weight: 500;
+  border: 1px solid #e5e7eb;
 }
 
 /* Actions */
@@ -83,21 +184,92 @@
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: help;
+}
+
+.status::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.status:hover::before {
+  left: 100%;
+}
+
+.status:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #1f2937;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+.status:hover::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2px;
+  border: 6px solid transparent;
+  border-bottom-color: #1f2937;
+  z-index: 1001;
 }
 
 .status.active {
   background: #d1fae5;
   color: #065f46;
+  border: 1px solid #10b981;
 }
 
 .status.inactive {
-  background: #fee2e2;
-  color: #991b1b;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #6b7280;
 }
 
 .status.expired {
   background: #fef3c7;
   color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+.status.redeemed {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+.status.soldOut {
+  background: #f3e8ff;
+  color: #7c3aed;
+  border: 1px solid #8b5cf6;
+}
+
+.status.pending {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #06b6d4;
 }
 
 .buttons {
@@ -140,6 +312,8 @@
   border-radius: 8px;
   padding: 0.25rem;
   color: white;
+  position: relative;
+  overflow: hidden;
 }
 
 .discountValue {
@@ -158,6 +332,29 @@
   border-radius: 4px;
 }
 
+.discount::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3b82f6, #1d4ed8, #1e40af, #3b82f6);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 /* Detalhes */
 .details {
   display: flex;
@@ -166,7 +363,11 @@
   animation: slideDown 0.3s ease-out;
   overflow: hidden;
   transition: all 0.3s ease;
-  margin-block-start: 1rem;
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  border: 1px solid #f3f4f6;
 }
 
 /* Animação de slide down */
@@ -246,32 +447,34 @@
 
 /* Botão para expandir/colapsar */
 .expandButton {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background-color: #f9fafb;
-  color: #6b7280;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 16px;
 }
 
 .expandButton:hover {
-  background-color: #f3f4f6;
+  background: #f9fafb;
   border-color: #d1d5db;
-  color: #4b5563;
+  color: #374151;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.expandButton:focus {
-  outline: none;
-  ring: 2px solid #3b82f6;
-  ring-opacity: 0.5;
+.expandButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Progresso */
@@ -304,16 +507,78 @@
   transition: width 0.3s ease;
 }
 
+.progressFill.active {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.progressFill.warning {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.progressFill.danger {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.progressFill.soldOut {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
+/* Estilos para mensagens de progresso */
+.progressWarning {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #991b1b;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.progressAlert {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-radius: 6px;
+  color: #7c3aed;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+.textDanger {
+  color: #ef4444 !important;
+  font-weight: 600;
+}
+
+/* Animação pulsante para cupons próximos do esgotamento */
+.cupomCard.soldOut .discountValue {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .cupomCard {
     padding: 20px;
     width: 100%;
+    margin: 0;
   }
 
-  /* .header {
+  .header {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
   .actions {
@@ -321,7 +586,27 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-  } */
+  }
+
+  .metaInfo {
+    justify-content: flex-start;
+  }
+
+  .status:hover::after {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+    max-width: 280px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .status:hover::before {
+    display: none;
+  }
 
   .code {
     font-size: 18px;
@@ -522,6 +807,22 @@
   border-radius: 4px;
 }
 
+.progressFill.active {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.progressFill.warning {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.progressFill.danger {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.progressFill.soldOut {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
 .usageDetails {
   margin-top: 1rem;
   padding-top: 1rem;
@@ -617,5 +918,16 @@
     padding: 0.5rem 1rem;
     font-size: 1rem;
     min-width: 100px;
+  }
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 }

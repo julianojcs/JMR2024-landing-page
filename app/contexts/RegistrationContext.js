@@ -37,6 +37,7 @@ export const RegistrationProvider = ({ children, year, onCloseModal }) => {
       courses: [],
       dayUse: null
     },
+    appliedCoupon: null,
     receipt: {},
     category: {},
     totalAmount: 0
@@ -52,11 +53,11 @@ export const RegistrationProvider = ({ children, year, onCloseModal }) => {
 
   const updateFormData = (section, dataMember) => {
     setFormData(prev => {
-      // Special handling for receipt which is not an object to be merged
-      if (section === 'receipt') {
+      // Special handling for receipt and appliedCoupon which are not objects to be merged
+      if (section === 'receipt' || section === 'appliedCoupon') {
         return {
           ...prev,
-          receipt: dataMember // Direct assignment, no spreading
+          [section]: dataMember // Direct assignment, no spreading
         };
       }
 
