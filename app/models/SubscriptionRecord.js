@@ -230,35 +230,61 @@ class SubscriptionRecord {
   /**
    * Gera um identificador único para o produto baseado nos itens selecionados
    * Usado para verificar duplicação de inscrições
+   * Usa 'title' como chave única já que os itens não possuem 'id'
    */
   generateProductIdentifier() {
     const parts = [];
 
-    if (this.selectedItems.journey?.id) {
-      parts.push(`journey:${this.selectedItems.journey.id}`);
+    if (this.selectedItems.journey?.title) {
+      // Normaliza o título para criar um ID consistente
+      const journeyId = this.selectedItems.journey.title.toLowerCase().replace(/\s+/g, '-');
+      parts.push(`journey:${journeyId}`);
     }
 
     if (this.selectedItems.workshops?.length > 0) {
       const workshopIds = this.selectedItems.workshops
-        .map(w => w.id)
+        .map(w => w.title?.toLowerCase().replace(/\s+/g, '-'))
+        .filter(id => id) // Remove valores vazios
         .sort()
         .join(',');
-      parts.push(`workshops:${workshopIds}`);
+      if (workshopIds) {
+        parts.push(`workshops:${workshopIds}`);
+      }
     }
 
     if (this.selectedItems.courses?.length > 0) {
       const courseIds = this.selectedItems.courses
-        .map(c => typeof c === 'string' ? c : c.id)
+        .map(c => {
+          if (typeof c === 'string') return c.toLowerCase().replace(/\s+/g, '-');
+          return c.title?.toLowerCase().replace(/\s+/g, '-');
+        })
+        .filter(id => id) // Remove valores vazios
         .sort()
         .join(',');
-      parts.push(`courses:${courseIds}`);
+      if (courseIds) {
+        parts.push(`courses:${courseIds}`);
+      }
     }
 
-    if (this.selectedItems.dayUse?.id) {
-      parts.push(`dayUse:${this.selectedItems.dayUse.id}`);
+    if (this.selectedItems.dayUse?.title) {
+      const dayUseId = this.selectedItems.dayUse.title.toLowerCase().replace(/\s+/g, '-');
+      parts.push(`dayUse:${dayUseId}`);
     }
 
-    return parts.join('|');
+    const identifier = parts.join('|');
+
+    // 🛡️ Log de diagnóstico para confirmar geração do identificador
+    console.log('📋 ProductIdentifier gerado:', {
+      identifier,
+      selectedItems: {
+        journey: this.selectedItems.journey?.title,
+        workshops: this.selectedItems.workshops?.map(w => w.title),
+        courses: this.selectedItems.courses?.map(c => typeof c === 'string' ? c : c.title),
+        dayUse: this.selectedItems.dayUse?.title
+      }
+    });
+
+    return identifier;
   }
 }
 
