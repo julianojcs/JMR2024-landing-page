@@ -1603,7 +1603,8 @@ export const eventData = {
           subtitle: {
             tag: 'h4',
             text: [
-              '* Necessário enviar comprovante'
+              '* Necessário enviar comprovante',
+              '** Pix No Local: pagamento realizado no local do evento, apenas via Pix, até as 11h do dia 26/06.'
             ],
             color: '#f8f9fa'
           },
@@ -1621,7 +1622,7 @@ export const eventData = {
               { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
-              { desktop: 'No Local', mobile: 'No Local' }
+              { desktop: ['Pix/No Local**', 'até 26/06'], mobile: 'Pix No Local' }
             ],
             rows: [
               { cells: ['Médico Sócio SRMG/SOGIMIG', '', { validar: ['SRMG', 'SOGIMIG'], comprovante: false }, 'R$ 325', 'R$ 355', 'R$ 385', 'R$ 415'] },
@@ -1645,7 +1646,8 @@ export const eventData = {
             tag: 'h4',
             text: ['* Necessário enviar comprovante',
               '* Workshops são exclusivos para médicos.',
-              '* Médicos residentes deverão enviar comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship referente ao ano de 2025.'
+              '* Médicos residentes deverão enviar comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship referente ao ano de 2025.',
+              '** Pix No Local: pagamento realizado no local do evento, apenas via Pix, até as 11h do dia 26/06.'
             ],
             color: '#f8f9fa'
           },
@@ -1662,7 +1664,7 @@ export const eventData = {
               { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
-              { desktop: 'No Local', mobile: 'No Local' }
+              { desktop: ['Pix/No Local**', 'até 26/06'], mobile: 'Pix No Local' }
             ],
             rows: [
               { cells: ['Médico Sócio SRMG/SOGIMIG', { validar: ['SRMG', 'SOGIMIG'], comprovante: false }, 'R$ 70', 'R$ 80', 'R$ 87', 'R$ 94'] },
@@ -1682,7 +1684,8 @@ export const eventData = {
             tag: 'h4',
             text: [
               '* Aberto ao público geral.',
-              '* Não há necessidade de comprovantes.'
+              '* Não há necessidade de comprovantes.',
+              '** Pix No Local: pagamento realizado no local do evento, apenas via Pix, até as 11h do dia 26/06.'
             ],
             color: '#f8f9fa'
           },
@@ -1699,7 +1702,7 @@ export const eventData = {
               { desktop: ['Desconto', 'até 30/04'], mobile: 'Até 30/04 ' },
               { desktop: ['Desconto', 'até 30/05'], mobile: 'Até 30/05' },
               { desktop: ['Desconto', 'até 25/06'], mobile: 'Até 25/06' },
-              { desktop: 'No Local', mobile: 'No Local' }
+              { desktop: ['Pix/No Local**', 'até 26/06'], mobile: 'Pix No Local' }
             ],
             rows: [
               { cells: ['Aberto ao Público', { validar: false, comprovante: false }, 'R$ 88', 'R$ 98', 'R$ 105', 'R$ 111'] }
