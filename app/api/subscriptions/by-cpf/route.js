@@ -6,6 +6,7 @@
 
 import { MongoClient } from 'mongodb';
 import { SubscriptionRecord } from '../../../models/SubscriptionRecord';
+import { apiKey, apiUrl } from '@/api/asaas/config';
 
 // Configuração do MongoDB
 const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/jornada';
