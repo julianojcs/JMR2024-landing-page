@@ -5,8 +5,7 @@
  */
 
 import { MongoClient } from 'mongodb';
-import { SubscriptionRecord } from '../../../models/SubscriptionRecord'
-import { apiKey, apiUrl } from '@/api/asaas/config';;
+import { SubscriptionRecord } from '../../../models/SubscriptionRecord';
 
 // Configuração do MongoDB
 const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/jornada';
@@ -32,27 +31,33 @@ async function connectToMongoDB() {
 }
 
 /**
- * Buscar pagamentos no Asaas
+ * Buscar pagamentos no Asaas usando a API interna
  */
 async function fetchAsaasPayments(cpf) {
   try {
     const cleanCpf = cpf.replace(/\D/g, '');
 
-    const response = await fetch(`${apiUrl}/payments?customer=${cleanCpf}&limit=100`, {
+    // Usa a API interna que já implementa a lógica correta de buscar customer primeiro
+    const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
+    const response = await fetch(`${baseUrl}/api/asaas/payments?cpfCnpj=${cleanCpf}&limit=100`, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'access_token': apiKey
+        'Content-Type': 'application/json'
       }
     });
 
     if (!response.ok) {
-      console.log('⚠️ Nenhum pagamento encontrado no Asaas para CPF:', cleanCpf);
+      const errorText = await response.text();
+      if (response.status === 404) {
+        console.log('⚠️ Customer não encontrado no Asaas para CPF:', cleanCpf);
+        return { data: [] };
+      }
+      console.error('❌ Erro na API do Asaas:', response.status, errorText);
       return { data: [] };
     }
 
     const data = await response.json();
-    console.log(`📋 Encontrados ${data.data?.length || 0} pagamentos no Asaas`);
+    console.log(`📋 Encontrados ${data.data?.length || 0} pagamentos no Asaas para CPF:`, cleanCpf);
 
     return data;
   } catch (error) {
