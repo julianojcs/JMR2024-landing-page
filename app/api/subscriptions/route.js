@@ -6,125 +6,125 @@
 import { MongoClient } from 'mongodb';
 import { SubscriptionRecord } from '../../models/SubscriptionRecord.js';
 
-// Configuração do MongoDB
-const uri = process.env.MONGODB_URI ||
-  process.env.NODE_ENV !== 'production' ? 'mongodb://127.0.0.1:27017/jornada' : 'mongodb://jornada:jmr20xx@195.200.4.220:27017/jornada';
+// Configuração do MongoDB com timeouts otimizados para produção
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, {
-  connectTimeoutMS: 10000,
+  connectTimeoutMS: 5000, // Reduzido de 10000 para 5000
+  serverSelectionTimeoutMS: 5000, // Timeout para seleção do servidor
+  maxPoolSize: 10, // Limite do pool de conexões
 });
 
 const dbName = 'jornada';
 const collectionName = 'subscriptions';
 
 /**
- * Conecta ao MongoDB
+ * Conecta ao MongoDB (otimizado para produção)
  */
 async function connectToMongoDB() {
   try {
+    // Conectar com timeout curto
     await client.connect();
-    console.log('✅ Conectado ao MongoDB para inscrições');
     return client.db(dbName).collection(collectionName);
   } catch (error) {
-    console.error('❌ Erro ao conectar ao MongoDB:', error);
-    throw error;
+    console.error('❌ Erro ao conectar ao MongoDB:', error.message);
+    throw new Error(`Falha na conexão MongoDB: ${error.message}`);
   }
 }
 
 /**
- * POST /api/subscriptions - Criar nova inscrição
+ * POST /api/subscriptions - Criar nova inscrição (otimizado para produção)
  */
 export async function POST(request) {
+  const startTime = Date.now();
+
   try {
-    console.log('🚀 Iniciando POST /api/subscriptions');
+    console.log('🚀 POST /api/subscriptions iniciado');
 
-    const collection = await connectToMongoDB();
-    console.log('✅ Conectado ao MongoDB');
-
-    const subscriptionData = await request.json();
-    console.log('📋 Dados recebidos:', JSON.stringify(subscriptionData, null, 2));
-
-    console.log('📝 Criando nova inscrição:', {
-      cpf: subscriptionData.personalInfo?.cpf,
-      email: subscriptionData.personalInfo?.email,
-      finalValue: subscriptionData.financial?.finalValue
+    // Timeout de 20 segundos para toda a operação
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('Timeout na criação da inscrição')), 20000);
     });
 
-    // Criar instância do SubscriptionRecord
-    console.log('🔧 Criando SubscriptionRecord...');
-    const subscriptionRecord = new SubscriptionRecord(subscriptionData);
-    console.log('✅ SubscriptionRecord criado');
+    const operationPromise = async () => {
+      const collection = await connectToMongoDB();
+      const subscriptionData = await request.json();
 
-    // Validar dados
-    console.log('🔍 Validando dados...');
-    const validation = subscriptionRecord.validate();
-    console.log('📊 Resultado da validação:', validation);
+      console.log('📝 Nova inscrição:', {
+        cpf: subscriptionData.personalInfo?.cpf,
+        email: subscriptionData.personalInfo?.email,
+        finalValue: subscriptionData.financial?.finalValue
+      });
 
-    if (!validation.isValid) {
-      return Response.json({
-        success: false,
-        message: 'Dados inválidos',
-        errors: validation.errors
-      }, { status: 400 });
-    }
+      // Criar instância do SubscriptionRecord
+      const subscriptionRecord = new SubscriptionRecord(subscriptionData);
 
-    // Verificar se já existe inscrição com mesmo CPF, ano e produto
-    const productIdentifier = subscriptionRecord.generateProductIdentifier();
-    const existingSubscription = await collection.findOne({
-      'personalInfo.cpf': subscriptionRecord.personalInfo.cpf,
-      eventYear: subscriptionRecord.eventYear,
-      productIdentifier: productIdentifier
-    });
+      // Validar dados
+      const validation = subscriptionRecord.validate();
+      if (!validation.isValid) {
+        return Response.json({
+          success: false,
+          message: 'Dados inválidos',
+          errors: validation.errors
+        }, { status: 400 });
+      }
 
-    if (existingSubscription) {
-      console.log('⚠️ Inscrição já existe para este produto, atualizando...');
+      // Verificar duplicação e criar/atualizar inscrição
+      const productIdentifier = subscriptionRecord.generateProductIdentifier();
+      const existingSubscription = await collection.findOne({
+        'personalInfo.cpf': subscriptionRecord.personalInfo.cpf,
+        eventYear: subscriptionRecord.eventYear,
+        productIdentifier: productIdentifier
+      });
 
-      // Atualizar inscrição existente
-      const recordData = subscriptionRecord.toMongoDB();
-      recordData.metadata.updatedAt = new Date(); // Atualizar metadata corretamente
+      if (existingSubscription) {
+        console.log('⚠️ Atualizando inscrição existente');
 
-      const updateResult = await collection.updateOne(
-        { _id: existingSubscription._id },
-        { $set: recordData }
-      );
+        const recordData = subscriptionRecord.toMongoDB();
+        recordData.metadata.updatedAt = new Date();
 
-      if (updateResult.modifiedCount > 0) {
+        const updateResult = await collection.updateOne(
+          { _id: existingSubscription._id },
+          { $set: recordData }
+        );
+
         return Response.json({
           success: true,
           message: 'Inscrição atualizada com sucesso',
           subscriptionId: existingSubscription.subscriptionId,
-          action: 'updated'
+          action: 'updated',
+          processingTime: Date.now() - startTime
         });
-      } else {
-        return Response.json({
-          success: false,
-          message: 'Erro ao atualizar inscrição'
-        }, { status: 400 });
       }
-    }
 
-    // Criar nova inscrição
-    const result = await collection.insertOne(subscriptionRecord.toMongoDB());
+      // Criar nova inscrição
+      const result = await collection.insertOne(subscriptionRecord.toMongoDB());
 
-    if (result.insertedId) {
-      console.log('✅ Inscrição criada com sucesso:', result.insertedId);
+      if (result.insertedId) {
+        console.log('✅ Inscrição criada:', result.insertedId);
 
-      return Response.json({
-        success: true,
-        message: 'Inscrição criada com sucesso',
-        subscriptionId: subscriptionRecord.subscriptionId,
-        mongoId: result.insertedId,
-        action: 'created'
-      }, { status: 201 });
-    } else {
-      throw new Error('Falha ao inserir no banco de dados');
-    }
+        return Response.json({
+          success: true,
+          message: 'Inscrição criada com sucesso',
+          subscriptionId: subscriptionRecord.subscriptionId,
+          mongoId: result.insertedId,
+          action: 'created',
+          processingTime: Date.now() - startTime
+        }, { status: 201 });
+      } else {
+        throw new Error('Falha ao inserir no banco de dados');
+      }
+    };
+
+    // Executar com timeout
+    return await Promise.race([operationPromise(), timeoutPromise]);
 
   } catch (error) {
     console.error('❌ Erro ao criar inscrição:', error);
     return Response.json({
       success: false,
       message: 'Erro ao criar inscrição',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: error.message,
+      processingTime: Date.now() - startTime
     }, { status: 500 });
   }
 }

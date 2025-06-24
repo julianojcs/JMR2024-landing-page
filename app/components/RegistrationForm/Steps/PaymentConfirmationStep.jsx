@@ -187,14 +187,20 @@ const PaymentConfirmationStep = () => {
         isFree: finalValue === 0
       });
 
-      // Salvar no MongoDB
-      const response = await fetch('/api/subscriptions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(subscriptionData)
-      });
+      // Salvar no MongoDB com timeout
+      const response = await Promise.race([
+        fetch('/api/subscriptions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(subscriptionData)
+        }),
+        // Timeout de 25 segundos no frontend
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Timeout ao salvar inscrição')), 25000)
+        )
+      ]);
 
       // Verificar se a resposta tem conteúdo JSON
       const contentType = response.headers.get('content-type');
@@ -215,7 +221,16 @@ const PaymentConfirmationStep = () => {
 
     } catch (error) {
       console.error('❌ Erro ao salvar inscrição no MongoDB:', error);
-      // Não impedir o fluxo se houver erro ao salvar no MongoDB
+
+      // Tratamento específico para timeouts
+      if (error.message.includes('Timeout')) {
+        console.warn('⚠️ Timeout ao salvar no MongoDB - inscrição pode ter sido salva mesmo assim');
+        // Não impedir o fluxo em caso de timeout, pois a inscrição pode ter sido salva
+        return null;
+      }
+
+      // Para outros erros, também não impedir o fluxo
+      console.warn('⚠️ Erro ao salvar no MongoDB, mas continuando o fluxo');
     }
   };
 
