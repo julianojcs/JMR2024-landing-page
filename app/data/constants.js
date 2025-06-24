@@ -1604,7 +1604,7 @@ export const eventData = {
             tag: 'h4',
             text: [
               '* Necessário enviar comprovante',
-              '** Pix No Local: pagamento realizado no local do evento, apenas via Pix, até as 11h do dia 26/06.'
+              '** Inscrições no site até as 11h do dia 26/07. Nos dias do evento (27 e 28), inscrições apenas No Local e pagamento via Pix.'
             ],
             color: '#f8f9fa'
           },
@@ -1647,7 +1647,7 @@ export const eventData = {
             text: ['* Necessário enviar comprovante',
               '* Workshops são exclusivos para médicos.',
               '* Médicos residentes deverão enviar comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship referente ao ano de 2025.',
-              '** Pix No Local: pagamento realizado no local do evento, apenas via Pix, até as 11h do dia 26/06.'
+              '** Inscrições no site até as 11h do dia 26/07. Nos dias do evento (27 e 28), inscrições apenas No Local e pagamento via Pix.'
             ],
             color: '#f8f9fa'
           },
@@ -1685,7 +1685,7 @@ export const eventData = {
             text: [
               '* Aberto ao público geral.',
               '* Não há necessidade de comprovantes.',
-              '** Pix No Local: pagamento realizado no local do evento, apenas via Pix, até as 11h do dia 26/06.'
+              '** Inscrições no site até as 11h do dia 26/07. Nos dias do evento (27 e 28), inscrições apenas No Local e pagamento via Pix.'
             ],
             color: '#f8f9fa'
           },
