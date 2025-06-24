@@ -8,6 +8,7 @@
       "@/lib/*": ["./app/lib/*"],
       "@/hooks/*": ["./app/hooks/*"],
       "@/components/*": ["./app/components/*"],
+      "@/models/*": ["./app/models/*"],
       "@/data/*": ["./app/data/*"]
     },
     "jsx": "preserve",
