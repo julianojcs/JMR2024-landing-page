@@ -1805,12 +1805,6 @@ export const eventData = {
               width: 104.45,
               height: 25
             }, {
-              name: 'MedFi',
-              src: '/logo/medfi.png',
-              href: 'https://medficonsultoria.com.br/',
-              width: 48.12,
-              height: 38
-            }, {
               name: 'Hermes Pardini',
               src: '/logo/hermes-pardini.png',
               href: 'https://www.hermespardini.com.br/',
