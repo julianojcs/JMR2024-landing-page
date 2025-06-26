@@ -618,6 +618,9 @@ export const eventData = {
       email: 'srmg@srmg.org.br',
       bcc: 'jmr@srmg.org.br',
       phone: '(27)98133-0708',
+      subscriptionsOpened: true,
+      subscriptionsClosed: true,
+      certificatesAvailable: false,
     },
     title:
       'JMR & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',

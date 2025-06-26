@@ -50,6 +50,9 @@ export const RegistrationProvider = ({ children, year, onCloseModal }) => {
     dueDays: 3,
     url: 'https://jornada.srmg.org.br',
   };
+  const subscriptionsOpened = eventData.event?.subscriptionsOpened || true;
+  const subscriptionsClosed = eventData.event?.subscriptionsClosed || false;
+  const certificatesAvailable = eventData.event?.certificatesAvailable || false;
 
   const updateFormData = (section, dataMember) => {
     setFormData(prev => {
@@ -182,6 +185,9 @@ export const RegistrationProvider = ({ children, year, onCloseModal }) => {
       eventData,
       paymentConfig,
       year,
+      subscriptionsOpened,
+      subscriptionsClosed,
+      certificatesAvailable,
       updateFormData,
       setCurrentStep,
       setPaymentResponse,
