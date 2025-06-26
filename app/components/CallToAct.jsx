@@ -3,9 +3,9 @@ import classnames from 'classnames'
 import { container, button } from './CallToAct.module.css'
 import { eventData } from '../data/constants'
 
-const CallToAct = ({ caption, link, onClick }) => {
-  const { subscriptionsOpened, subscriptionsClosed, certificatesAvailable } = eventData[new Date().getFullYear()].event || {};
-  console.log('CallToAct', { subscriptionsOpened, subscriptionsClosed, certificatesAvailable });
+const CallToAct = ({ caption, link, onClick, year }) => {
+  year = year || new Date().getFullYear();
+  const { subscriptionsOpened, subscriptionsClosed, certificatesAvailable } = eventData[year]?.event || {};
   return (
     <div className={classnames(container)}>
       {

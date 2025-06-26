@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import CallToAct from './CallToAct'
 import {
@@ -17,7 +16,10 @@ const Promoters = ({ year }) => {
   return (
     <section className={container}>
       <div className={buttonWrapper}>
-        <CallToAct {...promoters?.callToAct} />
+        <CallToAct
+          {...promoters?.callToAct}
+          year={year}
+        />
       </div>
       <div className={containerPromoters}>
         {

@@ -9,7 +9,7 @@ import {
   firstRow
 } from './Events.module.css'
 
-const Events = ({ year}) => {
+const Events = ({ year }) => {
   const data = eventData[year]
   const events = data?.events || null
 
@@ -122,7 +122,10 @@ const Events = ({ year}) => {
           </div>
         </div>
       ))}
-      <CallToAct {...events?.callToAct} />
+      <CallToAct
+        {...events?.callToAct}
+        year={year}
+      />
     </section>
   )
 }

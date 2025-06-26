@@ -213,6 +213,7 @@ export default function Table({ theTable, year }) {
         <CallToAct
           onClick={handleCallToAction}
           {...theTable.callToAct}
+          year={year}
         />
       </div>
       <Modal
