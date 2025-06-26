@@ -783,6 +783,19 @@ export const eventData = {
           caption: 'Lista de trabalhos científicos classificados!',
           link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view'
         }
+      }, {
+        id: 5,
+        active: true,
+        activeAt: '2025-06-25T00:00:00-0300',
+        expireAt: '2025-06-27T23:59:59-0300',
+        title: 'Participe do MOMENTO ESPECIAL JMR/CIM 2025',
+        description: [
+          'Uma pausa na programação científica para homenagear histórias que nos inspiram',
+          'e nos fazem refletir sobre o propósito da medicina.',
+          'Dia 28/06 às 12h30, no Teatro Oromar Moreira!',
+          'Aguardamos todos vocês!'
+        ],
+        logos: []
       }
     ],
     introduction: {
@@ -1210,7 +1223,7 @@ export const eventData = {
           cardlist: [
             {
               date: '27/06',
-              title: ['Abertura', 'Oficial'],
+              title: ['Início do Evento', 'JMR/CIM 2025'],
               img: '/images/cards/oppening.png',
               width: '125',
               height: '125',
@@ -1442,7 +1455,7 @@ export const eventData = {
         },
         {
           imagePath: '/avatars/Bruna_Cesario_Senna.png',
-          name: 'Dra.Bruna Cesário Senna.jpg'
+          name: 'Dra.Bruna Cesário Senna'
         },
         {
           imagePath: '/avatars/Adriene_Moraes_Campos.png',
@@ -1843,6 +1856,12 @@ export const eventData = {
               href: 'https://hospitalorizonti.com.br/',
               width: 80,
               height: 33
+            }, {
+              name: 'Agis',
+              src: '/logo/agis.png',
+              href: 'https://agismedical.com.br/',
+              width: 60,
+              height: 15.19
             }]
           }
         }
@@ -12486,7 +12505,7 @@ export const eventData = {
         },
         {
           imagePath: '/avatars/Bruna_Cesario_Senna.png',
-          name: 'Dra.Bruna Cesário Senna.jpg'
+          name: 'Dra.Bruna Cesário Senna'
         },
         {
           imagePath: '/avatars/Adriene_Moraes_Campos.png',
