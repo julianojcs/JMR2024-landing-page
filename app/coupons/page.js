@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import AuthGuard from '../components/AuthGuard';
 import styles from './coupons.module.css';
 import CouponCard from '../components/CouponCard.jsx';
 import CollapsibleSection from '../components/CollapsibleSection.jsx';
@@ -188,7 +189,8 @@ export default function CouponsPage() {
   };
 
   return (
-    <div className={styles.container}>
+    <AuthGuard>
+      <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.title}>Gerenciamento de Coupons</h1>
         <p className={styles.subtitle}>
@@ -360,5 +362,6 @@ export default function CouponsPage() {
         </div>
       )}
     </div>
+    </AuthGuard>
   );
 }
