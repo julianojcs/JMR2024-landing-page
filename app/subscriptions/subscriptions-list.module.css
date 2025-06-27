@@ -314,9 +314,27 @@
   max-width: 250px;
 }
 
-.table tbody tr:hover {
-  background: #f9fafb;
-}
+/* Ajuste de larguras das colunas após remoção da coluna TIPO */
+.table th:nth-child(1) { width: 25%; } /* Nome/Email - expandido */
+.table th:nth-child(2) { width: 12%; } /* CPF */
+.table th:nth-child(3) { width: 20%; } /* Produto - expandido */
+.table th:nth-child(4) { width: 12%; } /* Código Cupom */
+.table th:nth-child(5) { width: 10%; } /* Desconto */
+.table th:nth-child(6) { width: 12%; } /* Valor */
+.table th:nth-child(7) { width: 12%; } /* Data Inscrição */
+.table th:nth-child(8) { width: 10%; } /* Status */
+.table th:nth-child(9) { width: 12%; } /* Presença */
+
+/* Aplicar mesmas larguras aos TDs */
+.table td:nth-child(1) { width: 25%; max-width: 300px; }
+.table td:nth-child(2) { width: 12%; }
+.table td:nth-child(3) { width: 20%; max-width: 280px; }
+.table td:nth-child(4) { width: 12%; }
+.table td:nth-child(5) { width: 10%; }
+.table td:nth-child(6) { width: 12%; }
+.table td:nth-child(7) { width: 12%; }
+.table td:nth-child(8) { width: 10%; }
+.table td:nth-child(9) { width: 12%; }
 
 /* Badges para tipos de cupom */
 .couponBadge {
@@ -522,6 +540,61 @@
 
 .attendanceBtn:active {
   transform: translateY(0);
+}
+
+/* Estilos para cupons mascarados */
+.couponCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  min-height: 40px;
+}
+
+.couponCell:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.couponCode {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+}
+
+.couponToggle {
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.couponCell:hover .couponToggle {
+  opacity: 1;
+}
+
+/* Estado visível do cupom */
+.couponCell[data-visible="true"] {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+}
+
+.couponCell[data-visible="true"]:hover {
+  background: #d1fae5;
+  border-color: #34d399;
+}
+
+.couponCell[data-visible="true"] .couponCode {
+  color: #065f46;
 }
 
 /* Responsividade */

@@ -39,6 +39,7 @@ export default function SubscriptionsListPage() {
   const [availableDiscounts, setAvailableDiscounts] = useState([]);
   const [availableCategories, setAvailableCategories] = useState([]);
   const [availableProducts, setAvailableProducts] = useState([]);
+  const [visibleCoupons, setVisibleCoupons] = useState(new Set());
 
   // Estados de filtros
   const [filters, setFilters] = useState({
@@ -613,6 +614,48 @@ export default function SubscriptionsListPage() {
     return statusMap[status] || status || 'N/A';
   };
 
+  // Renderizar código do cupom com sistema de ocultar/mostrar
+  const renderCouponCode = (subscription) => {
+    const couponCode = subscription.appliedCoupon?.code;
+
+    if (!couponCode || couponCode === 'N/A') {
+      return <span style={{ color: '#9ca3af', fontStyle: 'italic' }}>Sem cupom</span>;
+    }
+
+    const subscriptionId = subscription.id;
+    const isVisible = visibleCoupons.has(subscriptionId);
+
+    const toggleCouponVisibility = () => {
+      const newVisibleCoupons = new Set(visibleCoupons);
+      if (isVisible) {
+        newVisibleCoupons.delete(subscriptionId);
+      } else {
+        newVisibleCoupons.add(subscriptionId);
+      }
+      setVisibleCoupons(newVisibleCoupons);
+    };
+
+    const maskedCode = couponCode.length > 4
+      ? `${couponCode.substring(0, 2)}${'*'.repeat(couponCode.length - 4)}${couponCode.substring(couponCode.length - 2)}`
+      : '*'.repeat(couponCode.length);
+
+    return (
+      <div
+        className={styles.couponCell}
+        data-visible={isVisible}
+        onClick={toggleCouponVisibility}
+        title={isVisible ? 'Clique para ocultar' : 'Clique para mostrar código completo'}
+      >
+        <span className={styles.couponCode}>
+          {isVisible ? couponCode : maskedCode}
+        </span>
+        <span className={styles.couponToggle}>
+          {isVisible ? '🙈' : '👁️'}
+        </span>
+      </div>
+    );
+  };
+
   // Verificar se o produto específico teve presença marcada
   const getProductAttendance = (subscription) => {
     if (!subscription.currentProduct || !subscription.productType) {
@@ -899,7 +942,7 @@ export default function SubscriptionsListPage() {
         <section className={styles.tableSection}>
           <div className={styles.tableHeader}>
             <h3 className={styles.tableTitle}>
-              Registros de Produtos ({pagination.total} {pagination.total === 1 ? 'registro' : 'registros'})
+              Inscrições por Produto ({pagination.total} {pagination.total === 1 ? 'inscrição encontrada' : 'inscrições encontradas'})
             </h3>
           </div>
 
@@ -911,7 +954,6 @@ export default function SubscriptionsListPage() {
                     <tr>
                       <th>Nome / Email</th>
                       <th>CPF</th>
-                      <th>Tipo</th>
                       <th>Produto</th>
                       <th>Código Cupom</th>
                       <th>Desconto</th>
@@ -931,9 +973,8 @@ export default function SubscriptionsListPage() {
                           </div>
                         </td>
                         <td>{formatCPF(subscription.cpf)}</td>
-                        <td>{renderTypeBadge(subscription)}</td>
                         <td>{getMainProduct(subscription)}</td>
-                        <td>{subscription.appliedCoupon?.code || 'N/A'}</td>
+                        <td>{renderCouponCode(subscription)}</td>
                         <td>{formatDiscountValue(subscription)}</td>
                         <td>
                           {formatValueDisplay(subscription)}

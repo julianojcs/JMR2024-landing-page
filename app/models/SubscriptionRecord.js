@@ -69,6 +69,13 @@ class SubscriptionRecord {
       totalDiscount: data.coupon?.totalDiscount || 0
     };
 
+    // Dados do cupom aplicado (nova estrutura)
+    this.couponData = {
+      appliedCoupon: data.couponData?.appliedCoupon || null,
+      discountAmount: data.couponData?.discountAmount || 0,
+      finalAmount: data.couponData?.finalAmount || this.financial.finalValue
+    };
+
     // Status da inscrição
     this.status = {
       registration: data.status?.registration || 'COMPLETED',
@@ -122,7 +129,7 @@ class SubscriptionRecord {
    * Para manter compatibilidade com o SubscriptionsList
    */
   toAsaasFormat() {
-    return {
+    const asaasFormat = {
       id: this.asaasPaymentId || this.subscriptionId,
       dateCreated: this.metadata.createdAt,
       customer: this.personalInfo.cpf,
@@ -135,8 +142,37 @@ class SubscriptionRecord {
       invoiceNumber: this.payment.invoiceNumber,
       invoiceUrl: this.payment.invoiceUrl,
       bankSlipUrl: this.payment.bankSlipUrl,
-      transactionReceiptUrl: this.payment.transactionReceiptUrl
+      transactionReceiptUrl: this.payment.transactionReceiptUrl,
+
+      // Dados pessoais para compatibilidade
+      user: {
+        id: this._id,
+        name: this.personalInfo.fullName,
+        email: this.personalInfo.email,
+        cpf: this.personalInfo.cpf,
+        phone: this.personalInfo.phone,
+        city: this.personalInfo.address?.city,
+        state: this.personalInfo.address?.state
+      }
     };
+
+    // Adicionar dados do cupom se aplicado
+    if (this.couponData?.appliedCoupon) {
+      asaasFormat.appliedCoupon = this.couponData.appliedCoupon;
+      asaasFormat.discountAmount = this.couponData.discountAmount;
+      asaasFormat.finalAmount = this.couponData.finalAmount;
+    } else if (this.coupon.applied) {
+      // Compatibilidade com estrutura antiga
+      asaasFormat.appliedCoupon = {
+        code: this.coupon.code,
+        name: this.coupon.name,
+        discount: this.coupon.discountValue,
+        discountType: this.coupon.discountType
+      };
+      asaasFormat.discountAmount = this.coupon.totalDiscount;
+    }
+
+    return asaasFormat;
   }
 
   /**
