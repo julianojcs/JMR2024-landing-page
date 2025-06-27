@@ -22,10 +22,10 @@ const Banner = ({ data }) => {
         </div>
       </div>
       {data.button &&
-        <CallToAct caption={caption} link={link} />
+        <CallToAct caption={caption} link={link} selfCaption={true} />
       }
       {data.button &&
-        <CallToAct caption={'Acesse o seu Trabalho Científico'} link={'https://paper.joindigitalsolutions.com.br/paper'} />
+        <CallToAct caption={'Acesse o seu Trabalho Científico'} link={'https://paper.joindigitalsolutions.com.br/paper'} selfCaption={true} />
       }
     </section>
   )

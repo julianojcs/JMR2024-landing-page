@@ -618,7 +618,7 @@ export const eventData = {
       email: 'srmg@srmg.org.br',
       bcc: 'jmr@srmg.org.br',
       phone: '(27)98133-0708',
-      subscriptionsOpened: true,
+      subscriptionsOpened: false,
       subscriptionsClosed: true,
       certificatesAvailable: false,
     },
