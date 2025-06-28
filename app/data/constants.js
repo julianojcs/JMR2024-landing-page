@@ -799,6 +799,36 @@ export const eventData = {
           'Aguardamos todos vocês!'
         ],
         logos: []
+      }, {
+        id: 6,
+        active: true,
+        activeAt: '2025-06-27T00:00:00-0300',
+        expireAt: '2025-06-27T23:59:59-0300',
+        backgroundImage: {
+          src: '/images/resumo_programacao_jmr_cim_27062025.jpeg',
+          width: 707,
+          height: 1000
+        },
+        button: {
+          caption: 'Clique aqui para ver a Programação do dia de Hoje!',
+          link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view',
+          selfCaption: true
+        }
+      }, {
+        id: 7,
+        active: true,
+        activeAt: '2025-06-28T00:00:00-0300',
+        expireAt: '2025-06-28T23:59:59-0300',
+        backgroundImage: {
+          src: '/images/resumo_programacao_jmr_cim_28062025.jpeg',
+          width: 707,
+          height: 1000
+        },
+        button: {
+          caption: 'Clique aqui para ver a Programação do dia de Hoje!',
+          link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view',
+          selfCaption: true
+        }
       }
     ],
     introduction: {

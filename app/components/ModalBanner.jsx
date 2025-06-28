@@ -158,19 +158,21 @@ const ModalBanner = ({ modalData = [] }) => {
         </button>
 
         <div className={styles.content}>
-          {currentBanner.title && (
+          {currentBanner?.title && (
             <h2 className={styles.title}>{currentBanner.title}</h2>
           )}
 
-          <div className={styles.description}>
-            {currentBanner.description &&
-              currentBanner.description.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))
-            }
-          </div>
+          {currentBanner?.description &&
+            <div className={styles.description}>
+              {
+                currentBanner.description.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))
+              }
+            </div>
+          }
 
-          {currentBanner.logos && currentBanner.logos.length > 0 && (
+          {currentBanner?.logos && currentBanner.logos.length > 0 && (
             <div className={styles.logos}>
               {currentBanner.logos.map((logo, index) => (
                 <div
@@ -198,7 +200,19 @@ const ModalBanner = ({ modalData = [] }) => {
             </div>
           )}
 
-          {currentBanner.button && (
+          {currentBanner?.backgroundImage && (
+            <div className={styles.imageContainer}>
+              <Image
+                src={currentBanner.backgroundImage.src}
+                alt={currentBanner.title || 'Banner'}
+                width={currentBanner.backgroundImage.width || 707}
+                height={currentBanner.backgroundImage.height || 1000}
+                className={styles.bannerImage}
+              />
+            </div>
+          )}
+
+          {currentBanner?.button && (
             <div className={styles.buttonContainer }>
               <CallToAct {...currentBanner?.button} />
             </div>
