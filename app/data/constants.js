@@ -784,7 +784,8 @@ export const eventData = {
         ],
         button: {
           caption: 'Lista de trabalhos científicos classificados!',
-          link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view'
+          link: 'https://www.canva.com/design/DAGh1JJ42l0/ZIo-xU82XfaKEbC-7w0tJg/view',
+          selfCaption: true
         }
       }, {
         id: 5,
