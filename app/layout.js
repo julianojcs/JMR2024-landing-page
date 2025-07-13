@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} style={{maxWidth: '1300px', marginInline: 'auto', backgroundColor: 'var(--foreground)'}}>
       {/* <ClientOnly> */}
-        <div style={{backgroundColor: 'var(--background)'}}>
+        <div  style={{backgroundColor: 'var(--background)'}}>
           <RT />
           {children}
           <Footer />

@@ -173,20 +173,18 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--facebook-clr, #1877f2) transparent;
   scroll-behavior: smooth !important;
-  background: var(--foreground);
 }
 
-html,
 body {
   color: var(--base-clr);
+  background: var(--background);
   font-family: Inter, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
 }
 
 body, #__next {
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
