@@ -23,6 +23,8 @@ export default function EmitirCertificadoPage() {
   const [loadingPdf, setLoadingPdf] = useState({});
   const [showCertificates, setShowCertificates] = useState(false);
   const [userCertificates, setUserCertificates] = useState([]);
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
 
   // Estados para validação de certificado
   const [codigo, setCodigo] = useState("");

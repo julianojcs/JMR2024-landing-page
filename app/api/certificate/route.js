@@ -4,6 +4,8 @@ import crypto from 'crypto';
 import User from '@/models/mongo/User.js';
 import Certificate from '@/models/mongo/Certificate.js';
 import CertificateTemplates from '@/models/mongo/CertificateTemplates.js';
+// eslint-disable-next-line no-unused-vars
+import Lecture from '@/models/mongo/Lecture.js';
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/jornada';
 
@@ -53,9 +55,8 @@ export async function POST(request) {
       );
     }
 
-    // Buscar usuário com populate das lectures
+    // Buscar usuário (removendo populate por enquanto)
     const user = await User.findByCpfAndEmail(cpf, email)
-      .populate('professionalData.lecture')
       .exec();
     if (!user) {
       return NextResponse.json(
@@ -138,9 +139,11 @@ export async function POST(request) {
       // Isso garante que todas as variáveis (hall, lecture, category, etc.) estejam disponíveis
       if (participationData) {
         Object.keys(participationData).forEach(key => {
-          // Tratar lecture especialmente - usar o nome da lecture se estiver populado
-          if (key === 'lecture' && participationData.lecture && participationData.lecture.name) {
-            certificateData.lectureTitle = participationData.lecture.name;
+          // Tratar lecture especialmente - se for um ObjectId, podemos buscar depois se necessário
+          if (key === 'lecture' && participationData.lecture) {
+            // Por enquanto, vamos só armazenar o ID da lecture
+            certificateData.lectureId = participationData.lecture;
+            // TODO: Se precisar do nome da lecture, buscar manualmente com Lecture.findById()
           } else if (key !== '_id' && key !== '__v') {
             // Evitar campos internos do MongoDB
             certificateData[key] = participationData[key];
@@ -274,10 +277,9 @@ export async function GET(request) {
 
     // Nova funcionalidade: Analisar dados do usuário para determinar certificados elegíveis
     if (action === 'eligible' && userId) {
-      // Buscar o usuário completo com todos os dados e populate das lectures
+      // Buscar o usuário completo com todos os dados (sem populate por enquanto)
       // TEMPORARY: Removendo .lean() para testar se resolve problema de formatação de authors
-      const userDoc = await User.findById(userId)
-        .populate('professionalData.lecture');
+      const userDoc = await User.findById(userId);
       const user = userDoc ? userDoc.toObject() : null;
 
       if (!user) {
