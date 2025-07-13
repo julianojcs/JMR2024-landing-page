@@ -4,7 +4,6 @@ import crypto from 'crypto';
 import User from '@/models/mongo/User.js';
 import Certificate from '@/models/mongo/Certificate.js';
 import CertificateTemplates from '@/models/mongo/CertificateTemplates.js';
-import Lecture from '@/models/mongo/Lecture.js';
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/jornada';
 

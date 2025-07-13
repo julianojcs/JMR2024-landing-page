@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from 'next/navigation';
-import Certificate from "@/components/Certificate";
 import { generateCertificatePDF } from "../utils/certificatePDFGenerator";
 import styles from "./CertificatePage.module.css";
 
@@ -24,8 +23,6 @@ export default function EmitirCertificadoPage() {
   const [loadingPdf, setLoadingPdf] = useState({});
   const [showCertificates, setShowCertificates] = useState(false);
   const [userCertificates, setUserCertificates] = useState([]);
-  const [userName, setUserName] = useState("");
-  const [userId, setUserId] = useState("");
 
   // Estados para validação de certificado
   const [codigo, setCodigo] = useState("");
@@ -156,7 +153,6 @@ export default function EmitirCertificadoPage() {
       console.log("Dados do usuário:", userData);
       console.log("Id e nome do usuário:", userData.user._id, userData.user.name);
       setUserName(userData.user.name);
-      setUserId(userData.user._id);
 
       // Buscar certificados elegíveis baseados nos dados do usuário
       const certificatesResponse = await fetch(`/api/certificate?userId=${userData.user._id}&action=eligible`, {
@@ -394,12 +390,6 @@ export default function EmitirCertificadoPage() {
     };
   }, []);
 
-  // Função para mostrar mensagem de feedback amigável
-  const showSuccessMessage = (message) => {
-    // Pode ser expandido para um sistema de notificação mais sofisticado
-    alert(message);
-  };
-
   return (
     <div className={styles.pageContainer}>
       <div className={styles.contentWrapper}>
@@ -475,7 +465,7 @@ export default function EmitirCertificadoPage() {
               </h2>
               {userCertificates.length > 0 ? (
             <div className={styles.certificatesList}>
-              {userCertificates.map((certificate, index) => (
+              {userCertificates.map((certificate) => (
                 <div key={`${certificate.userType}-${certificate.certType}-${certificate.participationIndex || 0}`}
                      className={`${styles.certificateCard} ${certificate.alreadyIssued ? styles.issued : styles.available}`}>
                   <div className={styles.certificateHeader}>

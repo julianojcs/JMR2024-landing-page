@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { useMongoDB } from '@/hooks/useMongoDB';
+import connectMongoDB from '@/lib/mongodb';
 import Event from '@/models/mongo/Event';
 
 /**
@@ -12,8 +12,8 @@ export async function GET(request, context) {
   let session = null;
 
   try {
-    // Conectar ao MongoDB utilizando o hook
-    await useMongoDB();
+    // Conectar ao MongoDB
+    await connectMongoDB();
 
     // Recuperar o parâmetro year da URL
     const { year } = context.params;
