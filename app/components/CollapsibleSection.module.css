@@ -1,0 +1,57 @@
+/* Estilos para seções colapsáveis */
+.collapsibleSection {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.sectionHeader:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.collapseIcon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.collapseIcon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.sectionContent {
+  transition: all 0.3s ease;
+}
+
+.sectionContent.collapsed {
+  display: none;
+}
+
+/* Variante terminal */
+.terminal .sectionHeader {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.terminal .sectionHeader:hover {
+  background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+}

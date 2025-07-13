@@ -1,0 +1,38 @@
+.imagem {
+  color: transparent;
+  object-fit: cover;
+  height: 100%;
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #282045;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+}
+
+.footer {
+  flex: 1;
+  display: flex;
+  height: auto;
+  background-color: inherit;
+}
+
+/* Media query para dispositivos móveis */
+@media (max-width: 768px) {
+  .content {
+    scale: 1.2;
+  }
+  .container {
+    min-height: 93vh;
+  }
+}

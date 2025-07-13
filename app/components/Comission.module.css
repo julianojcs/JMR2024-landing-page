@@ -1,0 +1,93 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.comissionContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: var(--primary-clr);
+
+  & > div {
+    flex: 1;
+  }
+  & > div:nth-child(odd) {
+    flex: 1 1 60vw;
+  }
+  & > div:nth-child(even) {
+    flex: 1 1 40vw;
+  }
+}
+
+.comissionTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-clr);
+  color: var(--secondary-text-clr);
+  padding-top: 2svh;
+  min-height: 160px;
+  text-align: center;
+}
+
+.comissionTitle > h2 {
+  padding-top: 2svh;
+}
+
+.comissionTitle img {
+  margin-right: 10px;
+}
+
+.medicosContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  flex-wrap: wrap;
+  padding: 5svh 5svw;
+}
+
+.promoters {
+  height: 60px;
+  width: auto;
+  transition: filter 0.5s ease-in-out; /* Transição de opacidade */
+  object-fit: fill;
+}
+
+.promoters:hover {
+  cursor: pointer;
+  filter: sepia(100%); /* Opacidade ao passar o mouse */
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.abramede {
+  aspect-ratio: auto 401 / 145;
+}
+.srmg {
+  aspect-ratio: auto 641 / 182;
+}
+
+@media (max-width: 768px) {
+  .comissionColumn1, .comissionColumn2 {
+    flex: 1 1 100%;
+  }
+  .comissionTitle h2 {
+    width: 95svw;
+  }
+}
+@media (min-width: 1000px) {
+  .comissionContainer {
+    flex-wrap: unset;
+  }
+}

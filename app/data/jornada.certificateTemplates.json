@@ -1,0 +1,340 @@
+[{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f2"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "CONGRESSPERSON",
+  "certType": "CONGRESS",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou como congressista da {eventName}",
+    "realizada nos dias {eventDate} no {eventLocation},",
+    "com carga horária total de {totalHours} horas."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "totalHours": 20,
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "eventDate": "27 e 28 de junho de 2025",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Congresso",
+    "description": "Certificado para participantes do congresso médico",
+    "template": "congress_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f3"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "CONGRESSPERSON",
+  "certType": "SEMINAR",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou do Seminário {seminarTitle}",
+    "realizado durante a {eventName},",
+    "nos dias {eventDate}, com carga horária de {hours} horas."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "hours": 4,
+    "seminarTitle": "Avanços em Medicina Preventiva",
+    "eventDate": "27 de junho de 2025",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Seminário",
+    "description": "Certificado para participação em seminários específicos",
+    "template": "seminar_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f4"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "CONGRESSPERSON",
+  "certType": "COURSE",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou do curso {courseTitle}",
+    "ministrado durante a {eventName},",
+    "com carga horária de {hours} horas e aproveitamento satisfatório."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "hours": 8,
+    "courseTitle": "Inteligência Artificial - Aplicações na Medicina",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Curso",
+    "description": "Certificado para participação em cursos específicos",
+    "template": "course_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f5"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "CONGRESSPERSON",
+  "certType": "WORKSHOP",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou do workshop {workshopTitle}",
+    "realizado durante a {eventName},",
+    "no dia {eventDate}, com carga horária de {hours} horas."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventDate": "27 de junho de 2025",
+    "hours": 4,
+    "workshopTitle": "RM Pelve para Ginecologistas"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Workshop",
+    "description": "Certificado para participação em workshops práticos",
+    "template": "workshop_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f6"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "CONGRESSPERSON",
+  "certType": "DAYUSE",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou das atividades do dia {dayDate} da {eventName},",
+    "realizada no {eventLocation},",
+    "com carga horária de {hours} horas."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "hours": 8,
+    "dayDate": "27 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Day Use 27/06",
+    "description": "Certificado para participação do dia 27 de junho",
+    "template": "dayuse_27jun_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f7"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "CONGRESSPERSON",
+  "certType": "DAYUSE",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou das atividades do dia {dayDate} da {eventName},",
+    "realizada no {eventLocation},",
+    "com carga horária de {hours} horas."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "hours": 8,
+    "dayDate": "28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Day Use 28/06",
+    "description": "Certificado para participação do dia 28 de junho",
+    "template": "dayuse_28jun_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f8"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "PROFESSIONAL",
+  "certType": "SPEAKER",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou da {eventName}",
+    "como Palestrante no curso {hall}",
+    "com o tema da aula {lectureTitle},",
+    "no período de {eventDate}, no {eventLocation}."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "eventDate": "27 e 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Palestrante",
+    "description": "Certificado para palestrantes do evento",
+    "template": "speaker_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94f9"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "PROFESSIONAL",
+  "certType": "MODERATOR",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou da {eventName}",
+    "como Moderador no módulo {hall},",
+    "contribuindo para o debate e aprofundamento científico do evento, realizado nos dias {eventDate} no {eventLocation}."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "eventDate": "27 e 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Moderador",
+    "description": "Certificado para moderadores do evento",
+    "template": "moderator_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94fa"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "PROFESSIONAL",
+  "certType": "DEBATER",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou da {eventName}",
+    "como Debatedor no módulo {hall},",
+    "contribuindo para o debate e aprofundamento científico do evento, realizado nos dias {eventDate} no {eventLocation}."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "eventDate": "27 e 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Debatedor",
+    "description": "Certificado para debatedores do evento",
+    "template": "debater_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94fb"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "PROFESSIONAL",
+  "certType": "CHAIR-OF-THE-BOARD",
+  "data": [
+    "Certificamos que",
+    "{name}",
+    "participou da {eventName}",
+    "como Presidente de Mesa no módulo {hall},",
+    "contribuindo para o debate e aprofundamento científico do evento, realizado nos dias {eventDate} no {eventLocation}."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "eventDate": "27 e 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Participação - Presidente de Mesa",
+    "description": "Certificado para presidentes de mesa do evento",
+    "template": "chair_of_the_board_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94fc"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "PAPER-PRESENTER",
+  "certType": "PRESENTATION",
+  "data": [
+    "Certificamos, para os devidos fins, que o trabalho entitulado:",
+    "{paperTitle}",
+    "de autoria de {authors},",
+    "foi apresentado no formato {presentationFormat} na {eventName}",
+    "realizado no período de {eventDate} no {eventLocation}."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025",
+    "eventLocation": "Centro de Convenções da Associação Médica de Minas Gerais (AMMG), em Belo Horizonte/MG, Brasil",
+    "eventDate": "27 e 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Apresentação de Trabalho",
+    "description": "Certificado para apresentação de trabalhos científicos",
+    "template": "presentation_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "685b5fbb6c63931a360a94fd"
+  },
+  "event": "6844b06292642fb12c3667b5",
+  "userType": "PAPER-PRESENTER",
+  "certType": "AWARDED",
+  "data": [
+    "Certificamos que o trabalho entitulado:",
+    "{paperTitle}",
+    "de autoria de {authors},",
+    "apresentado no formato {presentationFormat} na {eventName},",
+    "recebeu o prêmio de {awardTitle} na categoria {presentationFormat}."
+  ],
+  "specificFields": {
+    "eventName": "XI Jornada Mineira de Radiologia (JMR2025) e do XIV Congresso de Imaginologia da Mulher (CIM2025)",
+    "localAndDate": "Belo Horizonte/MG, 28 de junho de 2025"
+  },
+  "metadata": {
+    "title": "Certificado de Premiação",
+    "description": "Certificado para trabalhos científicos premiados",
+    "template": "awarded_template",
+    "isActive": true,
+    "eventYear": 2025
+  }
+}]

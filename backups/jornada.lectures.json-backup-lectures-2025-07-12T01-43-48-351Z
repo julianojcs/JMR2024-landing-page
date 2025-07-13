@@ -1,0 +1,2332 @@
+[{
+  "_id": {
+    "$oid": "685acafb6c63931a360a93fe"
+  },
+  "id": 1,
+  "name": "Avaliação das tubas uterinas e das anomalias mullerianas: A visão do fertileuta: o que não pode faltar no laudo",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a93ff"
+  },
+  "id": 2,
+  "name": "Avaliação das tubas uterinas e das anomalias mullerianas: Histerossalpingografia e histerossonosalpingografia (HyCosy)",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9400"
+  },
+  "id": 3,
+  "name": "Avaliação das tubas uterinas e das anomalias mullerianas: HisteroRM",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9401"
+  },
+  "id": 4,
+  "name": "Discussão de caso clínico: Calcificações pós-QT neoadjvuvante",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9402"
+  },
+  "id": 5,
+  "name": "Discussão de caso clínico: Lesão BI-RADS 3 em exame de estadiamento",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9403"
+  },
+  "id": 6,
+  "name": "Discussão multidisciplinar: idosa com tumor luminal: papel do US e da biópsia de linfonodo sentinela",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9404"
+  },
+  "id": 7,
+  "name": "Doenças pélvicas extraginecológicas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9405"
+  },
+  "id": 8,
+  "name": "Abertura",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9406"
+  },
+  "id": 9,
+  "name": "Câncer de ovário: clínica e achados clássicos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9407"
+  },
+  "id": 10,
+  "name": "Doença de Parkinson e Síndromes Parkinsonianas: Como Diferenciar por Imagem?",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9408"
+  },
+  "id": 11,
+  "name": "Ressonancia Magnetica da Pelve: Anatomia - Compartimentos médio e posterior",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9409"
+  },
+  "id": 12,
+  "name": "Ressonancia Magnetica da Pelve: Protocolos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a940a"
+  },
+  "id": 13,
+  "name": "Ressonancia Magnetica da Pelve: Anatomia da pelve - Compartimentos anterior",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a940b"
+  },
+  "id": 14,
+  "name": "Discussão",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a940c"
+  },
+  "id": 15,
+  "name": "Anomalias mullerianas: nova classificação",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a940d"
+  },
+  "id": 16,
+  "name": "Respondendo 10 mitos sobre a mamografia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a940e"
+  },
+  "id": 17,
+  "name": "Ressonancia Magnetica da Pelve: Como entender as imagens",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a940f"
+  },
+  "id": 18,
+  "name": "Discussão de caso clínico: Ca em jovem - Tumor Board Multidisciplinar",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9410"
+  },
+  "id": 19,
+  "name": "O Papel do PET no Diagnóstico Precoce de Demências",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9411"
+  },
+  "id": 20,
+  "name": "Neuroimagem: Sessão interativa de casos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9412"
+  },
+  "id": 21,
+  "name": "Câncer de colo uterino: clínica e achados clássicos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9413"
+  },
+  "id": 22,
+  "name": "Avaliação das tubas uterinas e das anomalias mullerianas: Mesa redonda e discussão",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.956",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9414"
+  },
+  "id": 23,
+  "name": "Lesões Vasculares Associadas ao Trauma: O Que Não Pode Passar Despercebido?",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9415"
+  },
+  "id": 24,
+  "name": "Bases da imunologia do carcinoma de mama",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9416"
+  },
+  "id": 25,
+  "name": "Acidente Vascular Cerebral: Do Diagnóstico à Terapia Endovascular",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9417"
+  },
+  "id": 26,
+  "name": "Estadiamento do câncer de mama pelos métodos de imagem",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9418"
+  },
+  "id": 27,
+  "name": "A mama e a tomografia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9419"
+  },
+  "id": 28,
+  "name": "Lesões cutâneas na mama",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a941a"
+  },
+  "id": 29,
+  "name": "O descalonamento de QT: o que o oncologista espera da imagem",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a941b"
+  },
+  "id": 30,
+  "name": "Onde estamos na avaliação inicial e pós-QT neodjuvante da axila? INSEMA, SOUND e ALLIANCE",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a941c"
+  },
+  "id": 31,
+  "name": "Imuno-histoquímica: entendendo além do habitual",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a941d"
+  },
+  "id": 32,
+  "name": "Sessão anatomorradiológica",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a941e"
+  },
+  "id": 33,
+  "name": "Instabilidade carpal",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a941f"
+  },
+  "id": 34,
+  "name": "Lesão do Lábio Glenoidal",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9420"
+  },
+  "id": 35,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Miopatia Inflamatória",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9421"
+  },
+  "id": 36,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Avaliação das articulações sacro-ilíacas no contexto reumatológico",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9422"
+  },
+  "id": 37,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Lesões musculares na panturrilha",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9423"
+  },
+  "id": 38,
+  "name": "Lesão osteocondral no tornozelo ou sarcoma (TEMA A CONFIRMAR)",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9424"
+  },
+  "id": 39,
+  "name": "Tornozelo (TEMA A CONFIRMAR)",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9425"
+  },
+  "id": 40,
+  "name": "DTG: clínica e achados clássicos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9426"
+  },
+  "id": 41,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo - Lesões traumáticas do pé",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9427"
+  },
+  "id": 42,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Pubalgia no atleta",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9428"
+  },
+  "id": 43,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Tumor partes moles",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9429"
+  },
+  "id": 44,
+  "name": "Endometriose: clínica e achados clássicos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a942a"
+  },
+  "id": 45,
+  "name": "Sessões multidisciplinares: o que o radiologista sempre quis perguntar ao ortopedista: Pós-operatório do ombro",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a942b"
+  },
+  "id": 46,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Lesão meniscal tipo Rampa",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a942c"
+  },
+  "id": 47,
+  "name": "O papel do radiologista no rastreamento do câncer de próstata: devemos expandir o uso da ressonância magnética biparamétrica?",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a942d"
+  },
+  "id": 48,
+  "name": "Sessões multidisciplinares: o que o radiologista sempre quis perguntar ao ortopedista: Pé e Tornozelo",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a942e"
+  },
+  "id": 49,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Mieloma múltiplo",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a942f"
+  },
+  "id": 50,
+  "name": "Podemos evitar a biópsia no manejo de pacientes com câncer de próstata em vigilância ativa?",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9430"
+  },
+  "id": 51,
+  "name": "Sessões multidisciplinares: o que o radiologista sempre quis perguntar ao ortopedista: Mão",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9431"
+  },
+  "id": 52,
+  "name": "Sessões multidisciplinares: o que o radiologista sempre quis perguntar ao ortopedista:  Joelho",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9432"
+  },
+  "id": 53,
+  "name": "Ressonância Magnética do Pênis: Anatomia, Patologias e Achados Essenciais",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9433"
+  },
+  "id": 54,
+  "name": "Sessões multidisciplinares: o que o radiologista sempre quis perguntar ao ortopedista: Espondiloartrite",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9434"
+  },
+  "id": 55,
+  "name": "VI-RADS na avaliação do câncer de bexiga: indicações, limitações e pitfalls",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9435"
+  },
+  "id": 56,
+  "name": "Teranóstica no câncer de próstata: imagens e terapias integradas na era da oncologia de precisão",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9436"
+  },
+  "id": 57,
+  "name": "Ultrassonografia na avaliação de patologias inflamatórias e tumorais do escroto e papel da RM nos casos inconclusivos ao estudo ultrassonográfico",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9437"
+  },
+  "id": 58,
+  "name": "Ca de reto: achados de imagem definidores de tratamento",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9438"
+  },
+  "id": 59,
+  "name": "Ca de colon: achados de imagem definidores de tratamento",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9439"
+  },
+  "id": 60,
+  "name": "Investigação de infertilidade masculina- o que o urologista espera do laudo de uma ressonância magnética da pelve",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a943a"
+  },
+  "id": 61,
+  "name": "Caso clínico - discussão multidisciplinar",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a943b"
+  },
+  "id": 62,
+  "name": "Visao do coloproctogista",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a943c"
+  },
+  "id": 63,
+  "name": "DISCUSSÃO MULTIDISCIPLINAR",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a943d"
+  },
+  "id": 64,
+  "name": "Achados radiológicos nos casos de hematoespermia e obstrução do trato seminal",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a943e"
+  },
+  "id": 65,
+  "name": "Visao do oncologista",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a943f"
+  },
+  "id": 66,
+  "name": "Câncer de vias biliares",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9440"
+  },
+  "id": 67,
+  "name": "Abordagens minimamente invasivas de lesões hepáticas focais",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9441"
+  },
+  "id": 68,
+  "name": "Câncer de vesicula biliar",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9442"
+  },
+  "id": 69,
+  "name": "LI-RADS - atualizacao",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9443"
+  },
+  "id": 70,
+  "name": "Interpretação do Raio-X de tórax",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9444"
+  },
+  "id": 71,
+  "name": "Tratamento locorregional do adenocarcinoma via biliar",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9445"
+  },
+  "id": 72,
+  "name": "Avaliação pre-cirurgica de lesões hepáticas e pré-transplante: o que relatar?",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9446"
+  },
+  "id": 73,
+  "name": "Como avaliar doencas hepaticas difusas (esteatose, ferro, fibrose)",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9447"
+  },
+  "id": 74,
+  "name": "Anatomia radiológica torácica",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9448"
+  },
+  "id": 75,
+  "name": "Emergências torácicas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9449"
+  },
+  "id": 76,
+  "name": "Anatomia radiológica abdominal",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a944a"
+  },
+  "id": 77,
+  "name": "Discussão de casos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a944b"
+  },
+  "id": 78,
+  "name": "Rastreamento do adenocarcinoma de pâncreas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a944c"
+  },
+  "id": 79,
+  "name": "Emergências traumáticas do SNC",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a944d"
+  },
+  "id": 80,
+  "name": "Lesoes cisticas pancreáticas - aspectos de imagem",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a944e"
+  },
+  "id": 81,
+  "name": "Visão oncologista",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a944f"
+  },
+  "id": 82,
+  "name": "Emergências abdominais",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9450"
+  },
+  "id": 83,
+  "name": "Emergências não-traumáticas do SNC",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9451"
+  },
+  "id": 84,
+  "name": "Radiologia cardiovascular - técnicas de imagem",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9452"
+  },
+  "id": 85,
+  "name": "Seguimento clinico de lesões cisticas pancreaticas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9453"
+  },
+  "id": 86,
+  "name": "Métodos de imagem em oncologia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9454"
+  },
+  "id": 87,
+  "name": "Física do Raio-X e Tomografia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9455"
+  },
+  "id": 88,
+  "name": "Abordagem endoscópica de lesões pancreáticas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9456"
+  },
+  "id": 89,
+  "name": "Inteligência artifical e inovação na radiologia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9457"
+  },
+  "id": 90,
+  "name": "Screening - indicações na imagem",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9458"
+  },
+  "id": 91,
+  "name": "Emergências cardiovasculares",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9459"
+  },
+  "id": 92,
+  "name": "Atualização do glossário de termos em imagem torácica da Sociedade Fleischner 2024",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a945a"
+  },
+  "id": 93,
+  "name": "Imagem na Hipertensão Pulmonar: como eu faço e laudo o exame",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a945b"
+  },
+  "id": 94,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a945c"
+  },
+  "id": 95,
+  "name": "TNM 9a edição - atualizações no estadiamento da neoplasia pulmonar",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a945d"
+  },
+  "id": 96,
+  "name": "Anormalidades Intersticiais Pulmonares - ILA: como eu laudo",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a945e"
+  },
+  "id": 97,
+  "name": "Radiologia intervencionista: aplicações e perspectivas futuras",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a945f"
+  },
+  "id": 98,
+  "name": "Dor torácica no Pronto Atendimento: o que procurar",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9460"
+  },
+  "id": 99,
+  "name": "Estadiamento da neoplasia pulmonar - como eu laudo",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9461"
+  },
+  "id": 100,
+  "name": "Avaliação pós-tratamento da neoplasia pulmonar - como eu laudo",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9462"
+  },
+  "id": 101,
+  "name": "Planejamento tridimensional de ressecções pulmonares",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9463"
+  },
+  "id": 102,
+  "name": "A carreira da radiologia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9464"
+  },
+  "id": 103,
+  "name": "Board Multidisciplinar: Casos clínicos desafiadores",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9465"
+  },
+  "id": 104,
+  "name": "Doenças infecciosas pulmonares raras e desafiadoras: quando suspeitar",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9466"
+  },
+  "id": 105,
+  "name": "Features, modelos, performances",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9467"
+  },
+  "id": 106,
+  "name": "Introdução; Conceitos Básicos: Big Data, AI, Machine Learning",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9468"
+  },
+  "id": 107,
+  "name": "Regressão Linear, Gradient Descent e regressão logística",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9469"
+  },
+  "id": 108,
+  "name": "Naive Bayes, árvores de decisão e SVM",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a946a"
+  },
+  "id": 109,
+  "name": "Prática: overfitting/underfitting",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a946b"
+  },
+  "id": 110,
+  "name": "Prática: Regressão Linear, Gradient Descent e regressão logística",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a946c"
+  },
+  "id": 111,
+  "name": "Pré-processamento",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a946d"
+  },
+  "id": 112,
+  "name": "Estatística / métricas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a946e"
+  },
+  "id": 113,
+  "name": "Redes neurais artificiais",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a946f"
+  },
+  "id": 114,
+  "name": "Prática: Redes neurais convolucionais (CNN)",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9470"
+  },
+  "id": 115,
+  "name": "Deep learning",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9471"
+  },
+  "id": 116,
+  "name": "Aplicações na Radiologia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9472"
+  },
+  "id": 117,
+  "name": "Modelos de linguagem: redes neurais recorrentes e transformers",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9473"
+  },
+  "id": 118,
+  "name": "Prática: ChatGPT e outros LLMs",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9474"
+  },
+  "id": 119,
+  "name": "IA e o futuro da Radiologia",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9475"
+  },
+  "id": 120,
+  "name": "Assimetria e distorção arquitetural na era da tomossíntese",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9476"
+  },
+  "id": 121,
+  "name": "Padrões clássicos e armadilhas diagnósticas na TC e RM no Trauma Cranioencefálico",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9477"
+  },
+  "id": 122,
+  "name": "Mama densa em 2025 - qual a melhor forma de não deixar escapar o câncer?",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9478"
+  },
+  "id": 123,
+  "name": "Atrofia Cerebral na Doença de Alzheimer: Escalas visuais e volumetria automatizada na prática clínica",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9479"
+  },
+  "id": 124,
+  "name": "Câncer de endométrio: clínica e achados clássicos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a947a"
+  },
+  "id": 125,
+  "name": "O papel da neuroimagem na decisão entre manejo conservador e cirúrgico nas hemorragias intracranianas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a947b"
+  },
+  "id": 126,
+  "name": "Biomarcadores de Imagem na Demência Frontotemporal e Outras Demências Atípicas",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a947c"
+  },
+  "id": 127,
+  "name": "Desafios em ultrassonografia mamária",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a947d"
+  },
+  "id": 128,
+  "name": "Sessão Interativa de Casos",
+  "is_fixed": false,
+  "is_new": false,
+  "created_at": "2025-02-28 01:53:17.958",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a947e"
+  },
+  "id": 129,
+  "name": "Inteligência Artificial",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-02-28 03:50:17.754",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a947f"
+  },
+  "id": 130,
+  "name": "POCUS na PCR",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-11 18:49:07.626",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9480"
+  },
+  "id": 131,
+  "name": "Endometriose no USGTV de rotina: aplicação do consenso SRU ",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-12 10:45:21.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9481"
+  },
+  "id": 132,
+  "name": "Empreendedorismo e redes sociais",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-12 10:45:21.957",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9482"
+  },
+  "id": 133,
+  "name": "Radiologia Mamária",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-12 11:21:51.611",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9483"
+  },
+  "id": 134,
+  "name": "Discussão de caso clínico: Lesão BI-RADS 3 em exame de  estadiamento",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-12 11:34:41.289",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9484"
+  },
+  "id": 135,
+  "name": "O valor da discussão multidisciplinar - papel do radiologista",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-12 13:56:45.587",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9485"
+  },
+  "id": 138,
+  "name": "Radiologia Mamária ",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-13 01:08:52.516",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9486"
+  },
+  "id": 139,
+  "name": "Discussão de casos clinicos: Nodulos tireoidianos- sistemas de estratificação de risco e manejo",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-16 02:56:30.832",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9487"
+  },
+  "id": 140,
+  "name": "Drenagem percutânea das coleções abdominais",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-16 12:52:25.458",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9488"
+  },
+  "id": 141,
+  "name": "Nefrostomia",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-16 19:49:45.666",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9489"
+  },
+  "id": 142,
+  "name": "Avaliação da Permeabilidade Tubária HyCoSy",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-20 15:28:07.962",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a948a"
+  },
+  "id": 143,
+  "name": "Endometriose Ovariana ",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-20 15:28:07.962",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a948b"
+  },
+  "id": 144,
+  "name": "O Papel da neurossonografia no 2o trimestre",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-20 23:54:50.442",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a948c"
+  },
+  "id": 145,
+  "name": "Rastreamento da Pré-eclâmpsia através das art. uterinas",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-20 23:54:50.442",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a948d"
+  },
+  "id": 146,
+  "name": "Evidências sobre a aplicabilidade da razão cerebro-placentária na tomada de decisão em fetos restritos",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-21 13:15:14.925",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a948e"
+  },
+  "id": 147,
+  "name": "Malformações Mullerianas",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-21 18:22:36.386",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a948f"
+  },
+  "id": 148,
+  "name": "Ultrassononografia de vulva e vagina",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-21 18:22:36.386",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9490"
+  },
+  "id": 149,
+  "name": "Técnica de aquisção de imagem tridimensional",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-21 18:22:36.386",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9491"
+  },
+  "id": 150,
+  "name": "Ultrassonografia tridimensional 3D 4D",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-23 20:19:45.919",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9492"
+  },
+  "id": 151,
+  "name": "Performance do ultrassom obstétrico no 3o trimestre : guideline ISUOG",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-23 20:42:22.607",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9493"
+  },
+  "id": 152,
+  "name": "Desafios frente ao diagnóstico da genitália ambígua",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-24 15:15:43.023",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9494"
+  },
+  "id": 153,
+  "name": "Princípios Básicos do Cálculo do Peso Fetal e Otimização de Tabelas no Diagnóstico da RCIU",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-24 18:21:27.17",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9495"
+  },
+  "id": 154,
+  "name": "Desafios na avaliação patológica do HER-2",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-25 00:21:17.193",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9496"
+  },
+  "id": 155,
+  "name": "O papel do ultrassom nas infecções congênitas",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-25 17:24:58.614",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9497"
+  },
+  "id": 156,
+  "name": "Técnicas Radiológicas",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-25 18:54:00.931",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9498"
+  },
+  "id": 157,
+  "name": "Radiologia Forense aplicada à identificação de corpos",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-25 20:23:02.634",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a9499"
+  },
+  "id": 158,
+  "name": "O papel do ultrassom na avaliação do colo no primeiro trimestre",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-25 21:52:31.573",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a949a"
+  },
+  "id": 160,
+  "name": "Segurança e controle de qualidade em Ressonância Magnética",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-25 23:32:07.517",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a949b"
+  },
+  "id": 161,
+  "name": "Avanço profissional e das legislações",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-26 11:09:22.216",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a949c"
+  },
+  "id": 162,
+  "name": "Variações dos métodos radiográficos especiais para crânio e face",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-26 12:05:44.908",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a949d"
+  },
+  "id": 163,
+  "name": "Espectroscopia por Ressonância Magnética Nuclear (RM) como ferramenta elucidativa: estruturas moleculares, toxicologia forense e controle de qualidade",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-26 19:29:52.2",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a949e"
+  },
+  "id": 164,
+  "name": "Endometriose nos Compartimentos Laterais",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-29 12:18:33.942",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a949f"
+  },
+  "id": 165,
+  "name": "Dor Pélvica na Infância e Adolescência",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-29 12:18:33.942",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a0"
+  },
+  "id": 166,
+  "name": "Avaliação dos Ovários e Contagem de Folículos Antrais - Papel da Ultrassonografia Tridimensional",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-29 12:18:33.942",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a1"
+  },
+  "id": 167,
+  "name": "Estudo dos Ovários e massas ovarianas: IOTA x ORADS",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-03-31 22:15:31.748",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a2"
+  },
+  "id": 168,
+  "name": "Ultrassom obstétrico no segundo trimestre",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-01 10:43:09.173",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a3"
+  },
+  "id": 169,
+  "name": "TEP",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-01 20:42:25.178",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a4"
+  },
+  "id": 170,
+  "name": "Metástases Hepáticas de Câncer Colorretal",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-01 21:02:25.154",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a5"
+  },
+  "id": 171,
+  "name": "O que é uma biópsia e para que ela serve? O que é material suficiente?",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-02 12:38:54.706",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a6"
+  },
+  "id": 172,
+  "name": "Mão: o que o radiologista sempre quis perguntar ao ortopedista",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-02 15:04:03.295",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a7"
+  },
+  "id": 173,
+  "name": "Amenorreia Primária em Adolescentes: Papel da Ultrassonografia",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-02 17:05:18.118",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a8"
+  },
+  "id": 174,
+  "name": "Aconselhamento dos casais frente ao diagnóstico das cardiopatias fetais canais dependentes ou não",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-02 18:41:04.422",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94a9"
+  },
+  "id": 175,
+  "name": "Base do estudo do coração fetal para o ultrassonografista geral",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-02 18:41:04.422",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94aa"
+  },
+  "id": 176,
+  "name": "Tomografia Computadorizada vs. Ressonância Magnética: Quando Escolher Cada Método?",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-08 10:29:06.532",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94ab"
+  },
+  "id": 177,
+  "name": "Aspectos desafiadores da Radiologia do Câncer de Cabeça e Pescoço",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-08 21:06:32.701",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94ac"
+  },
+  "id": 178,
+  "name": "Cabeça e Pescoço",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-09 17:19:26.934",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94ad"
+  },
+  "id": 179,
+  "name": "Abordagem cirúrgica da metástase hepática do ca colorretal",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-09 20:45:57.496",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94ae"
+  },
+  "id": 180,
+  "name": "Armadilhas da Ecocardiografia - point of care no choque obstrutivo",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-11 01:53:02.275",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94af"
+  },
+  "id": 181,
+  "name": "Aspectos desafiadores na radiologia de CCP: Câncer de laringe:T3 ou T4",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-11 17:59:39.849",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b0"
+  },
+  "id": 182,
+  "name": "Aspectos desafiadores na radiologia de CCP: Desafios na Avaliação Pós-Tratamento: Cicatriz, Recidiva ou Doença Persistente?",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-11 17:59:39.849",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b1"
+  },
+  "id": 183,
+  "name": "pocus no choque septico ",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-11 18:41:57.884",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b2"
+  },
+  "id": 184,
+  "name": "Drenagem biliar",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-11 20:00:15.432",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b3"
+  },
+  "id": 185,
+  "name": "Translucência Nucal alterada x NIPT x Teste Genético: Como manejar",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-11 20:57:43.095",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b4"
+  },
+  "id": 186,
+  "name": "Diagnóstico das Malformações Fetais no primeiro trimestre",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-11 20:57:43.095",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b5"
+  },
+  "id": 187,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo: Lesão ligamentar do mediopé",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-12 22:16:39.553",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b6"
+  },
+  "id": 188,
+  "name": "Sessões multidisciplinares: o que o radiologista sempre quis perguntar ao ortopedista:  Lesão da placa plantar",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-12 22:16:39.553",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b7"
+  },
+  "id": 189,
+  "name": "Hands-on: condução otimizada de casos: do protocolo ao laudo - Cistos sinovais no punho: você conhece o DCSS?",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-13 22:12:52.306",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b8"
+  },
+  "id": 190,
+  "name": "Biopsias Transbiliar/Endobiliar",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-14 03:50:43.905",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94b9"
+  },
+  "id": 191,
+  "name": "Endometriose: A visão do cirurgião x relatório do Imaginologista",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-16 15:39:23.468",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94ba"
+  },
+  "id": 192,
+  "name": "Visão Critica do rastreamento ultrassonográfico",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-21 14:55:44.839",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94bb"
+  },
+  "id": 193,
+  "name": "Visão critica do Rastreamento ultrassonográfico do primeiro trimestre",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-21 14:55:44.839",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94bc"
+  },
+  "id": 194,
+  "name": "Bloco 1 - Próstata e Bexiga",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-23 14:09:24.807",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94bd"
+  },
+  "id": 195,
+  "name": "Ablação por Radiofrequência de Nódulos Tireoidianos",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-23 18:10:23.299",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94be"
+  },
+  "id": 196,
+  "name": "Particularidades da radiologia de Cabeça e Pescoço: Indicações da TC e da RM em tireoidologia",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-23 18:50:47.9",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94bf"
+  },
+  "id": 197,
+  "name": "Ultrassonografia pélvica como método complementar no manejo da Puberdade Precoce: Visão da radiologista",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-23 20:44:03.792",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c0"
+  },
+  "id": 198,
+  "name": "Moderação: Particularidades da Radiologia de cabeça e pescoço",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-23 23:51:07.169",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c1"
+  },
+  "id": 199,
+  "name": "Ablação de Linfonodos Cervicais",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-23 23:51:07.169",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c2"
+  },
+  "id": 200,
+  "name": "Papel da Medicina Nuclear em TNE",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-24 01:22:05.253",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c3"
+  },
+  "id": 201,
+  "name": "Pseudoprogressão",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-24 01:38:31.283",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c4"
+  },
+  "id": 202,
+  "name": "Estadiamento do Câncer de Mama: O Papel do Radiologista",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-24 01:38:31.283",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c5"
+  },
+  "id": 203,
+  "name": "Mutação BRCA1 e 2: o papel do radiologista na mudança do destino da paciente",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-24 01:38:31.283",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c6"
+  },
+  "id": 204,
+  "name": "Realce não nodular: como lidar",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-24 01:38:31.283",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c7"
+  },
+  "id": 205,
+  "name": "Ultrassonografia pélvica como método complementar no manejo da Puberdade Precoce: Visão do ginecologista",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-28 21:39:44.728",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c8"
+  },
+  "id": 206,
+  "name": "Protocolo da avaliação fetal ISUOG",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-04-30 18:52:48.729",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94c9"
+  },
+  "id": 207,
+  "name": "CDIS",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-05-02 13:10:35.405",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94ca"
+  },
+  "id": 208,
+  "name": "Ultrassonografia na avaliação de patologias inflamatórias e  tumorais do escroto e papel da RM nos casos inconclusivos ao  estudo ultrassonográfico",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-05-02 13:23:49.024",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94cb"
+  },
+  "id": 209,
+  "name": "US x RM:  Qual o melhor para avaliação da endometriose?",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-05-06 02:23:08.255",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94cc"
+  },
+  "id": 210,
+  "name": "Ultrassonografia na abordagem das estruturas pélvicas de origem não ginecológica",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-05-08 04:06:48.361",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94cd"
+  },
+  "id": 211,
+  "name": "Endometriose e Ultrassonogrsfia: onde estamos",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-05-08 04:06:48.361",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94ce"
+  },
+  "id": 212,
+  "name": "Questões Econômicas: Como o SUS vê a intervenção guiada por imagem",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-05-19 20:59:38.467",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94cf"
+  },
+  "id": 214,
+  "name": "Comissão Científica",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-06-07 15:13:55.347",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94d0"
+  },
+  "id": 216,
+  "name": "Abdome agudo obstrutivo: como investigar",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-06-21 16:53:57.584",
+  "year": 2025
+},
+{
+  "_id": {
+    "$oid": "685acafb6c63931a360a94d1"
+  },
+  "id": 217,
+  "name": "Abdome agudo inflamatório: métodos de imagem na apendicite, diverticulite e colecistite",
+  "is_fixed": false,
+  "is_new": true,
+  "created_at": "2025-06-21 16:53:57.584",
+  "year": 2025
+}]

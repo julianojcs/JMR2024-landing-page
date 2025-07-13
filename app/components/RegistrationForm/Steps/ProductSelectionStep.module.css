@@ -1,0 +1,242 @@
+.stepContent {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 1.15rem;
+  color: var(--facebook-clr);
+  margin-block-end: 0.5rem;
+  text-align: center;
+}
+
+.error {
+  color: #dc3545;
+  background-color: #fff;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  padding: 0.25rem;
+  margin-block-end: .25rem;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--success-clr);
+  padding-block-end: 0.25rem;
+  /* border-block-end: 2px solid #e9ecef; */
+}
+
+.productsWrapper {
+  display: grid;
+  /* Define 3 colunas com mesma largura */
+  grid-template-columns: repeat(3, 1fr);
+  /* Define o fluxo automático de grid por coluna */
+  grid-auto-flow: dense;
+  /* Alinha as linhas para ter a mesma altura em todas as colunas - Garante que os itens sejam esticados verticalmente para preencher o espaço disponível na linha */
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  margin-block: 1rem;
+  justify-items: center;
+}
+/* Para células vazias */
+.productsWrapper:empty::before {
+  content: "Nenhum conteúdo";
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+.productSection {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  max-width: 250px;
+  width: 100%;
+  margin-block-end: 2rem;
+}
+
+.CellGridLayout {
+  max-width: 250px;
+  width: 100%;
+  /* Posicionamento dos títulos (primeira linha) */
+  &.sectionTitle {
+    grid-row: 1; /* Força todos os títulos a ficarem na primeira linha */
+    height: auto; /* Altura baseada no conteúdo */
+  }
+  /* Posicionamento dos conteúdos (após títulos) */
+  &:not(.sectionTitle) {
+    grid-row: auto;
+    min-height: 100px;
+  }
+}
+
+/* Ajustar o espaçamento após os cabeçalhos */
+.sectionTitle + .productCard {
+  margin-top: 0;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.75rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  height: 100%;
+
+  & h4 {
+    font-size: 0.75rem;
+    color: #333;
+    margin-block-end: 0.25rem;
+    word-break: break-word;
+    hyphens: auto;
+    text-wrap: balance;
+  }
+  /* Garante que as células de conteúdo comecem após a linha de títulos */
+  &:not(.sectionTitle) {
+    min-height: 100px;
+    grid-row: auto; /* Deixa o grid posicionar automaticamente */
+  }
+  &:hover {
+    border-color: var(--success-color) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  &.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(var(--primary-rgb), 0.05);
+    /* border-style: dashed; */
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  height: 90%;
+  object-fit: cover;
+}
+
+/* Posicionamento das células por coluna */
+.journeyDayuse { grid-column: 1; }
+.workshops { grid-column: 2; }
+.courses { grid-column: 3; }
+
+.description {
+  color: #666;
+  font-size: 0.6rem;
+  margin-block-end: 0.5rem;
+  line-height: 1.2;
+  text-wrap: balance;
+  flex-grow: 1;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: auto;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.backButton {
+  background-color: #6c757d;
+}
+
+.nextButton {
+  background-color: #0056b3;
+}
+
+.nextButton,
+.backButton {
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.nextButton:hover,
+.backButton:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.instructor {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-secondary, #6c757d);
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.selectedCategory {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(var(--primary-rgb), 0.05);
+  border-left: 3px solid var(--primary-color, #1877f2);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: left;
+}
+
+.categoryLabel {
+  font-weight: 600;
+  color: var(--primary-color, #1877f2);
+  margin-right: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .CellGridLayout {
+      max-width: unset;
+    &.sectionTitle {
+      grid-row: unset;
+    }
+  }
+  .journeyDayuse,
+  .workshops,
+  .courses {
+    grid-column: unset;
+  }
+  .productsWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .backButton, .nextButton {
+    width: 100%;
+  }
+}

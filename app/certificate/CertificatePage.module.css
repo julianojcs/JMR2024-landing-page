@@ -1,0 +1,837 @@
+/* certificate.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 1rem auto; /* Reduzido de 2rem para 1rem */
+  padding: 1.5rem 1.5rem; /* Reduzido padding vertical de 2rem para 1.5rem */
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  font-family: 'Inter', Arial, sans-serif;
+  /* Altura adaptativa baseada no conteúdo */
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2a2a2a;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transform-origin: center top;
+  will-change: opacity, transform;
+}
+
+.sectionTitl/* Container com altura adaptativa para evitar scrollbars desnecessárias */
+.pageContainer {
+  min-height: calc(100vh - var(--footer-height, 70px) - 4rem);
+  max-height: calc(100vh - var(--footer-height, 70px));
+  display: flex;
+  flex-direction: column;
+  background: var(--background, #F5F5F5);
+  /* Controle de overflow específico para esta página */
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Posicionamento independente das outras páginas */
+  position: relative;
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Altura mínima para garantir que o footer fique no lugar certo */
+  min-height: calc(100vh - var(--footer-height, 70px) - 6rem);
+  /* Mas permite crescer naturalmente com o conteúdo */
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #4f46e5;
+  padding-bottom: 0.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.label {
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 0.3rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+.input:focus {
+  border: 1.5px solid #4f46e5;
+  outline: none;
+  background: #fff;
+}
+
+.button {
+  background: linear-gradient(90deg, #4f46e5 60%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+}
+.button:hover:not(:disabled) {
+  background: #6366f1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79,70,229,0.2);
+}
+.button:disabled {
+  background: #c7d2fe;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.downloadButton {
+  background: linear-gradient(90deg, #059669 60%, #10b981 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.downloadButton:hover:not(:disabled) {
+  background: #10b981;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16,185,129,0.2);
+}
+.downloadButton:disabled {
+  background: #a7f3d0;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #e11d48;
+  background: #fef2f2;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-block-start: 1.5rem;
+  font-size: 0.98rem;
+  border: 1px solid #fecaca;
+}
+
+.divider {
+  margin: 3rem 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+}
+
+/* Estilos para lista de certificados */
+.certificatesList {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.certificateCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+.certificateCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.certificateHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.certificateTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.certificateCode {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background: #f3f4f6;
+  color: #4f46e5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.certificateDetails {
+  margin-bottom: 1rem;
+}
+
+.certificateDate,
+.certificateParticipation {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Mensagem quando não há certificados */
+.noCertificates {
+  text-align: center;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px dashed #d1d5db;
+}
+
+.noCertificates p {
+  margin: 0.5rem 0;
+  color: #6b7280;
+}
+
+.noCertificates p:first-child {
+  font-weight: 500;
+  color: #374151;
+  font-size: 1.1rem;
+}
+
+/* Estilos para validação de certificado */
+.certificateValidResult {
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.validTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #15803d;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.validDetails {
+  margin-bottom: 1.5rem;
+}
+
+.validDetails p {
+  margin: 0.5rem 0;
+  padding: 0.25rem 0;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.validDetails strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Preview do certificado */
+.previewSection {
+  margin: 1.5rem 0;
+}
+
+.previewSection h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.previewContent {
+  border-radius: 8px;
+  border-left: 4px solid #4f46e5;
+  margin-top: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.previewLine {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.nameHighlight {
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  font-size: 1rem !important;
+  background: #fef3c7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Estilos para navegação entre seções */
+.sectionNavigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 12px;
+  position: relative;
+}
+
+.sectionNavigation::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  border-radius: 2px;
+}
+
+.navButton {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  color: #64748b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.navButtonIcon {
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+.navButtonTextLong {
+  display: inline-block;
+}
+
+.navButtonTextShort {
+  display: none;
+}
+
+.navButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.navButton:hover::before {
+  left: 100%;
+}
+
+.navButton:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.navButton.active {
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  border-color: #4f46e5;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+  transform: translateY(-2px);
+}
+
+.navButton.active:hover {
+  background: linear-gradient(90deg, #6366f1, #7c3aed);
+  transform: translateY(-2px);
+}
+
+/* Estilos específicos para mobile */
+@media (max-width: 768px) {
+  .sectionNavigation {
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .navButton {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    min-width: auto;
+    flex: 1;
+  }
+
+  .navButtonTextLong {
+    display: none; /* Ocultar texto longo no mobile */
+  }
+
+  .navButtonTextShort {
+    display: inline-block; /* Mostrar texto curto no mobile */
+  }
+
+  .navButtonIcon {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionNavigation {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .navButton {
+    flex: none;
+    min-width: 100%;
+  }
+
+  .navButtonTextLong {
+    display: inline-block; /* Mostrar texto longo quando em coluna */
+  }
+
+  .navButtonTextShort {
+    display: none; /* Ocultar texto curto quando em coluna */
+  }
+
+  .navButtonIcon {
+    font-size: 1.1rem;
+  }
+}
+
+/* Estilos para conteúdo do certificado validado */
+.certificateText {
+  background: #f8fafc;
+  padding: 1.5rem;
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: #374151;
+  text-align: justify;
+}
+
+/* Estilos para estado vazio */
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px dashed #d1d5db;
+  margin-top: 1rem;
+}
+
+.emptyState p {
+  margin: 0.5rem 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.emptyState .emptyIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+/* Estilos para estados de carregamento e feedback */
+.loadingSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.buttonWithSpinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Evitar scrollbar vertical desnecessária na página de certificados */
+
+/* Melhorias para o formulário de validação */
+.validateForm {
+  position: relative;
+}
+
+.codeInput {
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 2px !important;
+  text-align: center;
+  font-weight: 600 !important;
+}
+
+.successMessage {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.successMessage::before {
+  content: '✅';
+  font-size: 1.2rem;
+}
+
+/* Melhorias para exibição de erros */
+.error {
+  color: #dc2626;
+  background: #fef2f2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  border: 1px solid #fecaca;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.error::before {
+  content: '⚠️';
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Estado vazio melhorado */
+.emptyStateMessage {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  margin: 1.5rem 0;
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.emptyStateText {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.emptyStateText.primary {
+  color: #374151;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Novos estilos para certificados elegíveis */
+.certificateStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-wrap-mode: nowrap;
+}
+
+.issuedBadge {
+  background: #10b981;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.availableBadge {
+  background: #3b82f6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.unavailableBadge {
+  background: #ef4444;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.certificateCard.issued {
+  border-left: 4px solid #10b981;
+  background: #f0fdf4;
+}
+
+.certificateCard.available {
+  border-left: 4px solid #3b82f6;
+  background: #eff6ff;
+}
+
+.participationDetails {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.participationDetails h4 {
+  margin: 0 0 0.75rem 0;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.participationDetails p {
+  margin: 0.5rem 0;
+  color: #6b7280;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.certificateActions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.issueButton {
+  background: linear-gradient(90deg, #3b82f6 60%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.issueButton:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.issueButton:disabled {
+  background: #cbd5e1;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.unavailableButton {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: not-allowed;
+}
+
+/* Transições suaves entre seções */
+.sectionTransition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionTransition.entering {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.sectionTransition.entered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionTransition.exiting {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+/* Container com altura adaptativa para evitar scrollbars desnecessárias */
+.pageContainer {
+  min-height: calc(100vh - var(--footer-height, 70px) - 4rem); /* Desconto mais agressivo */
+  display: flex;
+  flex-direction: column;
+  background: var(--background, #F5F5F5);
+  /* Garantir que o container nunca seja menor que a área visível */
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Altura mínima para garantir que o footer fique no lugar certo */
+  min-height: calc(100vh - var(--footer-height, 70px) - 6rem); /* Desconto ainda mais agressivo */
+  /* Mas permite crescer naturalmente com o conteúdo */
+}
+
+/* Melhoria na transição do container principal */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  font-family: 'Inter', Arial, sans-serif;
+  /* Remover min-height fixo e deixar o conteúdo definir a altura */
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Animação de seção com efeito mais suave */
+.section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transform-origin: center top;
+  will-change: opacity, transform;
+}
+
+/* Animação de fade suave para melhorar a UX */
+@keyframes smoothFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes smoothFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.98);
+  }
+}
+
+.sectionFadeIn {
+  animation: smoothFadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.sectionFadeOut {
+  animation: smoothFadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Otimizações para diferentes tamanhos de viewport */
+@media (max-height: 600px) {
+  /* Em telas muito baixas, permitir scroll natural */
+  .pageContainer {
+    min-height: auto;
+  }
+
+  .contentWrapper {
+    min-height: auto;
+  }
+
+  .container {
+    margin: 0.5rem auto;
+    padding: 1rem;
+  }
+}
+
+@media (min-height: 800px) {
+  /* Em telas altas, garantir que o footer fique no rodapé */
+  .contentWrapper {
+    min-height: calc(100vh - var(--footer-height, 70px) - 6rem); /* Mais conservador */
+  }
+}
+
+/* Otimização para dispositivos móveis */
+@media (max-width: 768px) {
+  .container {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .pageContainer {
+    /* Em mobile, priorizar conteúdo sobre altura fixa */
+    min-height: calc(100vh - var(--footer-height, 70px) - 3rem);
+  }
+}
+
+/* Scrollbar personalizada quando necessária */
+.pageContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pageContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pageContainer::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.pageContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

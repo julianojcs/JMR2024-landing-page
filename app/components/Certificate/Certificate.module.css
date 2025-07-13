@@ -1,0 +1,110 @@
+/* Certificate.module.css */
+
+.certificateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.button {
+  background: linear-gradient(90deg, #4f46e5 60%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+  transition: all 0.2s;
+}
+.button:hover {
+  background: #6366f1;
+  box-shadow: 0 4px 16px rgba(79,70,229,0.13);
+}
+
+.certificateInfo {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.certificateDetails h3 {
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.certificateDetails p {
+  color: #64748b;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.previewSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.previewSection h4 {
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.previewText {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.previewText p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.nameHighlight {
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  font-size: 1rem !important;
+}
+
+.userInfo {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.userInfo h4 {
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.userInfo p {
+  color: #64748b;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .certificateContainer {
+    padding: 0.7rem 0;
+  }
+  .button {
+    width: 100%;
+  }
+}

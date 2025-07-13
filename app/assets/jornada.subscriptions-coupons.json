@@ -1,0 +1,5072 @@
+[{
+  "_id": {
+    "$oid": "685a2d3fd55c35ac279eb35d"
+  },
+  "subscriptionId": "SUB_2025_1750740287261_4i",
+  "asaasPaymentId": "free_1750740284224_h7lca1vob",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Juliano Costa Silva",
+    "email": "apfjuliano@gmail.com",
+    "cpf": "03102546633",
+    "phone": "(27) 98133-0708",
+    "crm": "14134",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30160017",
+      "address": "Rua da Bahia",
+      "number": "1601",
+      "complement": "Apto. 103",
+      "neighborhood": "Lourdes",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "ONCOLOGIA100",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T04:44:45.019Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "42057361",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T04:44:45.019Z",
+    "updatedAt": "2025-06-24T04:44:45.019Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "185a2d3f225c35ac279eb22a"
+  },
+  "subscriptionId": "SUB_2025_1750729432128_4i",
+  "asaasPaymentId": "free_1750729432128_p5p1swo0r",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Rodrigo Gouthier",
+    "email": "rodrigorg@terra.com.br",
+    "cpf": "81143311604",
+    "phone": null,
+    "crm": null,
+    "stateCrm": null,
+    "address": {
+      "zipCode": null,
+      "address": null,
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "city": null,
+      "state": null
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": []
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 385,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 385
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T01:43:52.831+00:00"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-23T00:00:00.000Z",
+    "invoiceNumber": "68141688",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-23T04:44:45.019Z",
+    "updatedAt": "2025-06-23T04:44:45.019Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "955a2123225c3abc279ebda1"
+  },
+  "subscriptionId": "SUB_2025_1750727424340_2b",
+  "asaasPaymentId": "free_1750727424340_esll8a00j",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "ULISSES CAMPANHA PARENTE",
+    "email": "ucparente@gmail.com",
+    "cpf": "55915299687",
+    "phone": null,
+    "crm": null,
+    "stateCrm": null,
+    "address": {
+      "zipCode": null,
+      "address": null,
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "city": null,
+      "state": null
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": []
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 385,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 385
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T01:10:24.563+00:00"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-23T00:00:00.000Z",
+    "invoiceNumber": "30180508",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T01:10:24.019Z",
+    "updatedAt": "2025-06-24T01:10:24.019Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685a368dfe224e2220fd8e09"
+  },
+  "subscriptionId": "SUB_2025_1750721572044_5f",
+  "asaasPaymentId": "free_1750721572044_etj3h5c78",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Valmir de Almeida Franco",
+    "email": "valmirfranco71@gmail.com",
+    "cpf": "87074737615",
+    "phone": null,
+    "crm": null,
+    "stateCrm": null,
+    "address": {
+      "zipCode": null,
+      "address": null,
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "city": null,
+      "state": null
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico não Sócio",
+    "description": []
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-23T23:32:53.992+00:00"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-23T00:00:00.000Z",
+    "invoiceNumber": "91506842",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-23T23:32:53.992Z",
+    "updatedAt": "2025-06-23T23:32:53.992Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685a375cfe224e2220fd8e0c"
+  },
+  "subscriptionId": "SUB_2025_1750718903952_2c",
+  "asaasPaymentId": "free_1750718903952_3fob1u2tg",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Wadia Namen",
+    "email": "wadia.namen@gmail.com",
+    "cpf": "66072336604",
+    "phone": null,
+    "crm": null,
+    "stateCrm": null,
+    "address": {
+      "zipCode": null,
+      "address": null,
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "city": null,
+      "state": null
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico não Sócio",
+    "description": []
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-23T22:48:24.341+00:00"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-23T00:00:00.000Z",
+    "invoiceNumber": "83357496",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-23T22:48:24.341Z",
+    "updatedAt": "2025-06-23T22:48:24.341Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685a382cfe224e2220fd8e0f"
+  },
+  "subscriptionId": "SUB_2025_1750713322918_a4",
+  "asaasPaymentId": "free_1750713322918_9ivbaj24y",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Alvaro Luiz Vaz de Carvalho",
+    "email": "alv.carvalho@hotmail.com",
+    "cpf": "37177230653",
+    "phone": null,
+    "crm": null,
+    "stateCrm": null,
+    "address": {
+      "zipCode": null,
+      "address": null,
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "city": null,
+      "state": null
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico não Sócio",
+    "description": []
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-23T21:18:16.479+00:00"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-23T00:00:00.000Z",
+    "invoiceNumber": "83357496",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-23T21:18:16.479Z",
+    "updatedAt": "2025-06-23T21:18:16.479Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685a3978fe224e2220fd8e15"
+  },
+  "subscriptionId": "SUB_2025_1750697325348_ba",
+  "asaasPaymentId": "free_1750697325348_bo1epegas",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Daniella Silva da Cunha Pimenta",
+    "email": "dscpimenta@gmail.com",
+    "cpf": "09540896690",
+    "phone": null,
+    "crm": null,
+    "stateCrm": null,
+    "address": {
+      "zipCode": null,
+      "address": null,
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "city": null,
+      "state": null
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico não Sócio",
+    "description": []
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "ONCOLOGIA100",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-23T16:48:45.666+00:00"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-23T00:00:00.000Z",
+    "invoiceNumber": "66248072",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-23T16:48:45.666Z",
+    "updatedAt": "2025-06-23T16:48:45.666Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685a3a75fe224e2220fd8e18"
+  },
+  "subscriptionId": "SUB_2025_1750709558204_b3",
+  "asaasPaymentId": "free_1750709558204_6a301bnuj",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "RAQUEL FERNANDES DOS SANTOS DIAS",
+    "email": "quelfsdias@gmail.com",
+    "cpf": "06436027637",
+    "phone": null,
+    "crm": null,
+    "stateCrm": null,
+    "address": {
+      "zipCode": null,
+      "address": null,
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "city": null,
+      "state": null
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": []
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 385,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 385
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-23T20:12:38.654+00:00"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-23T00:00:00.000Z",
+    "invoiceNumber": "66248072",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-23T20:12:38.654Z",
+    "updatedAt": "2025-06-23T20:12:38.654Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685a8cd241a5517f24cb27a3"
+  },
+  "subscriptionId": "SUB_2025_1750764754224_bb",
+  "asaasPaymentId": "pay_uprp9ktjq04ydt8v",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Paulo Sávio Paim de Moraes",
+    "email": "paulo_s_paim@hotmail.com",
+    "cpf": "00192997106",
+    "phone": "(62)99849-5017",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "74075-110",
+      "address": "Av Oeste",
+      "number": "83",
+      "complement": "",
+      "neighborhood": "St Aeroporto",
+      "city": "Goiânia",
+      "state": "GO"
+    }
+  },
+  "category": {
+    "id": 6,
+    "title": "Tecnólogo e Técnico",
+    "description": [
+      "✓Obrigatório envio de comprovante de atividade em técnicas radiológicas.",
+      "✓Programação exclusiva no dia 28/06, voltada ao público técnico, conforme Resolução CFM nº 2.217/2018.",
+      "✕Não têm acesso aos workshops."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 108,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 108,
+    "discountValue": 0,
+    "finalValue": 108,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-24T11:32:32.246Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-27T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "586442774",
+    "invoiceUrl": "https://www.asaas.com/i/uprp9ktjq04ydt8v",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/uprp9ktjq04ydt8v",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fpaulo-savio-paim-de-moraes_00192997106_586442774_pay_uprp9ktjq04ydt8v.jpg?alt=media&token=f5e357c6-0a4f-4aa2-a784-fa27f0b2ecdd",
+      "originalName": "Imagem do WhatsApp de 2025-06-24 à(s) 08.31.08_e7120ac2.jpg",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fpaulo-savio-paim-de-moraes_00192997106_586442774_pay_uprp9ktjq04ydt8v.jpg?alt=media&token=f5e357c6-0a4f-4aa2-a784-fa27f0b2ecdd"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T11:32:32.246Z",
+    "updatedAt": "2025-06-24T11:32:32.246Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685a96da75263e90b943ae21"
+  },
+  "subscriptionId": "SUB_2025_1750767322030_au",
+  "asaasPaymentId": "pay_js556udeymyhy430",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Gabriella Regina Grasel",
+    "email": "gabriellagrasel@gmail.com",
+    "cpf": "03165708185",
+    "phone": "(11)97777-0633",
+    "crm": "96000",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30330-110",
+      "address": "Rua São Domingos do Prata",
+      "number": "430",
+      "complement": "Ap 402",
+      "neighborhood": "Santo Antonio",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 3,
+    "title": "Residente ou Especializando",
+    "description": [
+      "✓Necessário envio de comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship em 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 219,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 219,
+    "discountValue": 0,
+    "finalValue": 219,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-24T12:15:20.114Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-27T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "586459597",
+    "invoiceUrl": "https://www.asaas.com/i/js556udeymyhy430",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/js556udeymyhy430",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fgabriella-regina-grasel_03165708185_586459597_pay_js556udeymyhy430.pdf?alt=media&token=a93b44b7-e8fc-4c1b-852a-5aeea3aa202e",
+      "originalName": "Declaração residência.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fgabriella-regina-grasel_03165708185_586459597_pay_js556udeymyhy430.pdf?alt=media&token=a93b44b7-e8fc-4c1b-852a-5aeea3aa202e"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T12:15:20.114Z",
+    "updatedAt": "2025-06-24T12:15:20.114Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685aabb853b5d94ee35f3de1"
+  },
+  "subscriptionId": "SUB_2025_1750772664030_1s",
+  "asaasPaymentId": "pay_oso0vhx5u5bc3dbd",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "SIMONE DE ANDRADE BAIAO GONCALVES",
+    "email": "simone.baiao@gmail.com",
+    "cpf": "05273964601",
+    "phone": "(31)99301-4003",
+    "crm": "43117",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "30140-076",
+      "address": "Rua dos Aimorés",
+      "number": "2480",
+      "complement": "307",
+      "neighborhood": "Santo Agostinho",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 0,
+    "finalValue": 385,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-24T13:44:22.861Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-27T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "586520650",
+    "invoiceUrl": "https://www.asaas.com/i/oso0vhx5u5bc3dbd",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/oso0vhx5u5bc3dbd",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T13:44:22.861Z",
+    "updatedAt": "2025-06-24T13:44:22.861Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685ab7cb9f7ecdefa280259b"
+  },
+  "subscriptionId": "SUB_2025_1750775755356_lq",
+  "asaasPaymentId": "free_1750775753204_jsdtfuahw",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Luan Victor Feres Gonçalves",
+    "email": "luanvferes@gmail.com",
+    "cpf": "03526588350",
+    "phone": "(11)95993-8486",
+    "crm": "87571",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "31035-450",
+      "address": "Rua São Marcos",
+      "number": "570",
+      "complement": "Apto 601",
+      "neighborhood": "Sagrada Família",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 566,25"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 566.25,
+    "discountValue": 566.25,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "ONCOLOGIA100",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 566.25
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T14:35:54.169Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "79365624",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T14:35:54.169Z",
+    "updatedAt": "2025-06-24T14:35:54.169Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685ac17ef455ca2979044b61"
+  },
+  "subscriptionId": "SUB_2025_1750778238767_kq",
+  "asaasPaymentId": "pay_yq3l1ulobhj2wu6d",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Arthur Fonseca Rosa",
+    "email": "arth.fonsecar@gmail.com",
+    "cpf": "16650588628",
+    "phone": "(31) 97561-7154",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31110700",
+      "address": "Rua Itararé",
+      "number": "593",
+      "complement": "",
+      "neighborhood": "Concordia",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 6,
+    "title": "Tecnólogo e Técnico",
+    "description": [
+      "✓Obrigatório envio de comprovante de atividade em técnicas radiológicas.",
+      "✓Programação exclusiva no dia 28/06, voltada ao público técnico, conforme Resolução CFM nº 2.217/2018.",
+      "✕Não têm acesso aos workshops."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 108,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 108,
+    "discountValue": 0,
+    "finalValue": 108,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-24T15:17:16.792Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-27T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "586583393",
+    "invoiceUrl": "https://www.asaas.com/i/yq3l1ulobhj2wu6d",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/yq3l1ulobhj2wu6d",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Farthur-fonseca-rosa_16650588628_586583393_pay_yq3l1ulobhj2wu6d.pdf?alt=media&token=7d137537-3e4c-4d3f-b332-965cf89142a2",
+      "originalName": "comprovante de matricula.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Farthur-fonseca-rosa_16650588628_586583393_pay_yq3l1ulobhj2wu6d.pdf?alt=media&token=7d137537-3e4c-4d3f-b332-965cf89142a2"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T15:17:16.792Z",
+    "updatedAt": "2025-06-24T15:17:16.792Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685adbb71feb6c41ab25ab5b"
+  },
+  "subscriptionId": "SUB_2025_1750784951005_nu",
+  "asaasPaymentId": "free_1750784948765_a03ty16d6",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Eduardo Nogueira Lacerds",
+    "email": "edunlacerda@gmail.com",
+    "cpf": "32558120620",
+    "phone": "(31)99953-1571",
+    "crm": "11050",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30220-150",
+      "address": "Rua Pirapetinga",
+      "number": "601",
+      "complement": "1101",
+      "neighborhood": "Serra",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Desconto de 100% UNIMED",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T17:09:09.812Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "13781711",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T17:09:09.812Z",
+    "updatedAt": "2025-06-24T17:09:09.812Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685ae8eb04bba5dfa636b9d8"
+  },
+  "subscriptionId": "SUB_2025_1750788331296_9d",
+  "asaasPaymentId": "pay_xvmeeqkdbbxfo7mt",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Gustavo Veloso de Souza",
+    "email": "gusinomed@yahoo.com.br",
+    "cpf": "01427535647",
+    "phone": "(31) 99967-3461",
+    "crm": "48733",
+    "stateCrm": "Mg",
+    "address": {
+      "zipCode": "30170122",
+      "address": "Rua Curitiba",
+      "number": "1704",
+      "complement": "403",
+      "neighborhood": "Lourdes",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 288,75"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 288.75,
+    "discountValue": 0,
+    "finalValue": 288.75,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-24T18:05:30.474Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-27T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "586672103",
+    "invoiceUrl": "https://www.asaas.com/i/xvmeeqkdbbxfo7mt",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/xvmeeqkdbbxfo7mt",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fgustavo-veloso-de-souza_01427535647_586672103_pay_xvmeeqkdbbxfo7mt.jpeg?alt=media&token=f67862e3-7d80-4bce-8784-cae6b74083ce",
+      "originalName": "401d79a5-6319-4a1b-a81a-13771ee440e1.jpeg",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fgustavo-veloso-de-souza_01427535647_586672103_pay_xvmeeqkdbbxfo7mt.jpeg?alt=media&token=f67862e3-7d80-4bce-8784-cae6b74083ce"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T18:05:30.474Z",
+    "updatedAt": "2025-06-24T18:05:30.474Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685af357bec602bfb552b128"
+  },
+  "subscriptionId": "SUB_2025_1750790999276_37",
+  "asaasPaymentId": "free_1750790997464_yu7hodou4",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Paula Ferreira Possa",
+    "email": "paula.possa@yahoo.com.br",
+    "cpf": "11705802621",
+    "phone": "(31) 99294-8550",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "30140170",
+      "address": "Levindo Lopes",
+      "number": "231",
+      "complement": "",
+      "neighborhood": "Savassi",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T18:49:58.053Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "80386336",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T18:49:58.053Z",
+    "updatedAt": "2025-06-24T18:49:58.053Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1.1 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685af4c94dfb7fa87de2d34a"
+  },
+  "subscriptionId": "SUB_2025_1750791369099_cn",
+  "asaasPaymentId": "free_1750791367483_ehqerlck7",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Junia Maria Fernandes Ferreira",
+    "email": "juniamfg@hotmail.com",
+    "cpf": "67732160606",
+    "phone": "(31) 99216-9237",
+    "crm": "24197",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30170132",
+      "address": "Rua Sao Paulo",
+      "number": "2295",
+      "complement": "503",
+      "neighborhood": "Lourdes",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T18:56:08.065Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "55287818",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T18:56:08.065Z",
+    "updatedAt": "2025-06-24T18:56:08.065Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685af4f24dfb7fa87de2d34b"
+  },
+  "subscriptionId": "SUB_2025_1750791410642_rf",
+  "asaasPaymentId": "free_1750791409816_fl3cgj6bm",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Beatriz Bicalho Lage",
+    "email": "beatrizlage@yahoo.com.br",
+    "cpf": "61427616604",
+    "phone": "(31)99648-6400",
+    "crm": "20770",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30140-120",
+      "address": "Rua dos Inconfidentes",
+      "number": "320",
+      "complement": "601",
+      "neighborhood": "Funcionários",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais "
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Desconto de 100% UNIMED",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T18:56:50.430Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "91465264",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T18:56:50.430Z",
+    "updatedAt": "2025-06-24T18:56:50.430Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685af5604dfb7fa87de2d34c"
+  },
+  "subscriptionId": "SUB_2025_1750791520027_pt",
+  "asaasPaymentId": "free_1750791520386_vo1ss5oi9",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Rogério Garcia Vieira de Almeida",
+    "email": "rogeriogvalmeida@gmail.com",
+    "cpf": "09533797606",
+    "phone": "(31)99499-4520",
+    "crm": "61940",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30190-085",
+      "address": "Rua Mato Grosso",
+      "number": "925",
+      "complement": "1002",
+      "neighborhood": "Santo Agostinho",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Desconto de 100% UNIMED",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T18:58:40.863Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "56755891",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T18:58:40.863Z",
+    "updatedAt": "2025-06-24T18:58:40.863Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685af6fa4dfb7fa87de2d34d"
+  },
+  "subscriptionId": "SUB_2025_1750791930733_2f",
+  "asaasPaymentId": "free_1750791929269_yw0em19ba",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Raissa Lobo Ladeira",
+    "email": "raissaloboo@gmail.com",
+    "cpf": "08213882660",
+    "phone": "(31)99168-0737",
+    "crm": "72923",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30380-435",
+      "address": "Avenida Raja Gabaglia, 1583",
+      "number": "1583",
+      "complement": "apto 608",
+      "neighborhood": "Luxemburgo",
+      "city": "Belo Horizonte",
+      "state": "MG "
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T19:05:30.387Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "69765413",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T19:05:30.387Z",
+    "updatedAt": "2025-06-24T19:05:30.387Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685af99eea77334b0f712c9e"
+  },
+  "subscriptionId": "SUB_2025_1750792606319_cr",
+  "asaasPaymentId": "free_1750792560335_z2uh2c3a4",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "IBRAHIM EDUARDO DE FARIA ELIAS",
+    "email": "dredfaria@yahoo.com.br",
+    "cpf": "04273758601",
+    "phone": "(31)99209-7264",
+    "crm": "42929",
+    "stateCrm": "minas gerais",
+    "address": {
+      "zipCode": "30320-670",
+      "address": "Rua Desembargador Jorge Fontana",
+      "number": "250",
+      "complement": "APT 903 BLOCO 1",
+      "neighborhood": "Belvedere",
+      "city": "Belo Horizonte",
+      "state": "minas gerais"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 385,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 385
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T19:16:00.838Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "70674630",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T19:16:00.838Z",
+    "updatedAt": "2025-06-24T19:16:00.838Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685afa7f8ffd9c47aad3e63b"
+  },
+  "subscriptionId": "SUB_2025_1750792831283_82",
+  "asaasPaymentId": "free_1750792829725_da91chhtr",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Raquel Soares Carvalho",
+    "email": "raquelsoarescarvalho@yahoo.com.br",
+    "cpf": "07172561627",
+    "phone": "(31)99195-7515",
+    "crm": "70979",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30150-321",
+      "address": "Rua Piauí",
+      "number": "1026",
+      "complement": "Ap 804",
+      "neighborhood": "Funcionarios",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais "
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "25/06/2025",
+          "value": "R$ 105,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 860,
+    "discountValue": 860,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 860
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T19:20:30.254Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "46270918",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T19:20:30.254Z",
+    "updatedAt": "2025-06-24T19:20:30.254Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025|courses:curso-de-inteligência-artificial"
+},
+{
+  "_id": {
+    "$oid": "685b00ed8fadf2142ac092cc"
+  },
+  "subscriptionId": "SUB_2025_1750794477043_p8",
+  "asaasPaymentId": "free_1750794474699_ag5h91z6l",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "WILSON VAZ HESPANHOL",
+    "email": "wilsonhespanhol@uol.com.br",
+    "cpf": "80390137715",
+    "phone": "(27)99701-2880",
+    "crm": "41925",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "32604-732",
+      "address": "Rua Ceará",
+      "number": "218",
+      "complement": "Casa",
+      "neighborhood": "Senhora das Graças ",
+      "city": "Betim",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 385,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 385
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T19:47:55.229Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "82363531",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T19:47:55.229Z",
+    "updatedAt": "2025-06-24T19:47:55.229Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685b0f1621fd5fe8e57944f6"
+  },
+  "subscriptionId": "SUB_2025_1750798102687_4i",
+  "asaasPaymentId": "free_1750798100718_20m6rq3y1",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Rogério Batista Araújo Filho",
+    "email": "rbaraujofilho@gmail.com",
+    "cpf": "05050388627",
+    "phone": "(31)99953-4002",
+    "crm": "43887",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30140-094",
+      "address": "Rua Gonçalves Dias",
+      "number": "2552",
+      "complement": "501",
+      "neighborhood": "Santo Agostinho",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T20:48:21.383Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "34196849",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T20:48:21.383Z",
+    "updatedAt": "2025-06-24T20:48:21.383Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685b1c92c59f2cf16ecc0f9c"
+  },
+  "subscriptionId": "SUB_2025_1750801554125_5v",
+  "asaasPaymentId": "free_1750801515386_r1rgp1rtq",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Joao Fabiano Rodrigues",
+    "email": "us.fabiano@gmail.com",
+    "cpf": "43765050644",
+    "phone": "(31)99974-3482",
+    "crm": "17705",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30150-331",
+      "address": "Rua Maranhão",
+      "number": "884",
+      "complement": "",
+      "neighborhood": "Funcionários",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T21:45:18.064Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "86370645",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T21:45:18.065Z",
+    "updatedAt": "2025-06-24T21:45:18.065Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685b1cf5152b3d23b699c5c1"
+  },
+  "subscriptionId": "SUB_2025_1750801653474_2m",
+  "asaasPaymentId": "free_1750801651257_ewdoywiqj",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Gabriela Martins",
+    "email": "gpaivamartins@yahoo.com.br",
+    "cpf": "02747253635",
+    "phone": "(31)98871-8059",
+    "crm": "34254",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "34007-870",
+      "address": "Rua Jacarandá",
+      "number": "447",
+      "complement": "",
+      "neighborhood": "Serra dos Manacás",
+      "city": "1960",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T21:47:31.700Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "45751326",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T21:47:31.700Z",
+    "updatedAt": "2025-06-24T21:47:31.700Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685b267bc6afcd61ab1d4d1e"
+  },
+  "subscriptionId": "SUB_2025_1750804091874_jm",
+  "asaasPaymentId": "free_1750804090243_u43spm6ut",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Thereza Rachel Miana",
+    "email": "trmiana@hotmail.com",
+    "cpf": "96453184672",
+    "phone": "(31)99982-1836",
+    "crm": "31385",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30112-003",
+      "address": "Rua Fernandes Tourinho",
+      "number": "893",
+      "complement": "",
+      "neighborhood": "Lourdes",
+      "city": "Bh",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-24T22:28:10.867Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-24T00:00:00.000Z",
+    "invoiceNumber": "49158827",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-24T22:28:10.867Z",
+    "updatedAt": "2025-06-24T22:28:10.867Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685b5398cba35b71e47f64f4"
+  },
+  "subscriptionId": "SUB_2025_1750815640723_bl",
+  "asaasPaymentId": "pay_jm1hayrx6f89ak0n",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Maria Helena Araujo Teixeira",
+    "email": "mariahelenaateixeira@yahoo.com.br",
+    "cpf": "22935975634",
+    "phone": "(31) 99973-7680",
+    "crm": "11901",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30150331",
+      "address": "Rua Maranhão",
+      "number": "1007",
+      "complement": "1301",
+      "neighborhood": "Funcionários",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 288,75"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 288.75,
+    "discountValue": 0,
+    "finalValue": 288.75,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T01:40:39.296Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "586874363",
+    "invoiceUrl": "https://www.asaas.com/i/jm1hayrx6f89ak0n",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/jm1hayrx6f89ak0n",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T01:40:39.296Z",
+    "updatedAt": "2025-06-25T01:40:39.296Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/373.1.772062114 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685bdb3ffa70a09d095de8d3"
+  },
+  "subscriptionId": "SUB_2025_1750850367581_bk",
+  "asaasPaymentId": "pay_aabt473odhwwzxyu",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Gabriel de Figueiredo Pereira",
+    "email": "gabrielfigueiredo94per@gmail.com",
+    "cpf": "12477106619",
+    "phone": "(31)98500-7181",
+    "crm": "83844",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30180-121",
+      "address": "Rua Alvarenga Peixoto",
+      "number": "1271",
+      "complement": "Apto 802",
+      "neighborhood": "Santo Agostinho",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 3,
+    "title": "Residente ou Especializando",
+    "description": [
+      "✓Necessário envio de comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship em 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 219,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 219,
+    "discountValue": 0,
+    "finalValue": 219,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T11:19:26.039Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "586963568",
+    "invoiceUrl": "https://www.asaas.com/i/aabt473odhwwzxyu",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/aabt473odhwwzxyu",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fgabriel-de-figueiredo-pereira_12477106619_586963568_pay_aabt473odhwwzxyu.pdf?alt=media&token=1aeb0f26-31db-4f9c-9562-14e0a7bf518c",
+      "originalName": "Minuta_Programa de Fellow_2025.docx.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fgabriel-de-figueiredo-pereira_12477106619_586963568_pay_aabt473odhwwzxyu.pdf?alt=media&token=1aeb0f26-31db-4f9c-9562-14e0a7bf518c"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T11:19:26.039Z",
+    "updatedAt": "2025-06-25T11:19:26.039Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685be9637e2800b37e7aee82"
+  },
+  "subscriptionId": "SUB_2025_1750853987132_g6",
+  "asaasPaymentId": "free_1750853989562_k9m6hbfxi",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Vanessa Gonçalves Antunes Rezende",
+    "email": "vantunesrezende@gmail.com",
+    "cpf": "01497317606",
+    "phone": "(31) 99222-5888",
+    "crm": "45746",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30575815",
+      "address": "Avenida Deputado Cristóvam Chiaradia",
+      "number": "288",
+      "complement": "apt 302 bl 2",
+      "neighborhood": "Buritis",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-25T12:19:50.530Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-25T00:00:00.000Z",
+    "invoiceNumber": "35717333",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T12:19:50.530Z",
+    "updatedAt": "2025-06-25T12:19:50.530Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685bec3050da1b4ade277dfb"
+  },
+  "subscriptionId": "SUB_2025_1750854703964_fs",
+  "asaasPaymentId": "pay_4846d609qsv4jdtq",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Maisa Dias Pinto Coelho",
+    "email": "maisapintocoelho@hotmail.com",
+    "cpf": "08552853620",
+    "phone": "(31)98899-1355",
+    "crm": "61693",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30575-815",
+      "address": "Avenida Deputado Cristóvam Chiaradia",
+      "number": "395",
+      "complement": "903 BLOCO 2",
+      "neighborhood": "BURITIS",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 0,
+    "finalValue": 755,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T12:31:41.362Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587001623",
+    "invoiceUrl": "https://www.asaas.com/i/4846d609qsv4jdtq",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/4846d609qsv4jdtq",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T12:31:41.362Z",
+    "updatedAt": "2025-06-25T12:31:41.362Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c0e8670ca1f7d4dd38fd7"
+  },
+  "subscriptionId": "SUB_2025_1750863494847_jo",
+  "asaasPaymentId": "pay_ivkvm6zt5v1l4uq8",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "VICTORIA GOI DE MORAES RODRIGUES",
+    "email": "victoriagmr88@gmail.com",
+    "cpf": "09873045694",
+    "phone": "(31)98539-6121",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "30240-360",
+      "address": "Rua Tenente Garro",
+      "number": "68",
+      "complement": "Apto 1104",
+      "neighborhood": "Santa Efigênia",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 4,
+    "title": "Acadêmico de Medicina Sócio",
+    "description": [
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025.",
+      "✓Programação exclusiva no dia 28/06, com opção de frequentar quaisquer salas da programação científica no dia 27/06.",
+      "✕Não têm acesso aos workshops."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 107,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 107,
+    "discountValue": 0,
+    "finalValue": 107,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T14:58:12.711Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587110235",
+    "invoiceUrl": "https://www.asaas.com/i/ivkvm6zt5v1l4uq8",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/ivkvm6zt5v1l4uq8",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T14:58:12.711Z",
+    "updatedAt": "2025-06-25T14:58:12.711Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/22F76 Instagram 378.2.0.37.76 (iPhone14,7; iOS 18_5; pt_BR; pt; scale=3.00; 1170x2532; 729008693; IABMV/1) NW/3"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c10febd7204905e33884f"
+  },
+  "subscriptionId": "SUB_2025_1750864126666_r7",
+  "asaasPaymentId": "pay_0h6vg86oy0lzj061",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Gustavo Bacha Silva",
+    "email": "gustavobacha@gmail.com",
+    "cpf": "09283096657",
+    "phone": "(31)99958-7168",
+    "crm": "69533",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "30150-331",
+      "address": "Rua Maranhão",
+      "number": "1488",
+      "complement": "1601",
+      "neighborhood": "Funcionários",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 0,
+    "finalValue": 385,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T15:07:32.476Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587116403",
+    "invoiceUrl": "https://www.asaas.com/i/0h6vg86oy0lzj061",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/0h6vg86oy0lzj061",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fgustavo-bacha-silva_09283096657_587116403_pay_0h6vg86oy0lzj061.pdf?alt=media&token=3d60ba92-14f5-4508-8ebc-9f644f853020",
+      "originalName": "recibo-GUSTAVO BACHA SILVA.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fgustavo-bacha-silva_09283096657_587116403_pay_0h6vg86oy0lzj061.pdf?alt=media&token=3d60ba92-14f5-4508-8ebc-9f644f853020"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T15:07:32.476Z",
+    "updatedAt": "2025-06-25T15:07:32.476Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c1b3ea857eccc46f82ea6"
+  },
+  "subscriptionId": "SUB_2025_1750866750052_np",
+  "asaasPaymentId": "pay_pgene6wgszbqgjo9",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Lucas Gomes Pinho",
+    "email": "gpinholucas@gmail.com",
+    "cpf": "02686658347",
+    "phone": "(31)99139-0656",
+    "crm": "56295",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "30150-321",
+      "address": "Rua Piauí",
+      "number": "1065",
+      "complement": "902",
+      "neighborhood": "Funcionários",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 113.25,
+    "finalValue": 641.75,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "RADIOLOGIA15",
+    "name": "desconto de 15% para todas as categorias",
+    "discountType": "PERCENTAGE",
+    "discountValue": 15,
+    "totalDiscount": 113.25
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T15:52:27.955Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587138014",
+    "invoiceUrl": "https://www.asaas.com/i/pgene6wgszbqgjo9",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/pgene6wgszbqgjo9",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T15:52:27.955Z",
+    "updatedAt": "2025-06-25T15:52:27.955Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c3b41785015df4d0f2723"
+  },
+  "subscriptionId": "SUB_2025_1750874945722_5u",
+  "asaasPaymentId": "pay_vtjcbr6ukr1zy8xt",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Marcello Ferreira do Vale Mafuz",
+    "email": "marcellomafuz@gmail.com",
+    "cpf": "11251777643",
+    "phone": "(31)98717-8206",
+    "crm": "76765",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30411-200",
+      "address": "Rua Turfa",
+      "number": "659",
+      "complement": "302",
+      "neighborhood": "Prado",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 0,
+    "finalValue": 385,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T18:09:03.292Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587216218",
+    "invoiceUrl": "https://www.asaas.com/i/vtjcbr6ukr1zy8xt",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/vtjcbr6ukr1zy8xt",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fmarcello-ferreira-do-vale-mafuz_11251777643_587216218_pay_vtjcbr6ukr1zy8xt.pdf?alt=media&token=a37805b2-4d04-4020-8a68-9e52b4cebedf",
+      "originalName": "Recibo.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fmarcello-ferreira-do-vale-mafuz_11251777643_587216218_pay_vtjcbr6ukr1zy8xt.pdf?alt=media&token=a37805b2-4d04-4020-8a68-9e52b4cebedf"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T18:09:03.292Z",
+    "updatedAt": "2025-06-25T18:09:03.292Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c44af92c3ee04b3155f27"
+  },
+  "subscriptionId": "SUB_2025_1750877359014_jc",
+  "asaasPaymentId": "pay_u9326x18el7j05rc",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Catia Alves dos Santos",
+    "email": "alvesc7@gmail.com",
+    "cpf": "69872295620",
+    "phone": "(31) 99602-6950",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31330000",
+      "address": "Rua Jose de Alencar",
+      "number": "915",
+      "complement": "",
+      "neighborhood": "Nova Suiça",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 7,
+    "title": "Público em Geral",
+    "description": [
+      "✓Curso aberto ao público em geral.",
+      "✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.",
+      "✓A inscrição é feito por curso, com cobrança individual para cada um deles.",
+      "✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "25/06/2025",
+          "value": "R$ 105,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 105,
+    "discountValue": 0,
+    "finalValue": 105,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T18:49:15.302Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587242257",
+    "invoiceUrl": "https://www.asaas.com/i/u9326x18el7j05rc",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/u9326x18el7j05rc",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T18:49:15.302Z",
+    "updatedAt": "2025-06-25T18:49:15.302Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "courses:curso-de-inteligência-artificial"
+},
+{
+  "_id": {
+    "$oid": "685c5ac3ed50dbec288360e8"
+  },
+  "subscriptionId": "SUB_2025_1750883010919_km",
+  "asaasPaymentId": "pay_li4h8f0besqbu595",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Paulo de Tarso Salerno Del Menezzi",
+    "email": "paulodetarsomenezzi@ymail.com",
+    "cpf": "64734447691",
+    "phone": "(38)99125-6164",
+    "crm": "18496",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "39401-330",
+      "address": "Av Maria das Dores Barreto",
+      "number": "1080",
+      "complement": "91",
+      "neighborhood": "Ibituruna",
+      "city": "Montes Claros",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 566,25"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 566.25,
+    "discountValue": 0,
+    "finalValue": 566.25,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T20:23:29.478Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587305771",
+    "invoiceUrl": "https://www.asaas.com/i/li4h8f0besqbu595",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/li4h8f0besqbu595",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T20:23:29.478Z",
+    "updatedAt": "2025-06-25T20:23:29.478Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685c68427ea4548abf29c7fe"
+  },
+  "subscriptionId": "SUB_2025_1750886465885_fc",
+  "asaasPaymentId": "pay_3yv9zgzevuzm7duc",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Camila Morais Oliveira E. Silva",
+    "email": "camilamos30@gmail.com",
+    "cpf": "12451790636",
+    "phone": "(34) 99128-6087",
+    "crm": "97488",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30493165",
+      "address": "Rua Doutor Lucídio Avelar",
+      "number": "190",
+      "complement": "",
+      "neighborhood": "Buritis",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 3,
+    "title": "Residente ou Especializando",
+    "description": [
+      "✓Necessário envio de comprovante atualizado de vínculo com programa de Residência, Especialização ou Fellowship em 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 219,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 219,
+    "discountValue": 0,
+    "finalValue": 219,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T21:21:04.530Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587341449",
+    "invoiceUrl": "https://www.asaas.com/i/3yv9zgzevuzm7duc",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/3yv9zgzevuzm7duc",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fcamila-morais-oliveira-e-silva_12451790636_587341449_pay_3yv9zgzevuzm7duc.pdf?alt=media&token=e75e062f-8d34-442a-aab9-2667313c7fbd",
+      "originalName": "Declaração de matricula.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fcamila-morais-oliveira-e-silva_12451790636_587341449_pay_3yv9zgzevuzm7duc.pdf?alt=media&token=e75e062f-8d34-442a-aab9-2667313c7fbd"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T21:21:04.530Z",
+    "updatedAt": "2025-06-25T21:21:04.530Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c68eb7ea4548abf29c809"
+  },
+  "subscriptionId": "SUB_2025_1750886635505_ms",
+  "asaasPaymentId": "pay_37qaqs0sfip7gdxq",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Poliana Silva",
+    "email": "polianasvg@gmail.com",
+    "cpf": "07064008602",
+    "phone": "(31)98843-0755",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31575-450",
+      "address": "Rua Paqueta",
+      "number": "624",
+      "complement": "",
+      "neighborhood": "Leagoinha",
+      "city": "Belo Horizonte",
+      "state": "Mg"
+    }
+  },
+  "category": {
+    "id": 6,
+    "title": "Tecnólogo e Técnico",
+    "description": [
+      "✓Obrigatório envio de comprovante de atividade em técnicas radiológicas.",
+      "✓Programação exclusiva no dia 28/06, voltada ao público técnico, conforme Resolução CFM nº 2.217/2018.",
+      "✕Não têm acesso aos workshops."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 108,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 108,
+    "discountValue": 16.2,
+    "finalValue": 91.8,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "RADIOLOGIA15",
+    "name": "desconto de 15% para todas as categorias",
+    "discountType": "PERCENTAGE",
+    "discountValue": 15,
+    "totalDiscount": 16.2
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T21:23:54.923Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587342894",
+    "invoiceUrl": "https://www.asaas.com/i/37qaqs0sfip7gdxq",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/37qaqs0sfip7gdxq",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fpoliana-silva_07064008602_587342894_pay_37qaqs0sfip7gdxq.pdf?alt=media&token=3b24bace-00ae-433c-a427-fad104ef05be",
+      "originalName": "inbound6119660406212516677.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fpoliana-silva_07064008602_587342894_pay_37qaqs0sfip7gdxq.pdf?alt=media&token=3b24bace-00ae-433c-a427-fad104ef05be"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T21:23:54.923Z",
+    "updatedAt": "2025-06-25T21:23:54.923Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Linux; Android 14; SM-A256E Build/UP1A.231005.007; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/137.0.7151.89 Mobile Safari/537.36 Instagram 385.0.0.47.74 Android (34/14; 480dpi; 1080x2119; samsung; SM-A256E; a25x; s5e8825; pt_BR; 750732795; IABMV/1)"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c7257cc2f3deee3cf6b49"
+  },
+  "subscriptionId": "SUB_2025_1750889047498_6g",
+  "asaasPaymentId": "free_1750889045686_a16k6rst0",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Cláudio Bedun",
+    "email": "cbedun@uol.com.br",
+    "cpf": "60003197620",
+    "phone": "(31)99977-4432",
+    "crm": "24419",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "30530-100",
+      "address": "Rua Nogueira da Gama",
+      "number": "409",
+      "complement": "CS",
+      "neighborhood": "Alto dos Pinheiros",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 755,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 755,
+    "discountValue": 755,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Desconto de 100% UNIMED",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 755
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-25T22:04:06.185Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-25T00:00:00.000Z",
+    "invoiceNumber": "25723667",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T22:04:06.185Z",
+    "updatedAt": "2025-06-25T22:04:06.185Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c7584fa250006dee372d0"
+  },
+  "subscriptionId": "SUB_2025_1750889859909_9w",
+  "asaasPaymentId": "pay_fdh86hxnqzssc3a1",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Gilmara Mikaele Campos",
+    "email": "gilmaracampos33@gmail.com",
+    "cpf": "13103567693",
+    "phone": "(32) 99994-3719",
+    "crm": "89946",
+    "stateCrm": "Minas Gerais",
+    "address": {
+      "zipCode": "31814620",
+      "address": "Rua Waldomiro Lobo",
+      "number": "1076",
+      "complement": "Ap 301",
+      "neighborhood": "Guarani",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 0,
+    "finalValue": 385,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T22:17:38.588Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587367140",
+    "invoiceUrl": "https://www.asaas.com/i/fdh86hxnqzssc3a1",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/fdh86hxnqzssc3a1",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "JMR2025%2FComprovantes%2Fgilmara-mikaele-campos_13103567693_587367140_pay_fdh86hxnqzssc3a1.pdf?alt=media&token=4d4d2286-41ad-4590-b43d-daa66f169284",
+      "originalName": "Comprovante de pagamento - Gilmara Mikaele Campos.pdf",
+      "downloadUrl": "https://firebasestorage.googleapis.com/v0/b/jornada-mineira-de-radiologia.firebasestorage.app/o/JMR2025%2FComprovantes%2Fgilmara-mikaele-campos_13103567693_587367140_pay_fdh86hxnqzssc3a1.pdf?alt=media&token=4d4d2286-41ad-4590-b43d-daa66f169284"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T22:17:38.588Z",
+    "updatedAt": "2025-06-25T22:17:38.588Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685c7e757b12c53cccc04b37"
+  },
+  "subscriptionId": "SUB_2025_1750892148904_hr",
+  "asaasPaymentId": "pay_1rez08lmesgbdwsv",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Vinicius Galdino",
+    "email": "viniacad@gmail.com",
+    "cpf": "01549875574",
+    "phone": "(32) 99108-7928",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "30160042",
+      "address": "Rua Rio de Janeiro",
+      "number": "2727",
+      "complement": "",
+      "neighborhood": "Lourdes",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 288,75"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 288.75,
+    "discountValue": 0,
+    "finalValue": 288.75,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T22:55:47.611Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587385158",
+    "invoiceUrl": "https://www.asaas.com/i/1rez08lmesgbdwsv",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/1rez08lmesgbdwsv",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T22:55:47.611Z",
+    "updatedAt": "2025-06-25T22:55:47.611Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685c866150264f1d70fef1a3"
+  },
+  "subscriptionId": "SUB_2025_1750894177125_js",
+  "asaasPaymentId": "pay_obhilndtiivx7g4r",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Elvecio Starling Diniz Filho",
+    "email": "elveciostarling@gmail.com",
+    "cpf": "65577396620",
+    "phone": "(37) 99987-6707",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "35500025",
+      "address": "Av Rio Grande do Sul",
+      "number": "905",
+      "complement": "Apto 701",
+      "neighborhood": "Centro",
+      "city": "Divinópolis",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "25/06/2025",
+        "value": "R$ 385,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 385,
+    "discountValue": 0,
+    "finalValue": 385,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-25T23:29:36.016Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-28T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587402355",
+    "invoiceUrl": "https://www.asaas.com/i/obhilndtiivx7g4r",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/obhilndtiivx7g4r",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-25T23:29:36.016Z",
+    "updatedAt": "2025-06-25T23:29:36.016Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685d339664f0a53232fd9b39"
+  },
+  "subscriptionId": "SUB_2025_1750938623313_s",
+  "asaasPaymentId": "pay_dhv3a3jqtd1pfcow",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Ivo André do Nascimento Sousa",
+    "email": "ivonasousa@gmail.com",
+    "cpf": "01297062213",
+    "phone": "(91) 98912-1658",
+    "crm": "15818",
+    "stateCrm": "PA",
+    "address": {
+      "zipCode": "68600000",
+      "address": "Tv Vileta 2080",
+      "number": "2080",
+      "complement": "",
+      "neighborhood": "Marco",
+      "city": "Bragança",
+      "state": "PA"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "27/06/2025",
+        "value": "R$ 596,25"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 596.25,
+    "discountValue": 0,
+    "finalValue": 596.25,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-26T11:50:22.219Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-29T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587533940",
+    "invoiceUrl": "https://www.asaas.com/i/dhv3a3jqtd1pfcow",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/dhv3a3jqtd1pfcow",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T11:50:22.219Z",
+    "updatedAt": {
+      "$date": "2025-06-26T11:50:23.431Z"
+    },
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/21F90 Instagram 385.0.0.28.70 (iPhone14,5; iOS 17_5_1; pt_BR; pt; scale=3.00; 1170x2532; 748614773; IABMV/1)"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685d3557ca15019bafc34fd8"
+  },
+  "subscriptionId": "SUB_2025_1750938967132_2u",
+  "asaasPaymentId": "pay_ojjhfnlsu3umdql3",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "LUIS O O MELO",
+    "email": "luistavinho99@gmail.com",
+    "cpf": "05748170183",
+    "phone": "(31)98426-9300",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31270-310",
+      "address": "Rua Boaventura",
+      "number": "1853",
+      "complement": "CASA",
+      "neighborhood": "Liberdade",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 7,
+    "title": "Público em Geral",
+    "description": [
+      "✓Curso aberto ao público em geral.",
+      "✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.",
+      "✓A inscrição é feito por curso, com cobrança individual para cada um deles.",
+      "✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "27/06/2025",
+          "value": "R$ 111,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 111,
+    "discountValue": 0,
+    "finalValue": 111,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-26T11:56:05.784Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-29T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587536602",
+    "invoiceUrl": "https://www.asaas.com/i/ojjhfnlsu3umdql3",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/ojjhfnlsu3umdql3",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T11:56:05.784Z",
+    "updatedAt": "2025-06-26T11:56:05.784Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36"
+  },
+  "productIdentifier": "courses:curso-de-inteligência-artificial"
+},
+{
+  "_id": {
+    "$oid": "685d4148be123ed0279d1466"
+  },
+  "subscriptionId": "SUB_2025_1750942023897_4u",
+  "asaasPaymentId": "free_1750942022251_unk9biick",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Clarice Oliveira Minobolli Teixeira",
+    "email": "wclarice14@gmail.com",
+    "cpf": "12626865630",
+    "phone": "(31)98890-7961",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31160-282",
+      "address": "Rua Maura",
+      "number": "1001",
+      "complement": "apto 903",
+      "neighborhood": "União",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 7,
+    "title": "Público em Geral",
+    "description": [
+      "✓Curso aberto ao público em geral.",
+      "✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.",
+      "✓A inscrição é feito por curso, com cobrança individual para cada um deles.",
+      "✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "27/06/2025",
+          "value": "R$ 111,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 111,
+    "discountValue": 111,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "COMPUTACAO100",
+    "name": "COMPUTACAO LAB100",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 111
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T12:47:03.083Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "94874696",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T12:47:03.083Z",
+    "updatedAt": "2025-06-26T12:47:03.083Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "courses:curso-de-inteligência-artificial"
+},
+{
+  "_id": {
+    "$oid": "685d45043db6f34ce2ce0de7"
+  },
+  "subscriptionId": "SUB_2025_1750942980470_p2",
+  "asaasPaymentId": "free_1750942976958_2zm301yki",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Luzianne Aihzu Sung de Araújo",
+    "email": "luzianneaihzu@gmail.com",
+    "cpf": "10849457629",
+    "phone": "(31)97266-0077",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31270-020",
+      "address": "Rua Boaventura",
+      "number": "771",
+      "complement": "apto 201G",
+      "neighborhood": "Indaiá",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 7,
+    "title": "Público em Geral",
+    "description": [
+      "✓Curso aberto ao público em geral.",
+      "✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.",
+      "✓A inscrição é feito por curso, com cobrança individual para cada um deles.",
+      "✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "27/06/2025",
+          "value": "R$ 111,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 111,
+    "discountValue": 111,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "COMPUTACAO100",
+    "name": "COMPUTACAO LAB100",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 111
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T13:02:57.711Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "46370113",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T13:02:57.712Z",
+    "updatedAt": "2025-06-26T13:02:57.712Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36"
+  },
+  "productIdentifier": "courses:curso-de-inteligência-artificial"
+},
+{
+  "_id": {
+    "$oid": "685d48f71914376890d62bd3"
+  },
+  "subscriptionId": "SUB_2025_1750943991086_ll",
+  "asaasPaymentId": "free_1750943987771_nwrl47gxm",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Mariana Beatriz Lara E. Souza",
+    "email": "marianabls@ufmg.br",
+    "cpf": "14777143678",
+    "phone": "(31)99889-0470",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31270-150",
+      "address": "Rua Borges",
+      "number": "470",
+      "complement": "S/C",
+      "neighborhood": "Indaiá",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 7,
+    "title": "Público em Geral",
+    "description": [
+      "✓Curso aberto ao público em geral.",
+      "✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.",
+      "✓A inscrição é feito por curso, com cobrança individual para cada um deles.",
+      "✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "27/06/2025",
+          "value": "R$ 111,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 111,
+    "discountValue": 111,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "COMPUTACAO100",
+    "name": "COMPUTACAO LAB100",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 111
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T13:19:48.291Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "68920715",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T13:19:48.291Z",
+    "updatedAt": "2025-06-26T13:19:48.291Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36"
+  },
+  "productIdentifier": "courses:curso-de-inteligência-artificial"
+},
+{
+  "_id": {
+    "$oid": "685d4ad650591d09a79ca169"
+  },
+  "subscriptionId": "SUB_2025_1750944469968_rj",
+  "asaasPaymentId": "free_1750944468243_h9lslhtpa",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Gabriella de Almeida Ruffato",
+    "email": "gabriella.ruffato@bayer.com",
+    "cpf": "44071886854",
+    "phone": "(11)91222-6893",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "04696-000",
+      "address": "Av. Engenheiro Eusébio Stevaux",
+      "number": "1000",
+      "complement": "Apt 111 torre 2",
+      "neighborhood": "Campo Grande",
+      "city": "São Paulo",
+      "state": "SP"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "27/06/2025",
+        "value": "R$ 795,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 795,
+    "discountValue": 795,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "BAYER100",
+    "name": "BAYER100%",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 795
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T13:27:48.872Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "29704560",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T13:27:48.872Z",
+    "updatedAt": "2025-06-26T13:27:48.872Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685d4cbf1914376890d62c6c"
+  },
+  "subscriptionId": "SUB_2025_1750944959207_60",
+  "asaasPaymentId": "free_1750944960163_0actqrnje",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Samuel Lucca Viana Miranda",
+    "email": "samulvm@gmail.com",
+    "cpf": "16491522644",
+    "phone": "(31)99246-6053",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "32044-160",
+      "address": "Rua Pinho",
+      "number": "29",
+      "complement": "",
+      "neighborhood": "Colonial",
+      "city": "Contagem",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 7,
+    "title": "Público em Geral",
+    "description": [
+      "✓Curso aberto ao público em geral.",
+      "✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.",
+      "✓A inscrição é feito por curso, com cobrança individual para cada um deles.",
+      "✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "27/06/2025",
+          "value": "R$ 111,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 111,
+    "discountValue": 111,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "COMPUTACAO100",
+    "name": "LAB COMPUTACAO 100%",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 111
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T13:36:00.552Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "62841930",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T13:36:00.552Z",
+    "updatedAt": "2025-06-26T13:36:00.552Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0"
+  },
+  "productIdentifier": "courses:curso-de-inteligência-artificial"
+},
+{
+  "_id": {
+    "$oid": "685d4da32838c622f69cf203"
+  },
+  "subscriptionId": "SUB_2025_1750945187231_15",
+  "asaasPaymentId": "pay_ospe1va2s13hc86q",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "MONIQUE GEORGES LAMBRAKOS",
+    "email": "mo.lambrakos@hotmail.com",
+    "cpf": "11800016646",
+    "phone": "(31)97197-2829",
+    "crm": "82479",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30140-061",
+      "address": "Rua dos Timbiras",
+      "number": "1986",
+      "complement": "Apto 1501",
+      "neighborhood": "Lourdes",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 1,
+    "title": "Médico Sócio",
+    "description": [
+      "✓Categoria destinada a médicos associados da SRMG ou SOGIMIG com anuidade 2025 quitada.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais. É necessário adquirir cada módulo separadamente.",
+      "✓Caso o sistema não tenha validado a sua associação, será necessário o envio do comprovante de quitação do ano 2025."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "27/06/2025",
+        "value": "R$ 311,25"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 311.25,
+    "discountValue": 0,
+    "finalValue": 311.25,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": false,
+    "code": "",
+    "name": "",
+    "discountType": "",
+    "discountValue": 0,
+    "totalDiscount": 0
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "PENDING",
+    "lastUpdated": "2025-06-26T13:39:46.436Z"
+  },
+  "payment": {
+    "method": "UNDEFINED",
+    "dueDate": "2025-06-29T00:00:00.000Z",
+    "paidDate": null,
+    "invoiceNumber": "587608768",
+    "invoiceUrl": "https://www.asaas.com/i/ospe1va2s13hc86q",
+    "bankSlipUrl": "https://www.asaas.com/b/pdf/ospe1va2s13hc86q",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T13:39:46.436Z",
+    "updatedAt": "2025-06-26T13:39:46.436Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685d5e550965468cece14398"
+  },
+  "subscriptionId": "SUB_2025_1750949460903_m1",
+  "asaasPaymentId": "free_1750949458385_9yhs82v2p",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Diogo Melgaço Faria",
+    "email": "diogomelfaria@hotmail.com",
+    "cpf": "07932828619",
+    "phone": "(31)98755-9034",
+    "crm": "53416",
+    "stateCrm": "MG",
+    "address": {
+      "zipCode": "30240-210",
+      "address": "Rua Levindo Lopes",
+      "number": "236",
+      "complement": "1202",
+      "neighborhood": "Savassi",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [],
+    "dayUse": {
+      "title": "Day use",
+      "price": {
+        "bestBefore": "27/06/2025",
+        "value": "R$ 596,25"
+      }
+    }
+  },
+  "financial": {
+    "originalValue": 596.25,
+    "discountValue": 596.25,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "ONCOLOGIA100",
+    "name": "Cupom de 100% de desconto",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 596.25
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T14:50:59.085Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "58879440",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T14:50:59.085Z",
+    "updatedAt": "2025-06-26T14:50:59.085Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "dayUse:day-use"
+},
+{
+  "_id": {
+    "$oid": "685d659ce66b47eda3501696"
+  },
+  "subscriptionId": "SUB_2025_1750951324348_36",
+  "asaasPaymentId": "free_1750951322959_gsqt6mpdv",
+  "eventYear": "2025",
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Barbara Alves dos Santos",
+    "email": "barbarasantavl@gmail.com",
+    "cpf": "07572978622",
+    "phone": "(31)99950-9787",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "30421-148",
+      "address": "Rua Jose de Alencar",
+      "number": "915",
+      "complement": "",
+      "neighborhood": "Nova Suiça",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "27/06/2025",
+        "value": "R$ 795,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 795,
+    "discountValue": 795,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Desconto de 100% UNIMED",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 795
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T15:22:03.477Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "55550703",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T15:22:03.477Z",
+    "updatedAt": "2025-06-26T15:22:03.477Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685d6777e66b47eda3501697"
+  },
+  "subscriptionId": "SUB_2025_1750951799175_hd",
+  "asaasPaymentId": "free_1750951798464_tr7hhlhc4",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Catia Alves dos Santos",
+    "email": "alvesc7@gmail.com",
+    "cpf": "69872295620",
+    "phone": "(31) 99602-6950",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "31330000",
+      "address": "Rua Jose de Alencar",
+      "number": "915",
+      "complement": "",
+      "neighborhood": "Nova Suiça",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "27/06/2025",
+        "value": "R$ 795,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 795,
+    "discountValue": 795,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "UNIMED100FREE",
+    "name": "Desconto de 100% UNIMED",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 795
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T15:29:58.993Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "35764599",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T15:29:58.993Z",
+    "updatedAt": "2025-06-26T15:29:58.993Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685d6a3249105e6e27cac8f7"
+  },
+  "subscriptionId": "SUB_2025_1750952498053_6j",
+  "asaasPaymentId": "free_1750952497961_9zdd8idaj",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Glaucia Camara",
+    "email": "glaucia.camara@yahoo.com.br",
+    "cpf": "71249680620",
+    "phone": "(31) 99138-8165",
+    "crm": "25765",
+    "stateCrm": "mg",
+    "address": {
+      "zipCode": "30315040",
+      "address": "Rua Silva Campos",
+      "number": "39",
+      "complement": "",
+      "neighborhood": "Mangabeiras",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  "category": {
+    "id": 2,
+    "title": "Médico Não Sócio",
+    "description": [
+      "✓Categoria destinada à médicos não associados da SMRG/SOGIMIG ou inadimplentes com a anuidade 2025.",
+      "✓Podem adquirir separadamente a programação científica, workshops e curso de IA. A aquisição de um não dá acesso aos demais.  É necessário adquirir cada módulo separadamente."
+    ]
+  },
+  "selectedItems": {
+    "journey": {
+      "title": "JMR/CIM 2025",
+      "price": {
+        "bestBefore": "27/06/2025",
+        "value": "R$ 795,00"
+      }
+    },
+    "workshops": [],
+    "courses": [],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 795,
+    "discountValue": 795,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "PARDINI100",
+    "name": "desconto para médicos do pardini",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 795
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T15:41:38.500Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "48523473",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T15:41:38.500Z",
+    "updatedAt": "2025-06-26T15:41:38.500Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "productIdentifier": "journey:jmr/cim-2025"
+},
+{
+  "_id": {
+    "$oid": "685d750675a201c655a82aa5"
+  },
+  "subscriptionId": "SUB_2025_1750955270098_b0",
+  "asaasPaymentId": "free_1750955268782_sdw6leyx3",
+  "eventYear": 2025,
+  "eventName": "JMR & CIM 2025",
+  "personalInfo": {
+    "fullName": "Cecília Junqueira Vieira Machado Pereira",
+    "email": "cicijunqueira@hotmail.com",
+    "cpf": "09054252600",
+    "phone": "(31)99228-6878",
+    "crm": "",
+    "stateCrm": "",
+    "address": {
+      "zipCode": "30220-070",
+      "address": "Rua Dona Cecília",
+      "number": "81",
+      "complement": "401",
+      "neighborhood": "Serra",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais "
+    }
+  },
+  "category": {
+    "id": 7,
+    "title": "Público em Geral",
+    "description": [
+      "✓Curso aberto ao público em geral.",
+      "✓Os curso de Inteligência Artificial em Medicina e Gestão e Qualidade são abertos a qualquer pessoa com interesse no tema, incluindo médicos, acadêmicos da área da saúde, ciências biológicas ou da computação.",
+      "✓A inscrição é feito por curso, com cobrança individual para cada um deles.",
+      "✓A inscrição pode ser feita de forma independente, sem necessidade de participação na programação científica da Jornada."
+    ]
+  },
+  "selectedItems": {
+    "journey": null,
+    "workshops": [],
+    "courses": [
+      {
+        "title": "Curso de Inteligência Artificial",
+        "price": {
+          "bestBefore": "27/06/2025",
+          "value": "R$ 111,00"
+        }
+      }
+    ],
+    "dayUse": null
+  },
+  "financial": {
+    "originalValue": 111,
+    "discountValue": 111,
+    "finalValue": 0,
+    "currency": "BRL"
+  },
+  "coupon": {
+    "applied": true,
+    "code": "COMPUTACAO100",
+    "name": "LAB COMPUTACAO 100%",
+    "discountType": "PERCENTAGE",
+    "discountValue": 100,
+    "totalDiscount": 111
+  },
+  "status": {
+    "registration": "COMPLETED",
+    "payment": "FREE",
+    "lastUpdated": "2025-06-26T16:27:49.313Z"
+  },
+  "payment": {
+    "method": "FREE",
+    "dueDate": null,
+    "paidDate": "2025-06-26T00:00:00.000Z",
+    "invoiceNumber": "48657832",
+    "invoiceUrl": "",
+    "bankSlipUrl": "",
+    "transactionReceiptUrl": ""
+  },
+  "attachments": {
+    "receipt": {
+      "filename": "",
+      "originalName": "",
+      "downloadUrl": ""
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-06-26T16:27:49.313Z",
+    "updatedAt": "2025-06-26T16:27:49.313Z",
+    "createdBy": "system",
+    "source": "web_form",
+    "ipAddress": "",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1"
+  },
+  "productIdentifier": "courses:curso-de-inteligência-artificial"
+}]

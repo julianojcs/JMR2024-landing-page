@@ -1,0 +1,132 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.stepIndicator {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.formSection {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-height: calc(100vh - 10rem); /* Um pouco menor para acomodar outros elementos */
+  overflow-y: scroll; /* Sempre mostra a barra de rolagem */
+  scrollbar-gutter: stable; /* Reserva o espaço para a barra de rolagem mesmo quando não está visível */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  -ms-overflow-style: scrollbar; /* IE e Edge */
+  scrollbar-width: thin; /* Firefox */
+
+  /* Garantir que o padding não atrapalhe o overflow */
+  padding-right: 0.75rem;
+
+  /* Esconder a scrollbar padrão em Firefox */
+  scrollbar-color: var(--facebook-clr, #1877f2) transparent;
+}
+
+/* Estilização para navegadores baseados em WebKit (Chrome, Safari, Edge) */
+.formSection::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+.formSection::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Cor de fundo */
+  margin: 12px 0; /* Aumentado de 8px para 12px para afastar mais das bordas */
+  border-radius: 0 8px 8px 0;
+}
+
+.formSection::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Cor da barra */
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box; /* Faz o fundo "recortar" para dentro da borda */
+}
+
+/* Para navegadores baseados em WebKit (Chrome, Safari) que preferem esconder a barra quando não necessária */
+@supports (-webkit-appearance:none) {
+  .formSection {
+    /* Calcular o padding direito para compensar a largura da barra de rolagem */
+    padding-right: calc(2rem - 15px); /* 15px é a largura aproximada da barra de rolagem */
+  }
+}
+
+.cartSection {
+  background: whitesmoke;
+  padding: .5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0; /* Manter no topo quando rolar */
+  height: auto;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(var(--primary-rgb), 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .formSection {
+    padding: 0.4rem;
+    max-height: calc(100dvh - 3rem);
+    border-radius: unset;
+    box-shadow: unset;
+  }
+
+  .formSection::-webkit-scrollbar {
+    width: 6px; /* Mais fino em mobile */
+  }
+
+  .cartSection {
+    padding: 0.4rem;
+  }
+}

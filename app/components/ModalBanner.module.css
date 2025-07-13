@@ -1,0 +1,335 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Use viewport width em vez de porcentagem */
+  height: 100vh; /* Use viewport height em vez de porcentagem */
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+  user-select: none;
+  overflow-x: hidden; /* Previne rolagem horizontal */
+  box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+}
+
+.modal {
+  background: linear-gradient(135deg, hsl(228, 72.80%, 24.2%), hsl(228, 72.80%, 7.2%));
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 90%;
+  width: min(780px, 90vw); /* Usa o menor valor entre 780px e 90% da largura da viewport */
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-in-out;
+  box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #0E1D59;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  /* Garantir que não sobreponha o conteúdo */
+  padding: 0;
+}
+
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.prevButton {
+  left: -1rem; /* Posicionado na lateral esquerda da modal */
+}
+
+.nextButton {
+  right: -1rem; /* Posicionado na lateral direita da modal */
+}
+
+.indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  z-index: 10;
+}
+
+.indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.activeIndicator {
+  background-color: white;
+}
+
+.closeButton {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s ease;
+  padding: 0;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+  background-color: #f8f9fa;
+}
+
+.closeButton:active {
+  transform: scale(0.95);
+}
+
+
+.content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1; /* Ocupa o espaço disponível no modal */
+  min-height: 0; /* Permite que o flex-shrink funcione */
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 100%;
+  height: 70vh; /* Altura fixa de 70% da viewport */
+  max-height: 70vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0; /* Não encolhe */
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mantém a proporção e mostra a imagem completa */
+  border-radius: 10px;
+  background-color: transparent;
+}
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.description {
+  margin-bottom: 1.2rem;
+}
+
+.description p {
+  line-height: 1.6;
+  text-align: justify;
+  text-indent: 1.5rem;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  &>a {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+  }
+}
+
+.logo {
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logoLink {
+  display: inline-block;
+  padding-inline: 1rem;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.logoContainer[data-has-bg="true"] {
+  background-color: var(--logo-bg-color);
+  border-radius: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem auto 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 85%;
+  }
+
+  .description {
+    margin-bottom: 0;
+    &>p {
+      margin-block-end: .2rem;
+      line-height: 1.3;
+      font-size: .9em;
+    }
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .logos {
+    margin-block-start: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    transform: scale(0.85);
+  }
+
+  .navButton {
+    /* Reduzimos um pouco o tamanho em telas menores */
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.7rem;
+  }
+
+  .prevButton {
+    left: -0.9rem;
+  }
+
+  .nextButton {
+    right: -0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 95%;
+  }
+
+  .description {
+    margin-bottom: 0;
+    &>p {
+      margin-block-end: .5rem;
+      line-height: 1.3;
+      font-size: .85em;
+    }
+
+    .logos {
+      margin-block-start: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transform: scale(0.75);
+    }
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .closeButton {
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+  }
+
+  .navButton {
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 0.6rem;
+  }
+
+  .prevButton {
+    left: 0;
+  }
+
+  .nextButton {
+    right: 0;
+  }
+
+  .indicators {
+    bottom: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .indicator {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+}

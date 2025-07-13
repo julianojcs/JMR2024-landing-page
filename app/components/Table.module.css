@@ -1,0 +1,135 @@
+.wrapper {
+  padding-block: 1rem;
+}
+
+.titleWrapper {
+  display: grid;
+  gap: 1rem;
+  padding-block: 2rem;
+  text-shadow: 1px 1px 2px #f5f5f5, 1px 1px 2px #f5f5f5, 1px 1px 2px #f5f5f5;
+  font-size: clamp(.8rem, 1.5vw, 1.5rem);
+}
+.subtitleWrapper {
+  padding-block-start: .25rem;
+  font-size: clamp(.6rem, 1.5vw, .8rem);
+  text-align: start;
+}
+
+.smallCaps {
+  font-variant: small-caps;
+}
+.textoTachado {
+  text-decoration: line-through;
+  text-decoration-color: var(--accent-clr);
+  text-decoration-thickness: 3px;
+  text-decoration-style: solid;
+  color: var(--disabled-clr);
+}
+
+.table {
+  margin: auto;
+  background-color: transparent;
+  border-radius: 10px;
+  border: var(--border);
+  border-spacing: 0;
+  border-collapse: separate;
+  overflow: hidden;
+  width: 100%;
+}
+
+.thead {
+  background: var(--success-clr);
+  color: var(--light-clr);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 1rem;
+  font-variant: small-caps;
+}
+
+.th {
+  padding: 10px 16px;
+  border: var(--border);
+}
+
+.tbody {
+  background: var(--primary-clr);
+  overflow: hidden;
+  font-size: 1rem;
+  color: var(--light-clr);
+  border: var(--border);
+}
+
+.td {
+  border-bottom: 1px;
+  white-space: normal;
+  word-break: normal;
+  text-align: center;
+  border: var(--border);
+  padding: 10px 16px;
+}
+
+.td span[title] {
+  cursor: help;
+  color: var(--primary-color);
+}
+
+.tdValue {
+  text-align: center;
+}
+
+.th {
+  overflow: hidden;
+}
+
+.toHide {
+  display: unset;
+}
+.toShow {
+  display: none;
+}
+
+.buttonCTA {
+  padding-block-start: 3svh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.validationIcons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary-color);
+}
+
+.validationIcons[title] {
+  cursor: help;
+}
+
+@media (max-width: 790px) {
+  .thead {
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+  .tbody {
+    font-size: 0.6rem;
+    font-weight: 300;
+  }
+  .td, .th {
+    padding: 5px 5px;
+  }
+  span.toHide {
+    display: none;
+  }
+  span.toShow {
+    display: unset;
+  }
+  .buttonCTA {
+    padding-block-start: 2svh;
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+}

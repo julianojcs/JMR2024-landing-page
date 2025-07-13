@@ -1,0 +1,43 @@
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  flex-shrink: 0;
+  /* color: var(--danger-clr); */
+  fill: var(--accent-clr);
+}
+.icon:hover {
+  cursor: pointer;
+  /* color: var(--accent-clr); */
+  fill: var(--secondary-clr);
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp:hover {
+  transform: rotateY(360deg);
+  transition: transform 0.6s ease-in-out;
+  scale: 1.2;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 400px) {
+  .icon {
+    height: 0.7rem;
+    width: 0.7rem;
+  }
+}
+@media (400px <= width <= 600px) {
+  .icon {
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+}
+@media (600px <= width <= 1000px) {
+  .icon {
+    height: 1rem;
+    width: 1rem;
+  }
+}

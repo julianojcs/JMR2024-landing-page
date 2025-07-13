@@ -1,0 +1,55 @@
+/* Estilo dos cards */
+.card {
+  width: 150px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  border: 0px;
+  transition: transform 0.5s ease-in-out;
+  z-index: 2;
+
+  &>div:nth-child(1) {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-origin: 50% 50% 0px;
+  }
+
+  &>div:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.avatar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card >div:nth-child(2) {
+  display: block;
+  margin: auto 0;
+}
+
+.card >div:nth-child(3)  {
+  font-size: 1rem;
+}
+

@@ -1,0 +1,215 @@
+/* Estilos para seção de teste de coupons */
+.testForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.testFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.testFormGroup.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.testLabel {
+  color: #00ffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.testInput {
+  background: #2d2d2d;
+  border: 1px solid #404040;
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.testInput:focus {
+  outline: none;
+  border-color: #00ff00;
+  box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.2);
+}
+
+.testSelect {
+  background: #2d2d2d;
+  border: 1px solid #404040;
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.testSelect:focus {
+  outline: none;
+  border-color: #00ff00;
+  box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.2);
+}
+
+.testActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.testButton {
+  background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.testButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00cc00 0%, #009900 100%);
+  transform: translateY(-1px);
+}
+
+.testButton:disabled {
+  background: #404040;
+  color: #888888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.clearButton {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+}
+
+.clearButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e55a31 0%, #df851b 100%);
+}
+
+.testResults {
+  border-top: 1px solid #404040;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.testResultItem {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #00ff00;
+}
+
+.testResultItem.error {
+  border-left-color: #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+}
+
+.testResultItem.error .testOutput {
+  color: #ff6b6b;
+}
+
+.testResultItem.success {
+  border-left-color: #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.testResultItem.success .testOutput {
+  color: #00ff88;
+}
+
+.testResultItem.warning {
+  border-left-color: #ffdd44;
+  background: rgba(255, 221, 68, 0.1);
+}
+
+.testResultItem.warning .testOutput {
+  color: #ffdd44;
+}
+
+.testResultItem.command {
+  border-left-color: #44ddff;
+  background: rgba(68, 221, 255, 0.1);
+}
+
+.testResultItem.command .testOutput {
+  color: #44ddff;
+}
+
+.testTimestamp {
+  color: #888888;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.testCommand {
+  color: #44ddff;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.testOutput {
+  color: #ffffff;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.terminalPrompt {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #00ff00;
+}
+
+.promptSymbol {
+  color: #00ffff;
+  font-weight: bold;
+}
+
+.promptText {
+  color: #ffffff;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+.loadingDots {
+  color: #ffff00;
+}
+
+.loadingDots::after {
+  content: '...';
+  animation: dots 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: '.';
+  }
+  40% {
+    content: '..';
+  }
+  60%, 100% {
+    content: '...';
+  }
+}

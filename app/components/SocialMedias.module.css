@@ -1,0 +1,43 @@
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  background-color: var(--primary-clr);
+  color: var(--foreground);
+  place-items: center;
+}
+
+.socialContainer {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialContainer a {
+  background-color: var(--light-clr);
+  padding: 0.25rem;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.socialContainer a svg {
+  height: 1.25rem;
+}
+
+.socialContainer a:hover {
+  background-color: var(--social-clr);
+  fill: var(--light-clr);
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0.5rem;
+    transform: scale(0.75);
+  }
+}

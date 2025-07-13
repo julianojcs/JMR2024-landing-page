@@ -1,0 +1,100 @@
+/* Container principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: #D9D9D9;
+  gap: 1.5rem;
+}
+
+/* Título */
+.container h2 {
+  text-align: center;
+  color: var(--danger-clr);
+}
+
+/* Seleciona os divs .firstRow e .secondRow e aplica o padding bottom */
+.container > div, .secondRow > div {
+  padding-bottom: 2rem;
+}
+
+/* Primeira linha de cards */
+.firstRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Segunda linha de cards */
+.secondRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.secondRow .column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secondRow .columnCards {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Títulos das colunas */
+.columnTitle {
+  padding: 1.5rem;
+}
+
+/* Cores dos cards */
+.card0 { background-color: var(--secondary-clr); }
+.card1 { background-color: var(--card1-clr); }
+.card2 { background-color: var(--card2-clr); }
+.card3 { background-color: var(--card3-clr); }
+.card4 { background-color: var(--card4-clr); }
+.card5 { background-color: var(--card5-clr); }
+.card6 { background-color: var(--card6-clr); }
+.card7 { background-color: var(--card7-clr); }
+.card8 { background-color: var(--card8-clr); }
+.card9 { background-color: var(--card9-clr); }
+
+/* Responsividade */
+@media (min-width: 1201px) {
+  .firstRow {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .secondRow .columnCards {
+    flex-direction: row;
+  }
+}
+@media (max-width: 1200px) {
+  .firstRow {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .secondRow .column {
+    flex-direction: column;
+  }
+  .secondRow .columnCards {
+    align-items: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .secondRow {
+    flex-direction: column;
+    gap: unset;
+  }
+}
