@@ -20,17 +20,17 @@ export default function CertificateCodePage() {
 
   // Mostrar um loading enquanto redireciona
   return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       height: '100vh',
       flexDirection: 'column',
       gap: '1rem'
     }}>
-      <div style={{ 
-        width: '40px', 
-        height: '40px', 
+      <div style={{
+        width: '40px',
+        height: '40px',
         border: '4px solid #f3f3f3',
         borderTop: '4px solid #3498db',
         borderRadius: '50%',
