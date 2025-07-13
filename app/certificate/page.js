@@ -328,7 +328,7 @@ export default function EmitirCertificadoPage() {
   const formatCertificateType = (userType, certType) => {
     const userTypeLabels = {
       'CONGRESSPERSON': 'Participante',
-      'PROFESSIONAL': 'Comissão realizadora',
+      'PROFESSIONAL': 'Professor',
       'PAPER-PRESENTER': 'Trabalho Científico',
       'SYSTEM-USER': 'Usuário do Sistema'
     };
