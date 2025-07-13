@@ -620,7 +620,7 @@ export const eventData = {
       phone: '(27)98133-0708',
       subscriptionsOpened: false,
       subscriptionsClosed: true,
-      certificatesAvailable: false,
+      certificatesAvailable: true,
     },
     title:
       'JMR & CIM 2025 – Inovação e excelência no diagnóstico por imagem | 27 e 28 de Junho de 2025',
