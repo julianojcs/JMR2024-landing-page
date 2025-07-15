@@ -277,9 +277,8 @@ export async function GET(request) {
 
     // Nova funcionalidade: Analisar dados do usuário para determinar certificados elegíveis
     if (action === 'eligible' && userId) {
-      // Buscar o usuário completo com todos os dados (sem populate por enquanto)
-      // TEMPORARY: Removendo .lean() para testar se resolve problema de formatação de authors
-      const userDoc = await User.findById(userId);
+      // Buscar o usuário completo com todos os dados e popular as referências de lecture
+      const userDoc = await User.findById(userId).populate('professionalData.lecture');
       const user = userDoc ? userDoc.toObject() : null;
 
       if (!user) {

@@ -245,43 +245,27 @@ export default function EmitirCertificadoPage() {
 
   // Handler para gerar PDF de um certificado específico
   const handleGeneratePDF = async (certificateCode) => {
-    console.log('🟢 INÍCIO handleGeneratePDF com código:', certificateCode);
-
     setLoadingPdf(prev => ({ ...prev, [certificateCode]: true }));
     try {
-      console.log('🟢 Fazendo fetch para:', `/api/certificate?code=${certificateCode}&action=processed`);
-
       // Buscar dados completos do certificado com template processado
       const response = await fetch(`/api/certificate?code=${certificateCode}&action=processed`, {
         method: "GET",
         headers: { "Content-Type": "application/json" }
       });
 
-      console.log('🟢 Response status:', response.status, response.ok);
-
       if (!response.ok) {
         throw new Error("Erro ao buscar dados do certificado.");
       }
 
       const data = await response.json();
-      console.log('🟢 Dados recebidos:', data);
 
       if (data.success && data.certificate) {
-        console.log('🔵 ANTES de chamar generateCertificatePDF');
-        console.log('🔵 data.certificate:', data.certificate);
-        console.log('🔵 typeof generateCertificatePDF:', typeof generateCertificatePDF);
-
         // Importar e usar a função utilitária de geração de PDF
         await generateCertificatePDF(data.certificate);
-
-        console.log('🔵 DEPOIS de chamar generateCertificatePDF');
       } else {
-        console.log('🟡 Dados não válidos:', data);
         throw new Error(data.error || "Erro ao processar certificado.");
       }
     } catch (err) {
-      console.error('🔴 ERRO na geração do PDF:', err);
-      console.error('🔴 Stack trace:', err.stack);
       setErro(err.message || "Erro ao gerar PDF do certificado.");
     } finally {
       setLoadingPdf(prev => ({ ...prev, [certificateCode]: false }));
@@ -484,9 +468,6 @@ export default function EmitirCertificadoPage() {
                       )}
                     </div>
                   </div>
-
-                  {/* ...existing code... */}
-
                   <div className={styles.certificateDetails}>
                     {certificate.alreadyIssued && (
                       <>
