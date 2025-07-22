@@ -55,8 +55,9 @@ export async function POST(request) {
       );
     }
 
-    // Buscar usuário (removendo populate por enquanto)
+    // Buscar usuário com populate para professionalData.lecture
     const user = await User.findByCpfAndEmail(cpf, email)
+      .populate('professionalData.lecture')
       .exec();
     if (!user) {
       return NextResponse.json(
@@ -139,11 +140,16 @@ export async function POST(request) {
       // Isso garante que todas as variáveis (hall, lecture, category, etc.) estejam disponíveis
       if (participationData) {
         Object.keys(participationData).forEach(key => {
-          // Tratar lecture especialmente - se for um ObjectId, podemos buscar depois se necessário
+          // Tratar lecture especialmente para incluir dados completos
           if (key === 'lecture' && participationData.lecture) {
-            // Por enquanto, vamos só armazenar o ID da lecture
-            certificateData.lectureId = participationData.lecture;
-            // TODO: Se precisar do nome da lecture, buscar manualmente com Lecture.findById()
+            if (typeof participationData.lecture === 'object' && participationData.lecture.name) {
+              // Se lecture já foi populada, usar os dados completos
+              certificateData.lecture = participationData.lecture.name;
+              certificateData.lectureId = participationData.lecture._id;
+            } else {
+              // Se lecture é só o ID, armazenar para busca posterior se necessário
+              certificateData.lectureId = participationData.lecture;
+            }
           } else if (key !== '_id' && key !== '__v') {
             // Evitar campos internos do MongoDB
             certificateData[key] = participationData[key];
@@ -179,8 +185,8 @@ export async function POST(request) {
     // Criar os dados do certificado
     const certificateData = createCertificateData(template, user, participationData);
 
-    // Gerar código único do certificado
-    const certificateCode = generateCertificateCode(user.name, user.cpf, event, userType, certType);
+    // Gerar código único do certificado incluindo o participationIndex e dados específicos
+    const certificateCode = generateCertificateCode(user.name, user.cpf, event, userType, certType, participationIndex, participationData);
 
     // Verificar se já existe certificado com este código
     const existingCertificate = await Certificate.findOne({
@@ -246,8 +252,27 @@ export async function POST(request) {
 }
 
 // Função auxiliar para gerar código do certificado determinístico
-function generateCertificateCode(name, cpf, event, userType, certType) {
-  const input = `${name.trim().toUpperCase()}|${cpf.trim()}|${event}|${userType}|${certType}`;
+function generateCertificateCode(name, cpf, event, userType, certType, participationIndex = 0, participationData = null) {
+  // Incluir dados específicos para garantir códigos únicos
+  let specificData = '';
+  
+  if (participationData) {
+    // Para profissionais, incluir lecture ID se disponível
+    if (userType === 'PROFESSIONAL' && participationData.lecture) {
+      specificData = `|${participationData.lecture._id || participationData.lecture}`;
+    }
+    // Para trabalhos científicos, incluir título do trabalho
+    else if (userType === 'PAPER-PRESENTER' && participationData.paperTitle) {
+      specificData = `|${participationData.paperTitle.substring(0, 20)}`;
+    }
+    // Para congressistas, incluir atividade específica
+    else if (userType === 'CONGRESSPERSON' && participationData.activityName) {
+      specificData = `|${participationData.activityName.substring(0, 20)}`;
+    }
+  }
+  
+  // Incluir participationIndex para garantir códigos únicos para múltiplas participações
+  const input = `${name.trim().toUpperCase()}|${cpf.trim()}|${event}|${userType}|${certType}|${participationIndex || 0}${specificData}`;
   const hash = crypto.createHash("md5").update(input).digest("hex");
   return hash.slice(0, 12).toUpperCase();
 }
