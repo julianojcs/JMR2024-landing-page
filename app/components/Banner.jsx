@@ -24,9 +24,6 @@ const Banner = ({ data }) => {
       {data.button &&
         <CallToAct caption={caption} link={link} selfCaption={true} />
       }
-      {data.button &&
-        <CallToAct caption={'Acesse o seu Trabalho Científico'} link={'https://paper.joindigitalsolutions.com.br/paper'} selfCaption={true} />
-      }
     </section>
   )
 }

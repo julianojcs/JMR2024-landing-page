@@ -11,6 +11,10 @@
   cursor: default;
 }
 
+.tables {
+  margin-block-end: 1.5rem;
+}
+
 @media (max-width: 790px) {
   .tableContainer {
     border-radius: 0.5rem;

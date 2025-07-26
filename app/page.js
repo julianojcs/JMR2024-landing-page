@@ -63,6 +63,7 @@ const Home = () => {
   }
 
   const data = eventData[year]
+  const certificatesAvailable = data.event?.certificatesAvailable || false;
 
   const props = {
     year,
@@ -78,7 +79,7 @@ const Home = () => {
       <Banner data={data.banner} />
       <Introduction introduction={data.introduction} />
       <Description description={data.description} />
-      <SubscriptionsStatusSection />
+      {certificatesAvailable || <SubscriptionsStatusSection />}
       <TravelAgency data={data.travelAgency} />
       <Promoters button={data?.callToAct?.button01} year={year} />
       <Events button={data?.callToAct?.button02} year={year} />

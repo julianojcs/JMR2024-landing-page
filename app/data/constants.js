@@ -658,10 +658,10 @@ export const eventData = {
     ogDescription:
       'Junte-se à Jornada Mineira de Radiologia e ao Congresso de Imaginologia da Mulher 2025 e descubra as inovações na área de diagnóstico por imagem.',
     banner: {
-      description: ['Regulamento Submissão de', 'Trabalhos JMR/CIM2025'],
+      description: ['🎉 Atenção:', ' Os Certificados já estão disponíveis para download!'],
       button: {
-        caption: 'Clique aqui para acessar o regulamento!',
-        link: 'https://www.canva.com/design/DAGjujtuRg8/UE46Fq6VPopeumkfxUrFZw/view'
+        caption: 'Clique aqui para baixar os seus Certificados!',
+        link: '/certificate'
       }
     },
     modal: [
