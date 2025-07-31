@@ -56,6 +56,7 @@ async function generateCertificatePDF(certificateData, certificadoImageSrc = '/i
       const templateTitle = certificateData?.template?.title || 'Certificado';
       const userType = certificateData?.userType || '';
       const certType = certificateData?.certType || '';
+      const localAndDate = certificateData?.specificFields?.localAndDate || 'Belo Horizonte, 28 de junho de 2025';
 
       // Função para identificar linha com nome
       const isNameLine = (line, index) => {
@@ -259,6 +260,11 @@ async function generateCertificatePDF(certificateData, certificadoImageSrc = '/i
               }
             });
 
+            currentY += 30;
+            doc.setFont("times", "normal");
+            doc.setFontSize(18);
+            doc.text(localAndDate, centerX, currentY, { align: "center" });
+
             // Código de autenticação
             currentY += 40;
             doc.setFont("Times", "normal");
@@ -438,6 +444,11 @@ async function generateCertificatePDF(certificateData, certificadoImageSrc = '/i
                 currentY += 20; // Espaço extra após o nome
               }
             });
+
+            currentY += 15;
+            doc.setFont("times", "normal");
+            doc.setFontSize(18);
+            doc.text(localAndDate, centerX, currentY, { align: "center" });
 
             currentY += 50;
             doc.setFont("Times", "normal");

@@ -162,7 +162,7 @@ const UserSchema = new Schema({
     },
     category: {
       type: String,
-      enum: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD'],
+      enum: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'],
       required: true
     },
     hall: {

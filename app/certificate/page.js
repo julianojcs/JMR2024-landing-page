@@ -327,6 +327,10 @@ export default function EmitirCertificadoPage() {
       'MODERATOR': 'Moderador',
       'DEBATER': 'Debatedor',
       'CHAIR-OF-THE-BOARD': 'Presidente da Mesa',
+      'SCIENTIFIC-COMMITTEE': 'Comissão Científica',
+      'ORGANIZING-COMMITTEE': 'Comissão Organizadora',
+      'PRESIDENT': 'Presidente do Congresso',
+      'VOLUNTEER-INTERN': 'Estagiário Voluntário',
       'PRESENTATION': 'Autores',
       'AWARDED': 'Premiado'
     };
@@ -362,7 +366,11 @@ export default function EmitirCertificadoPage() {
       'SPEAKER': 'Palestrante',
       'MODERATOR': 'Moderador',
       'DEBATER': 'Debatedor',
-      'CHAIR-OF-THE-BOARD': 'Presidente de Mesa'
+      'CHAIR-OF-THE-BOARD': 'Presidente de Mesa',
+      'SCIENTIFIC-COMMITTEE': 'Comissão Científica',
+      'ORGANIZING-COMMITTEE': 'Comissão Organizadora',
+      'PRESIDENT': 'Presidente do Congresso',
+      'VOLUNTEER-INTERN': 'Estagiário Voluntário',
     };
     return descriptions[category] || category;
   };
@@ -558,9 +566,9 @@ export default function EmitirCertificadoPage() {
               </p>
               <p className={styles.emptyStateText}>Verifique se:</p>
               <ul style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto' }}>
-                <li className={styles.emptyStateText}>Os dados de participação foram cadastrados corretamente</li>
-                <li className={styles.emptyStateText}>O comparecimento foi registrado (attendedAt preenchido)</li>
-                <li className={styles.emptyStateText}>O status de pagamento está como CONFIRMED ou FREE (para congressistas)</li>
+                <li className={styles.emptyStateText}>Seus dados pessoais foram cadastrados corretamente.</li>
+                <li className={styles.emptyStateText}>Sua presença foi confirmada no evento.</li>
+                <li className={styles.emptyStateText}>O status de pagamento da inscrição está confirmado</li>
               </ul>
             </div>
           )}
@@ -639,6 +647,7 @@ export default function EmitirCertificadoPage() {
                 <div className={styles.previewContent}>
                   <p className={styles.certificateText}>
                     {validatedCertData.preview.processedText.replace(/,(?!\s)/g, ', ')}
+                    {validatedCertData.template?.localAndDate && ` ${validatedCertData.template.localAndDate}`}
                   </p>
                 </div>
               </div>

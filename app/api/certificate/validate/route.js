@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import Certificate from '@/models/mongo/Certificate.js';
-import User from '@/models/mongo/User.js';
-import CertificateTemplates from '@/models/mongo/CertificateTemplates.js';
+// import User from '@/models/mongo/User.js';
+// import CertificateTemplates from '@/models/mongo/CertificateTemplates.js';
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/jornada';
 
@@ -126,7 +126,8 @@ export async function POST(request) {
         id: certificate.template._id,
         title: certificate.template.metadata?.title,
         description: certificate.template.metadata?.description,
-        templateName: certificate.template.metadata?.template
+        templateName: certificate.template.metadata?.template,
+        localAndDate: certificate.template.specificFields?.localAndDate,
       } : null,
       preview: processedCertificate,
       metadata: certificate.metadata || {}

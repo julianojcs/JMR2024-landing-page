@@ -32,7 +32,7 @@ export async function GET(request) {
           validUserTypes: ['CONGRESSPERSON', 'PROFESSIONAL', 'PAPER-PRESENTER', 'SYSTEM-USER'],
           validCertTypes: {
             CONGRESSPERSON: ['CONGRESS', 'SEMINAR', 'COURSE', 'WORKSHOP', 'DAYUSE'],
-            PROFESSIONAL: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD'],
+            PROFESSIONAL: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'],
             'PAPER-PRESENTER': ['PRESENTATION', 'AWARDED']
           }
         },
@@ -44,7 +44,7 @@ export async function GET(request) {
     const validUserTypes = ['CONGRESSPERSON', 'PROFESSIONAL', 'PAPER-PRESENTER', 'SYSTEM-USER'];
     const validCertTypes = [
       'CONGRESS', 'SEMINAR', 'COURSE', 'WORKSHOP', 'DAYUSE',
-      'SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD',
+      'SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN',
       'PRESENTATION', 'AWARDED'
     ];
 
@@ -122,7 +122,7 @@ export async function POST(request) {
     const validUserTypes = ['CONGRESSPERSON', 'PROFESSIONAL', 'PAPER-PRESENTER', 'SYSTEM-USER'];
     const validCertTypes = [
       'CONGRESS', 'SEMINAR', 'COURSE', 'WORKSHOP', 'DAYUSE',
-      'SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD',
+      'SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN',
       'PRESENTATION', 'AWARDED'
     ];
 
@@ -327,7 +327,7 @@ export async function POST(request) {
     // Gerar código de validação
     let validationCode = null;
     try {
-      const Certificate = await import('@/models/mongo/Certificate.js').then(mod => mod.default);
+      //const Certificate = await import('@/models/mongo/Certificate.js').then(mod => mod.default);
       const codeData = {
         name: userData.name,
         cpf: userData.cpf,

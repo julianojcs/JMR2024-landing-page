@@ -26,7 +26,11 @@ function getProfessionalDescription(category) {
     'SPEAKER': 'Palestrante',
     'MODERATOR': 'Moderador',
     'DEBATER': 'Debatedor',
-    'CHAIR-OF-THE-BOARD': 'Presidente de Mesa'
+    'CHAIR-OF-THE-BOARD': 'Presidente de Mesa',
+    'SCIENTIFIC-COMMITTEE': 'Comissão Científica',
+    'ORGANIZING-COMMITTEE': 'Comissão Organizadora',
+    'PRESIDENT': 'Presidente do Congresso',
+    'VOLUNTEER-INTERN': 'Estagiário Voluntário'
   };
   return descriptions[category] || category;
 }
@@ -255,7 +259,7 @@ export async function POST(request) {
 function generateCertificateCode(name, cpf, event, userType, certType, participationIndex = 0, participationData = null) {
   // Incluir dados específicos para garantir códigos únicos
   let specificData = '';
-  
+
   if (participationData) {
     // Para profissionais, incluir lecture ID se disponível
     if (userType === 'PROFESSIONAL' && participationData.lecture) {
@@ -270,7 +274,7 @@ function generateCertificateCode(name, cpf, event, userType, certType, participa
       specificData = `|${participationData.activityName.substring(0, 20)}`;
     }
   }
-  
+
   // Incluir participationIndex para garantir códigos únicos para múltiplas participações
   const input = `${name.trim().toUpperCase()}|${cpf.trim()}|${event}|${userType}|${certType}|${participationIndex || 0}${specificData}`;
   const hash = crypto.createHash("md5").update(input).digest("hex");
@@ -505,7 +509,7 @@ export async function GET(request) {
       } else {
         // Todos os tipos organizados por userType (baseado nos enums do modelo)
         availableTypes.CONGRESSPERSON = ['CONGRESS', 'SEMINAR', 'COURSE', 'WORKSHOP', 'DAYUSE'];
-        availableTypes.PROFESSIONAL = ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD'];
+        availableTypes.PROFESSIONAL = ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'];
         availableTypes['PAPER-PRESENTER'] = ['PRESENTATION', 'AWARDED'];
       }
 
@@ -654,7 +658,7 @@ export async function GET(request) {
         userTypes: ['CONGRESSPERSON', 'PROFESSIONAL', 'PAPER-PRESENTER', 'SYSTEM-USER'],
         certTypes: {
           CONGRESSPERSON: ['CONGRESS', 'SEMINAR', 'COURSE', 'WORKSHOP', 'DAYUSE'],
-          PROFESSIONAL: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD'],
+          PROFESSIONAL: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'],
           'PAPER-PRESENTER': ['PRESENTATION', 'AWARDED']
         },
         notes: {

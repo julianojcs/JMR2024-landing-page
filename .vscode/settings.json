@@ -2,5 +2,6 @@
   "liveServer.settings.useLocalIp": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "editor.insertSpaces": true
+  "editor.insertSpaces": true,
+  "github.copilot.chat.maxFileContextSize": 5
 }
