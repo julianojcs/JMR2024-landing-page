@@ -27,8 +27,8 @@ function getProfessionalDescription(category) {
     'MODERATOR': 'Moderador',
     'DEBATER': 'Debatedor',
     'CHAIR-OF-THE-BOARD': 'Presidente de Mesa',
-    'SCIENTIFIC-COMMITTEE': 'Comissão Científica',
-    'ORGANIZING-COMMITTEE': 'Comissão Organizadora',
+    'PROGRAMME-COMMITTEE': 'Comissão Científica',
+    'EXECUTIVE-COMMITTEE': 'Comissão Organizadora',
     'PRESIDENT': 'Presidente do Congresso',
     'VOLUNTEER-INTERN': 'Estagiário Voluntário'
   };
@@ -509,7 +509,7 @@ export async function GET(request) {
       } else {
         // Todos os tipos organizados por userType (baseado nos enums do modelo)
         availableTypes.CONGRESSPERSON = ['CONGRESS', 'SEMINAR', 'COURSE', 'WORKSHOP', 'DAYUSE'];
-        availableTypes.PROFESSIONAL = ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'];
+        availableTypes.PROFESSIONAL = ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'PROGRAMME-COMMITTEE', 'EXECUTIVE-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'];
         availableTypes['PAPER-PRESENTER'] = ['PRESENTATION', 'AWARDED'];
       }
 
@@ -658,7 +658,7 @@ export async function GET(request) {
         userTypes: ['CONGRESSPERSON', 'PROFESSIONAL', 'PAPER-PRESENTER', 'SYSTEM-USER'],
         certTypes: {
           CONGRESSPERSON: ['CONGRESS', 'SEMINAR', 'COURSE', 'WORKSHOP', 'DAYUSE'],
-          PROFESSIONAL: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'SCIENTIFIC-COMMITTEE', 'ORGANIZING-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'],
+          PROFESSIONAL: ['SPEAKER', 'MODERATOR', 'DEBATER', 'CHAIR-OF-THE-BOARD', 'PROGRAMME-COMMITTEE', 'EXECUTIVE-COMMITTEE', 'PRESIDENT', 'VOLUNTEER-INTERN'],
           'PAPER-PRESENTER': ['PRESENTATION', 'AWARDED']
         },
         notes: {
