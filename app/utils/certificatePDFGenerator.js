@@ -286,27 +286,32 @@ async function generateCertificatePDF(certificateData, certificadoImageSrc = '/i
 
             // QR Code grande centralizado
             doc.addImage(qrDataUrl, 'PNG', 371, y, 100, 100);
-            y += 120;
+            y += 140;
 
-            // Informações do certificado
-            doc.setFont("Times", "bold");
-            doc.setFontSize(16);
-            doc.text(`Tipo: ${templateTitle}`, centerX, y, { align: "center" });
-            y += 25;
-
-            doc.setFont("Times", "normal");
-            doc.setFontSize(14);
-            doc.text(`Modalidade: ${userType} - ${certType}`, centerX, y, { align: "center" });
-            y += 25;
+//             // Informações do certificado
+//             doc.setFont("Times", "bold");
+//             doc.setFontSize(16);
+//             doc.text(`Tipo: ${templateTitle}`, centerX, y, { align: "center" });
+//             y += 25;
+//
+//             doc.setFont("Times", "normal");
+//             doc.setFontSize(14);
+//             doc.text(`Modalidade: ${userType} - ${certType}`, centerX, y, { align: "center" });
+//             y += 25;
 
             // Código de autenticação
             doc.setFontSize(16);
             doc.text(`Código de autenticação: ${code}`, centerX, y, { align: "center" });
-            y += 30;
+            y += 20;
 
             // Link para validação
+            doc.setFont("Times", "normal");
             doc.setFontSize(14);
             doc.text(`Valide em: ${qrUrl}`, centerX, y, { align: "center", maxWidth: 700 });
+            y += 20;
+
+            // Data de criação do certificado
+            doc.text(`Data de emissão: ${new Date().toLocaleString('pt-BR')}`, centerX, y, { align: "center" });
             y += 50;
 
             // NOTA LEGAL
@@ -318,7 +323,8 @@ async function generateCertificatePDF(certificateData, certificadoImageSrc = '/i
             doc.setFontSize(12);
             doc.setFont("Times", "normal");
             const notaLegal = [
-              "O certificado é um documento de comprovação da sua atividade científica no evento. Sua adulteração e uso indevido é ilegal e está sujeita às penas da lei.",
+              "O certificado é um documento de comprovação da sua atividade científica no evento.",
+              "Sua adulteração e uso indevido é ilegal e está sujeita às penas da lei.",
               "",
               "Decreto Lei nº 2.848 de 07 de Dezembro de 1940",
               "",
@@ -333,7 +339,7 @@ async function generateCertificatePDF(certificateData, certificadoImageSrc = '/i
               if (line.trim() === "") {
                 return;
               }
-              doc.text(line, centerX, y + i * 15, { align: "center", maxWidth: 700 });
+              doc.text(line, centerX, y + i * 15, { align: "center", maxWidth: 400 });
             });
 
             // Nome do arquivo baseado no template e participante
